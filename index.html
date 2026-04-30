@@ -1,687 +1,530 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-74JG99D9LK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74JG99D9LK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-74JG99D9LK');
+    </script>
 
-  gtag('config', 'G-74JG99D9LK');
-</script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Portfolio</title>
-
-    <!--    bootstrap-->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="favicon.ico" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rishabh Sandil — Full Stack Developer</title>
+    <meta name="description" content="Rishabh Sandil — Intermediate Full Stack Developer based in Waterloo, Canada. Building reactive interfaces and resilient APIs with React, .NET, and a love for clean design." />
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
 
-    <!--    fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand&family=Grenze+Gotisch&family=Merriweather&family=Playfair+Display&family=Sarabun&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet" />
-    <link href="aos/dist/aos.css" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
   </head>
 
-  <body
-    data-spy="scroll"
-    data-target=".navbar"
-    data-offset="50"
-    data-type="parallax"
-    data-speed="-2"
-    style="overflow-y: scroll">
-    <!--intro-->
+  <body>
+    <div class="bg-fx" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
 
-    <section class="intro">
-      <div class="background-image"></div>
-
-      <!--    Navbar-->
-
-      <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" color-on-scroll="300">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Home</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto mt-2 mt-lg-0 link-hover">
-              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="#about">About</a>
-              </li>
-
-              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="#projects">Projects</a>
-              </li>
-
-              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-
-              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="resume.pdf">Resumé <i class="fas fa-cloud-download-alt"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!--                 end navbar-->
-
-      <div class="web">
-        <script
-          src="js/canvas-nest.js"
-          type="text/javascript"
-          color="255,255,255"
-          pointColor="255,255,255"
-          opacity="1"
-          zIndex="1"
-          count="110"></script>
+    <!-- ===== NAV ===== -->
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="brand"><span class="pulse"></span> RS</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
-
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container" style="padding-top: 130px; padding-left: 18px">
-          <span class="hi">Hi, I am</span>
-          <h1 class="display-4">
-            <span
-              class="txt-rotate"
-              data-period="1000"
-              data-rotate='["Rishabh Sandil.", "A Web Shooter", "A Web Developer**", "A Software Developer", "A Front End Developer", "A Back end Developer", "A Full Stack Developer**", "Thankful for you being here." ]'></span>
-          </h1>
-        </div>
-      </div>
-
-      <a href="#about">
-        <div id="mouse-scroll">
-          <div class="mouse">
-            <div class="mouse-in"></div>
-          </div>
-          <div>
-            <span class="down-arrow-1"></span>
-            <span class="down-arrow-2"></span>
-            <span class="down-arrow-3"></span>
-          </div>
-        </div>
+      <a href="resume.pdf" class="cta" target="_blank" rel="noopener">
+        Resumé
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-meta">
+          <span><span class="dot"></span> Available for select projects · 2026</span>
+          <span>Waterloo, ON · GMT-5</span>
+        </div>
+
+        <h1>
+          <span class="line"><span>Rishabh</span></span>
+          <span class="line"><span class="stroke">Sandil</span></span>
+          <span class="line"><span class="accent">— building the web.</span></span>
+        </h1>
+
+        <p class="hero-sub">
+          I'm an <strong>Intermediate Full Stack Developer</strong> in Waterloo, Canada.
+          I design fast, accessible interfaces and the APIs behind them — currently shaping reactive
+          tools and pipeline workflows at <strong>WrightPlan</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            See selected work
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Get in touch
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <span class="hero-rotator" aria-live="polite">
+            <span class="label">currently</span>
+            <span class="roles" id="rotator">a Full Stack Developer</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>React</span><span>TypeScript</span><span>.NET Core</span><span>C#</span>
+          <span>Angular</span><span>KnockoutJS</span><span>NodeJS</span><span>SQL</span>
+          <span>NgRx · RxJS</span><span>Jasmine · Karma</span><span>CI/CD</span><span>Python</span>
+          <span>C++</span><span>Java</span><span>Scrum</span>
+          <!-- duplicate for seamless loop -->
+          <span>React</span><span>TypeScript</span><span>.NET Core</span><span>C#</span>
+          <span>Angular</span><span>KnockoutJS</span><span>NodeJS</span><span>SQL</span>
+          <span>NgRx · RxJS</span><span>Jasmine · Karma</span><span>CI/CD</span><span>Python</span>
+          <span>C++</span><span>Java</span><span>Scrum</span>
+        </div>
+      </div>
     </section>
 
+    <!-- ===== ABOUT ===== -->
     <section id="about">
-      <div class="container-fluid">
-        <h1 class="text-center heading">About Me</h1>
-        <br />
-        <div class="row justify-content-center">
-          <div class="col-12 col-sm-6 col-md-4 align-self-center">
-            <img data-aos="fade-down" src="./img/Rishabh_Sandil.jpg" class="rounded-circle img-raised" />
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker"><span class="dot"></span> About</span>
+          <h2>I care about the <em>details</em> — and the systems behind them.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="portrait reveal">
+            <span class="badge">RS · 2026</span>
+            <img src="./img/Rishabh_Sandil.jpg" alt="Portrait of Rishabh Sandil" />
+            <span class="signature">
+              <span>43.46°N, 80.52°W</span><span>—</span><span>Waterloo, ON</span>
+            </span>
           </div>
 
-          <div data-aos="fade-up" class="col-12 col-sm-6 col-md-8 align-self-center justify-content-center">
-            <p id="aboutme">
-              Hi! I'm an Intermediate Full Stack Developer based in Waterloo, Canada. I have a great passion for
-              modern, minimalist web designs, UI effects, animations and intuitive user experience. My aim is learning,
-              growing, and expanding the horizons of my knowledge constantly.
-              <a href="#contact">Lets have a chat about anything and everything!</a>
+          <div class="about-copy reveal delay-1">
+            <h3>
+              Five years building <em>SaaS, tooling and stubbornly fast UIs</em> across React,
+              .NET, Angular, and SQL.
+            </h3>
+            <p>
+              I started with restaurant websites, fell into the BC government's digital team,
+              and now lead front-end and performance work on field-service platforms. I like
+              quiet interfaces, scrappy prototypes, and squeezing seconds off load times.
+              Outside of code: Sci-fi movies, long walks, slow espresso, and side-projects I never quite finish.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!--    skills section-->
-
-    <div class="skills">
-      <h1 class="text-center heading">Acquired Skills</h1>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-sm-6 col-10 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 640 512"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path>
-                </svg>
-              </i>
-            </div>
-            <div class="services-content">
-              <h5 class="mb-3">Front-end Development</h5>
-              <br />
-              <p class="font-2-color mb-0">
-                - Website development using simple/minimalistic design structures and clean, concise code.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 col-10 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 576 512"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path>
-                </svg>
-              </i>
-            </div>
-
-            <div class="services-content">
-              <h5 class="mb-3">Ecommerce</h5>
-              <br />
-              <p class="font-2-color mb-0">- Implementation of online stores, payment gateways, and shopping cart.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 col-10 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 24 24"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path>
-                </svg>
-              </i>
-            </div>
-            <div class="services-content">
-              <h5 class="mb-3">Responsive Web Design</h5>
-              <br />
-              <p class="font-2-color mb-0">
-                - Making websites fluidly resize for optimal viewing across multiple browsers/devices.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-10 col-sm-6 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 448 512"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path>
-                </svg>
-              </i>
-            </div>
-            <div class="services-content">
-              <h5 class="mb-3">Back-end Development</h5>
-              <br />
-              <p class="font-2-color mb-0">- Database Setup and creation of Custom REST API using Node.js</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-10 col-sm-6 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 16 16"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z"
-                    clip-rule="evenodd"></path>
-                  <path
-                    fill-rule="evenodd"
-                    d="M11 15V4h1v11h-1zm4.5-11H.5V3h15v1zM3 6.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 3a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zm0 3a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </i>
-            </div>
-            <div class="services-content">
-              <h5 class="mb-3">Web Design</h5>
-              <br />
-              <p class="font-2-color mb-0">
-                - Web design focused on crafting clean &amp; user‑friendly experiences using Photoshop and Figma for
-                prototyping.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-10 col-sm-6 text-left">
-          <div data-aos="fade-up" class="services-item">
-            <div class="float-left d-inline-block services-icon">
-              <i
-                ><svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 16 16"
-                  class="base-color"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"></path>
-                  <path
-                    fill-rule="evenodd"
-                    d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </i>
-            </div>
-            <div class="services-content">
-              <h5 class="mb-3">Logo Design</h5>
-              <br />
-              <p class="font-2-color mb-0">
-                - Professional custom logos for any type of business/organization using Adobe InDesign and Photoshop.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    experience timeline -->
-    <section class="experience">
-      <br />
-      <h1 class="text-center heading">Work Experience</h1>
-      <br />
-      <ul class="timeline">
-        <!-- Item 1 -->
-        <li>
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">Intermediate Full Stack Developer</span>
-              <span class="time-wrapper"><span class="time">Mar 2024 - Present</span></span>
-            </div>
-            <div data-aos="fade-up" class="desc">
-              <b>WrightPlan Inc.</b> <br />Leverage React and KnockoutJS for reactive front-end components and integrate
-              web services using RESTful APIs with .NET Core and C#. Lead a Performance Improvement project that cut
-              load time from 24s to 11s and search times from 780ms to 345ms. Build tools for dynamic JSON forms and
-              PDF rendering using WYSIWYG editors, write custom BASH scripts to boost team efficiency, and manage
-              pipelines, builds, and releases using Jenkins and Mercurial. Mentor junior developers and collaborate
-              with stakeholders on requirements gathering using Scrum.
-            </div>
-          </div>
-        </li>
-        <!-- Item 2 -->
-        <li>
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">Full Stack Developer</span>
-              <span class="time-wrapper"><span class="time">Jan 2021 - Mar 2024</span></span>
-            </div>
-            <div data-aos="fade-up" class="desc">
-              <b>Logibec Inc.</b> <br />Designed and maintained web applications using Angular, C#, ASP.NET, and SQL.
-              Used AWS/Azure Pipelines with CI/CD tools for deployment, processed large datasets with RxJS and NgRx
-              Store, and developed comprehensive test cases with Jasmine/Karma. Refactored code to reduce duplication
-              by 8% and improved performance by optimizing SQL queries.
-            </div>
-          </div>
-        </li>
-
-        <!-- Item 3 -->
-        <li>
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">Web Developer (Co-op)</span>
-              <span class="time-wrapper"><span class="time">May 2019 - Dec 2019</span></span>
-            </div>
-            <div data-aos="fade-down" class="desc">
-              <b>BC Ministry of Transportation and Infrastructure</b> <br />Used Object-Oriented Design and Test-Driven
-              Development practices to support the ministry's websites and content across multiple servers. Optimized
-              mobile compatibility for the PTB site, achieving a 20% increase in mobile visitors and reduced bounce
-              rates.
-            </div>
-          </div>
-        </li>
-
-        <!-- Item 4 -->
-        <li>
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexa"></span>
-              <span class="flag">B.Sc. Computer Science</span>
-              <span class="time-wrapper"><span class="time">Graduated Aug 2020</span></span>
-            </div>
-            <div data-aos="fade-up" class="desc">
-              <b>University of Victoria</b> <br />Bachelor of Science in Computer Science. Certifications include
-              Certified Scrum Developer (Scrum Alliance) and Machine Learning with Python.
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>
-    <!-- end work experience -->
-
-    <!--   projects section -->
-
-    <section class="projects" id="projects">
-      <div class="container col-lg-10">
-        <br /><br />
-        <h1 data-aos="fade-up" class="text-center heading">Projects</h1>
-        <p data-aos="fade-down" class="bounce text-center">Click the tile to check out the project!</p>
-
-        <div class="row justify-content-center">
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/stock-price.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Stock Price Estimator</h4>
-              <br />
-              This is a python machine-learning project to predict stock prices based on financial quarterly reports. It
-              trains and test using 3 different models:
-              <ul>
-                <li>Random Forest</li>
-                <li>MLP</li>
-                <li>Gaussian Naive Bayes</li>
-              </ul>
-              <a target="_blank" href="https://github.com/rishabhsandil/Stock-price-estimate"
-                ><button class="btn-two">Check it Out!</button></a
-              >
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/render.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Ray Tracer</h4>
-              <br />
-              <p>This is a Image rendering program/Ray-Tracer built using C++.</p>
-              <br />
-              <a target="_blank" href="http://www.github.com/rishabhsandil/ray-tracer/"
-                ><button class="btn-two">Check it Out!</button></a
-              >
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/arctic-fires.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Arctic Fires</h4>
-              <br />
-              <p>
-                A cinematic, single-page band site featuring a dark hero, music releases, video embeds, and social
-                links.
-              </p>
-              <br />
-              <a target="_blank" href="arctic-fires/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/albasha.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Albasha Express</h4>
-              <br />
-              <p>
-                A bold, type-driven Mediterranean restaurant site with an order-online flow, menu, and catering
-                sections.
-              </p>
-              <br />
-              <a target="_blank" href="albasha/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/masala-malt.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Masala Malt Co.</h4>
-              <br />
-              <p>
-                A dark, atmospheric restaurant website with full-bleed hero imagery, animated transitions, and a
-                reservations flow.
-              </p>
-              <br />
-              <a target="_blank" href="masala-malt/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/Madison-Reign.png" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Madison Reign</h4>
-              <br />
-              <p>A multi-page corporate website concept for a real estate &amp; franchise consulting firm.</p>
-              <br />
-              <a target="_blank" href="madison-reign/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/indianaroma.png" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Indiana Roma</h4>
-              <br />
-              <p>A bold, image-driven restaurant site exploring vibrant typography and full-bleed photography.</p>
-              <br />
-              <a target="_blank" href="indianaroma/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/color.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>RGB Color-guessing Game</h4>
-              <br />
-              <p>A simple game built with JavaScript where the goal is to guess the given RGB color correctly.</p>
-              <br />
-              <a target="_blank" href="color-game/index.html"><button class="btn-two">Check it Out!</button></a>
-            </div>
-          </div>
-
-          <div class="project-item col-sm-8 col-md-5 col-lg-4 move-up">
-            <img src="./img/dice-game.jpg" class="img-fluid" />
-
-            <div class="project-description">
-              <h4>Dice Game w/ Spotify</h4>
-              <br />
-              <p>A simple dice rolling game made with JavaScript and an embedded Spotify widget.</p>
-              <br />
-              <a target="_blank" href="dice-game/index.html"><button class="btn-two">Check it Out!</button></a>
+            <div class="stats">
+              <div class="stat"><div class="num">5+</div><div class="lbl">Years of shipping code</div></div>
+              <div class="stat"><div class="num">24s → 11s</div><div class="lbl">Largest perf win</div></div>
+              <div class="stat"><div class="num">∞</div><div class="lbl">Cups of coffee</div></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!--    footer area-->
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker"><span class="dot"></span> Capabilities</span>
+          <h2>What I bring to the <em>table</em>.</h2>
+          <p class="lede">A pragmatic full-stack toolbox built around long-lived products — interfaces, services, pipelines, and the connective tissue between them.</p>
+        </div>
 
-    <footer class="footer footer-default" id="contact">
-      <div class="container">
-        <div class="row">
-          <div data-aos="fade-down" class="col-10 col-lg-6 align-self-center">
-            <br /><br />
-            <p class="findme">
-              Comments/Questions/Suggestions?<br />
-              Let's talk about it.
-            </p>
-            <script type="text/javascript">
-              var submitted = false;
-            </script>
-
-            <iframe
-              name="hidden_iframe"
-              id="hidden_iframe"
-              style="display: none"
-              onload="if(submitted) {window.location=''; jQuery(document).ready(function($){alert('Thank you. I will get back to you ASAP!');});}">
-            </iframe>
-
-            <form
-              class="form"
-              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKEK-deJF1Wkjk7OBG_Ddl4fUEjP3NMp4NYFb5f29CDbEByA/formResponse"
-              method="post"
-              target="hidden_iframe"
-              onsubmit="submitted=true;">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Name</label>
-                <input
-                  name="entry.8571672"
-                  type="text"
-                  class="form-control mb-2"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Name"
-                  required />
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input
-                  name="entry.132082419"
-                  type="email"
-                  class="form-control mb-2"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Email"
-                  required />
-              </div>
-
-              <div class="form-group">
-                <label for="msg">Message</label>
-                <textarea name="entry.1311446202" class="form-control mb-2" placeholder="Message" required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary footer-icon" value="Send">Submit</button><br /><br />
-            </form>
+        <div class="skills-grid">
+          <div class="skill-card span-6 reveal" data-skill>
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4>Front-End Engineering</h4>
+            <p>Reactive, accessible UI work in React and KnockoutJS — plus deep history with Angular, NgRx, and RxJS for stateful, data-heavy products.</p>
+            <div class="tags"><span>React</span><span>TypeScript</span><span>Angular</span><span>NgRx</span><span>RxJS</span><span>KnockoutJS</span></div>
           </div>
 
-          <div data-aos="fade-down" class="col-10 col-lg-6 align-self-center social">
-            <div><span class="findme">Find me on: </span></div>
-            <a href="https://www.linkedin.com/in/rishabh-sandil" class="contact-icons"
-              ><i class="fab fa-linkedin fa-3x"></i
-            ></a>
-            <a href="mailto:rishabhsandil@gmail.com" class="contact-icons"><i class="fas fa-envelope fa-3x"></i></a>
-            <a href="https://github.com/rishabhsandil" class="contact-icons"><i class="fab fa-github fa-3x"></i></a>
+          <div class="skill-card span-6 reveal delay-1" data-skill>
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+            </div>
+            <h4>APIs &amp; Back-End</h4>
+            <p>RESTful services in .NET Core and C#, optimized SQL behind them. Comfortable refactoring legacy queries to claw back hundreds of milliseconds.</p>
+            <div class="tags"><span>.NET Core</span><span>C#</span><span>NodeJS</span><span>SQL</span><span>REST</span></div>
           </div>
+
+          <div class="skill-card span-4 reveal" data-skill>
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10A15.3 15.3 0 0 1 8 12 15.3 15.3 0 0 1 12 2z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            </div>
+            <h4>DevOps &amp; CI/CD</h4>
+            <p>Pipelines on Jenkins, Azure, and AWS. Mercurial &amp; Git workflows, BASH automation, and YAML release plumbing.</p>
+            <div class="tags"><span>Jenkins</span><span>Azure</span><span>AWS</span><span>YAML</span><span>BASH</span></div>
+          </div>
+
+          <div class="skill-card span-4 reveal delay-1" data-skill>
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Quality &amp; Testing</h4>
+            <p>Unit and integration coverage with Jasmine/Karma. TDD where it earns its keep; pragmatic where it doesn't.</p>
+            <div class="tags"><span>Jasmine</span><span>Karma</span><span>TDD</span></div>
+          </div>
+
+          <div class="skill-card span-4 reveal delay-2" data-skill>
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            </div>
+            <h4>Web Design &amp; Tooling</h4>
+            <p>Figma-led prototypes, dynamic JSON form builders, PDF rendering with WYSIWYG editors — turning fuzzy specs into shippable UI.</p>
+            <div class="tags"><span>Figma</span><span>Photoshop</span><span>WYSIWYG</span><span>PDF gen</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="work" class="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker"><span class="dot"></span> Experience</span>
+          <h2>Selected <em>chapters</em>.</h2>
+        </div>
+
+        <ul class="timeline">
+          <li class="tl-item reveal">
+            <span class="dot"></span>
+            <div class="row">
+              <div class="when">Mar 2024 — Present · Waterloo, ON</div>
+              <div>
+                <h4>Intermediate Full Stack Developer</h4>
+                <span class="co">↳ WrightPlan Inc.</span>
+                <p>
+                  Building reactive front-end components in React and KnockoutJS, integrating
+                  RESTful services with .NET Core and C#, and shepherding releases on Jenkins
+                  and Mercurial. Led a performance project that cut load time from 24s → 11s
+                  on the largest database, and reduced average search times from 780ms → 345ms.
+                  Built a dynamic JSON form builder, PDF rendering pipeline, and a set of BASH
+                  utilities that quietly speed up the rest of the team. Mentor juniors and
+                  partner with stakeholders on requirements.
+                </p>
+                <div class="pills"><span>React</span><span>KnockoutJS</span><span>.NET Core</span><span>C#</span><span>Jenkins</span><span>Mercurial</span><span>BASH</span></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="dot"></span>
+            <div class="row">
+              <div class="when">Jan 2021 — Mar 2024 · Vancouver, BC</div>
+              <div>
+                <h4>Full Stack Developer</h4>
+                <span class="co">↳ Logibec Inc.</span>
+                <p>
+                  Designed and maintained Angular + .NET applications, processed large datasets
+                  with RxJS and NgRx, and tightened performance with optimized SQL.
+                  Refactored shared code paths to cut duplication ~8%, and built out unit/
+                  integration coverage with Jasmine/Karma. Deployed via AWS and Azure pipelines
+                  with full CI/CD.
+                </p>
+                <div class="pills"><span>Angular</span><span>NgRx</span><span>RxJS</span><span>C#</span><span>ASP.NET</span><span>SQL</span><span>Azure</span><span>AWS</span></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="dot"></span>
+            <div class="row">
+              <div class="when">May 2019 — Dec 2019 · Victoria, BC</div>
+              <div>
+                <h4>Web Developer (Co-op)</h4>
+                <span class="co">↳ BC Ministry of Transportation &amp; Infrastructure</span>
+                <p>
+                  Practiced OO design and TDD across multiple ministry sites. Optimized the PTB
+                  site for mobile, lifting mobile traffic by 20% and lowering bounce rates.
+                </p>
+                <div class="pills"><span>HTML/CSS/JS</span><span>CMS</span><span>TDD</span><span>OO Design</span></div>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="dot"></span>
+            <div class="row">
+              <div class="when">Graduated Aug 2020 · Victoria, BC</div>
+              <div>
+                <h4>B.Sc. Computer Science</h4>
+                <span class="co">↳ University of Victoria</span>
+                <p>
+                  Bachelor of Science in Computer Science. Certifications: Certified Scrum
+                  Developer (Scrum Alliance), Machine Learning with Python.
+                </p>
+                <div class="pills"><span>CSD</span><span>ML w/ Python</span></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="kicker"><span class="dot"></span> Selected work</span>
+          <h2>Things I've built, broken, and rebuilt — <em>better</em>.</h2>
+          <p class="lede">A mix of side projects, client sites, and code experiments. Tap a card to open the live build or repo.</p>
+        </div>
+
+        <div class="bento">
+          <!-- 1. Almost Adult / myLife (large) -->
+          <article class="card large reveal">
+            <div class="thumb"><img src="./img/mylife.jpg" alt="Almost Adult — full-stack life support app" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag accent">Full-stack</span><span class="tag">React · TS · Postgres</span><span class="tag">AI</span></div>
+              <h3>Almost Adult</h3>
+              <p>A full-stack PWA for daily life — reminders, shared shopping lists, workout tracking, rich-text notes, and a recipe module that uses GPT-4.1 to parse ingredients and steps from pasted text or YouTube links. Built with React 18, TypeScript, Vercel serverless functions, Neon Postgres, and JWT auth.</p>
+            </div>
+            <a class="full" target="_blank" rel="noopener" href="https://mylife-kappa-lyart.vercel.app/" aria-label="Open Almost Adult"></a>
+          </article>
+
+          <!-- 2. Ray Tracer (tall) -->
+          <article class="card tall reveal delay-1">
+            <div class="thumb"><img src="./img/render.jpg" alt="C++ Ray Tracer renders" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag accent">C++</span><span class="tag">Repo</span></div>
+              <h3>Ray Tracer</h3>
+              <p>An image-rendering program / ray tracer written from scratch in modern C++.</p>
+            </div>
+            <a class="full" target="_blank" rel="noopener" href="https://github.com/rishabhsandil/ray-tracer/" aria-label="Open Ray Tracer on GitHub"></a>
+          </article>
+
+          <!-- 3. Stock Price Estimator -->
+          <article class="card reveal">
+            <div class="thumb"><img src="./img/stock-price.jpg" alt="Stock Price Estimator" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag accent">Python · ML</span><span class="tag">Repo</span></div>
+              <h3>Stock Price Estimator</h3>
+              <p>A machine-learning project predicting stock prices from quarterly financials, evaluated across Random Forest, MLP, and Gaussian Naive Bayes.</p>
+            </div>
+            <a class="full" target="_blank" rel="noopener" href="https://github.com/rishabhsandil/Stock-price-estimate" aria-label="Open Stock Price Estimator on GitHub"></a>
+          </article>
+
+          <!-- 4. Arctic Fires -->
+          <article class="card reveal">
+            <div class="thumb"><img src="./img/arctic-fires.jpg" alt="Arctic Fires band site" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag">Web · Brand</span></div>
+              <h3>Arctic Fires</h3>
+              <p>A cinematic, single-page band site with dark hero, music releases, video embeds, and social links.</p>
+            </div>
+            <a class="full" href="arctic-fires/index.html" target="_blank" rel="noopener" aria-label="Open Arctic Fires"></a>
+          </article>
+
+          <!-- 5. Albasha -->
+          <article class="card reveal delay-1">
+            <div class="thumb"><img src="./img/albasha.jpg" alt="Albasha Express site" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag">Restaurant</span></div>
+              <h3>Albasha Express</h3>
+              <p>Bold, type-driven Mediterranean restaurant site with order-online, menu, and catering flows.</p>
+            </div>
+            <a class="full" href="albasha/index.html" target="_blank" rel="noopener" aria-label="Open Albasha Express"></a>
+          </article>
+
+          <!-- 6. Chai Coffee Company -->
+          <article class="card reveal">
+            <div class="thumb"><img src="./img/ccc.jpg" alt="Chai Coffee Company site" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag">Café · Brand</span></div>
+              <h3>Chai Coffee Company</h3>
+              <p>A warm, photographic café site with a hero slider, online ordering, menu pages, and contact flow.</p>
+            </div>
+            <a class="full" href="ccc/index.html" target="_blank" rel="noopener" aria-label="Open Chai Coffee Company"></a>
+          </article>
+
+          <!-- 7. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-wrap">
+          <aside class="contact-aside reveal">
+            <span class="kicker"><span class="dot"></span> Contact</span>
+            <h2>Let's build something <em>worth shipping.</em></h2>
+            <p>Open to interesting full-stack roles, contract work, and the occasional restaurant rebrand. I usually reply within a day.</p>
+
+            <div class="contact-links">
+              <a href="mailto:rishabhsandil@gmail.com">
+                <span><span class="what">Email</span><br /><span class="who">rishabhsandil@gmail.com</span></span>
+                <span class="arrow">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/in/rishabh-sandil" target="_blank" rel="noopener">
+                <span><span class="what">LinkedIn</span><br /><span class="who">/in/rishabh-sandil</span></span>
+                <span class="arrow">↗</span>
+              </a>
+              <a href="https://github.com/rishabhsandil" target="_blank" rel="noopener">
+                <span><span class="what">GitHub</span><br /><span class="who">@rishabhsandil</span></span>
+                <span class="arrow">↗</span>
+              </a>
+            </div>
+          </aside>
+
+          <form
+            class="form reveal delay-1"
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdKEK-deJF1Wkjk7OBG_Ddl4fUEjP3NMp4NYFb5f29CDbEByA/formResponse"
+            method="post"
+            target="hidden_iframe"
+            onsubmit="submitted=true;"
+            aria-label="Contact form">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="entry.8571672" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="entry.132082419" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="msg">Message</label>
+              <textarea id="msg" name="entry.1311446202" placeholder="Tell me a little about what you're working on…" required></textarea>
+            </div>
+            <button type="submit">
+              Send message
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+            </button>
+          </form>
+
+          <script>var submitted = false;</script>
+          <iframe
+            name="hidden_iframe"
+            id="hidden_iframe"
+            style="display:none"
+            title="Form response"
+            onload="if(submitted){submitted=false;alert('Thank you. I will get back to you ASAP!');}">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap foot-row">
+        <div>© <span id="year"></span> Rishabh Sandil · Crafted in Waterloo, ON</div>
+        <div>
+          <a href="#top">Back to top ↑</a>
         </div>
       </div>
     </footer>
 
-    <!--scripts    -->
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/popper.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-
+    <!-- ===== JS ===== -->
     <script>
-      var TxtRotate = function (el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 100) || 1000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Scroll progress
+      const progress = document.getElementById('progress');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const max = h.scrollHeight - h.clientHeight;
+        const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+        progress.style.width = pct + '%';
       };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
 
-      TxtRotate.prototype.tick = function () {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
+      // Mouse-tracked spotlight
+      const bg = document.querySelector('.bg-fx');
+      window.addEventListener('pointermove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        bg.style.setProperty('--mx', x + '%');
+        bg.style.setProperty('--my', y + '%');
+      });
 
-        if (this.isDeleting) {
-          this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-          this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-        var that = this;
-        var delta = 100;
-
-        if (this.isDeleting) {
-          delta /= 2;
-        }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-          delta = this.period;
-          this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-          this.isDeleting = false;
-          this.loopNum++;
-          delta = 500;
-        }
-
-        setTimeout(function () {
-          that.tick();
-        }, delta);
-      };
-
-      window.onload = function () {
-        var elements = document.getElementsByClassName('txt-rotate');
-        for (var i = 0; i < elements.length; i++) {
-          var toRotate = elements[i].getAttribute('data-rotate');
-          var period = elements[i].getAttribute('data-period');
-          if (toRotate) {
-            new TxtRotate(elements[i], JSON.parse(toRotate), period);
-          }
-        }
-        // INJECT CSS
-        var css = document.createElement('style');
-        css.type = 'text/css';
-        css.innerHTML = '.txt-rotate > .wrap { border-right: 0.08em solid #666 }';
-        document.body.appendChild(css);
-      };
-    </script>
-
-    <script>
-      $(function () {
-        $(document).scroll(function () {
-          var $nav = $('.navbar-fixed-top');
-          $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      // Skill card hover light
+      document.querySelectorAll('[data-skill]').forEach((el) => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+          el.style.setProperty('--cy', (e.clientY - r.top) + 'px');
         });
       });
-    </script>
-    <script src="aos/dist/aos.js"></script>
 
-    <script>
-      AOS.init({duration: 850});
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Role rotator
+      const roles = [
+        'a Full Stack Developer',
+        'a React + .NET dev',
+        'a UI craftsperson',
+        'an API plumber',
+        'a perf nerd',
+        'thankful you stopped by',
+      ];
+      const rotEl = document.getElementById('rotator');
+      let i = 0, j = 0, deleting = false;
+      function tick() {
+        const word = roles[i];
+        rotEl.textContent = word.slice(0, j);
+        if (!deleting && j < word.length) { j++; setTimeout(tick, 70); }
+        else if (!deleting && j === word.length) { deleting = true; setTimeout(tick, 1400); }
+        else if (deleting && j > 0) { j--; setTimeout(tick, 35); }
+        else { deleting = false; i = (i + 1) % roles.length; setTimeout(tick, 250); }
+      }
+      tick();
+
+      // Smooth scroll offset for sticky nav
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          if (id.length > 1) {
+            const t = document.querySelector(id);
+            if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 40, behavior: 'smooth' }); }
+          }
+        });
+      });
     </script>
   </body>
 </html>
