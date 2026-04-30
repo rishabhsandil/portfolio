@@ -426,6 +426,12 @@ section { position: relative; z-index: 2; padding: clamp(80px, 12vh, 140px) 0; }
   transition: transform var(--t-fast), background var(--t-fast);
 }
 .form button:hover { transform: translateY(-2px); background: #d8ff66; }
+.form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.g-recaptcha { margin: 4px 0 2px; }
+#form-status { min-height: 1.25rem; }
+.form-success { color: var(--accent); font-size: .875rem; }
+.form-error { color: var(--accent-3); font-size: .875rem; }
+.form-error a { color: inherit; text-decoration: underline; }
 
 /* ---------- Footer ---------- */
 .foot {
