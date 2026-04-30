@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ray Tracer — Case Study · Rishabh Sandil</title>
+    <meta name="description" content="A photorealistic ray tracer written from scratch in modern C++ — primary rays, shadows, reflections, refraction, and antialiasing." />
+    <meta name="theme-color" content="#0a0a0b" />
+    <script>
+      (function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://rishabhsandil.com/projects/ray-tracer.html" />
+    <meta property="og:title" content="Ray Tracer — Case Study" />
+    <meta property="og:description" content="A photorealistic renderer built from scratch in modern C++." />
+    <meta property="og:image" content="https://rishabhsandil.com/img/render.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      .cs-hero { padding: 140px 0 80px; position: relative; }
+      .cs-back {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: var(--font-mono); font-size: 12px;
+        text-transform: uppercase; letter-spacing: .14em;
+        color: var(--muted); margin-bottom: 36px;
+      }
+      .cs-back:hover { color: var(--accent); }
+      .cs-hero h1 {
+        font-size: clamp(48px, 7vw, 96px);
+        line-height: 1.0; font-weight: 700; letter-spacing: -0.04em;
+        margin-bottom: 28px;
+      }
+      .cs-hero h1 em { color: var(--accent); font-style: normal; }
+      .cs-hero .lede {
+        font-size: clamp(18px, 1.6vw, 22px); color: var(--muted);
+        max-width: 720px; line-height: 1.5;
+      }
+      .cs-meta {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+        margin-top: 56px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      }
+      .cs-meta dt {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 8px;
+      }
+      .cs-meta dd { font-size: 15px; color: var(--text); line-height: 1.45; }
+      .cs-meta .accent { color: var(--accent); }
+      .cs-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 48px; }
+
+      .cs-section { padding: 80px 0; border-top: 1px solid var(--line); }
+      .cs-section h2 {
+        font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; margin-bottom: 22px;
+      }
+      .cs-section h2 em { color: var(--accent); font-style: normal; }
+      .cs-section p { font-size: 17px; line-height: 1.7; color: var(--text); max-width: 820px; }
+      .cs-section p + p { margin-top: 16px; }
+      .cs-section ul { list-style: none; margin-top: 16px; max-width: 820px; }
+      .cs-section ul li {
+        position: relative; padding-left: 26px; padding-bottom: 12px;
+        font-size: 16px; line-height: 1.6; color: var(--text);
+      }
+      .cs-section ul li::before {
+        content: ""; position: absolute; left: 0; top: 11px;
+        width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+      }
+
+      .render-hero {
+        margin-top: 48px;
+        border-radius: var(--radius-lg);
+        overflow: hidden; border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .render-hero img { width: 100%; display: block; }
+
+      .feat-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+      }
+      .feat-card {
+        padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+        background: var(--surface);
+      }
+      .feat-card h4 {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--accent);
+        margin-bottom: 10px;
+      }
+      .feat-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+      .feat-card b { color: var(--text); font-weight: 500; }
+
+      pre.code {
+        margin-top: 24px; padding: 22px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        font-family: var(--font-mono); font-size: 13px;
+        line-height: 1.6; color: var(--text);
+        overflow-x: auto;
+      }
+      pre.code .c { color: var(--muted); }
+      pre.code .k { color: var(--accent); }
+
+      @media (max-width: 900px) {
+        .cs-meta { grid-template-columns: repeat(2, 1fr); }
+        .feat-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg-fx" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html" class="brand"><span class="pulse"></span> RS</a>
+      <div class="links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="https://github.com/rishabhsandil/ray-tracer/" class="cta" target="_blank" rel="noopener">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+      </a>
+    </nav>
+
+    <section class="cs-hero">
+      <div class="wrap">
+        <a href="../index.html#projects" class="cs-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to projects
+        </a>
+
+        <h1>Ray Tracer — <em>a photorealistic renderer in modern C++.</em></h1>
+        <p class="lede">
+          A from-scratch CPU ray tracer that turns scene descriptions into images by simulating
+          how light bounces between a camera, geometry, and light sources. No graphics libraries —
+          just vectors, materials, and a lot of recursion.
+        </p>
+
+        <figure class="render-hero">
+          <img src="../img/render.webp" alt="Sample render produced by the ray tracer" loading="eager" decoding="async" />
+        </figure>
+
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Solo · Engineering</dd></div>
+          <div><dt>Status</dt><dd><span class="accent">Complete · open source</span></dd></div>
+          <div><dt>Stack</dt><dd>Modern C++ · CMake · zero graphics deps</dd></div>
+          <div><dt>Notable</dt><dd>Recursive shading · Snell refraction · supersampling AA</dd></div>
+        </dl>
+
+        <div class="cs-actions">
+          <a href="https://github.com/rishabhsandil/ray-tracer/" class="btn btn-primary" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+          </a>
+          <a href="../index.html#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEM ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Problem</span>
+        <h2>Most renderers feel like <em>magic. I wanted to demystify them.</em></h2>
+        <p>Real-time graphics APIs hide the math: you bind a shader, push some matrices, and pixels appear. I wanted to understand the actual physics — how a single pixel knows what colour to be — so I built a renderer with no graphics libraries at all. Just C++, vectors, and the rendering equation.</p>
+        <p>The result is a small, dependency-free CPU ray tracer that produces photorealistic images of spheres, planes, and meshes with reflections, refraction, soft shadows, and antialiasing.</p>
+      </div>
+    </section>
+
+    <!-- ===== APPROACH ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Approach</span>
+        <h2>Cast a ray for every pixel. <em>Recurse where it gets interesting.</em></h2>
+        <p>For each pixel, the camera fires a primary ray into the scene. The closest hit determines the surface; the surface's material decides whether to shade locally, reflect, refract, or all of the above. Reflections and refractions spawn secondary rays, and the colour bubbles back up the call stack.</p>
+
+        <div class="feat-grid">
+          <div class="feat-card">
+            <h4>Primary rays</h4>
+            <p><b>Per-pixel ray casting</b> from a pinhole camera with adjustable FOV. Closest-hit detection over spheres, planes, and triangle meshes.</p>
+          </div>
+          <div class="feat-card">
+            <h4>Shading</h4>
+            <p><b>Phong + Blinn-Phong</b> with ambient, diffuse, and specular terms. Per-light shadow rays for hard shadows; jittered samples for soft shadows.</p>
+          </div>
+          <div class="feat-card">
+            <h4>Reflection</h4>
+            <p><b>Recursive mirror rays</b> bounded by a configurable depth. Roughness-driven cone sampling for glossy surfaces; perfect mirrors at depth 0.</p>
+          </div>
+          <div class="feat-card">
+            <h4>Refraction</h4>
+            <p><b>Snell's law</b> for transmissive materials with index-of-refraction per surface. Schlick's approximation drives the Fresnel mix between reflection and refraction.</p>
+          </div>
+          <div class="feat-card">
+            <h4>Antialiasing</h4>
+            <p><b>Supersampled AA.</b> NxN sub-pixel jittered samples averaged per pixel — the single biggest visual quality win for the smallest amount of code.</p>
+          </div>
+          <div class="feat-card">
+            <h4>Acceleration</h4>
+            <p><b>Bounding-box pruning</b> for mesh hits. Intersection routines were the hot path, so I templated the math types and inlined the dot/cross helpers.</p>
+          </div>
+        </div>
+
+        <pre class="code"><span class="c">// Core recursion — abridged from the actual implementation</span>
+<span class="k">Color</span> trace(<span class="k">const</span> Ray&amp; r, <span class="k">int</span> depth) {
+  <span class="k">if</span> (depth &gt; MAX_DEPTH) <span class="k">return</span> Color{0,0,0};
+  Hit h;
+  <span class="k">if</span> (!scene.intersect(r, h)) <span class="k">return</span> background(r);
+
+  Color local = shade(h, scene.lights);            <span class="c">// Phong + shadow rays</span>
+  Color refl  = h.material.kr &gt; 0
+              ? trace(reflectRay(r, h), depth + 1) <span class="c">// recursive reflection</span>
+              : Color{0,0,0};
+  Color refr  = h.material.kt &gt; 0
+              ? trace(refractRay(r, h), depth + 1) <span class="c">// Snell's law</span>
+              : Color{0,0,0};
+
+  <span class="k">double</span> fresnel = schlick(r.dir, h.normal, h.material.ior);
+  <span class="k">return</span> local + fresnel * refl + (1 - fresnel) * refr;
+}</pre>
+      </div>
+    </section>
+
+    <!-- ===== OUTCOME ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Outcome</span>
+        <h2>Pictures from <em>nothing but math.</em></h2>
+        <p>The final renderer produces clean, physically plausible images of spheres-on-a-plane scenes with reflective and glass materials, soft shadows, and 4×4 supersampled AA — all without a single line of OpenGL, Vulkan, or DirectX. Render time on a modern laptop is a few seconds for a 1080p frame at moderate sample counts.</p>
+        <p>More importantly, the project replaced "graphics is magic" with "graphics is recursion plus linear algebra," which is the actual lesson I wanted out of it.</p>
+      </div>
+    </section>
+
+    <!-- ===== LEARNINGS ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> What I learned</span>
+        <h2>The lessons that <em>stuck.</em></h2>
+        <ul>
+          <li><b>Floating-point accuracy is the silent killer.</b> Self-intersection artifacts ("acne") on shadow and reflection rays vanish the moment you offset the origin by a tiny epsilon along the surface normal — a one-line fix that took an evening to find.</li>
+          <li><b>Recursion depth maps directly to visual quality.</b> Depth 1 looks plastic, depth 3 looks real, depth 5+ is mostly diminishing returns. Caching the cutoff per-material was a good middle ground.</li>
+          <li><b>Supersampling is the cheapest realism upgrade.</b> Going from 1 sample per pixel to 16 jittered samples roughly quadrupled render time but eliminated nearly every aliasing artifact.</li>
+          <li><b>Profile before optimizing.</b> I assumed the recursion was the bottleneck; it was actually the per-triangle intersection test on meshes. Bounding-box pruning was a 4× speedup for ten lines of code.</li>
+          <li><b>Next pass:</b> a BVH (bounding volume hierarchy) for sub-linear mesh intersection, multithreaded tile rendering, and physically-based BRDFs to replace Phong.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cs-section">
+      <div class="wrap" style="text-align:center; padding: 40px 0;">
+        <h2 style="margin: 0 auto 18px;">Read the source.</h2>
+        <p style="margin: 0 auto 32px; color: var(--muted);">Scenes, materials, intersection routines — all in the repo.</p>
+        <a href="https://github.com/rishabhsandil/ray-tracer/" class="btn btn-primary" target="_blank" rel="noopener">
+          Open on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap foot-row">
+        <div>© <span id="year"></span> Rishabh Sandil · Crafted in Waterloo, ON</div>
+        <div><a href="../index.html#projects">← Back to projects</a></div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      var progress = document.getElementById('progress');
+      function onScroll(){
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+        progress.style.width = pct + '%';
+      }
+      document.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+      var bg = document.querySelector('.bg-fx');
+      window.addEventListener('pointermove', function(e){
+        bg.style.setProperty('--mx', (e.clientX / window.innerWidth * 100) + '%');
+        bg.style.setProperty('--my', (e.clientY / window.innerHeight * 100) + '%');
+      });
+      (function(){
+        var btn = document.getElementById('theme-toggle');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if(!btn) return;
+        function apply(theme){
+          if(theme==='light'){document.documentElement.setAttribute('data-theme','light'); if(meta) meta.setAttribute('content','#f4f4ef');}
+          else{document.documentElement.removeAttribute('data-theme'); if(meta) meta.setAttribute('content','#0a0a0b');}
+        }
+        btn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+          var next = current==='light' ? 'dark' : 'light';
+          apply(next);
+          try{localStorage.setItem('theme', next);}catch(e){}
+        });
+      })();
+    </script>
+  </body>
+</html>

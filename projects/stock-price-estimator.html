@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stock Price Estimator — Case Study · Rishabh Sandil</title>
+    <meta name="description" content="A machine-learning project predicting stock price movements from quarterly financials, comparing Random Forest, MLP, and Gaussian Naive Bayes." />
+    <meta name="theme-color" content="#0a0a0b" />
+    <script>
+      (function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+    </script>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://rishabhsandil.com/projects/stock-price-estimator.html" />
+    <meta property="og:title" content="Stock Price Estimator — Case Study" />
+    <meta property="og:description" content="Random Forest, MLP, and Gaussian Naive Bayes compared on quarterly financial data." />
+    <meta property="og:image" content="https://rishabhsandil.com/img/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      .cs-hero { padding: 140px 0 80px; position: relative; }
+      .cs-back {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: var(--font-mono); font-size: 12px;
+        text-transform: uppercase; letter-spacing: .14em;
+        color: var(--muted); margin-bottom: 36px;
+      }
+      .cs-back:hover { color: var(--accent); }
+      .cs-hero h1 {
+        font-size: clamp(48px, 7vw, 96px);
+        line-height: 1.0; font-weight: 700; letter-spacing: -0.04em;
+        margin-bottom: 28px;
+      }
+      .cs-hero h1 em { color: var(--accent); font-style: normal; }
+      .cs-hero .lede {
+        font-size: clamp(18px, 1.6vw, 22px); color: var(--muted);
+        max-width: 720px; line-height: 1.5;
+      }
+      .cs-meta {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+        margin-top: 56px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      }
+      .cs-meta dt {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 8px;
+      }
+      .cs-meta dd { font-size: 15px; color: var(--text); line-height: 1.45; }
+      .cs-meta .accent { color: var(--accent); }
+      .cs-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 48px; }
+
+      .cs-section { padding: 80px 0; border-top: 1px solid var(--line); }
+      .cs-section h2 {
+        font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; margin-bottom: 22px;
+      }
+      .cs-section h2 em { color: var(--accent); font-style: normal; }
+      .cs-section p { font-size: 17px; line-height: 1.7; color: var(--text); max-width: 820px; }
+      .cs-section p + p { margin-top: 16px; }
+      .cs-section ul { list-style: none; margin-top: 16px; max-width: 820px; }
+      .cs-section ul li {
+        position: relative; padding-left: 26px; padding-bottom: 12px;
+        font-size: 16px; line-height: 1.6; color: var(--text);
+      }
+      .cs-section ul li::before {
+        content: ""; position: absolute; left: 0; top: 11px;
+        width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+      }
+
+      .results {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+      }
+      .result-card {
+        padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+        background: var(--surface);
+      }
+      .result-card .label {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .result-card .num {
+        font-family: var(--font-display); font-size: 40px;
+        letter-spacing: -0.02em; font-weight: 600;
+        color: var(--text); line-height: 1;
+      }
+      .result-card.win .num { color: var(--accent); }
+      .result-card .sub { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+
+      .stack-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+      }
+      .stack-card {
+        padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+        background: var(--surface);
+      }
+      .stack-card h4 {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--accent);
+        margin-bottom: 10px;
+      }
+      .stack-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+      .stack-card b { color: var(--text); font-weight: 500; }
+
+      @media (max-width: 900px) {
+        .cs-meta { grid-template-columns: repeat(2, 1fr); }
+        .results, .stack-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg-fx" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html" class="brand"><span class="pulse"></span> RS</a>
+      <div class="links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="https://github.com/rishabhsandil/Stock-price-estimate" class="cta" target="_blank" rel="noopener">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+      </a>
+    </nav>
+
+    <section class="cs-hero">
+      <div class="wrap">
+        <a href="../index.html#projects" class="cs-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to projects
+        </a>
+
+        <h1>Stock Price Estimator — <em>can quarterly fundamentals predict the next move?</em></h1>
+        <p class="lede">
+          A research project comparing three classifiers — Random Forest, a Multi-Layer Perceptron,
+          and Gaussian Naive Bayes — on whether a stock would close higher one quarter after its
+          earnings release. Random Forest came out on top with the most stable cross-validated accuracy.
+        </p>
+
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Solo · Data + ML</dd></div>
+          <div><dt>Status</dt><dd><span class="accent">Complete · open source</span></dd></div>
+          <div><dt>Stack</dt><dd>Python · scikit-learn · pandas · NumPy</dd></div>
+          <div><dt>Notable</dt><dd>3-model bake-off · feature engineering · k-fold CV</dd></div>
+        </dl>
+
+        <div class="cs-actions">
+          <a href="https://github.com/rishabhsandil/Stock-price-estimate" class="btn btn-primary" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+          </a>
+          <a href="../index.html#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEM ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Problem</span>
+        <h2>Can the <em>numbers behind a company</em> predict where the stock goes next?</h2>
+        <p>Most retail traders react to price charts; institutional investors react to earnings. I wanted to see whether a model trained purely on the quarterly fundamentals — revenue, EPS, margins, debt ratios — could call the direction of the stock one quarter later, without seeing any price data at training time.</p>
+        <p>It's a binary classification framed as: <em>given this quarter's fundamentals, will the stock close higher 90 days out?</em></p>
+      </div>
+    </section>
+
+    <!-- ===== APPROACH ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Approach</span>
+        <h2>Three classifiers, <em>one fair fight.</em></h2>
+        <p>The pipeline ingests quarterly filings, normalizes ratios across sectors, and labels each row by the forward 90-day return sign. Three classifiers were trained and evaluated under identical conditions:</p>
+
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h4>Random Forest</h4>
+            <p><b>scikit-learn RandomForestClassifier.</b> Ensemble of decision trees, robust to outliers, naturally handles non-linear interactions between fundamentals.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Multi-Layer Perceptron</h4>
+            <p><b>scikit-learn MLPClassifier.</b> A small dense neural net to capture interactions the trees might miss; trained with early stopping and L2 regularization.</p>
+          </div>
+          <div class="stack-card">
+            <h4>Gaussian Naive Bayes</h4>
+            <p><b>scikit-learn GaussianNB.</b> Baseline with a strong independence assumption — a useful floor to know whether the others learned anything real.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 32px;">All three were evaluated with stratified k-fold cross-validation on the same train/test splits, so the comparison was apples-to-apples. Hyperparameters were tuned with grid search inside each fold to avoid leaking the test set.</p>
+      </div>
+    </section>
+
+    <!-- ===== OUTCOME ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> Outcome</span>
+        <h2>Random Forest <em>won — but the gap is the interesting part.</em></h2>
+        <p>The Random Forest landed the highest cross-validated accuracy, the MLP came in close behind, and Gaussian NB sat noticeably below them — confirming the ensembles were learning real interactions, not just memorizing the marginals.</p>
+
+        <div class="results">
+          <div class="result-card win">
+            <div class="label">Random Forest</div>
+            <div class="num">Best</div>
+            <div class="sub">Highest CV accuracy and most stable across folds.</div>
+          </div>
+          <div class="result-card">
+            <div class="label">MLP</div>
+            <div class="num">Close 2nd</div>
+            <div class="sub">Competitive accuracy but more variance per fold.</div>
+          </div>
+          <div class="result-card">
+            <div class="label">Gaussian NB</div>
+            <div class="num">Baseline</div>
+            <div class="sub">Confirmed the others were learning real signal.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEARNINGS ===== -->
+    <section class="cs-section">
+      <div class="wrap">
+        <span class="kicker"><span class="dot"></span> What I learned</span>
+        <h2>What worked, and what <em>I'd build next.</em></h2>
+        <ul>
+          <li><b>Tree ensembles still punch above their weight on tabular data.</b> The MLP needed careful regularization to match a Random Forest that worked well almost out of the box.</li>
+          <li><b>Sector-relative ratios matter more than absolute ones.</b> A debt-to-equity number means very different things for a bank versus a SaaS company; normalizing within sector materially helped.</li>
+          <li><b>The Gaussian-NB baseline was the most useful single line of code.</b> It told me how much of the model's accuracy was structural versus learned interactions.</li>
+          <li><b>Forward returns are noisy.</b> Even the best model is only modestly above chance — a healthy reminder that no single signal beats the market.</li>
+          <li><b>Next pass:</b> add macro features (yield curve, sector momentum), try gradient boosting (XGBoost / LightGBM), and switch to a proper walk-forward backtest with transaction costs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cs-section">
+      <div class="wrap" style="text-align:center; padding: 40px 0;">
+        <h2 style="margin: 0 auto 18px;">Read the code.</h2>
+        <p style="margin: 0 auto 32px; color: var(--muted);">Notebook, data prep, and trained models all live in the repo.</p>
+        <a href="https://github.com/rishabhsandil/Stock-price-estimate" class="btn btn-primary" target="_blank" rel="noopener">
+          Open on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap foot-row">
+        <div>© <span id="year"></span> Rishabh Sandil · Crafted in Waterloo, ON</div>
+        <div><a href="../index.html#projects">← Back to projects</a></div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      var progress = document.getElementById('progress');
+      function onScroll(){
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+        progress.style.width = pct + '%';
+      }
+      document.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+      var bg = document.querySelector('.bg-fx');
+      window.addEventListener('pointermove', function(e){
+        bg.style.setProperty('--mx', (e.clientX / window.innerWidth * 100) + '%');
+        bg.style.setProperty('--my', (e.clientY / window.innerHeight * 100) + '%');
+      });
+      (function(){
+        var btn = document.getElementById('theme-toggle');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if(!btn) return;
+        function apply(theme){
+          if(theme==='light'){document.documentElement.setAttribute('data-theme','light'); if(meta) meta.setAttribute('content','#f4f4ef');}
+          else{document.documentElement.removeAttribute('data-theme'); if(meta) meta.setAttribute('content','#0a0a0b');}
+        }
+        btn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+          var next = current==='light' ? 'dark' : 'light';
+          apply(next);
+          try{localStorage.setItem('theme', next);}catch(e){}
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -95,6 +95,10 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="search-hint" type="button" id="search-hint" aria-label="Search projects">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Search</span> <kbd>/</kbd>
+      </button>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
@@ -134,14 +138,7 @@
             Download resumé
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </a>
-          <a href="#contact" class="btn btn-ghost">
-            Get in touch
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-          <span class="hero-rotator" aria-live="polite">
-            <span class="label">currently</span>
-            <span class="roles" id="rotator">a Full Stack Developer</span>
-          </span>
+
         </div>
       </div>
 
@@ -368,6 +365,7 @@
             <div class="body">
               <div class="meta"><span class="tag accent">Full-stack</span><span class="tag">React · TS · Postgres</span><span class="tag">AI</span></div>
               <h3>Almost Adult</h3>
+              <p class="impact">A full-stack PWA my family actually uses every day.</p>
               <p>A full-stack PWA for daily life — reminders, shared shopping lists, workout tracking, rich-text notes, and a recipe module that uses GPT-4.1 to parse ingredients and steps from pasted text or YouTube links. Built with React 18, TypeScript, Vercel serverless functions, Neon Postgres, and JWT auth.</p>
             </div>
             <a class="full" href="projects/almost-adult.html" aria-label="Read Almost Adult case study"></a>
@@ -382,9 +380,10 @@
             <div class="body">
               <div class="meta"><span class="tag accent">C++</span><span class="tag">Repo</span></div>
               <h3>Ray Tracer</h3>
+              <p class="impact">A photorealistic renderer written from scratch in modern C++.</p>
               <p>An image-rendering program / ray tracer written from scratch in modern C++.</p>
             </div>
-            <a class="full" target="_blank" rel="noopener" href="https://github.com/rishabhsandil/ray-tracer/" aria-label="Open Ray Tracer on GitHub"></a>
+            <a class="full" href="projects/ray-tracer.html" aria-label="Read Ray Tracer case study"></a>
           </article>
 
           <!-- 3. Stock Price Estimator -->
@@ -396,9 +395,10 @@
             <div class="body">
               <div class="meta"><span class="tag accent">Python · ML</span><span class="tag">Repo</span></div>
               <h3>Stock Price Estimator</h3>
+              <p class="impact">Predicting equity moves from quarterly fundamentals — RF beat MLP and GNB.</p>
               <p>A machine-learning project predicting stock prices from quarterly financials, evaluated across Random Forest, MLP, and Gaussian Naive Bayes.</p>
             </div>
-            <a class="full" target="_blank" rel="noopener" href="https://github.com/rishabhsandil/Stock-price-estimate" aria-label="Open Stock Price Estimator on GitHub"></a>
+            <a class="full" href="projects/stock-price-estimator.html" aria-label="Read Stock Price Estimator case study"></a>
           </article>
 
           <!-- 4. Arctic Fires -->
@@ -410,6 +410,7 @@
             <div class="body">
               <div class="meta"><span class="tag">Web · Brand</span></div>
               <h3>Arctic Fires</h3>
+              <p class="impact">A cinematic single-page band site, built around the music.</p>
               <p>A cinematic, single-page band site with dark hero, music releases, video embeds, and social links.</p>
             </div>
             <a class="full" href="arctic-fires/index.html" target="_blank" rel="noopener" aria-label="Open Arctic Fires"></a>
@@ -424,6 +425,7 @@
             <div class="body">
               <div class="meta"><span class="tag">Restaurant</span></div>
               <h3>Albasha Express</h3>
+              <p class="impact">Type-led Mediterranean restaurant site that converts browsers into orders.</p>
               <p>Bold, type-driven Mediterranean restaurant site with order-online, menu, and catering flows.</p>
             </div>
             <a class="full" href="albasha/index.html" target="_blank" rel="noopener" aria-label="Open Albasha Express"></a>
@@ -438,6 +440,7 @@
             <div class="body">
               <div class="meta"><span class="tag">Café · Brand</span></div>
               <h3>Chai Coffee Company</h3>
+              <p class="impact">A warm, photo-led café site with online ordering and full menu flow.</p>
               <p>A warm, photographic café site with a hero slider, online ordering, menu pages, and contact flow.</p>
             </div>
             <a class="full" href="ccc/index.html" target="_blank" rel="noopener" aria-label="Open Chai Coffee Company"></a>
@@ -509,6 +512,22 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== COMMAND PALETTE / SEARCH ===== -->
+    <div class="cmd-overlay" id="cmd-overlay" role="dialog" aria-modal="true" aria-label="Search projects" hidden>
+      <div class="cmd" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-owns="cmd-list">
+        <div class="cmd-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="cmd-input" class="cmd-input" type="text" placeholder="Search projects, tech, or tags…" autocomplete="off" spellcheck="false" />
+          <span class="cmd-esc">esc</span>
+        </div>
+        <ul class="cmd-list" id="cmd-list" role="listbox"></ul>
+        <div class="cmd-foot">
+          <span><kbd>↑</kbd><kbd>↓</kbd> navigate · <kbd>↵</kbd> open · <kbd>esc</kbd> close</span>
+          <span>/ to search</span>
+        </div>
+      </div>
+    </div>
 
     <footer class="foot">
       <div class="wrap foot-row">
@@ -587,6 +606,115 @@
         });
       })();
 
+      // Command palette / search ("/" to open)
+      (function(){
+        var overlay = document.getElementById('cmd-overlay');
+        var input = document.getElementById('cmd-input');
+        var list = document.getElementById('cmd-list');
+        var hint = document.getElementById('search-hint');
+        if (!overlay || !input || !list) return;
+
+        // Build searchable index from cards on the page
+        var items = Array.from(document.querySelectorAll('.bento .card')).map(function(card){
+          var img = card.querySelector('.thumb img');
+          var title = (card.querySelector('h3') || {}).textContent || '';
+          var impact = (card.querySelector('.impact') || {}).textContent || '';
+          var tags = Array.from(card.querySelectorAll('.meta .tag')).map(function(t){return t.textContent;}).join(' · ');
+          var link = card.querySelector('a.full');
+          return {
+            title: title.trim(),
+            sub: (impact || tags).trim(),
+            tags: tags,
+            cats: card.getAttribute('data-cats') || '',
+            href: link ? link.getAttribute('href') : '#',
+            external: link ? link.target === '_blank' : false,
+            thumb: img ? img.getAttribute('src') : ''
+          };
+        });
+
+        var activeIndex = 0;
+
+        function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];}); }
+
+        function render(query){
+          var q = (query || '').trim().toLowerCase();
+          var filtered = items.filter(function(it){
+            if (!q) return true;
+            return (it.title + ' ' + it.sub + ' ' + it.tags + ' ' + it.cats).toLowerCase().indexOf(q) !== -1;
+          });
+          if (!filtered.length) {
+            list.innerHTML = '<li class="cmd-empty">No projects match \u201c' + escapeHtml(q) + '\u201d</li>';
+            return;
+          }
+          activeIndex = 0;
+          var html = '<li class="cmd-section-label">Projects</li>';
+          html += filtered.map(function(it, i){
+            return '<li class="cmd-item' + (i === 0 ? ' active' : '') + '" role="option" data-href="' + escapeHtml(it.href) + '" data-external="' + it.external + '">' +
+              (it.thumb ? '<img class="cmd-thumb" src="' + escapeHtml(it.thumb) + '" alt="" />' : '<span class="cmd-thumb"></span>') +
+              '<div class="meta"><div class="title">' + escapeHtml(it.title) + '</div><div class="sub">' + escapeHtml(it.sub) + '</div></div>' +
+              '<svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>' +
+            '</li>';
+          }).join('');
+          list.innerHTML = html;
+        }
+
+        function setActive(i){
+          var nodes = list.querySelectorAll('.cmd-item');
+          if (!nodes.length) return;
+          activeIndex = ((i % nodes.length) + nodes.length) % nodes.length;
+          nodes.forEach(function(n, idx){ n.classList.toggle('active', idx === activeIndex); });
+          var node = nodes[activeIndex];
+          if (node && node.scrollIntoView) node.scrollIntoView({ block: 'nearest' });
+        }
+
+        function open(){
+          overlay.removeAttribute('hidden');
+          overlay.classList.add('open');
+          input.value = '';
+          render('');
+          setTimeout(function(){ input.focus(); }, 30);
+        }
+        function close(){
+          overlay.classList.remove('open');
+          overlay.setAttribute('hidden', '');
+        }
+        function activate(node){
+          if (!node) return;
+          var href = node.getAttribute('data-href');
+          var external = node.getAttribute('data-external') === 'true';
+          if (!href) return;
+          close();
+          if (external) window.open(href, '_blank', 'noopener'); else window.location.href = href;
+        }
+
+        document.addEventListener('keydown', function(e){
+          var isOpen = overlay.classList.contains('open');
+          var typingInField = ['INPUT','TEXTAREA','SELECT'].indexOf((e.target.tagName || '')) !== -1 || e.target.isContentEditable;
+          if (e.key === '/' && !isOpen && !typingInField) {
+            e.preventDefault(); open();
+          } else if (isOpen && e.key === 'Escape') {
+            e.preventDefault(); close();
+          } else if (isOpen && e.key === 'ArrowDown') {
+            e.preventDefault(); setActive(activeIndex + 1);
+          } else if (isOpen && e.key === 'ArrowUp') {
+            e.preventDefault(); setActive(activeIndex - 1);
+          } else if (isOpen && e.key === 'Enter') {
+            e.preventDefault();
+            var nodes = list.querySelectorAll('.cmd-item');
+            activate(nodes[activeIndex]);
+          }
+        });
+        input.addEventListener('input', function(){ render(input.value); });
+        list.addEventListener('click', function(e){
+          var li = e.target.closest('.cmd-item');
+          if (li) activate(li);
+        });
+        overlay.addEventListener('click', function(e){
+          if (e.target === overlay) close();
+        });
+        if (hint) hint.addEventListener('click', open);
+      })();
+
       // Project card 3D tilt + glare
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduceMotion) {
@@ -620,27 +748,6 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-
-      // Role rotator
-      const roles = [
-        'a Full Stack Developer',
-        'a React + .NET dev',
-        'a UI craftsperson',
-        'an API plumber',
-        'a perf nerd',
-        'thankful you stopped by',
-      ];
-      const rotEl = document.getElementById('rotator');
-      let i = 0, j = 0, deleting = false;
-      function tick() {
-        const word = roles[i];
-        rotEl.textContent = word.slice(0, j);
-        if (!deleting && j < word.length) { j++; setTimeout(tick, 70); }
-        else if (!deleting && j === word.length) { deleting = true; setTimeout(tick, 1400); }
-        else if (deleting && j > 0) { j--; setTimeout(tick, 35); }
-        else { deleting = false; i = (i + 1) % roles.length; setTimeout(tick, 250); }
-      }
-      tick();
 
       // Smooth scroll offset for sticky nav
       document.querySelectorAll('a[href^="#"]').forEach((a) => {
