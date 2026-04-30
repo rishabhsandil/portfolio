@@ -1,0 +1,256 @@
+/*
+* Author: Colorful Design
+* Author URI: https://themeforest.net/user/colorfuldesign
+* Theme Name: Pasta Restaurant
+* Dark Style
+*/
+section,.menu-page .menu-standart .menu-frame,
+.tab.active, .tab, .featured-recipe, .owl-featured-recipe .item-box,
+.owl-featured-recipe .main-desc, .owl-featured-recipe .item-main-section,
+.recipe-content-sigle .main-right, .recipe-content .item-main-section,
+.recipe-content .main-desc, .recipe-content .item-box {
+  background: #151515;
+}
+.menu-list-section .menu-items-list .menu-item .menu-wrapper,
+.newsletter input, .newsletter textarea,
+.form-group input, .form-group textarea,
+.content-about-box .frame-image .top-mask:before,
+.content-about-box .frame-image .top-mask:after,
+.content-about-box .frame-image .bottom-mask:before,
+.content-about-box .frame-image .bottom-mask:after,
+.content-about-box:nth-child(even) .frame-image .bottom-mask:before,
+.content-about-box:nth-child(even) .frame-image .bottom-mask:after,
+.content-about-box .content,
+.menu-page .menu-standart,
+.comment-respond .form-group input, .comment-respond .form-group textarea,
+.tab-links li.active, .tab-links li.active:hover, .pasta-table td,
+.pasta-table2 tr:nth-child(2n) td, .iconBox:hover .iconBox-icon {
+  background-color: #151515;
+}
+.call-reservation,
+.owl-chef-team-slider .item-frame-box,
+.newsletter,
+.home-gallery,
+.reservation-form .input-group-addon,
+.widget-search .form-group input, .pasta-table th, .pasta-table2 td, .pasta-table2 th,
+.panel-default > .panel-heading, .progress {
+  background-color: #1b1b1b;
+}
+.sb-tags ul li a, .tab-links li, .chefInfo-box, .foodInfo-box,
+.pasta-item-slide #item-thumbs, .recipe-content .bottom-desc {
+  background: #1b1b1b;
+}
+.newsletter .btn {
+  background-color: #494949;
+}
+.call-reservation,
+.owl-chef-team-slider .item-frame-box, hr,
+.newsletter,
+.menu-list-section .menu-items-list .menu-item .menu-wrapper,
+.newsletter .small-title,
+.home-gallery,
+.form-group input, .form-group textarea,
+.content-about-box:nth-child(even),
+.reservation-form .input-group-addon,
+.menu-page .menu-standart .menu-frame,
+.sb-tags ul li a,
+.pagination ul>li,
+.comment-respond .form-group input, .comment-respond .form-group textarea,
+.pasta-table th, .pasta-table td, .pasta-table2 th,
+.panel-default > .panel-heading, .panel-default > .panel-heading + .panel-collapse > .panel-body,
+.owl-featured-recipe .item-main-section, .pasta-item-slide #item-thumbs,
+.recipe-content .item-main-section, .recipe-content .bottom-desc,
+.home-page .contact-map #googleMap {
+  border-color: #323232;
+}
+.pagination, .tab.active, .tab-links li, .tab, .contact-map {
+  border-top-color: #323232;
+}
+.sb-category ul li,
+.comment-section .comment-listings>li,
+.blog-content .main-image,
+.tab-links li.active, .tab-links li.active:hover,
+.tab.active, .tab, .panel-default:last-child > .panel-heading,
+.panel-default:last-child > .panel-heading + .panel-collapse > .panel-body,
+.ingred-list, .foodInfo-box .number-list, .price-content .price-title, .contact-map {
+  border-bottom-color: #323232;
+}
+.comment-section .comment-list-children,
+.tab-links li.active, .tab-links li.active:hover,
+.tab.active, .tab-links li, .tab {
+  border-left-color: #323232;
+}
+.comment-section .comment-list-children,
+.tab-links li.active, .tab-links li.active:hover,
+.tab.active, .tab-links li, .tab {
+  border-right-color: #323232;
+}
+.newsletter input, .newsletter textarea,
+.newsletter .btn, .newsletter .form-control:focus {
+  border-color: #494949;
+}
+.newsletter .btn:hover {
+  background-color: #656565;
+}
+.newsletter .btn:hover {
+  border-color: #656565;
+}
+.newsletter .form-control:focus {
+  -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0px 0px 1px 1px rgba(233, 233, 233, 0.16);
+  -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0px 0px 1px 1px rgba(233, 233, 233, 0.16);
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0px 0px 1px 1px rgba(233, 233, 233, 0.16);
+}
+.section-title,
+.menu-button-filter li.tagsort-active,
+.menu-button-filter li:hover .r-name,
+.menu-list-section .menu-items-list .menu-item .manuscript,
+.owl-chef-team-slider .info .section-title-border,h1, h2, h3, h4, h5, h6,
+.newsletter .big-title,
+.newsletter .btn,
+.section-title-border,
+.blog-content .post-title a,
+.sb-category ul li a, .sb-latest-posts ul li a,
+.comment-listings .comment-info .author,
+.comment-listings .btn-comment, .btn-o-primary,
+.tab-links li.active a, .tab-links li.active a:hover, .iconBox .iconBox-title,
+.recipe-content .bottom-desc li .bd-result, .form-group input, .form-group textarea {
+  color:#e7e7e7;
+}
+body, .section-subtitle,
+.menu-button-filter li,
+.sb-tags ul li a,
+.pagination ul > li a,
+.widget-search .form-group input,
+.comment-respond .form-group input, .comment-respond .form-group textarea,
+.newsletter input, .newsletter textarea, .tab-links li, .pasta-table th,
+.pasta-table td, .panel-default > .panel-heading {
+  color:#999;
+}
+
+/* Dark Skin template style */
+.home-gallery {
+  border: 1px solid #323232;
+}
+.reservation-form .input-group-addon  {
+  border-left: transparent;
+}
+.menu-page .background-img {
+  background-image: -moz-linear-gradient(right, rgba(10, 10, 10, 0.80) 0%,rgba(21, 21, 21, 0.85) 25%,rgb(21, 21, 21) 50%,rgba(21, 21, 21, 0.85) 75%,rgba(10, 10, 10, 0.80) 100%), url(..images/menu-standart-background.png);
+  background-image: -webkit-linear-gradient(right, rgba(10, 10, 10, 0.80) 0%,rgba(21, 21, 21, 0.85) 25%,rgb(21, 21, 21) 50%,rgba(21, 21, 21, 0.85) 75%,rgba(10, 10, 10, 0.80) 100%), url(../images/menu-standart-background.png);
+  background-image: linear-gradient(to right, rgba(10, 10, 10, 0.80) 0%,rgba(21, 21, 21, 0.85) 25%,rgb(21, 21, 21) 50%,rgba(21, 21, 21, 0.85) 75%,rgba(10, 10, 10, 0.80) 100%), url(../images/menu-standart-background.png);
+}
+.recipe-content .bottom-desc {
+  -webkit-box-shadow: 0 3px 0 #323232;
+  -moz-box-shadow: 0 3px 0 #323232;
+  box-shadow: 0 3px 0 #323232;
+}
+.progress {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.78);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.78);
+}
+.owl-chef-team-slider .owl-nav .owl-button-icons,
+.owl-featured-recipe .owl-nav .owl-button-icons {
+  background-image: url(../images/default.png);
+}
+.foodInfo-box {
+  -webkit-box-shadow: 0 3px 0 #323232;
+  -moz-box-shadow: 0 3px 0 #323232;
+  box-shadow: 0 3px 0 #323232;
+}
+/*Datepicer*/
+
+.bootstrap-datetimepicker-widget {
+  background-color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+  border-bottom: 7px solid #1b1b1b;
+  border-bottom-color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+  border-bottom: 6px solid #1b1b1b;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+  border-top: 7px solid #1b1b1b;
+  border-top-color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+  border-top: 6px solid #1b1b1b;
+}
+/*---*/
+.reservation-now .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+  border-bottom: 7px solid #1b1b1b;
+  border-bottom-color: #1b1b1b;
+}
+.reservation-now .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+  border-bottom: 6px solid #1b1b1b;
+}
+.reservation-now .bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+  border-top: 7px solid #1b1b1b;
+  border-top-color: #1b1b1b;
+}
+.reservation-now .bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+  border-top: 6px solid #1b1b1b;
+}
+.reservation-now .bootstrap-datetimepicker-widget table td.old,
+.reservation-now .bootstrap-datetimepicker-widget table td.new {
+  color: #777777;
+  border: 1px solid #262626;
+}
+.bootstrap-datetimepicker-widget table th.disabled,
+.bootstrap-datetimepicker-widget table th.disabled:hover {
+  color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+  background: #C5A86A;
+  color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget table td.cw {
+  color: #fff;
+}
+.bootstrap-datetimepicker-widget table td.day:hover,
+.bootstrap-datetimepicker-widget table td.hour:hover,
+.bootstrap-datetimepicker-widget table td.minute:hover,
+.bootstrap-datetimepicker-widget table td.second:hover {
+  background: #C5A86A;
+  color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget table td.old,
+.bootstrap-datetimepicker-widget table td.new {
+  color: #777777;
+  border: 1px solid #262626;
+}
+.bootstrap-datetimepicker-widget table td.today:before {
+  content: '';
+  border-bottom-color: #C5A86A;
+  border-top-color: rgba(0, 0, 0, 0.2);
+}
+/*active day*/
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #C5A86A;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget table td.active.today:before {
+  border-bottom-color: #fff;
+}
+.bootstrap-datetimepicker-widget table td.disabled,
+.bootstrap-datetimepicker-widget table td.disabled:hover {
+  color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget table td span:hover {
+  background: #C5A86A;
+  color: #1b1b1b;
+}
+.bootstrap-datetimepicker-widget table td span.active {
+  background-color: #C5A86A;
+  color: #1e1e1e;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget table td span.old {
+  color: #C5A86A;
+}
+.bootstrap-datetimepicker-widget table td span.disabled,
+.bootstrap-datetimepicker-widget table td span.disabled:hover {
+  color: #1e1e1e;
+}

@@ -1,0 +1,406 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  background-color:blanchedalmond;
+  font: normal 14px Verdana, Arial, sans-serif !important;
+  animation: pulse 5s infinite;
+}
+/*code here copied from lecture notes to get the animation */
+
+.currWeath{text-align: center}
+
+div1{
+    
+
+
+    
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;;
+  overflow: scroll;
+  margin: auto;
+  margin: 0 auto;
+  height: 500px;
+  border-radius: 3px;
+  align-items: stretch;
+
+}
+
+div1 .overallDiv{
+  width: 100%;
+    height: 250px;
+  
+}
+
+.overallDiv{
+    border:groove;
+    border-color: #52a8ff;
+  margin: 7px;
+        padding: 5px;
+}
+
+
+
+.load-weather{
+  display:block; 
+  margin:0 auto; 
+  position:relative;
+  font-style:normal;
+  font-weight:normal;
+  font-size:14px;
+  border:none;
+  text-align:center;
+  cursor:pointer;
+  border-radius:2px;
+
+
+}
+
+nav {
+  /*
+  Code here is copied from lab 6 solution
+  to help me with the layout of the header at the top
+  https://thimble.mozilla.org/en-US/user/danielzenk/849598
+  */
+  display: flex;
+  background-color: hsl(210, 100%, 66%);
+  padding-top: 10px; 
+  padding-bottom: 10px;
+  height: 40px;
+  justify-content: space-around;
+    box-sizing: content-box;
+}
+
+
+aside{
+  display: none;
+}
+
+.itsImage{
+  height: 60px;
+  display:block; /* change this from inline-block */
+  margin:0 auto;
+}
+.weatherDiv{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.windSpeedDiv{
+  text-align:center;
+}
+
+
+.currentTempDiv{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.rainAlert{
+    background-color: red;
+    text-align: center;
+    position: relative;
+    top: -23.5vh;
+    width: 82%;
+}
+
+.news-button1{
+  width: 50px; 
+}
+
+
+
+@media screen and (min-width: 480px) {
+  
+  .navButton{
+    height: 40px;
+    width: 90px;
+  }
+
+
+  .windSpeedDiv{
+    font-size: 25px;
+  }
+  
+  
+  .currentTempDiv{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+
+}
+
+body {
+  margin: 0;
+  background-color:#f6f1ed;
+  animation: pulse 5s infinite;
+}
+/*code here copied from lecture notes to get the animation */
+
+
+
+
+.navButton{
+  height: 40px;
+  width: 40px;
+  background-color: hsl(210, 100%, 75%);
+  border-radius: 7px;
+  border-width: thin;
+  border-color: hsl(210, 100%, 75%);
+  color: white;
+  align-self: auto
+    padding: 5% 5%;
+  text-align: center;
+}
+
+
+.navButton:active {
+  background-color:greenyellow;}
+
+
+
+
+
+.newsOptions{
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  background-color: #4CAF50; /* Green */
+  border-width:thin;
+  border-radius:7px; 
+  border-color: #4CAF50;
+  color: white;
+  align-self: auto;
+  text-align: center;
+  font-size: 16px;
+  height: auto;
+  width: auto;
+}
+aside{
+  display: none; 
+}
+
+.newsOptions : hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.weekHead{
+  text-align: center;
+}
+
+.weatherDiv{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.windSpeedDiv{
+  text-align:center;
+}
+
+.currentTempDiv{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.rainAlert{
+  background-color: red;
+  text-align: center;
+}
+
+.news-button1{
+  width: 50px; 
+}
+
+
+
+@media screen and (min-width: 480px) {
+
+  .navButton{
+    height: 40px;
+    width: 90px;
+  }
+
+  .newsOptions:active {
+    background-color: aqua;
+  }
+
+
+  .newsOptions{
+    border-radius:7px; 
+    background-color: #4CAF50; /* Green */
+    border-width:thin;
+    color: white;
+    padding:1% 2%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    height: auto;
+    width: auto;
+  }
+    
+    
+    .selected, .selected2 {
+        
+        background-color: orange !important;
+    }    
+    
+    
+    
+  aside{
+    display: inline;
+    text-align: center;
+    background-color: #95aef5;
+    float: right;
+    width: 25%;
+    max-width: 200px;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+
+}
+
+.weather-option{
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  height: auto;
+  width: auto;
+  border-radius:7px; 
+  background-color: #4CAF50; /* Green */
+  border-width:thin;
+  color: white;
+  padding: 1% 2%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.days{
+  background-color: #4CAF50; /* Green */
+  border-width:thin;
+  color: white;
+  padding: 1% 2%;
+  text-align: center;
+  border-radius:7px;
+  text-decoration: none;
+  font-size: 16px;
+  height: auto;
+  width: auto;
+}
+
+.weather-option:active {
+  background-color: aqua;
+}
+
+.news-option:active {
+  background-color: aqua;
+}
+.days:active{
+  background-color:aqua;
+}
+
+.overallDiv p {
+    display: flex;
+    width: 50%;
+    height: 12%;
+    
+}
+
+.overallDiv span {
+    display: flex;
+    width: 50%;
+    height: 30%;
+    
+}
+hr {
+    
+    height: 12px !important;
+    border: 0 !important;
+    box-shadow: inset 0 15px 15px -15px rgba(0, 0, 0, 0.5) !important;
+    
+}
+
+h1{
+    font-family: cursive;
+}
+
+
+.card4{
+    order: 0;
+    border-radius: 0.1875rem;
+    display: inline-flex;
+    position: relative;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    width: 25vw !important;
+    height: 50vh !important;
+        flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.card-img-top:hover{
+    transform:none !important;
+}
+
+.card-img-top img{
+width: 100%;
+    height: 25vh;
+    border: 9px;
+    border-style: inset;
+    border-color: #ebebeb;
+}
+
+#search-results{
+    display:inline-block;    position: absolute;
+    top: 30%;
+    left:10%;
+}
+
+.card-subtitle{
+    padding-left: 5%;
+    padding-bottom: 10%;
+        color: #979797;
+    
+}
+
+.card-text {
+    padding-left:5%;
+    overflow-y: scroll;
+}
+
+.card-text::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.card-text::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.card-text::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.card-text::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+@media screen and (max-width: 600px) {
+    
+    #search-results{
+        display: grid;
+    }
+    
+    .card4 {
+       width: 50vw !important;
+    left: 25%;
+    }
+}

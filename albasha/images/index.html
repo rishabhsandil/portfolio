@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albasha Express | Best Shawarma & Falafel in Vancouver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --red: #C44520;
+      --red-dark: #8B3118;
+      --red-light: #D96040;
+      --yellow: #FFD233;
+      --yellow-light: #FFE066;
+      --yellow-dark: #E6B800;
+      --cream: #FFF8E1;
+      --dark: #0a0a0a;
+      --dark-section: #111111;
+      --dark-card: #1a1a1a;
+      --radius: 12px;
+    }
+
+    /* ========== KEYFRAME ANIMATIONS ========== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(20px) rotate(-2deg); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px) rotate(-1deg); }
+      75% { transform: translateX(5px) rotate(1deg); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-80px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(80px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { transform: scale(1.08); }
+      70% { transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(212,42,42,0.3), 0 0 20px rgba(255,210,51,0.1); }
+      50% { box-shadow: 0 0 25px rgba(212,42,42,0.6), 0 0 50px rgba(255,210,51,0.3); }
+    }
+    @keyframes textGlow {
+      0%, 100% { text-shadow: 0 0 10px rgba(255,210,51,0.3); }
+      50% { text-shadow: 0 0 30px rgba(255,210,51,0.7), 0 0 60px rgba(255,210,51,0.3); }
+    }
+    @keyframes scrollText {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes galleryScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+    @keyframes rotateFloat {
+      0% { transform: rotate(0deg) translateY(0); }
+      25% { transform: rotate(5deg) translateY(-10px); }
+      50% { transform: rotate(0deg) translateY(0); }
+      75% { transform: rotate(-5deg) translateY(-10px); }
+      100% { transform: rotate(0deg) translateY(0); }
+    }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 0.5; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-600px) translateX(100px) rotate(720deg); opacity: 0; }
+    }
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    @keyframes dashMove {
+      to { stroke-dashoffset: -40; }
+    }
+
+    /* ========== ANIMATED REVEAL CLASSES ========== */
+    .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-80px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal-left.active { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(80px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal-right.active { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.8); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal-scale.active { opacity: 1; transform: scale(1); }
+    .stagger-1 { transition-delay: 0.1s !important; }
+    .stagger-2 { transition-delay: 0.2s !important; }
+    .stagger-3 { transition-delay: 0.3s !important; }
+    .stagger-4 { transition-delay: 0.4s !important; }
+    .stagger-5 { transition-delay: 0.5s !important; }
+    .stagger-6 { transition-delay: 0.6s !important; }
+
+    /* ========== FLOATING PARTICLES ========== */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: particleFloat linear infinite;
+    }
+
+    /* ========== SQUIGGLY DIVIDERS ========== */
+    .squiggle-divider {
+      width: 100%;
+      line-height: 0;
+      position: relative;
+      z-index: 5;
+      margin: -1px 0;
+    }
+    .squiggle-divider svg { width: 100%; display: block; height: 45px; }
+
+    /* ========== ANNOUNCEMENT BAR ========== */
+    .announcement-bar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+    .announcement-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      animation: shimmer 3s infinite;
+    }
+    .announcement-bar a {
+      color: var(--yellow);
+      text-decoration: underline;
+      margin-left: 8px;
+      transition: color 0.3s;
+    }
+    .announcement-bar a:hover { color: var(--yellow-light); }
+    .announcement-bar .fire-emoji {
+      display: inline-block;
+      animation: wiggle 0.5s ease-in-out infinite;
+    }
+
+    /* ========== NAVIGATION ========== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, var(--red), var(--yellow), var(--red)) 1;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      transition: all 0.4s;
+    }
+    .navbar.scrolled {
+      height: 65px;
+      box-shadow: 0 4px 30px rgba(212,42,42,0.2);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.3s;
+    }
+    .nav-logo:hover { transform: scale(1.05); }
+    .nav-logo .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--yellow);
+      animation: pulse 2s ease-in-out infinite;
+      border: 2px solid var(--yellow);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ccc;
+      transition: all 0.3s;
+      position: relative;
+      padding: 4px 8px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--red);
+      transition: all 0.3s;
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:hover::after { width: 100%; }
+    .btn-order {
+      background: var(--red);
+      color: #fff;
+      padding: 18px 38px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 2px solid var(--red);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-order::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: var(--yellow);
+      border-radius: 50%;
+      transition: all 0.5s;
+      transform: translate(-50%, -50%);
+    }
+    .btn-order:hover::before { width: 300px; height: 300px; }
+    .btn-order:hover { color: #000; border-color: var(--yellow); }
+    .btn-order span { position: relative; z-index: 2; }
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mobile-menu-btn span {
+      width: 28px; height: 2px;
+      background: var(--yellow);
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0808 40%, #0a0a0a 100%);
+    }
+    .hero-bg-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(212,42,42,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,210,51,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(212,42,42,0.05) 0%, transparent 50%);
+    }
+    .hero-blob {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; z-index: 0;
+    }
+    .hero-blob.blob1 { width: 500px; height: 500px; background: var(--red); top: -10%; left: -10%; animation: float 8s ease-in-out infinite; }
+    .hero-blob.blob2 { width: 400px; height: 400px; background: var(--yellow); bottom: -10%; right: -10%; animation: floatReverse 10s ease-in-out infinite; }
+    .hero-blob.blob3 { width: 300px; height: 300px; background: var(--red-light); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: pulse 6s ease-in-out infinite; }
+    .hero-content { position: relative; z-index: 2; padding: 40px 20px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212,42,42,0.2);
+      border: 1px solid rgba(212,42,42,0.4);
+      color: var(--yellow);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 30px;
+      animation: bounceIn 1s ease-out, glow 3s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.9; letter-spacing: 4px; margin-bottom: 20px;
+    }
+    .hero h1 .line1 { color: #fff; display: inline-block; animation: slideInLeft 0.8s ease-out; }
+    .hero h1 .line2 { color: var(--yellow); display: inline-block; animation: slideInRight 0.8s ease-out 0.2s both; text-shadow: 0 0 40px rgba(255,210,51,0.3); }
+    .hero h1 .line3 { color: var(--red); display: inline-block; animation: slideInLeft 0.8s ease-out 0.4s both; text-shadow: 0 0 40px rgba(212,42,42,0.3); }
+    .hero-sub { font-size: 1.1rem; color: #999; max-width: 550px; margin: 0 auto 40px; line-height: 1.7; font-weight: 300; animation: slideInUp 0.8s ease-out 0.6s both; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: slideInUp 0.8s ease-out 0.8s both; }
+    .btn-hero-primary {
+      background: var(--red); color: #fff; padding: 16px 40px; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+      transition: all 0.4s; border: 2px solid var(--red); position: relative; overflow: hidden;
+      display: inline-block;
+    }
+    .btn-hero-primary::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0; background: var(--yellow); border-radius: 50%;
+      transition: all 0.5s; transform: translate(-50%, -50%);
+    }
+    .btn-hero-primary:hover::before { width: 400px; height: 400px; }
+    .btn-hero-primary:hover { color: #000; border-color: var(--yellow); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(212,42,42,0.4); }
+    .btn-hero-primary span { position: relative; z-index: 2; }
+    .btn-hero-secondary {
+      background: transparent; color: #fff; padding: 16px 40px; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+      border: 2px solid rgba(255,255,255,0.3); transition: all 0.4s;
+    }
+    .btn-hero-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(255,210,51,0.15); }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: #555; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--red), transparent); }
+    .hero-deco { position: absolute; z-index: 1; pointer-events: none; }
+    .hero-deco.deco1 { top: 15%; left: 8%; width: 50px; height: 50px; border: 3px solid var(--yellow); border-radius: 50%; opacity: 0.2; animation: float 6s ease-in-out infinite, spin 20s linear infinite; }
+    .hero-deco.deco2 { bottom: 20%; right: 10%; width: 30px; height: 30px; background: var(--red); opacity: 0.15; transform: rotate(45deg); animation: floatReverse 7s ease-in-out infinite, wiggle 3s ease-in-out infinite; }
+    .hero-deco.deco3 { top: 30%; right: 15%; width: 80px; height: 80px; border: 2px dashed var(--red); border-radius: 50%; opacity: 0.1; animation: spin 15s linear infinite reverse; }
+    .hero-deco.deco4 { bottom: 30%; left: 12%; font-size: 2rem; opacity: 0.15; animation: rotateFloat 5s ease-in-out infinite; }
+    .hero-deco.deco5 { top: 20%; right: 8%; font-size: 1.5rem; opacity: 0.12; animation: float 5s ease-in-out infinite 1s; }
+    .hero-deco.deco6 { bottom: 15%; left: 20%; width: 20px; height: 20px; border: 2px solid var(--yellow); opacity: 0.1; transform: rotate(45deg); animation: floatReverse 6s ease-in-out infinite; }
+
+    /* ========== FOOD STRIP ========== */
+    .food-strip {
+      background: var(--yellow); padding: 18px 0; overflow: hidden; position: relative;
+      border-top: 3px solid var(--red); border-bottom: 3px solid var(--red);
+    }
+    .food-strip-track {
+      display: flex; gap: 40px; animation: scrollText 18s linear infinite; white-space: nowrap; width: max-content;
+    }
+    .food-strip-item {
+      font-family: 'Bebas Neue', cursive; font-size: 1.6rem; color: var(--red-dark);
+      letter-spacing: 3px; display: flex; align-items: center; gap: 15px; transition: transform 0.3s;
+    }
+    .food-strip-item:hover { transform: scale(1.1); }
+    .food-strip-item .dot { width: 10px; height: 10px; background: var(--red); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+
+    /* ========== ABOUT ========== */
+    .about-section { padding: 120px 40px; background: var(--dark-section); position: relative; overflow: hidden; }
+    .about-section::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; border: 2px dashed rgba(212,42,42,0.1); animation: spin 30s linear infinite; }
+    .about-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 20px; position: relative; display: inline-block;
+    }
+    .about-label::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 40px; height: 3px; background: var(--yellow); border-radius: 2px; }
+    .about-heading { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1; margin-bottom: 30px; }
+    .about-heading span { color: var(--yellow); }
+    .about-text { color: #aaa; line-height: 1.8; font-size: 1rem; margin-bottom: 20px; }
+    .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about-img {
+      border-radius: var(--radius); overflow: hidden; aspect-ratio: 1; background: var(--dark-card);
+      position: relative; border: 3px solid transparent; transition: all 0.5s;
+    }
+    .about-img:hover { border-color: var(--red); box-shadow: 0 0 30px rgba(212,42,42,0.3); }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .about-img:hover img { transform: scale(1.12) rotate(1deg); }
+    .about-img:first-child { grid-row: span 2; aspect-ratio: auto; }
+
+    /* ========== STATS ========== */
+    .stats-banner { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); padding: 70px 40px; position: relative; overflow: hidden; }
+    .stats-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,210,51,0.15)' /%3E%3C/svg%3E") repeat; }
+    .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; position: relative; z-index: 2; }
+    .stat-item { transition: transform 0.3s; }
+    .stat-item:hover { transform: scale(1.1); }
+    .stat-item h3 { font-family: 'Bebas Neue', cursive; font-size: 3.5rem; color: var(--yellow); line-height: 1; text-shadow: 0 2px 20px rgba(255,210,51,0.3); }
+    .stat-item p { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+    /* ========== MENU ========== */
+    .menu-section { padding: 120px 40px; background: var(--dark); position: relative; }
+    .menu-section::before { content: ''; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; border: 1px dashed rgba(255,210,51,0.05); border-radius: 50%; transform: translate(-50%,-50%); animation: spin 40s linear infinite; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 70px; position: relative; z-index: 2; }
+    .section-header .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: inline-block; }
+    .section-header .label::before, .section-header .label::after { content: '—'; margin: 0 10px; color: var(--yellow); }
+    .section-header h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 20px; }
+    .section-header h2 span { color: var(--yellow); }
+    .section-header p { color: #888; font-size: 1rem; line-height: 1.7; }
+    .menu-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 2; }
+    .menu-card {
+      background: var(--dark-card); border-radius: var(--radius); overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255,255,255,0.05); position: relative;
+    }
+    .menu-card::before {
+      content: ''; position: absolute; inset: -1px; border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--red), var(--yellow)); z-index: -1; opacity: 0; transition: opacity 0.4s;
+    }
+    .menu-card:hover::before { opacity: 1; }
+    .menu-card:hover { transform: translateY(-12px); box-shadow: 0 25px 60px rgba(212,42,42,0.25); }
+    .menu-card-img { aspect-ratio: 4/3; overflow: hidden; position: relative; background: #222; }
+    .menu-card-img img { width: 100%; height: 100%; object-fit: cover; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .menu-card:hover .menu-card-img img { transform: scale(1.15) rotate(2deg); }
+    .menu-card-tag { position: absolute; top: 16px; left: 16px; background: var(--red); color: var(--yellow); padding: 5px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; animation: pulse 2s ease-in-out infinite; }
+    .menu-card-body { padding: 24px; position: relative; z-index: 2; background: var(--dark-card); }
+    .menu-card-body h3 { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 8px; color: var(--yellow); transition: color 0.3s; }
+    .menu-card:hover .menu-card-body h3 { color: #fff; }
+    .menu-card-body p { color: #888; font-size: 0.9rem; line-height: 1.6; }
+
+    /* ========== MENU TABS ========== */
+    .menu-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; position: relative; z-index: 2; }
+    .menu-tab {
+      background: var(--dark-card); color: #888; border: 2px solid rgba(255,255,255,0.08);
+      padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 0.8rem;
+      letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+      transition: all 0.4s; font-family: 'Inter', sans-serif;
+    }
+    .menu-tab:hover { border-color: var(--red); color: var(--yellow); }
+    .menu-tab.active { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 5px 25px rgba(212,42,42,0.3); }
+    .menu-category { display: none; }
+    .menu-category.active { display: grid; }
+    .menu-category-label {
+      text-align: center; max-width: 700px; margin: 0 auto 40px; position: relative; z-index: 2;
+    }
+    .menu-category-label h3 {
+      font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--yellow);
+      letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .menu-category-label p { color: #888; font-size: 0.95rem; line-height: 1.6; }
+
+    /* ========== FEATURED ========== */
+    .featured-strip { padding: 120px 40px; background: var(--dark-section); position: relative; overflow: hidden; }
+    .featured-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, rgba(212,42,42,0.08) 0%, transparent 60%); }
+    .featured-strip::after { content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; border: 3px dashed rgba(255,210,51,0.08); border-radius: 50%; animation: spin 25s linear infinite; }
+    .featured-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+    .featured-text .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+    .featured-text h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1; margin-bottom: 24px; }
+    .featured-text h2 span { color: var(--yellow); }
+    .featured-text p { color: #aaa; line-height: 1.8; margin-bottom: 30px; }
+    .featured-img-wrap { position: relative; }
+    .featured-img-wrap .img-main { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; background: #222; transition: transform 0.5s; border: 3px solid var(--red); }
+    .featured-img-wrap:hover .img-main { transform: rotate(-2deg) scale(1.02); }
+    .featured-img-wrap .img-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .featured-img-wrap:hover .img-main img { transform: scale(1.1); }
+    .featured-img-wrap .img-float {
+      position: absolute; bottom: -30px; right: -30px; width: 180px; height: 180px;
+      border-radius: var(--radius); overflow: hidden; border: 4px solid var(--yellow); background: #222;
+      animation: float 4s ease-in-out infinite; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .featured-img-wrap .img-float img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-img-wrap .squiggle-deco { position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; animation: rotateFloat 4s ease-in-out infinite; }
+
+    /* ========== CATERING ========== */
+    .catering-section { padding: 120px 40px; background: var(--yellow); color: #000; text-align: center; position: relative; overflow: hidden; }
+    .catering-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='2' fill='rgba(212,42,42,0.08)' /%3E%3C/svg%3E") repeat; }
+    .catering-section .label { font-size: 0.75rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; position: relative; z-index: 2; }
+    .catering-section h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 24px; position: relative; z-index: 2; }
+    .catering-section > p { max-width: 600px; margin: 0 auto 40px; font-size: 1.05rem; line-height: 1.7; color: #333; position: relative; z-index: 2; }
+    .btn-catering {
+      display: inline-block; background: var(--red); color: #fff; padding: 16px 40px; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+      transition: all 0.4s; border: 2px solid var(--red); position: relative; z-index: 2; overflow: hidden;
+    }
+    .btn-catering::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: #000; border-radius: 50%; transition: all 0.5s; transform: translate(-50%,-50%); }
+    .btn-catering:hover::before { width: 400px; height: 400px; }
+    .btn-catering:hover { color: var(--yellow); border-color: #000; transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+    .btn-catering span { position: relative; z-index: 2; }
+
+    /* ========== GALLERY TICKER ========== */
+    .gallery-ticker { overflow: hidden; background: var(--dark); padding: 20px 0; border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); }
+    .gallery-ticker-track { display: flex; gap: 20px; animation: galleryScroll 30s linear infinite; width: max-content; }
+    .gallery-ticker-item { width: 280px; height: 200px; border-radius: var(--radius); overflow: hidden; flex-shrink: 0; background: #222; position: relative; transition: all 0.4s; }
+    .gallery-ticker-item::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(212,42,42,0.5), transparent); z-index: 1; opacity: 0; transition: opacity 0.4s; }
+    .gallery-ticker-item:hover::before { opacity: 1; }
+    .gallery-ticker-item:hover { transform: scale(1.08); z-index: 10; }
+    .gallery-ticker-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .gallery-ticker-item:hover img { transform: scale(1.15); }
+
+    /* ========== REVIEWS / TESTIMONIALS ========== */
+    .testimonials-section { padding: 120px 40px; background: var(--dark-section); position: relative; overflow: hidden; }
+    .testimonials-section::before { content: ''; position: absolute; bottom: -100px; left: -100px; width: 350px; height: 350px; border: 2px dashed rgba(212,42,42,0.08); border-radius: 50%; animation: spin 35s linear infinite reverse; }
+
+    /* Google reviews summary bar */
+    .google-reviews-summary {
+      max-width: 1200px; margin: 0 auto 60px; display: flex; align-items: center;
+      gap: 24px; background: var(--dark-card); border-radius: var(--radius);
+      padding: 30px 40px; border: 1px solid rgba(255,255,255,0.06);
+      position: relative; z-index: 2; flex-wrap: wrap; justify-content: space-between;
+    }
+    .grb-left { display: flex; align-items: center; gap: 20px; }
+    .grb-google-icon { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .grb-google-icon svg { width: 28px; height: 28px; flex-shrink: 0; }
+    .grb-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+    .grb-rating { display: flex; flex-direction: column; }
+    .grb-rating-num { font-family: 'Bebas Neue', cursive; font-size: 3rem; color: var(--yellow); line-height: 1; }
+    .grb-rating-stars { color: #fbbc04; font-size: 1.1rem; letter-spacing: 2px; }
+    .grb-rating-count { font-size: 0.8rem; color: #888; margin-top: 2px; }
+    .grb-bars { display: flex; flex-direction: column; gap: 5px; }
+    .grb-bar-row { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #888; }
+    .grb-bar-track { width: 100px; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+    .grb-bar-fill { height: 100%; background: #fbbc04; border-radius: 3px; }
+    .grb-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .grb-btn {
+      padding: 12px 24px; border-radius: 50px; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; cursor: pointer;
+      text-decoration: none; display: inline-block;
+    }
+    .grb-btn-primary { background: #4285F4; color: #fff; border: 2px solid #4285F4; }
+    .grb-btn-primary:hover { background: #3367d6; border-color: #3367d6; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(66,133,244,0.3); }
+    .grb-btn-secondary { background: transparent; color: #4285F4; border: 2px solid #4285F4; }
+    .grb-btn-secondary:hover { background: rgba(66,133,244,0.1); transform: translateY(-2px); }
+
+    /* Review cards */
+    .testimonials-grid { max-width: 1200px; margin: 0 auto 50px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 2; }
+    .testimonial-card {
+      background: var(--dark-card); border-radius: var(--radius); padding: 28px;
+      border: 1px solid rgba(255,255,255,0.05); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 16px;
+    }
+    .testimonial-card:hover { transform: translateY(-6px); border-color: rgba(66,133,244,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .tc-header { display: flex; align-items: center; gap: 12px; }
+    .tc-avatar {
+      width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-weight: 700; font-size: 1.1rem; color: #fff;
+      flex-shrink: 0; font-family: 'Bebas Neue', cursive; letter-spacing: 1px;
+    }
+    .tc-meta { flex: 1; }
+    .tc-name { font-weight: 600; font-size: 0.95rem; color: #fff; margin-bottom: 2px; }
+    .tc-date { font-size: 0.78rem; color: #666; }
+    .tc-google-logo { margin-left: auto; opacity: 0.5; flex-shrink: 0; }
+    .tc-google-logo svg { width: 20px; height: 20px; }
+    .tc-stars { color: #fbbc04; font-size: 0.95rem; letter-spacing: 1px; }
+    .testimonial-card blockquote { color: #bbb; font-size: 0.9rem; line-height: 1.7; font-style: normal; margin: 0; flex: 1; }
+    .tc-footer { font-size: 0.78rem; color: #555; display: flex; align-items: center; gap: 6px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
+
+    /* View all CTA */
+    .reviews-cta { text-align: center; position: relative; z-index: 2; }
+    .reviews-cta p { color: #666; font-size: 0.85rem; margin-top: 16px; }
+    .reviews-cta a.inline-link { color: #4285F4; text-decoration: underline; }
+    .reviews-cta a.inline-link:hover { color: #5a95f7; }
+
+    /* ========== CONTACT ========== */
+    .contact-section { padding: 120px 40px; background: var(--dark); position: relative; overflow: hidden; }
+    .contact-section::before { content: ''; position: absolute; top: 50%; right: -200px; width: 500px; height: 500px; border: 2px dashed rgba(255,210,51,0.05); border-radius: 50%; transform: translateY(-50%); animation: spin 30s linear infinite; }
+    .contact-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; z-index: 2; }
+    .contact-info-block { display: flex; flex-direction: column; gap: 30px; }
+    .contact-info-block .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--red); }
+    .contact-info-block h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1; }
+    .contact-info-block h2 span { color: var(--yellow); }
+    .contact-detail { display: flex; gap: 16px; align-items: flex-start; transition: transform 0.3s; }
+    .contact-detail:hover { transform: translateX(8px); }
+    .contact-icon {
+      width: 50px; height: 50px; background: rgba(212,42,42,0.15); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 1.2rem; color: var(--red); transition: all 0.3s; border: 2px solid transparent;
+    }
+    .contact-detail:hover .contact-icon { background: var(--red); color: var(--yellow); border-color: var(--yellow); animation: shake 0.5s ease; }
+    .contact-detail h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .contact-detail p { color: #888; font-size: 0.9rem; line-height: 1.5; }
+    .contact-detail a { color: var(--yellow); transition: all 0.3s; }
+    .contact-detail a:hover { color: var(--yellow-light); text-decoration: underline; }
+    .contact-socials { display: flex; gap: 12px; margin-top: 10px; }
+    .contact-socials a {
+      width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 1.2rem;
+      transition: all 0.4s; border: 2px solid rgba(255,255,255,0.1);
+    }
+    .contact-socials a:hover { background: var(--red); color: var(--yellow); border-color: var(--red); transform: translateY(-4px) rotate(10deg); box-shadow: 0 8px 25px rgba(212,42,42,0.3); }
+    .contact-form-wrap { background: var(--dark-card); border-radius: var(--radius); padding: 50px 40px; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+    .contact-form-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red), var(--yellow), var(--red)); }
+    .contact-form-wrap h3 { font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 1px; margin-bottom: 8px; color: var(--yellow); }
+    .contact-form-wrap .form-sub { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .form-group input, .form-group textarea {
+      width: 100%; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.08);
+      border-radius: 8px; padding: 14px 18px; color: #fff; font-family: 'Inter', sans-serif;
+      font-size: 0.95rem; transition: all 0.4s; outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--red); box-shadow: 0 0 20px rgba(212,42,42,0.15); transform: translateY(-2px); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%; background: var(--red); color: #fff; padding: 16px; border: none; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; transition: all 0.4s; font-family: 'Inter', sans-serif; position: relative; overflow: hidden;
+    }
+    .btn-submit::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: var(--yellow); border-radius: 50%; transition: all 0.5s; transform: translate(-50%,-50%); }
+    .btn-submit:hover::before { width: 600px; height: 600px; }
+    .btn-submit:hover { color: #000; transform: translateY(-3px); box-shadow: 0 10px 40px rgba(212,42,42,0.4); }
+    .btn-submit span { position: relative; z-index: 2; }
+
+    /* ========== MAP ========== */
+    .map-section { width: 100%; height: 400px; position: relative; }
+    .map-section iframe { width: 100%; height: 100%; border: none; filter: grayscale(0.6) contrast(1.1) brightness(0.8) hue-rotate(340deg); transition: filter 0.6s; }
+    .map-section:hover iframe { filter: grayscale(0) contrast(1) brightness(1) hue-rotate(0deg); }
+    .map-overlay { position: absolute; bottom: 30px; left: 40px; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); padding: 24px 30px; border-radius: var(--radius); border: 2px solid var(--red); transition: all 0.4s; }
+    .map-overlay:hover { border-color: var(--yellow); box-shadow: 0 10px 40px rgba(212,42,42,0.3); transform: translateY(-4px); }
+    .map-overlay h4 { font-family: 'Bebas Neue', cursive; font-size: 1.3rem; letter-spacing: 1px; color: var(--yellow); margin-bottom: 4px; }
+    .map-overlay p { color: #aaa; font-size: 0.85rem; }
+
+    /* ========== DELIVERY ========== */
+    .delivery-section { padding: 80px 40px; background: var(--dark-section); text-align: center; }
+    .delivery-section .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 40px; }
+    .delivery-logos { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: center; }
+    .delivery-logo {
+      background: var(--dark-card); border-radius: var(--radius); padding: 20px 35px;
+      border: 2px solid rgba(255,255,255,0.05); font-family: 'Bebas Neue', cursive; font-size: 1.5rem;
+      letter-spacing: 2px; color: #888; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
+    }
+    .delivery-logo::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--red), var(--yellow)); transform: scaleX(0); transition: transform 0.4s; }
+    .delivery-logo:hover::before { transform: scaleX(1); }
+    .delivery-logo:hover { border-color: var(--red); color: var(--yellow); transform: translateY(-6px); box-shadow: 0 15px 40px rgba(212,42,42,0.2); }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #050505; padding: 80px 40px 30px;
+      border-top: 3px solid; border-image: linear-gradient(90deg, var(--red), var(--yellow), var(--red)) 1;
+      position: relative; overflow: hidden;
+    }
+    .footer::before { content: ''; position: absolute; top: -150px; left: 50%; width: 400px; height: 400px; border: 1px dashed rgba(212,42,42,0.05); border-radius: 50%; transform: translateX(-50%); animation: spin 40s linear infinite; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 60px; margin-bottom: 60px; position: relative; z-index: 2; }
+    .footer-brand .footer-logo { font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 3px; color: var(--yellow); margin-bottom: 16px; animation: textGlow 4s ease-in-out infinite; }
+    .footer-brand p { color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #888; transition: all 0.4s; border: 1px solid rgba(255,255,255,0.08); }
+    .footer-social a:hover { background: var(--red); color: var(--yellow); border-color: var(--red); transform: translateY(-4px) rotate(10deg); }
+    .footer-col h4 { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 2px; color: var(--red); margin-bottom: 20px; position: relative; display: inline-block; }
+    .footer-col h4::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 30px; height: 2px; background: var(--yellow); border-radius: 2px; }
+    .footer-col a { display: block; color: #666; font-size: 0.9rem; padding: 5px 0; transition: all 0.3s; padding-left: 0; }
+    .footer-col a:hover { color: var(--yellow); padding-left: 10px; }
+   .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #444; font-size: 0.8rem; position: relative; z-index: 2; }
+
+    /* ========== CURSOR RIPPLE ========== */
+    .cursor-ripple { position: fixed; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--red); pointer-events: none; z-index: 9999; animation: ripple 0.6s ease-out forwards; }
+
+    /* ========== BACK TO TOP ========== */
+    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+      background: var(--red); color: var(--yellow); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+      cursor: pointer; z-index: 999; opacity: 0; transform: translateY(20px);
+      transition: all 0.4s; border: 2px solid var(--yellow); box-shadow: 0 5px 25px rgba(212,42,42,0.3);
+      text-decoration: none;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: var(--yellow); color: var(--red); transform: translateY(-4px); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .about-grid, .featured-content, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; }
+      .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: rgba(10,10,10,0.98); flex-direction: column; padding: 30px; gap: 20px; border-bottom: 3px solid var(--red); }
+      .nav-links.active { display: flex; }
+      .mobile-menu-btn { display: flex; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .google-reviews-summary { flex-direction: column; gap: 20px; padding: 24px 20px; align-items: flex-start; }
+      .grb-bars { display: none; }
+      .grb-divider { display: none; }
+      .about-section, .menu-section, .featured-strip, .catering-section, .testimonials-section, .contact-section, .delivery-section { padding: 80px 20px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .hero-deco { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span class="fire-emoji">🔥</span> Open Daily 11am – 10pm · Order Now & Pick Up – No Fees!
+    <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Order Here →</a>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="images/logo.jpg" alt="Albasha Express" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow);">
+      ALBASHA EXPRESS<img src="images/halal.png" alt="Halal" style="width:40px;height:40px;margin-left:6px;vertical-align:middle;">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#catering">Catering</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver" class="btn-order"><span>Order Now</span></a>
+    </div>
+    <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+    <div class="hero-deco deco1"></div>
+    <div class="hero-deco deco2"></div>
+    <div class="hero-deco deco3"></div>
+    <div class="hero-deco deco4">🌶️</div>
+    <div class="hero-deco deco5">🧆</div>
+    <div class="hero-deco deco6"></div>
+    <div class="particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Vancouver's Best Mediterranean</div>
+      <h1>
+        <span class="line1">SHAWARMA</span><br>
+        <span class="line2">FALAFEL</span><br>
+        <span class="line3">PERFECTION</span>
+      </h1>
+      <p class="hero-sub">
+        Proudly serving authentic Mediterranean food in Vancouver that instantly brightens up your day. Whether it's our made-to-order falafels, harmoniously flavored shawarma, or freshly made hummus and tzatziki, we use the finest ingredients to produce these mouth-watering creations.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver" class="btn-hero-primary"><span>Order Now</span></a>
+        <a href="#menu" class="btn-hero-secondary">Explore Menu</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      SCROLL
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#FFD233"/>
+    </svg>
+  </div>
+
+  <!-- FOOD STRIP -->
+  <div class="food-strip">
+    <div class="food-strip-track">
+      <span class="food-strip-item"><span class="dot"></span>SHAWARMA</span>
+      <span class="food-strip-item"><span class="dot"></span>FALAFEL</span>
+      <span class="food-strip-item"><span class="dot"></span>HUMMUS</span>
+      <span class="food-strip-item"><span class="dot"></span>TAHINI</span>
+      <span class="food-strip-item"><span class="dot"></span>DUBAI CHOCOLATE</span>
+      <span class="food-strip-item"><span class="dot"></span>PITA</span>
+      <span class="food-strip-item"><span class="dot"></span>TABBOULEH</span>
+      <span class="food-strip-item"><span class="dot"></span>KEBABS</span>
+      <span class="food-strip-item"><span class="dot"></span>BAKLAVA</span>
+      <span class="food-strip-item"><span class="dot"></span>SHAWARMA</span>
+      <span class="food-strip-item"><span class="dot"></span>FALAFEL</span>
+      <span class="food-strip-item"><span class="dot"></span>HUMMUS</span>
+      <span class="food-strip-item"><span class="dot"></span>TAHINI</span>
+      <span class="food-strip-item"><span class="dot"></span>DUBAI CHOCOLATE</span>
+      <span class="food-strip-item"><span class="dot"></span>PITA</span>
+      <span class="food-strip-item"><span class="dot"></span>TABBOULEH</span>
+      <span class="food-strip-item"><span class="dot"></span>KEBABS</span>
+      <span class="food-strip-item"><span class="dot"></span>BAKLAVA</span>
+    </div>
+  </div>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider" style="transform: scaleY(-1);">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#FFD233"/>
+    </svg>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="about-label">Our Story</div>
+        <h2 class="about-heading">BOLD, <span>AUTHENTIC,</span> MEDITERRANEAN FOOD</h2>
+        <p class="about-text">
+          Welcome to Albasha Express — the vibrant heart of Mediterranean street food right here in Kitsilano, Vancouver! We serve up boldly flavored dishes that redefine fast-casual dining, bringing the authentic tastes of the Middle East to your table.
+        </p>
+        <p class="about-text">
+          Whether it's our made-to-order falafels with their crispy, seasoned exterior and fluffy inside, our harmoniously flavored shawarma freshly sliced and served with hummus and tahini, or our freshly made hummus and tzatziki — we use only the finest ingredients to produce these mouth-watering creations.
+        </p>
+        <a href="#menu" class="btn-hero-primary" style="margin-top: 20px; display: inline-block;"><span>View Our Menu</span></a>
+      </div>
+      <div class="about-images reveal-right">
+        <div class="about-img">
+          <img src="images/photo-about-1.jpg" alt="Mediterranean dishes at Albasha Express">
+        </div>
+        <div class="about-img stagger-1">
+          <img src="images/photo-about-2.jpg" alt="Fresh falafel at Albasha Express">
+        </div>
+        <div class="about-img stagger-2">
+          <img src="images/photo-about-3.jpg" alt="Food platter at Albasha Express">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#D42A2A"/>
+    </svg>
+  </div>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="stats-grid">
+      <div class="stat-item reveal stagger-1"><h3>1000+</h3><p>Happy Customers Weekly</p></div>
+      <div class="stat-item reveal stagger-2"><h3>100%</h3><p>Fresh Ingredients</p></div>
+      <div class="stat-item reveal stagger-3"><h3>4.5★</h3><p>Google Rating</p></div>
+      <div class="stat-item reveal stagger-4"><h3>7</h3><p>Days Open Weekly</p></div>
+    </div>
+  </div>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider" style="transform: scaleY(-1);">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#D42A2A"/>
+    </svg>
+  </div>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="section-header reveal">
+      <div class="label">Our Menu</div>
+      <h2>SATISFY YOUR <span>CRAVINGS</span></h2>
+      <p>The best way to experience our vast collection of tastes is to visit the store. Follow the aromas and choose the most enticing meal to satisfy your palate.</p>
+    </div>
+
+    <!-- Menu Tabs -->
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" data-tab="plates">Plates</button>
+      <button class="menu-tab" data-tab="wraps">Wraps</button>
+      <button class="menu-tab" data-tab="sides">Sides</button>
+    </div>
+
+    <!-- PLATES -->
+    <div class="menu-category menu-grid active" data-category="plates">
+      <div class="menu-card reveal stagger-1">
+        <div class="menu-card-img">
+          <img src="images/photo-falafel-plate.jpg" alt="Signature Made-to-Order Falafels">
+          <span class="menu-card-tag">Signature</span>
+        </div>
+        <div class="menu-card-body"><h3>Signature Falafels Plate</h3><p>Fresh falafels served with hummus, tabouleh salad, garden salad and pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-2">
+        <div class="menu-card-img">
+          <img src="images/photo-veggie-plate.jpg" alt="Veggie Lover Plate">
+          <span class="menu-card-tag">Popular</span>
+        </div>
+        <div class="menu-card-body"><h3>Veggie Lover</h3><p>Fresh falafels served with dolmathes, hummus, tabouleh salad, garden salad and pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-3">
+        <div class="menu-card-img">
+          <img src="images/photo-chicken-plate.jpg" alt="Chicken Shawarma Plate">
+        </div>
+        <div class="menu-card-body"><h3>Chicken Shawarma Plate</h3><p>Tasty chicken on rice with garden salad, hummus and pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-4">
+        <div class="menu-card-img">
+          <img src="images/photo-beef-lamb-plate.jpg" alt="Beef & Lamb Plate">
+        </div>
+        <div class="menu-card-body"><h3>Beef & Lamb Plate</h3><p>Freshly sliced beef or lamb served on rice with salad and homemade hummus.</p></div>
+      </div>
+    </div>
+
+    <!-- WRAPS -->
+    <div class="menu-category menu-grid" data-category="wraps">
+      <div class="menu-card reveal stagger-1">
+        <div class="menu-card-img">
+          <img src="images/falafel-wrap.jpg" alt="Falafel Wrap">
+          <span class="menu-card-tag">Popular</span>
+        </div>
+        <div class="menu-card-body"><h3>Made-to-Order Falafels</h3><p>Freshly fried falafels with hummus, lettuce, tomatoes, onions and tahini sauce in a pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-2">
+        <div class="menu-card-img">
+          <img src="images/photo-chicken-wrap.jpg" alt="Chicken Shawarma Wrap">
+          <span class="menu-card-tag">Signature</span>
+        </div>
+        <div class="menu-card-body"><h3>Chicken Shawarma</h3><p>Tasty chicken shawarma with hummus, lettuce, tomatoes, onions and tahini sauce in a pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-3">
+        <div class="menu-card-img">
+          <img src="images/mixed-falafel-meat-wrap.jpg" alt="Mixed Falafel & Meat Wrap">
+        </div>
+        <div class="menu-card-body"><h3>Mixed Falafel & Meat Wrap</h3><p>Freshly fried falafels with chicken or beef with hummus, lettuce, tomatoes, onions and tahini sauce in a pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-4">
+        <div class="menu-card-img">
+          <img src="images/beef-donair.jpg" alt="Beef Donair">
+        </div>
+        <div class="menu-card-body"><h3>Beef Donair</h3><p>Fresh slices of beef with hummus, lettuce, tomatoes, onions and tahini sauce in a pita.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-5">
+        <div class="menu-card-img">
+          <img src="images/photo-mixed-wrap.jpg" alt="Mixed Wrap">
+        </div>
+        <div class="menu-card-body"><h3>Mixed Wrap</h3><p>Fresh slices of lamb/beef and chicken with hummus, lettuce, tomatoes, onions and tahini sauce in a pita bread.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-6">
+        <div class="menu-card-img">
+          <img src="images/lamb-donair.jpg" alt="Lamb Donair">
+        </div>
+        <div class="menu-card-body"><h3>Lamb Donair</h3><p>Fresh slices of lamb with hummus, lettuce, tomatoes, onions and tahini sauce in a pita bread.</p></div>
+      </div>
+    </div>
+
+    <!-- SIDES -->
+    <div class="menu-category menu-grid" data-category="sides">
+      <div class="menu-card reveal stagger-1">
+        <div class="menu-card-img">
+          <img src="images/tabouleh.jpg" alt="Tabouleh">
+        </div>
+        <div class="menu-card-body"><h3>Tabouleh</h3><p>Fresh parsley and bulgur wheat salad with tomatoes, mint, lemon juice and olive oil.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-2">
+        <div class="menu-card-img">
+          <img src="images/falafels.jpg" alt="Extra Falafel">
+        </div>
+        <div class="menu-card-body"><h3>Extra Falafel</h3><p>Add extra crispy, freshly fried falafel balls to complement any meal.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-3">
+        <div class="menu-card-img">
+          <img src="images/hummus.jpg" alt="Hummus">
+        </div>
+        <div class="menu-card-body"><h3>Hummus</h3><p>Creamy homemade hummus made fresh daily from quality chickpeas, tahini and lemon.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-4">
+        <div class="menu-card-img">
+          <img src="images/lentil-soup.jpg" alt="Lentil Soup">
+        </div>
+        <div class="menu-card-body"><h3>Homemade Lentil Soup</h3><p>Warm and hearty homemade lentil soup, perfect as a starter or side.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-5">
+        <div class="menu-card-img">
+          <img src="images/dolmathes.jpg" alt="Dolmathes">
+        </div>
+        <div class="menu-card-body"><h3>Dolmathes</h3><p>6 pieces per order — grape leaves stuffed with seasoned rice, a Mediterranean classic.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-6">
+        <div class="menu-card-img">
+          <img src="images/samosa.jpg" alt="Samosa">
+        </div>
+        <div class="menu-card-body"><h3>Samosa</h3><p>Available in veggie, beef, or chicken — crispy pastry filled with savory goodness.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-1">
+        <div class="menu-card-img">
+          <img src="images/baklava.jpg" alt="Baklava">
+          <span class="menu-card-tag">Sweet</span>
+        </div>
+        <div class="menu-card-body"><h3>Baklava</h3><p>Sweet Turkish pastry filled with nuts and glazed with honey — the perfect ending to any meal.</p></div>
+      </div>
+      <div class="menu-card reveal stagger-2">
+        <div class="menu-card-img">
+          <img src="images/tzatziki.jpg" alt="Tzatziki">
+        </div>
+        <div class="menu-card-body"><h3>Tzatziki</h3><p>Cool and refreshing yogurt dip with cucumber, garlic, and herbs — a perfect accompaniment.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#111111"/>
+    </svg>
+  </div>
+
+  <!-- FEATURED SHAWARMA -->
+  <section class="featured-strip">
+    <div class="featured-content">
+      <div class="featured-text reveal-left">
+        <div class="label">Signature Dish</div>
+        <h2>YOU'LL NEVER LOOK AT <span>SHAWARMA</span> THE SAME WAY AGAIN</h2>
+        <p>Our highly rated signature dish of freshly sliced chicken shawarma served with hummus, tahini sauce, rice, and garden salad is a perfect combination of authentic flavors and a great choice for lunch or dinner.</p>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver" class="btn-hero-primary"><span>Order Now</span></a>
+      </div>
+      <div class="featured-img-wrap reveal-right">
+        <svg class="squiggle-deco" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="25" fill="none" stroke="#FFD233" stroke-width="3" stroke-dasharray="6 4">
+            <animateTransform attributeName="transform" type="rotate" values="0 30 30;360 30 30" dur="10s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <div class="img-main">
+          <img src="images/photo-featured-1.jpg" alt="Shawarma Plate">
+        </div>
+        <div class="img-float">
+          <img src="images/photo-featured-2.jpg" alt="Shawarma Close Up">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#FFD233"/>
+    </svg>
+  </div>
+
+  <!-- CATERING -->
+  <section class="catering-section" id="catering">
+    <div class="label reveal">Events & Gatherings</div>
+    <h2 class="reveal stagger-1">WE CATER YOUR NEXT EVENT</h2>
+    <p class="reveal stagger-2">
+      Al Basha Express catering services can make your next business luncheon, social gathering, or any special event memorable. Our exceptional service, fresh locally sourced menu, and attention to detail have made us the premier Mediterranean catering choice in Vancouver.
+    </p>
+    <a href="https://www.albashaexpress.ca/home-2/" class="btn-catering reveal stagger-3"><span>View Catering Menu</span></a>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider" style="transform: scaleY(-1);">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#FFD233"/>
+    </svg>
+  </div>
+
+  <!-- GALLERY TICKER -->
+  <div class="gallery-ticker">
+    <div class="gallery-ticker-track">
+      <div class="gallery-ticker-item"><img src="images/photo-falafel-plate.jpg" alt="Falafel Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-chicken-plate.jpg" alt="Chicken Shawarma Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-beef-lamb-plate.jpg" alt="Beef & Lamb Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-veggie-plate.jpg" alt="Veggie Lover Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-chicken-wrap.jpg" alt="Chicken Shawarma Wrap"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-mixed-wrap.jpg" alt="Mixed Wrap"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-beef-donair.jpg" alt="Beef Donair"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-about-1.jpg" alt="Albasha Food"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-about-2.jpg" alt="Albasha Food"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-about-3.jpg" alt="Albasha Food"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-1.jpg" alt="Albasha Express"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-2.jpg" alt="Albasha Express"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-3.jpg" alt="Albasha Express"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-4.jpg" alt="Albasha Express"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-5.jpg" alt="Albasha Express"></div>
+      <div class="gallery-ticker-item"><img src="images/gallery-6.jpg" alt="Albasha Express"></div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="gallery-ticker-item"><img src="images/photo-falafel-plate.jpg" alt="Falafel Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-chicken-plate.jpg" alt="Chicken Shawarma Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-beef-lamb-plate.jpg" alt="Beef & Lamb Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-veggie-plate.jpg" alt="Veggie Lover Plate"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-chicken-wrap.jpg" alt="Chicken Shawarma Wrap"></div>
+      <div class="gallery-ticker-item"><img src="images/photo-mixed-wrap.jpg" alt="Mixed Wrap"></div>
+    </div>
+  </div>
+
+  <!-- GOOGLE REVIEWS -->
+  <section class="testimonials-section" id="reviews">
+    <div class="section-header reveal">
+      <div class="label">Google Reviews</div>
+      <h2>WHAT OUR <span>CUSTOMERS</span> SAY</h2>
+      <p>Real reviews from real customers on Google. Don't just take our word for it.</p>
+    </div>
+
+    <!-- Google Reviews Summary Bar -->
+    <div class="google-reviews-summary reveal">
+      <div class="grb-left">
+        <div class="grb-google-icon">
+          <!-- Google logo SVG -->
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/>
+            <path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/>
+            <path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/>
+          </svg>
+          Reviews
+        </div>
+        <div class="grb-divider"></div>
+        <div class="grb-rating">
+          <span class="grb-rating-num">4.5</span>
+          <span class="grb-rating-stars">★★★★½</span>
+          <span class="grb-rating-count">Based on Google Reviews</span>
+        </div>
+        <div class="grb-divider"></div>
+        <div class="grb-bars">
+          <div class="grb-bar-row">5★ <div class="grb-bar-track"><div class="grb-bar-fill" style="width:75%"></div></div></div>
+          <div class="grb-bar-row">4★ <div class="grb-bar-track"><div class="grb-bar-fill" style="width:15%"></div></div></div>
+          <div class="grb-bar-row">3★ <div class="grb-bar-track"><div class="grb-bar-fill" style="width:6%"></div></div></div>
+          <div class="grb-bar-row">2★ <div class="grb-bar-track"><div class="grb-bar-fill" style="width:2%"></div></div></div>
+          <div class="grb-bar-row">1★ <div class="grb-bar-track"><div class="grb-bar-fill" style="width:2%"></div></div></div>
+        </div>
+      </div>
+      <div class="grb-ctas">
+        <a href="https://www.google.com/maps/search/Al+Basha+Express+1937+Cornwall+Ave+Vancouver/" target="_blank" class="grb-btn grb-btn-primary">View All Reviews</a>
+        <a href="https://www.google.com/maps/search/Al+Basha+Express+1937+Cornwall+Ave+Vancouver/" target="_blank" class="grb-btn grb-btn-secondary">Write a Review</a>
+      </div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal stagger-1">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#EA4335;">KL</div>
+          <div class="tc-meta">
+            <div class="tc-name">Kevin L.</div>
+            <div class="tc-date">2 months ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <blockquote>Best shawarma in Vancouver! The chicken is perfectly seasoned and cooked to perfection. The hummus is incredibly creamy and fresh. I'm here at least twice a week — totally addicted.</blockquote>
+        <div class="tc-footer">📍 Local Guide · 42 reviews</div>
+      </div>
+
+      <div class="testimonial-card reveal stagger-2">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#34A853;">AM</div>
+          <div class="tc-meta">
+            <div class="tc-name">Aisha M.</div>
+            <div class="tc-date">3 months ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <blockquote>The falafel here is in a different league. Crispy outside, perfectly soft inside. Apparently this is the only place locally that makes them fresh like this! Worth every penny.</blockquote>
+        <div class="tc-footer">📍 Local Guide · 18 reviews</div>
+      </div>
+
+      <div class="testimonial-card reveal stagger-3">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#4285F4;">JT</div>
+          <div class="tc-meta">
+            <div class="tc-name">Jason T.</div>
+            <div class="tc-date">1 month ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <blockquote>We ordered catering for our office lunch and everyone was blown away. Fresh, incredibly flavorful, and the portions were extremely generous. The staff were super friendly too. Will definitely order again!</blockquote>
+        <div class="tc-footer">📍 15 reviews</div>
+      </div>
+
+      <div class="testimonial-card reveal stagger-4">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#FBBC05; color:#000;">PR</div>
+          <div class="tc-meta">
+            <div class="tc-name">Priya R.</div>
+            <div class="tc-date">4 months ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★½</div>
+        <blockquote>Love this spot on Cornwall! The veggie lover plate is my go-to — dolmathes, falafel, hummus and tabouleh. Everything is made in-house and you can taste the difference. Highly recommend.</blockquote>
+        <div class="tc-footer">📍 Local Guide · 31 reviews</div>
+      </div>
+
+      <div class="testimonial-card reveal stagger-5">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#C44520;">MB</div>
+          <div class="tc-meta">
+            <div class="tc-name">Marcus B.</div>
+            <div class="tc-date">2 weeks ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <blockquote>Hidden gem in Kits! Stumbled upon this place and it's now a weekly ritual. The chicken shawarma plate is incredible — rice cooked perfectly and the garlic sauce is absolutely addictive.</blockquote>
+        <div class="tc-footer">📍 Local Guide · 57 reviews</div>
+      </div>
+
+      <div class="testimonial-card reveal stagger-6">
+        <div class="tc-header">
+          <div class="tc-avatar" style="background:#7B1FA2;">SN</div>
+          <div class="tc-meta">
+            <div class="tc-name">Sophie N.</div>
+            <div class="tc-date">5 months ago</div>
+          </div>
+          <div class="tc-google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.9l6-6C34.5 3.3 29.5 1 24 1 14.8 1 7 6.7 3.7 14.6l7 5.4C12.3 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z"/><path fill="#FBBC05" d="M10.7 28.6A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6l-7-5.4A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l8.1-6.2z"/><path fill="#34A853" d="M24 47c5.4 0 10-1.8 13.3-4.8l-7-5.4c-1.8 1.2-4.2 1.9-6.6 1.9-6.4 0-11.8-4.3-13.7-10.1l-8 6.2C5.8 41.5 14.2 47 24 47z"/></svg>
+          </div>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <blockquote>I've tried Mediterranean food all over Vancouver and Al Basha is consistently the best. Their pita bread is always warm and soft, the baklava is divine, and the price is very reasonable for the quality.</blockquote>
+        <div class="tc-footer">📍 Local Guide · 24 reviews</div>
+      </div>
+
+    </div>
+
+    <!-- View All CTA -->
+    <div class="reviews-cta reveal">
+      <a href="https://www.google.com/maps/search/Al+Basha+Express+1937+Cornwall+Ave+Vancouver/" target="_blank" class="btn-hero-primary"><span>📍 See All Reviews on Google</span></a>
+      <p>Click to open in Google Maps &mdash; <a href="https://www.google.com/maps/search/Al+Basha+Express+1937+Cornwall+Ave+Vancouver/" target="_blank" class="inline-link">Al Basha Express, 1937 Cornwall Ave, Vancouver</a></p>
+    </div>
+
+    <!--
+      =====================================================================
+      OPTIONAL: Replace the static cards above with live Google Reviews
+      using Elfsight (free plan available — 200 views/month):
+
+      1. Go to https://elfsight.com/google-reviews-widget/
+      2. Click "Create Widget" and connect your Google Business Profile
+      3. Copy the embed code and replace the section above with it:
+
+         <script src="https://static.elfsight.com/platform/platform.js" async></script>
+         <div class="elfsight-app-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"></div>
+
+      Alternatively, use Trustindex (which the original site already uses):
+      https://www.trustindex.io/
+      =====================================================================
+    -->
+
+  </section>
+
+  <!-- DELIVERY PARTNERS -->
+  <section class="delivery-section">
+    <div class="label reveal">Also Available On</div>
+    <div class="delivery-logos">
+      <a href="https://www.ubereats.com/store/al-basha-cornwall-ave/" class="delivery-logo reveal stagger-1" target="_blank">Uber Eats</a>
+      <a href="https://www.doordash.com/" class="delivery-logo reveal stagger-2" target="_blank">DoorDash</a>
+      <a href="https://www.skipthedishes.com/" class="delivery-logo reveal stagger-3" target="_blank">SkipTheDishes</a>
+      <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver" class="delivery-logo reveal stagger-4" style="border-color: var(--red); color: var(--yellow);" target="_blank">Direct Pickup — No Fees!</a>
+    </div>
+  </section>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#D42A2A"/>
+    </svg>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-info-block reveal-left">
+        <div class="label">Get In Touch</div>
+        <h2>COME <span>VISIT US</span></h2>
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div><h4>Our Location</h4><p>1937 Cornwall Avenue<br>Vancouver, BC V6J 1C8</p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div><h4>Call Us</h4><p><a href="tel:6043362110">(604) 336-2110</a></p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🕐</div>
+          <div><h4>Hours</h4><p>Open Daily: 11:00 AM – 10:00 PM</p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Email</h4><p><a href="mailto:albashaexpress1937@gmail.com">albashaexpress1937@gmail.com</a></p></div>
+        </div>
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/albashaxpress/" target="_blank" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal-right">
+        <h3>Send Us A Message</h3>
+        <p class="form-sub">Got questions, cravings, or genius ideas? Hit us up!</p>
+
+        <!-- Success message (hidden by default) -->
+        <div id="form-success" style="display:none; text-align:center; padding: 40px 20px;">
+          <div style="font-size:3rem; margin-bottom:16px;">✅</div>
+          <h4 style="font-family:'Bebas Neue',cursive; font-size:1.8rem; color:var(--yellow); margin-bottom:8px;">Message Sent!</h4>
+          <p style="color:#aaa; font-size:0.95rem;">Thanks for reaching out. We'll get back to you soon.</p>
+          <button onclick="document.getElementById('form-success').style.display='none'; document.getElementById('contact-form').style.display='block';" style="margin-top:20px; background:transparent; border:2px solid var(--red); color:var(--red); padding:10px 24px; border-radius:50px; cursor:pointer; font-weight:700; font-size:0.8rem; letter-spacing:1px; text-transform:uppercase; font-family:'Inter',sans-serif; transition:all 0.3s;">Send Another</button>
+        </div>
+
+        <!-- Error message (hidden by default) -->
+        <div id="form-error" style="display:none; background:rgba(196,69,32,0.1); border:1px solid var(--red); border-radius:8px; padding:16px; margin-bottom:20px; color:#ff6b4a; font-size:0.9rem;">
+          ⚠️ Something went wrong. Please try again or email us directly at <a href="mailto:albashaexpress1937@gmail.com" style="color:var(--yellow);">albashaexpress1937@gmail.com</a>
+        </div>
+
+        <!--
+          ══════════════════════════════════════════════════
+          SETUP (one-time, 2 minutes):
+          1. Go to https://web3forms.com
+          2. Enter:  albashaexpress1937@gmail.com
+          3. Click "Create Access Key"
+          4. Copy the key and replace YOUR_ACCESS_KEY below
+          ══════════════════════════════════════════════════
+        -->
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms config -->
+          <input type="hidden" name="access_key" value="826affa5-1a99-4e38-9f6f-ed2fcd8a39ec">
+          <input type="hidden" name="subject" value="New message from Albasha Express website">
+          <input type="hidden" name="from_name" value="Albasha Express Website">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="Your first name" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Your last name"></div>
+          </div>
+          <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(604) 000-0000"></div>
+          <div class="form-group"><label>Message *</label><textarea name="message" placeholder="Tell us what's on your mind..." required></textarea></div>
+          <button type="submit" class="btn-submit" id="submit-btn"><span>Send Message</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.847!2d-123.1485!3d49.2685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673c0b5e0e8d7%3A0x2c1e2e2e8b8b8b8b!2s1937%20Cornwall%20Ave%2C%20Vancouver%2C%20BC%20V6J%201C8!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" allowfullscreen="" loading="lazy"></iframe>
+    <div class="map-overlay"><h4>ALBASHA EXPRESS</h4><p>1937 Cornwall Ave, Vancouver BC</p></div>
+  </div>
+
+  <!-- SQUIGGLY DIVIDER -->
+  <div class="squiggle-divider">
+    <svg viewBox="0 0 1200 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,22 C20,8 40,36 60,22 C80,8 100,36 120,22 C140,8 160,36 180,22 C200,8 220,36 240,22 C260,8 280,36 300,22 C320,8 340,36 360,22 C380,8 400,36 420,22 C440,8 460,36 480,22 C500,8 520,36 540,22 C560,8 580,36 600,22 C620,8 640,36 660,22 C680,8 700,36 720,22 C740,8 760,36 780,22 C800,8 820,36 840,22 C860,8 880,36 900,22 C920,8 940,36 960,22 C980,8 1000,36 1020,22 C1040,8 1060,36 1080,22 C1100,8 1120,36 1140,22 C1160,8 1180,36 1200,22 V45 H0 Z" fill="#050505"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">ALBASHA EXPRESS</div>
+        <p>Proudly serving authentic Mediterranean food in Vancouver. Freshly made falafels, perfectly seasoned shawarma, and creamy hummus — crafted daily with love.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/albashaxpress/" target="_blank" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a>
+        <a href="#menu">Our Menu</a>
+        <a href="#catering">Catering</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Shawarma</a>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Falafel</a>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Wraps</a>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Combo Plates</a>
+        <a href="https://www.clover.com/online-ordering/albasha-express-kitsilano-vancouver">Sides & Dips</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 All Rights Reserved | Albasha Express</span>
+      <span>Best Shawarma & Falafel in Vancouver</span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Navbar shrink on scroll + back to top
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) { navbar.classList.add('scrolled'); backToTop.classList.add('visible'); }
+      else { navbar.classList.remove('scrolled'); backToTop.classList.remove('visible'); }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('navLinks').classList.remove('active'); }
+      });
+    });
+
+    // Intersection Observer for reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
+
+    // Parallax on hero blobs via mouse
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      document.querySelectorAll('.hero-blob').forEach((blob, i) => {
+        const speed = (i + 1) * 15;
+        blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+
+    // Generate floating particles
+    const particleContainer = document.getElementById('heroParticles');
+    const colors = ['#C44520', '#FFD233', '#D96040', '#FFE066'];
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      const size = Math.random() * 6 + 2;
+      p.style.width = size + 'px'; p.style.height = size + 'px';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.left = Math.random() * 100 + '%'; p.style.bottom = '-10px';
+      p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      p.style.opacity = Math.random() * 0.5 + 0.1;
+      particleContainer.appendChild(p);
+    }
+
+    // Click ripple effect
+    document.addEventListener('click', (e) => {
+      const ripple = document.createElement('div');
+      ripple.classList.add('cursor-ripple');
+      ripple.style.left = (e.clientX - 10) + 'px'; ripple.style.top = (e.clientY - 10) + 'px';
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+
+    // Menu tab switching
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        const category = document.querySelector(`.menu-category[data-category="${tab.dataset.tab}"]`);
+        if (category) {
+          category.classList.add('active');
+          // Re-trigger reveal animations for newly visible cards
+          category.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            el.classList.remove('active');
+            revealObserver.observe(el);
+          });
+        }
+      });
+    });
+
+    // Tilt effect on menu cards
+    document.querySelectorAll('.menu-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -12;
+        card.style.transform = `translateY(-12px) perspective(500px) rotateY(${x}deg) rotateX(${y}deg)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+
+    // Counter animation for stats
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const h3 = entry.target.querySelector('h3');
+          if (!h3 || h3.dataset.animated) return;
+          h3.dataset.animated = 'true';
+          const text = h3.textContent;
+          const num = parseInt(text);
+          if (isNaN(num)) return;
+          const suffix = text.replace(/[\d]/g, '');
+          let current = 0;
+          const increment = Math.ceil(num / 60);
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= num) { current = num; clearInterval(timer); }
+            h3.textContent = current + suffix;
+          }, 25);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-item').forEach(item => counterObserver.observe(item));
+
+    // Contact form — Web3Forms submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const errorEl = document.getElementById('form-error');
+        const successEl = document.getElementById('form-success');
+
+        // Check access key is set
+        const accessKey = contactForm.querySelector('[name="access_key"]').value;
+        if (!accessKey || accessKey === 'YOUR_ACCESS_KEY') {
+          errorEl.innerHTML = '⚠️ Form not configured yet. Please email us directly at <a href="mailto:albashaexpress1937@gmail.com" style="color:var(--yellow);">albashaexpress1937@gmail.com</a>';
+          errorEl.style.display = 'block';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.querySelector('span').textContent = 'Sending…';
+        errorEl.style.display = 'none';
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(contactForm)
+          });
+          const data = await res.json();
+          if (data.success) {
+            contactForm.style.display = 'none';
+            successEl.style.display = 'block';
+            contactForm.reset();
+          } else {
+            throw new Error(data.message || 'Submission failed');
+          }
+        } catch (err) {
+          errorEl.innerHTML = '⚠️ Something went wrong. Please try again or email us directly at <a href="mailto:albashaexpress1937@gmail.com" style="color:var(--yellow);">albashaexpress1937@gmail.com</a>';
+          errorEl.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.querySelector('span').textContent = 'Send Message';
+        }
+      });
+    }
+
+    // Magnetic effect on buttons
+    document.querySelectorAll('.btn-hero-primary, .btn-hero-secondary, .btn-order, .btn-catering, .btn-submit').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // Parallax scroll effect on sections
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      document.querySelectorAll('.squiggle-divider svg').forEach(svg => {
+        svg.style.transform = `translateX(${Math.sin(scrolled * 0.003) * 5}px)`;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Made with Thimble</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <script src="https://code.jquery.com/jquery-3.1.1.js"
+          integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+          crossorigin="anonymous"></script>
+  <script src="options.js"></script>
+  
+    
+    
+  <!-- NAVIGATION-->  
+  <nav>
+    <a href="index.html">
+      <button class="navButton" id= "news-button">
+      📰
+      <span class="hidden-mobile">News</span>
+    </button>
+    </a>
+    <a href="weather.html">
+    <button  class="navButton" id= "weather-button">
+
+      ☀️
+      <span class = "hidden-mobile"> Weather </span>
+
+    </button>
+    </a>
+    <a href="settings.html">
+      <button class="navButton" id= "settings-button">
+        ⚙️
+        <span class = "hidden-mobile"> Settings </span>
+
+      </button>
+    </a>
+  </nav>
+    <!-- END NAVIGATION-->
+    
+    
+    
+    
+<div>
+    <br><br><br>
+
+  <h1>1. Choose a news provider</h1>
+  <button class="newsOptions" id="reuters-option">Reuters</button>
+  <button class="newsOptions" id="time-option">Time</button>
+  <button class="newsOptions" id="cnn-option">CNN</button>
+  <button class="newsOptions" id="ap-option">Associated Press</button>
+  <button class="newsOptions" id="breit-option">Breitbart</button>
+  <button class="newsOptions" id="independent-option">Independent</button>
+  <button class="newsOptions" id="usatoday-option">USA Today</button>
+  <button class="newsOptions" id="washpost-option">Washington Post</button>
+  <button class="newsOptions" id="tnw-option">The Next Web</button>
+  <button class="newsOptions" id="sky-option">Sky News</button>
+  <br><br><br>
+    </div>
+  
+  <div>
+    
+    <h1 class = "weather-units">2. Choose your preferred Weather units</h1>
+    <button class="weather-option" id="imp-units">
+       Imperial Units
+    </button>
+    <button class="weather-option" id="si-units">
+      SI Units
+    </button>
+        <br><br><br>
+  </div>
+    
+    <h1>3. Check the news and/or weather using the buttons in the navigation!</h1>
+
+
+</body>
+</html>
