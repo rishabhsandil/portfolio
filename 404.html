@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 — Page not found · Rishabh Sandil</title>
+    <meta name="description" content="That page doesn't exist on rishabhsandil.com — but the rest of the portfolio is right here." />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <script>
+      (function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+    </script>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      .nf-wrap {
+        min-height: 100vh; display: grid; place-items: center; padding: 120px 0 80px;
+      }
+      .nf {
+        text-align: center; max-width: 720px; margin: 0 auto;
+      }
+      .nf .code {
+        font-family: var(--font-display); font-weight: 700;
+        font-size: clamp(120px, 22vw, 260px);
+        letter-spacing: -0.06em; line-height: 0.9;
+        background: linear-gradient(180deg, var(--accent) 0%, transparent 110%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        margin: 0 0 8px;
+        position: relative;
+      }
+      .nf .code::after {
+        content: "404";
+        position: absolute; inset: 0;
+        -webkit-text-stroke: 1.5px var(--line-strong);
+        color: transparent; -webkit-background-clip: initial; background-clip: initial;
+        opacity: 0.4;
+      }
+      .nf h1 {
+        font-family: var(--font-display); font-weight: 600;
+        font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em;
+        margin: 0 0 16px;
+      }
+      .nf h1 em { color: var(--accent); font-style: normal; }
+      .nf p {
+        color: var(--muted); font-size: 17px; line-height: 1.6;
+        max-width: 52ch; margin: 0 auto 36px;
+      }
+      .nf .actions {
+        display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      }
+      .nf .breadcrumb {
+        font-family: var(--font-mono); font-size: 11px;
+        text-transform: uppercase; letter-spacing: .14em; color: var(--muted);
+        margin-bottom: 24px;
+      }
+      .nf .breadcrumb code { color: var(--accent-3); }
+    </style>
+  </head>
+  <body>
+    <div class="bg-fx" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class="brand"><span class="pulse"></span> RS</a>
+      <div class="links">
+        <a href="/#about">About</a>
+        <a href="/#work">Work</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="/" class="cta">
+        Home
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+      </a>
+    </nav>
+
+    <div class="nf-wrap">
+      <div class="wrap">
+        <div class="nf">
+          <p class="breadcrumb"><span id="path">/lost-and-found</span> · <code>not found</code></p>
+          <h1 class="code" data-text="404">404</h1>
+          <h1>Looks like that page <em>got compiled out.</em></h1>
+          <p>The URL you tried doesn't exist on this domain — it may have been moved, renamed, or never existed in the first place. Here's where to go next.</p>
+          <div class="actions">
+            <a href="/" class="btn btn-primary">
+              Back to home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+            </a>
+            <a href="/#projects" class="btn btn-ghost">View projects</a>
+            <a href="/#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <div class="wrap foot-row">
+        <div>© <span id="year"></span> Rishabh Sandil · Crafted in Waterloo, ON</div>
+        <div><a href="/">rishabhsandil.com</a></div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      try {
+        var p = window.location.pathname;
+        if (p && p !== '/') document.getElementById('path').textContent = p;
+      } catch(e){}
+      (function(){
+        var btn = document.getElementById('theme-toggle');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if(!btn) return;
+        function apply(theme){
+          if(theme==='light'){document.documentElement.setAttribute('data-theme','light'); if(meta) meta.setAttribute('content','#f4f4ef');}
+          else{document.documentElement.removeAttribute('data-theme'); if(meta) meta.setAttribute('content','#0a0a0b');}
+        }
+        btn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+          var next = current==='light' ? 'dark' : 'light';
+          apply(next);
+          try{localStorage.setItem('theme', next);}catch(e){}
+        });
+      })();
+    </script>
+  </body>
+</html>

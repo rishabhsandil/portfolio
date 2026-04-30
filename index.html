@@ -15,9 +15,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rishabh Sandil — Full Stack Developer</title>
     <meta name="description" content="Rishabh Sandil — Intermediate Full Stack Developer based in Waterloo, Canada. Building reactive interfaces and resilient APIs with React, .NET, and a love for clean design." />
+    <meta name="author" content="Rishabh Sandil" />
     <meta name="theme-color" content="#0a0a0b" />
+    <script>
+      // Apply saved theme before paint to avoid flash
+      (function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
+    </script>
+    <link rel="canonical" href="https://rishabhsandil.com/" />
 
-    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rishabhsandil.com/" />
+    <meta property="og:title" content="Rishabh Sandil — Full Stack Developer" />
+    <meta property="og:description" content="Building reactive interfaces and resilient APIs with React, .NET, TypeScript, and a love for clean design." />
+    <meta property="og:image" content="https://rishabhsandil.com/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rishabh Sandil — Full Stack Developer" />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rishabh Sandil — Full Stack Developer" />
+    <meta name="twitter:description" content="Building reactive interfaces and resilient APIs with React, .NET, TypeScript, and a love for clean design." />
+    <meta name="twitter:image" content="https://rishabhsandil.com/img/og-image.jpg" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+
+    <!-- Structured data: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rishabh Sandil",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://rishabhsandil.com/",
+      "image": "https://rishabhsandil.com/img/Rishabh_Sandil.jpg",
+      "email": "mailto:rishabhsandil@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Waterloo",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/rishabh-sandil",
+        "https://github.com/rishabhsandil"
+      ],
+      "knowsAbout": ["React", "TypeScript", ".NET", "Node.js", "PostgreSQL", "Angular", "Full Stack Development"]
+    }
+    </script>
+
     <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
 
     <!-- reCAPTCHA v2 -->
@@ -44,6 +95,10 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+      </button>
       <a href="resume.pdf" class="cta" target="_blank" rel="noopener">
         Resumé
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -74,6 +129,10 @@
           <a href="#projects" class="btn btn-primary">
             See selected work
             <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
+          </a>
+          <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener" download>
+            Download resumé
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </a>
           <a href="#contact" class="btn btn-ghost">
             Get in touch
@@ -112,7 +171,7 @@
         <div class="about-grid">
           <div class="portrait reveal">
             <span class="badge">RS · 2026</span>
-            <img src="./img/Rishabh_Sandil.jpg" alt="Portrait of Rishabh Sandil" />
+            <img src="./img/Rishabh_Sandil.webp" alt="Portrait of Rishabh Sandil" loading="lazy" decoding="async" />
             <span class="signature">
               <span>43.46°N, 80.52°W</span><span>—</span><span>Waterloo, ON</span>
             </span>
@@ -291,10 +350,18 @@
           <p class="lede">A mix of side projects, client sites, and code experiments. Tap a card to open the live build or repo.</p>
         </div>
 
+        <div class="filters reveal" role="group" aria-label="Filter projects by category">
+          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">6</span></button>
+          <button class="filter-chip" type="button" data-filter="fullstack" aria-pressed="false">Full-stack <span class="count">1</span></button>
+          <button class="filter-chip" type="button" data-filter="frontend" aria-pressed="false">Frontend <span class="count">3</span></button>
+          <button class="filter-chip" type="button" data-filter="ml" aria-pressed="false">ML / Systems <span class="count">2</span></button>
+          <button class="filter-chip" type="button" data-filter="brand" aria-pressed="false">Brand <span class="count">3</span></button>
+        </div>
+
         <div class="bento">
           <!-- 1. Almost Adult / myLife (large) -->
-          <article class="card large reveal">
-            <div class="thumb"><img src="./img/mylife.jpg" alt="Almost Adult — full-stack life support app" /></div>
+          <article class="card large reveal" data-cats="fullstack frontend">
+            <div class="thumb"><img src="./img/mylife.webp" alt="Almost Adult — full-stack life support app" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -303,12 +370,12 @@
               <h3>Almost Adult</h3>
               <p>A full-stack PWA for daily life — reminders, shared shopping lists, workout tracking, rich-text notes, and a recipe module that uses GPT-4.1 to parse ingredients and steps from pasted text or YouTube links. Built with React 18, TypeScript, Vercel serverless functions, Neon Postgres, and JWT auth.</p>
             </div>
-            <a class="full" target="_blank" rel="noopener" href="https://mylife-kappa-lyart.vercel.app/" aria-label="Open Almost Adult"></a>
+            <a class="full" href="projects/almost-adult.html" aria-label="Read Almost Adult case study"></a>
           </article>
 
           <!-- 2. Ray Tracer (tall) -->
-          <article class="card tall reveal delay-1">
-            <div class="thumb"><img src="./img/render.jpg" alt="C++ Ray Tracer renders" /></div>
+          <article class="card tall reveal delay-1" data-cats="ml">
+            <div class="thumb"><img src="./img/render.webp" alt="C++ Ray Tracer renders" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -321,8 +388,8 @@
           </article>
 
           <!-- 3. Stock Price Estimator -->
-          <article class="card reveal">
-            <div class="thumb"><img src="./img/stock-price.jpg" alt="Stock Price Estimator" /></div>
+          <article class="card reveal" data-cats="ml">
+            <div class="thumb"><img src="./img/stock-price.webp" alt="Stock Price Estimator" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -335,8 +402,8 @@
           </article>
 
           <!-- 4. Arctic Fires -->
-          <article class="card reveal">
-            <div class="thumb"><img src="./img/arctic-fires.jpg" alt="Arctic Fires band site" /></div>
+          <article class="card reveal" data-cats="frontend brand">
+            <div class="thumb"><img src="./img/arctic-fires.webp" alt="Arctic Fires band site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -349,8 +416,8 @@
           </article>
 
           <!-- 5. Albasha -->
-          <article class="card reveal delay-1">
-            <div class="thumb"><img src="./img/albasha.jpg" alt="Albasha Express site" /></div>
+          <article class="card reveal delay-1" data-cats="frontend brand">
+            <div class="thumb"><img src="./img/albasha.webp" alt="Albasha Express site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -363,8 +430,8 @@
           </article>
 
           <!-- 6. Chai Coffee Company -->
-          <article class="card reveal">
-            <div class="thumb"><img src="./img/ccc.jpg" alt="Chai Coffee Company site" /></div>
+          <article class="card reveal" data-cats="frontend brand">
+            <div class="thumb"><img src="./img/ccc.webp" alt="Chai Coffee Company site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
@@ -403,6 +470,10 @@
                 <span><span class="what">GitHub</span><br /><span class="who">@rishabhsandil</span></span>
                 <span class="arrow">↗</span>
               </a>
+              <a href="resume.pdf" target="_blank" rel="noopener" download>
+                <span><span class="what">Resumé</span><br /><span class="who">Download PDF</span></span>
+                <span class="arrow">↓</span>
+              </a>
             </div>
           </aside>
 
@@ -415,15 +486,18 @@
             aria-label="Contact form">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
+              <input id="name" name="name" type="text" placeholder="Your name" required autocomplete="name" />
+              <span class="field-error" id="name-error" aria-live="polite"></span>
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+              <span class="field-error" id="email-error" aria-live="polite"></span>
             </div>
             <div class="field">
               <label for="msg">Message</label>
               <textarea id="msg" name="message" placeholder="Tell me a little about what you're working on…" required></textarea>
+              <span class="field-error" id="msg-error" aria-live="polite"></span>
             </div>
             <div class="g-recaptcha" data-sitekey="6Lel0NIsAAAAAHkTNeD4SySyDLwu3ckjRMbg8Q7m" data-theme="dark"></div>
             <div id="form-status" aria-live="polite"></div>
@@ -449,6 +523,22 @@
     <script>
       // Year
       document.getElementById('year').textContent = new Date().getFullYear();
+      // Theme toggle
+      (function(){
+        var btn = document.getElementById('theme-toggle');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if(!btn) return;
+        function apply(theme){
+          if(theme==='light'){document.documentElement.setAttribute('data-theme','light'); if(meta) meta.setAttribute('content','#f5f5f2');}
+          else{document.documentElement.removeAttribute('data-theme'); if(meta) meta.setAttribute('content','#0a0a0b');}
+        }
+        btn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+          var next = current==='light' ? 'dark' : 'light';
+          apply(next);
+          try{localStorage.setItem('theme', next);}catch(e){}
+        });
+      })();
 
       // Scroll progress
       const progress = document.getElementById('progress');
@@ -478,6 +568,47 @@
           el.style.setProperty('--cy', (e.clientY - r.top) + 'px');
         });
       });
+
+      // Project filter chips
+      (function(){
+        var chips = document.querySelectorAll('.filter-chip');
+        var cards = document.querySelectorAll('.bento .card');
+        if (!chips.length) return;
+        chips.forEach(function(chip){
+          chip.addEventListener('click', function(){
+            var f = chip.getAttribute('data-filter');
+            chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+            cards.forEach(function(card){
+              var cats = (card.getAttribute('data-cats') || '').split(/\s+/);
+              var show = (f === 'all') || cats.indexOf(f) !== -1;
+              card.classList.toggle('is-hidden', !show);
+            });
+          });
+        });
+      })();
+
+      // Project card 3D tilt + glare
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        const MAX_TILT = 6; // degrees
+        document.querySelectorAll('.card').forEach((card) => {
+          card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width;  // 0..1
+            const y = (e.clientY - r.top) / r.height;  // 0..1
+            const rx = (x - 0.5) * (MAX_TILT * 2);     // rotateY
+            const ry = -(y - 0.5) * (MAX_TILT * 2);    // rotateX
+            card.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+            card.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+            card.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+            card.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+          });
+          card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+          });
+        });
+      }
 
       // Reveal on scroll
       const io = new IntersectionObserver((entries) => {
@@ -526,11 +657,55 @@
       const FORMSPREE = 'https://formspree.io/f/xpqbzjaz';
       const contactForm = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
+
+      function validateEmail(val) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+      }
+      function setFieldError(id, msg) {
+        const el = document.getElementById(id);
+        const input = document.getElementById(id.replace('-error', ''));
+        if (el) el.textContent = msg;
+        if (input) input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+        if (input) input.classList.toggle('invalid', !!msg);
+      }
+      function validateAll() {
+        let ok = true;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('msg').value.trim();
+        if (!name) { setFieldError('name-error', 'Please enter your name.'); ok = false; }
+        else setFieldError('name-error', '');
+        if (!email) { setFieldError('email-error', 'Please enter your email address.'); ok = false; }
+        else if (!validateEmail(email)) { setFieldError('email-error', 'Please enter a valid email address.'); ok = false; }
+        else setFieldError('email-error', '');
+        if (!msg) { setFieldError('msg-error', 'Please enter a message.'); ok = false; }
+        else setFieldError('msg-error', '');
+        return ok;
+      }
+
       if (contactForm) {
+        // Validate individual fields on blur
+        document.getElementById('name').addEventListener('blur', function() {
+          setFieldError('name-error', this.value.trim() ? '' : 'Please enter your name.');
+          this.classList.toggle('invalid', !this.value.trim());
+        });
+        document.getElementById('email').addEventListener('blur', function() {
+          const v = this.value.trim();
+          if (!v) setFieldError('email-error', 'Please enter your email address.');
+          else if (!validateEmail(v)) setFieldError('email-error', 'Please enter a valid email address.');
+          else setFieldError('email-error', '');
+          this.classList.toggle('invalid', !v || !validateEmail(v));
+        });
+        document.getElementById('msg').addEventListener('blur', function() {
+          setFieldError('msg-error', this.value.trim() ? '' : 'Please enter a message.');
+          this.classList.toggle('invalid', !this.value.trim());
+        });
+
         const btn = contactForm.querySelector('button[type="submit"]');
         const btnHTML = btn.innerHTML;
         contactForm.addEventListener('submit', async function (e) {
           e.preventDefault();
+          if (!validateAll()) return;
           const captcha = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
           if (!captcha) {
             formStatus.innerHTML = '<span class="form-error">Please complete the CAPTCHA.</span>';
@@ -545,6 +720,7 @@
             if (res.ok) {
               formStatus.innerHTML = '<span class="form-success">✓ Message sent! I\'ll get back to you soon.</span>';
               contactForm.reset();
+              ['name','email','msg'].forEach(id => { setFieldError(id+'-error',''); document.getElementById(id).classList.remove('invalid'); });
               grecaptcha.reset();
             } else {
               const json = await res.json().catch(() => ({}));

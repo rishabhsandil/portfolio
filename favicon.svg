@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0a0a0b"/>
+  <text x="50%" y="50%" dy="0.36em" text-anchor="middle"
+        font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-weight="700" font-size="28" fill="#c6ff3d"
+        letter-spacing="-1">RS</text>
+  <circle cx="52" cy="14" r="3" fill="#c6ff3d"/>
+</svg>
