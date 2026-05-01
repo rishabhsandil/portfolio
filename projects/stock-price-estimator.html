@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Stock Price Estimator — Case Study · Rishabh Sandil</title>
-    <meta name="description" content="A machine-learning project predicting stock price movements from quarterly financials, comparing Random Forest, MLP, and Gaussian Naive Bayes." />
+    <meta name="description" content="A model that picks stocks expected to beat the S&P 500 over the next 90 days, using fundamentals and momentum. 57.9% accuracy vs a 45.9% baseline; top picks beat the index by ~3.6% per quarter." />
     <meta name="theme-color" content="#0a0a0b" />
     <script>
       (function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();
@@ -110,6 +110,14 @@
       .stack-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
       .stack-card b { color: var(--text); font-weight: 500; }
 
+      .render-hero {
+        margin-top: 32px;
+        border-radius: var(--radius-lg);
+        overflow: hidden; border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .render-hero img { width: 100%; display: block; }
+
       @media (max-width: 900px) {
         .cs-meta { grid-template-columns: repeat(2, 1fr); }
         .results, .stack-grid { grid-template-columns: 1fr; }
@@ -147,18 +155,20 @@
           Back to projects
         </a>
 
-        <h1>Stock Price Estimator — <em>can quarterly fundamentals predict the next move?</em></h1>
+        <h1>Stock Price Estimator — <em>picking stocks that beat the market.</em></h1>
         <p class="lede">
-          A research project comparing three classifiers — Random Forest, a Multi-Layer Perceptron,
-          and Gaussian Naive Bayes — on whether a stock would close higher one quarter after its
-          earnings release. Random Forest came out on top with the most stable cross-validated accuracy.
+          A machine-learning model that reads a company's quarterly report and recent
+          price history and predicts whether the stock will outperform the S&amp;P 500
+          over the next 90 days. The current best model picks winners <strong>57.9%</strong>
+          of the time against a <strong>45.9%</strong> baseline, and its top picks
+          beat the index by an average of <strong>3.6% per quarter</strong> in backtests.
         </p>
 
         <dl class="cs-meta">
           <div><dt>Role</dt><dd>Solo · Data + ML</dd></div>
-          <div><dt>Status</dt><dd><span class="accent">Complete · open source</span></dd></div>
-          <div><dt>Stack</dt><dd>Python · scikit-learn · pandas · NumPy</dd></div>
-          <div><dt>Notable</dt><dd>3-model bake-off · feature engineering · k-fold CV</dd></div>
+          <div><dt>Status</dt><dd><span class="accent">v2 · open source</span></dd></div>
+          <div><dt>Stack</dt><dd>Python · XGBoost · LightGBM · SHAP · yfinance</dd></div>
+          <div><dt>Notable</dt><dd>Beats market baseline by 12 points · backtested with costs</dd></div>
         </dl>
 
         <div class="cs-actions">
@@ -175,9 +185,16 @@
     <section class="cs-section">
       <div class="wrap">
         <span class="kicker"><span class="dot"></span> Problem</span>
-        <h2>Can the <em>numbers behind a company</em> predict where the stock goes next?</h2>
-        <p>Most retail traders react to price charts; institutional investors react to earnings. I wanted to see whether a model trained purely on the quarterly fundamentals — revenue, EPS, margins, debt ratios — could call the direction of the stock one quarter later, without seeing any price data at training time.</p>
-        <p>It's a binary classification framed as: <em>given this quarter's fundamentals, will the stock close higher 90 days out?</em></p>
+        <h2>Can a model <em>pick winners?</em></h2>
+        <p>Every public company files a quarterly report packed with numbers — revenue, margins,
+        debt, cash flow. The market reacts to all of it. The question this project asks is simple:
+        can a model read those numbers, plus how the stock has been moving recently, and tell
+        you which stocks are likely to <strong>beat the S&amp;P 500</strong> over the next three months?</p>
+        <p>The original college version of this project answered "will the stock go up?" — a
+        question that's roughly 54% "yes" by default, because most stocks rise most of the time.
+        Reframing it as "will it beat the market?" makes the bar much harder and the answer much
+        more useful: only about <strong>46%</strong> of stocks beat the index in any given quarter,
+        so anything meaningfully above that is real signal.</p>
       </div>
     </section>
 
@@ -185,25 +202,29 @@
     <section class="cs-section">
       <div class="wrap">
         <span class="kicker"><span class="dot"></span> Approach</span>
-        <h2>Three classifiers, <em>one fair fight.</em></h2>
-        <p>The pipeline ingests quarterly filings, normalizes ratios across sectors, and labels each row by the forward 90-day return sign. Three classifiers were trained and evaluated under identical conditions:</p>
+        <h2>Mix <em>company health</em> with <em>market behavior.</em></h2>
+        <p>For 64 large-cap U.S. companies, the model gets two kinds of signals at the moment of
+        each earnings release:</p>
 
         <div class="stack-grid">
           <div class="stack-card">
-            <h4>Random Forest</h4>
-            <p><b>scikit-learn RandomForestClassifier.</b> Ensemble of decision trees, robust to outliers, naturally handles non-linear interactions between fundamentals.</p>
+            <h4>Company health</h4>
+            <p><b>17 ratios from the latest quarterly report:</b> profit margins, return on assets, debt levels, cash flow quality, year-over-year revenue growth. Standardized so a tech company and a bank are on the same scale.</p>
           </div>
           <div class="stack-card">
-            <h4>Multi-Layer Perceptron</h4>
-            <p><b>scikit-learn MLPClassifier.</b> A small dense neural net to capture interactions the trees might miss; trained with early stopping and L2 regularization.</p>
+            <h4>Market behavior</h4>
+            <p><b>How the stock and the broader market have been moving:</b> 3, 6, and 12 month returns leading up to the filing, recent volatility, and the same for the S&amp;P 500 — so the model knows whether we're in a calm or stormy regime.</p>
           </div>
           <div class="stack-card">
-            <h4>Gaussian Naive Bayes</h4>
-            <p><b>scikit-learn GaussianNB.</b> Baseline with a strong independence assumption — a useful floor to know whether the others learned anything real.</p>
+            <h4>Honest evaluation</h4>
+            <p><b>Trained only on the past, tested only on the future.</b> Five chronological folds; no test-set information ever leaks into training. Probabilities are calibrated, and a long-only backtest charges 10 basis points per round-trip trade.</p>
           </div>
         </div>
 
-        <p style="margin-top: 32px;">All three were evaluated with stratified k-fold cross-validation on the same train/test splits, so the comparison was apples-to-apples. Hyperparameters were tuned with grid search inside each fold to avoid leaking the test set.</p>
+        <p style="margin-top: 32px;">Six models compete head-to-head: a Naive Bayes baseline,
+        a small neural net, a Random Forest, XGBoost, LightGBM, and a stacked ensemble that
+        combines the top three through logistic regression. SHAP is used afterward to confirm
+        the model is leaning on sensible features, not pattern-matching on noise.</p>
       </div>
     </section>
 
@@ -211,26 +232,40 @@
     <section class="cs-section">
       <div class="wrap">
         <span class="kicker"><span class="dot"></span> Outcome</span>
-        <h2>Random Forest <em>won — but the gap is the interesting part.</em></h2>
-        <p>The Random Forest landed the highest cross-validated accuracy, the MLP came in close behind, and Gaussian NB sat noticeably below them — confirming the ensembles were learning real interactions, not just memorizing the marginals.</p>
+        <h2>The model <em>beats the market baseline.</em></h2>
+        <p>XGBoost is the strongest of the six, picking stocks that beat the S&amp;P
+        <strong>57.9%</strong> of the time — a 12-point edge over the 45.9% baseline.
+        When you actually buy the model's top-tertile picks each quarter, they earn an
+        average of <strong>4.4%</strong> over the next 90 days versus <strong>3.7%</strong>
+        for the index over the same window, even after accounting for trading costs.</p>
+
+        <figure class="render-hero">
+          <img src="../img/stock-results.png" alt="Bar charts: walk-forward accuracy by model and 90-day backtest returns vs SPY" loading="lazy" decoding="async" />
+        </figure>
 
         <div class="results">
           <div class="result-card win">
-            <div class="label">Random Forest</div>
-            <div class="num">Best</div>
-            <div class="sub">Highest CV accuracy and most stable across folds.</div>
+            <div class="label">XGBoost</div>
+            <div class="num">57.9%</div>
+            <div class="sub">Accuracy at picking stocks that beat the S&amp;P, vs. a 45.9% baseline.</div>
           </div>
           <div class="result-card">
-            <div class="label">MLP</div>
-            <div class="num">Close 2nd</div>
-            <div class="sub">Competitive accuracy but more variance per fold.</div>
+            <div class="label">Top-tertile picks</div>
+            <div class="num">+4.4%</div>
+            <div class="sub">Average 90-day return on the model's most confident buys, after costs (SPY: +3.7%).</div>
           </div>
           <div class="result-card">
-            <div class="label">Gaussian NB</div>
-            <div class="num">Baseline</div>
-            <div class="sub">Confirmed the others were learning real signal.</div>
+            <div class="label">Hit rate on top picks</div>
+            <div class="num">62.1%</div>
+            <div class="sub">Share of high-confidence picks that finished the quarter in positive territory.</div>
           </div>
         </div>
+
+        <p style="margin-top: 32px;">SHAP confirms the model is leaning on sensible signals:
+        <strong>recent price momentum</strong>, <strong>company size</strong>, the
+        <strong>market's volatility regime</strong>, <strong>relative strength versus the index</strong>,
+        and <strong>balance-sheet leverage</strong>. The combination of fundamentals and momentum
+        is what carries the signal — fundamentals alone weren't enough.</p>
       </div>
     </section>
 
@@ -238,13 +273,13 @@
     <section class="cs-section">
       <div class="wrap">
         <span class="kicker"><span class="dot"></span> What I learned</span>
-        <h2>What worked, and what <em>I'd build next.</em></h2>
+        <h2>The lessons that <em>moved the needle.</em></h2>
         <ul>
-          <li><b>Tree ensembles still punch above their weight on tabular data.</b> The MLP needed careful regularization to match a Random Forest that worked well almost out of the box.</li>
-          <li><b>Sector-relative ratios matter more than absolute ones.</b> A debt-to-equity number means very different things for a bank versus a SaaS company; normalizing within sector materially helped.</li>
-          <li><b>The Gaussian-NB baseline was the most useful single line of code.</b> It told me how much of the model's accuracy was structural versus learned interactions.</li>
-          <li><b>Forward returns are noisy.</b> Even the best model is only modestly above chance — a healthy reminder that no single signal beats the market.</li>
-          <li><b>Next pass:</b> add macro features (yield curve, sector momentum), try gradient boosting (XGBoost / LightGBM), and switch to a proper walk-forward backtest with transaction costs.</li>
+          <li><b>Frame the question against a real benchmark.</b> Asking "will it go up?" is too easy — most stocks go up. Asking "will it beat the index?" is the right bar, and the one a real investor cares about.</li>
+          <li><b>How you split the data matters more than which model you pick.</b> The original version used random splits and looked great because the model was secretly seeing the future. Switching to strictly chronological splits told the truth.</li>
+          <li><b>Fundamentals alone aren't enough; momentum closes the gap.</b> Adding recent price behavior and market context lifted accuracy from "barely above chance" to "clearly above the baseline," without leaking any information from the future.</li>
+          <li><b>The interesting metric isn't accuracy — it's what happens when you act on the predictions.</b> The model's top-tertile picks beat the S&amp;P 500 in backtests after trading costs, which is the version of "good" that actually matters.</li>
+          <li><b>Next pass:</b> deeper history (10+ years, more tickers), sector-relative ranking, real Sharpe ratio reporting, and a hosted demo where you can paste a ticker and see the model's call.</li>
         </ul>
       </div>
     </section>
@@ -252,8 +287,8 @@
     <!-- ===== CTA ===== -->
     <section class="cs-section">
       <div class="wrap" style="text-align:center; padding: 40px 0;">
-        <h2 style="margin: 0 auto 18px;">Read the code.</h2>
-        <p style="margin: 0 auto 32px; color: var(--muted);">Notebook, data prep, and trained models all live in the repo.</p>
+        <h2 style="margin: 0 auto 18px;">Read the v2 writeup.</h2>
+        <p style="margin: 0 auto 32px; color: var(--muted);">Full reproduction steps, per-fold metrics, SHAP importances, and the original v1 code all live in the repo.</p>
         <a href="https://github.com/rishabhsandil/Stock-price-estimate" class="btn btn-primary" target="_blank" rel="noopener">
           Open on GitHub
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="7 5 19 5 19 17"/></svg>
