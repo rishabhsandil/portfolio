@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BC Medical Spa — Website Redesign Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:wght@400&family=Manrope:wght@300;400;500;600;700&family=Fraunces:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     BC Medical Spa — Concept Presentation
+     One file containing 5 distinct design directions.
+     Designed for a tall portrait print canvas (single PDF deliverable).
+     ============================================================ */
+
+  @page { size: 8.5in 14in; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8eaef;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .page {
+    width: 8.5in;
+    height: 14in;
+    background: #fff;
+    page-break-after: always;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- Cover Page ---------- */
+  .cover {
+    background: linear-gradient(135deg, #0f1d3a 0%, #1f3262 60%, #2a4380 100%);
+    color: #fff;
+    padding: 0.85in 0.85in;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(228,199,155,0.25), transparent 70%);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(180,138,85,0.18), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover__top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover__mark {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid #e4c79b;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e4c79b;
+  }
+
+  .cover__brand-text { font-family: 'Cormorant Garamond', serif; line-height: 1.1; }
+  .cover__brand-text strong { font-size: 1.4rem; display: block; }
+  .cover__brand-text span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #e4c79b;
+  }
+
+  .cover__main { position: relative; z-index: 2; }
+
+  .cover__eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #e4c79b;
+    margin-bottom: 1.25rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(228,199,155,0.5);
+    border-radius: 99px;
+  }
+
+  .cover__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.85rem;
+    font-weight: 600;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .cover__title em { font-style: italic; color: #e4c79b; font-weight: 500; }
+
+  .cover__subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 540px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.75rem;
+  }
+
+  .cover__concepts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+    max-width: 100%;
+  }
+
+  .cover__concept {
+    padding: 0.95rem 1rem;
+    border: 1px solid rgba(228,199,155,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+  }
+  .cover__concept-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #e4c79b;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 38px;
+  }
+  .cover__concept h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+    line-height: 1;
+  }
+  .cover__concept p {
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.45;
+  }
+
+  .cover__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---------- Page Header (small banner at top of each design page) ---------- */
+  .design-banner {
+    padding: 0.45in 0.75in 0.25in;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background: #fff;
+    flex-shrink: 0;
+  }
+
+  .design-banner__left { display: flex; align-items: center; gap: 1rem; }
+
+  .design-banner__num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #0f1d3a;
+    color: #e4c79b;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .design-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0f1d3a;
+    line-height: 1;
+  }
+
+  .design-banner p {
+    font-size: 0.72rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-top: 0.25rem;
+  }
+
+  .design-banner__swatches {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .swatch {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.08);
+  }
+
+  .swatch-label {
+    font-size: 0.68rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-right: 0.5rem;
+  }
+
+  /* The "browser frame" mockup */
+  .mockup {
+    margin: 0.3in 0.5in 0.35in;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(15,29,58,0.18), 0 4px 12px rgba(15,29,58,0.08);
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+  }
+
+  .mockup__chrome {
+    background: #f3f4f7;
+    padding: 0.55rem 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px solid #e4e6eb;
+  }
+
+  .mockup__dot { width: 11px; height: 11px; border-radius: 50%; background: #d4d6db; }
+  .mockup__dot:nth-child(1) { background: #ed6a5e; }
+  .mockup__dot:nth-child(2) { background: #f4be4f; }
+  .mockup__dot:nth-child(3) { background: #61c554; }
+
+  .mockup__url {
+    flex: 1;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+    color: #888;
+    margin-left: 0.5rem;
+    border: 1px solid #e4e6eb;
+  }
+
+  /* =============================================================
+     Design 1: Heritage — Navy + gold, classic college symmetry
+     ============================================================= */
+  .d1 {
+    --d1-navy: #0f1d3a;
+    --d1-navy-light: #2a4380;
+    --d1-gold: #b48a55;
+    --d1-gold-light: #e4c79b;
+    --d1-cream: #faf6f1;
+    --d1-rose: #f7eee5;
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .d1 h1, .d1 h2, .d1 h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--d1-navy);
+    line-height: 1.1;
+  }
+  .d1 .topbar {
+    background: var(--d1-navy);
+    color: rgba(255,255,255,0.85);
+    padding: 0.4rem 1rem;
+    font-size: 0.62rem;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .d1 .nav { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.2rem; border-bottom: 1px solid #ececec; }
+  .d1 .nav__brand { display: flex; align-items: center; gap: 0.6rem; }
+  .d1 .nav__mark {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--d1-navy), var(--d1-navy-light));
+    border-radius: 50%;
+    color: #fff;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .d1 .nav__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--d1-navy);
+    line-height: 1;
+  }
+  .d1 .nav__sub {
+    display: block;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--d1-gold);
+    margin-top: 2px;
+  }
+  .d1 .nav__menu { display: flex; gap: 1.2rem; font-size: 0.78rem; font-weight: 500; }
+  .d1 .nav__menu a { color: #333; text-decoration: none; }
+  .d1 .nav__menu a.is-active { color: var(--d1-navy); border-bottom: 2px solid var(--d1-gold); padding-bottom: 4px; }
+  .d1 .nav__cta {
+    background: var(--d1-gold);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .d1 .hero {
+    background:
+      linear-gradient(135deg, rgba(15,29,58,0.92) 0%, rgba(15,29,58,0.55) 65%, rgba(15,29,58,0.4) 100%),
+      url('assets/images/card-laser.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 2.2rem 1.5rem;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .d1 .hero__eyebrow {
+    font-size: 0.65rem;
+    color: var(--d1-gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    margin-bottom: 0.85rem;
+    font-weight: 600;
+  }
+  .d1 .hero h1 { color: #fff; font-size: 2.4rem; line-height: 1.05; margin-bottom: 0.8rem; max-width: 540px; }
+  .d1 .hero p { font-size: 0.85rem; line-height: 1.65; max-width: 470px; color: rgba(255,255,255,0.88); margin-bottom: 1rem; }
+  .d1 .hero__btns { display: flex; gap: 0.6rem; }
+  .d1 .btn-primary {
+    background: var(--d1-gold);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .d1 .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 3px;
+  }
+  .d1 .section-h { text-align: center; padding: 1.1rem 1rem 0.6rem; }
+  .d1 .section-h .eyebrow {
+    font-size: 0.65rem;
+    color: var(--d1-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .d1 .section-h h2 { font-size: 1.55rem; margin-bottom: 0.3rem; }
+  .d1 .section-h p { font-size: 0.78rem; color: #666; max-width: 380px; margin: 0 auto; }
+  .d1 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; padding: 0.4rem 1rem 1.1rem; }
+  .d1 .feature { border: 1px solid #eaeaea; border-radius: 8px; padding: 0.85rem; }
+  .d1 .feature__icon {
+    width: 32px; height: 32px;
+    background: var(--d1-rose);
+    border-radius: 6px;
+    display: grid; place-items: center;
+    font-size: 0.95rem;
+    margin-bottom: 0.55rem;
+    color: var(--d1-navy);
+  }
+  .d1 .feature h3 { font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .d1 .feature p { font-size: 0.72rem; color: #666; line-height: 1.5; }
+  .d1 .programs { background: var(--d1-cream); padding: 1rem 1rem 1.2rem; }
+  .d1 .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d1 .program { background: #fff; border: 1px solid #ececec; border-radius: 8px; overflow: hidden; }
+  .d1 .program__img { aspect-ratio: 4/3; background-size: cover; background-position: center; position: relative; }
+  .d1 .program__tag {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--d1-gold); color: #fff;
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 3px 7px; border-radius: 3px; font-weight: 600;
+  }
+  .d1 .program__body { padding: 0.7rem; }
+  .d1 .program h3 { font-size: 0.88rem; margin-bottom: 0.25rem; line-height: 1.2; }
+  .d1 .program p { font-size: 0.7rem; color: #666; line-height: 1.5; margin-bottom: 0.55rem; }
+  .d1 .program__meta { display: flex; justify-content: space-between; align-items: center; padding-top: 0.45rem; border-top: 1px solid #f0f0f0; }
+  .d1 .program__price { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--d1-navy); font-size: 1rem; }
+  .d1 .program__cta { font-size: 0.7rem; color: var(--d1-navy); font-weight: 600; }
+  .d1 .cta-band {
+    background: linear-gradient(135deg, var(--d1-navy), var(--d1-navy-light));
+    color: #fff; text-align: center;
+    padding: 1.3rem 1rem;
+  }
+  .d1 .cta-band h2 { color: #fff; font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .d1 .cta-band p { font-size: 0.78rem; color: rgba(255,255,255,0.85); margin-bottom: 0.75rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+  .d1 .cta-band__btns { display: flex; gap: 0.5rem; justify-content: center; }
+  .d1 .footer {
+    background: var(--d1-navy);
+    color: rgba(255,255,255,0.75);
+    padding: 0.75rem 1rem;
+    font-size: 0.65rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 3px solid var(--d1-gold);
+  }
+
+  /* =============================================================
+     Design 2: Bloom — Sage + warm rose, soft modern editorial
+     ============================================================= */
+  .d2 {
+    --d2-sage: #4a6b5d;
+    --d2-sage-deep: #2d4a3e;
+    --d2-rose: #c98677;
+    --d2-rose-soft: #f3dfd8;
+    --d2-cream: #faf5ef;
+    --d2-ink: #2a2624;
+    --d2-warm-100: #f6ecde;
+    font-family: 'Manrope', sans-serif;
+    color: var(--d2-ink);
+    background: var(--d2-cream);
+  }
+  .d2 h1, .d2 h2, .d2 h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--d2-sage-deep);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .d2 .nav {
+    background: var(--d2-cream);
+    padding: 0.85rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .d2 .nav__brand { display: flex; align-items: center; gap: 0.7rem; }
+  .d2 .nav__mark {
+    width: 36px; height: 36px;
+    background: var(--d2-sage-deep);
+    color: var(--d2-warm-100);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .d2 .nav__name {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--d2-sage-deep);
+  }
+  .d2 .nav__sub {
+    display: block;
+    font-size: 0.58rem;
+    color: var(--d2-rose);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .d2 .nav__menu { display: flex; gap: 1.3rem; font-size: 0.76rem; }
+  .d2 .nav__menu a { color: var(--d2-ink); text-decoration: none; }
+  .d2 .nav__menu a.is-active { color: var(--d2-rose); font-weight: 600; }
+  .d2 .nav__cta {
+    background: var(--d2-sage-deep);
+    color: var(--d2-warm-100);
+    padding: 0.5rem 1.1rem;
+    border-radius: 99px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  /* Hero — adjusted to prevent badge overlap and constrain media height */
+  .d2 .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 1.4rem;
+    padding: 1.4rem 1.4rem 1.6rem;
+    background: var(--d2-cream);
+    align-items: stretch;
+  }
+  .d2 .hero__text {
+    padding-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .d2 .hero__tag {
+    display: inline-block;
+    background: var(--d2-rose-soft);
+    color: var(--d2-rose);
+    padding: 0.3rem 0.8rem;
+    border-radius: 99px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.75rem;
+    align-self: flex-start;
+  }
+  .d2 .hero h1 { font-size: 2.55rem; line-height: 1.0; margin-bottom: 0.75rem; }
+  .d2 .hero h1 em { font-style: italic; color: var(--d2-rose); font-weight: 400; }
+  .d2 .hero p {
+    font-size: 0.85rem;
+    color: #5a544f;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    max-width: 420px;
+  }
+  .d2 .hero__btns { display: flex; gap: 0.7rem; align-items: center; }
+  .d2 .btn-primary {
+    background: var(--d2-sage-deep);
+    color: var(--d2-warm-100);
+    padding: 0.65rem 1.2rem;
+    border-radius: 99px;
+    font-size: 0.76rem;
+    font-weight: 600;
+  }
+  .d2 .btn-text {
+    color: var(--d2-rose);
+    font-size: 0.76rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  /* Constrained media — fixed aspect prevents the badge from overlapping content below */
+  .d2 .hero__media {
+    position: relative;
+    aspect-ratio: 4/5;
+    max-height: 300px;
+    border-radius: 160px 160px 28px 28px;
+    overflow: hidden;
+    background: url('assets/images/card-laser.jpg') center/cover no-repeat;
+    box-shadow: 0 18px 40px rgba(45,74,62,0.18);
+    align-self: center;
+  }
+  /* Badge moved INSIDE the media (well clear of edges) so it never overlaps neighbors */
+  .d2 .hero__badge {
+    position: absolute;
+    bottom: 14px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--d2-warm-100);
+    border-radius: 10px;
+    padding: 0.5rem 0.8rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    text-align: center;
+    width: 70%;
+    z-index: 2;
+  }
+  .d2 .hero__badge strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    color: var(--d2-sage-deep);
+    display: block;
+    line-height: 1;
+  }
+  .d2 .hero__badge span {
+    font-size: 0.62rem;
+    color: #7a6f64;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 0.25rem;
+    display: inline-block;
+  }
+
+  .d2 .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--d2-warm-100);
+    margin: 0 1.4rem;
+    border-radius: 14px;
+    padding: 0.85rem 0.5rem;
+  }
+  .d2 .stat { text-align: center; padding: 0 0.4rem; border-right: 1px solid rgba(45,74,62,0.12); }
+  .d2 .stat:last-child { border-right: none; }
+  .d2 .stat strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--d2-sage-deep);
+    display: block;
+    line-height: 1;
+  }
+  .d2 .stat span {
+    font-size: 0.62rem;
+    color: #7a6f64;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  .d2 .features { padding: 1.2rem 1.4rem 0.4rem; }
+  .d2 .features__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  .d2 .features__head h2 { font-size: 1.5rem; max-width: 360px; }
+  .d2 .features__head p { font-size: 0.76rem; color: #7a6f64; max-width: 240px; }
+  .d2 .features__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d2 .feature {
+    background: #fff;
+    border-radius: 14px;
+    padding: 0.95rem;
+    border: 1px solid rgba(45,74,62,0.06);
+  }
+  .d2 .feature__icon {
+    width: 36px; height: 36px;
+    background: var(--d2-rose-soft);
+    color: var(--d2-rose);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 1rem;
+    margin-bottom: 0.55rem;
+  }
+  .d2 .feature h3 { font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .d2 .feature p { font-size: 0.72rem; color: #7a6f64; line-height: 1.5; }
+
+  .d2 .programs { padding: 1.2rem 1.4rem 1rem; }
+  .d2 .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d2 .program {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(45,74,62,0.06);
+  }
+  .d2 .program__img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    margin: 0.5rem 0.5rem 0;
+    border-radius: 10px;
+    position: relative;
+  }
+  .d2 .program__tag {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--d2-warm-100);
+    color: var(--d2-sage-deep);
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 4px 8px; border-radius: 99px; font-weight: 600;
+  }
+  .d2 .program__body { padding: 0.65rem 0.75rem 0.75rem; }
+  .d2 .program h3 { font-size: 0.9rem; margin-bottom: 0.25rem; line-height: 1.15; }
+  .d2 .program p { font-size: 0.7rem; color: #7a6f64; line-height: 1.5; margin-bottom: 0.55rem; }
+  .d2 .program__meta { display: flex; justify-content: space-between; align-items: center; }
+  .d2 .program__price {
+    font-family: 'Fraunces', serif;
+    color: var(--d2-sage-deep);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .d2 .program__cta {
+    background: var(--d2-rose);
+    color: #fff;
+    padding: 0.35rem 0.8rem;
+    border-radius: 99px;
+    font-size: 0.66rem;
+    font-weight: 600;
+  }
+
+  .d2 .cta-band {
+    background: var(--d2-sage-deep);
+    color: var(--d2-warm-100);
+    margin: 0 1.4rem 1rem;
+    border-radius: 20px;
+    padding: 1.3rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .d2 .cta-band::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 220px; height: 220px;
+    background: var(--d2-rose);
+    opacity: 0.18;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .d2 .cta-band > * { position: relative; z-index: 1; }
+  .d2 .cta-band h2 { color: var(--d2-warm-100); font-size: 1.45rem; margin-bottom: 0.35rem; line-height: 1.1; }
+  .d2 .cta-band p { font-size: 0.76rem; color: rgba(246,236,222,0.85); }
+  .d2 .cta-band__btns { display: flex; flex-direction: column; gap: 0.45rem; align-items: stretch; }
+  .d2 .cta-band .btn-primary { background: var(--d2-rose); text-align: center; }
+  .d2 .cta-band .btn-outline {
+    border: 1.5px solid rgba(246,236,222,0.5);
+    padding: 0.6rem 1.2rem;
+    border-radius: 99px;
+    font-size: 0.74rem;
+    color: var(--d2-warm-100);
+    text-align: center;
+  }
+
+  .d2 .footer {
+    background: var(--d2-warm-100);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.66rem;
+    color: #7a6f64;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(45,74,62,0.08);
+  }
+
+  /* =============================================================
+     Design 3: Campus — Forest green + terracotta, classic uni
+     ============================================================= */
+  .d3 {
+    --d3-forest: #1f3d2e;
+    --d3-forest-deep: #122418;
+    --d3-terra: #c66b4f;
+    --d3-terra-soft: #efd9cc;
+    --d3-paper: #f4ede0;
+    --d3-paper-deep: #ebe2cf;
+    --d3-ink: #1a1a1a;
+    --d3-graphite: #565049;
+    font-family: 'Inter', sans-serif;
+    color: var(--d3-ink);
+    background: var(--d3-paper);
+  }
+  .d3 h1, .d3 h2, .d3 h3 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: var(--d3-forest-deep);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .d3 .topbar {
+    background: var(--d3-forest-deep);
+    color: var(--d3-paper);
+    padding: 0.4rem 1.4rem;
+    font-size: 0.62rem;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+  .d3 .topbar span:last-child { color: var(--d3-terra-soft); }
+
+  .d3 .nav {
+    background: var(--d3-paper);
+    padding: 0.75rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(31,61,46,0.15);
+  }
+  .d3 .nav__brand {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--d3-forest-deep);
+    line-height: 1;
+  }
+  .d3 .nav__brand small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.55rem;
+    color: var(--d3-terra);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+  .d3 .nav__menu { display: flex; gap: 1.3rem; font-size: 0.76rem; font-weight: 500; }
+  .d3 .nav__menu a { color: var(--d3-forest-deep); text-decoration: none; }
+  .d3 .nav__menu a.is-active { color: var(--d3-terra); }
+  .d3 .nav__cta {
+    background: var(--d3-forest);
+    color: var(--d3-paper);
+    padding: 0.55rem 1.1rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  /* Editorial photo-led hero */
+  .d3 .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--d3-paper);
+    min-height: 320px;
+  }
+  .d3 .hero__text {
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--d3-paper);
+  }
+  .d3 .hero__kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--d3-terra);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+  }
+  .d3 .hero__kicker::before {
+    content: '';
+    width: 24px; height: 1.5px;
+    background: var(--d3-terra);
+    display: inline-block;
+  }
+  .d3 .hero h1 {
+    font-size: 2.65rem;
+    line-height: 1.05;
+    margin-bottom: 0.85rem;
+  }
+  .d3 .hero p {
+    font-size: 0.85rem;
+    color: var(--d3-graphite);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 380px;
+  }
+  .d3 .hero__btns { display: flex; gap: 0.6rem; }
+  .d3 .btn-primary {
+    background: var(--d3-forest-deep);
+    color: var(--d3-paper);
+    padding: 0.65rem 1.2rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .d3 .btn-outline {
+    border: 1.5px solid var(--d3-forest-deep);
+    color: var(--d3-forest-deep);
+    padding: 0.65rem 1.2rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .d3 .hero__media {
+    position: relative;
+    background: url('assets/images/program-master.jpg') center/cover no-repeat;
+  }
+  .d3 .hero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(220deg, transparent 50%, rgba(31,61,46,0.45));
+  }
+  .d3 .hero__quote {
+    position: absolute;
+    bottom: 1rem; left: 1rem; right: 1rem;
+    color: var(--d3-paper);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    z-index: 1;
+    max-width: 80%;
+  }
+  .d3 .hero__quote span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 0.62rem;
+    color: var(--d3-terra-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+
+  .d3 .pillars {
+    background: var(--d3-paper-deep);
+    padding: 1.1rem 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .d3 .pillar { display: flex; align-items: start; gap: 0.55rem; }
+  .d3 .pillar__num {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--d3-terra);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .d3 .pillar h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--d3-forest-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+  .d3 .pillar p { font-size: 0.7rem; color: var(--d3-graphite); line-height: 1.45; }
+
+  .d3 .programs { padding: 1.2rem 1.4rem; background: var(--d3-paper); }
+  .d3 .section-h {
+    margin-bottom: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px solid rgba(31,61,46,0.18);
+    padding-bottom: 0.55rem;
+  }
+  .d3 .section-h .label {
+    font-size: 0.62rem;
+    color: var(--d3-terra);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .d3 .section-h h2 { font-size: 1.55rem; }
+  .d3 .section-h__right {
+    font-size: 0.68rem;
+    color: var(--d3-graphite);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
+  .d3 .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d3 .program {
+    background: #fff;
+    border: 1px solid rgba(31,61,46,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .d3 .program__img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .d3 .program__tag {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--d3-terra); color: #fff;
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 4px 8px; font-weight: 600; border-radius: 2px;
+  }
+  .d3 .program__body { padding: 0.7rem 0.8rem 0.8rem; }
+  .d3 .program h3 { font-size: 0.95rem; margin-bottom: 0.3rem; line-height: 1.15; }
+  .d3 .program p { font-size: 0.72rem; color: var(--d3-graphite); line-height: 1.5; margin-bottom: 0.6rem; }
+  .d3 .program__meta {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(31,61,46,0.08);
+  }
+  .d3 .program__price {
+    font-family: 'Lora', serif;
+    color: var(--d3-forest-deep);
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .d3 .program__cta {
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--d3-terra);
+    font-weight: 600;
+  }
+
+  .d3 .cta-band {
+    background: var(--d3-forest-deep);
+    color: var(--d3-paper);
+    padding: 1.3rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+  .d3 .cta-band h2 { color: var(--d3-paper); font-size: 1.5rem; line-height: 1.1; margin-bottom: 0.35rem; }
+  .d3 .cta-band p { font-size: 0.76rem; color: rgba(244,237,224,0.8); max-width: 380px; }
+  .d3 .cta-band__right { display: flex; flex-direction: column; gap: 0.4rem; align-items: stretch; }
+  .d3 .cta-band .btn-primary { background: var(--d3-terra); text-align: center; color: #fff; }
+  .d3 .cta-band .btn-outline {
+    border: 1.5px solid rgba(244,237,224,0.5);
+    color: var(--d3-paper);
+    padding: 0.6rem 1.2rem;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  .d3 .footer {
+    background: var(--d3-paper);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.66rem;
+    color: var(--d3-graphite);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(31,61,46,0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* =============================================================
+     Design 4: Pulse — Indigo + bright accent, modern minimalist
+     ============================================================= */
+  .d4 {
+    --d4-indigo: #1e2a78;
+    --d4-indigo-deep: #0d1442;
+    --d4-cobalt: #2f4ed8;
+    --d4-coral: #ff6a4d;
+    --d4-mist: #eef1f8;
+    --d4-slate: #4a5266;
+    --d4-snow: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: var(--d4-indigo-deep);
+    background: var(--d4-snow);
+  }
+  .d4 h1, .d4 h2, .d4 h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--d4-indigo-deep);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+
+  .d4 .nav {
+    background: var(--d4-snow);
+    padding: 0.85rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eef1f8;
+  }
+  .d4 .nav__brand { display: flex; align-items: center; gap: 0.55rem; }
+  .d4 .nav__mark {
+    width: 32px; height: 32px;
+    background: var(--d4-indigo-deep);
+    color: var(--d4-snow);
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .d4 .nav__name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--d4-indigo-deep);
+    letter-spacing: -0.02em;
+  }
+  .d4 .nav__sub {
+    display: block;
+    font-size: 0.58rem;
+    color: var(--d4-slate);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 1px;
+    font-weight: 500;
+  }
+  .d4 .nav__menu { display: flex; gap: 1.4rem; font-size: 0.76rem; font-weight: 500; }
+  .d4 .nav__menu a { color: var(--d4-slate); text-decoration: none; }
+  .d4 .nav__menu a.is-active { color: var(--d4-indigo-deep); font-weight: 600; }
+  .d4 .nav__cta {
+    background: var(--d4-coral);
+    color: #fff;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border-radius: 6px;
+  }
+
+  /* Hero — clean, geometric */
+  .d4 .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.4rem;
+    padding: 1.6rem 1.4rem;
+    background:
+      linear-gradient(180deg, var(--d4-snow) 0%, var(--d4-mist) 100%);
+    position: relative;
+    align-items: center;
+  }
+  .d4 .hero__text { position: relative; z-index: 1; }
+  .d4 .hero__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #fff;
+    border: 1px solid #d8def0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--d4-cobalt);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.85rem;
+  }
+  .d4 .hero__pill::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--d4-coral);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .d4 .hero h1 {
+    font-size: 2.85rem;
+    line-height: 0.98;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.03em;
+  }
+  .d4 .hero h1 mark {
+    background: linear-gradient(180deg, transparent 60%, rgba(255,106,77,0.35) 60%);
+    color: inherit;
+    padding: 0 0.1em;
+  }
+  .d4 .hero p {
+    font-size: 0.85rem;
+    color: var(--d4-slate);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 380px;
+  }
+  .d4 .hero__btns { display: flex; gap: 0.6rem; align-items: center; }
+  .d4 .btn-primary {
+    background: var(--d4-indigo-deep);
+    color: var(--d4-snow);
+    padding: 0.7rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+  }
+  .d4 .btn-text {
+    color: var(--d4-indigo-deep);
+    font-size: 0.76rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--d4-coral);
+    padding-bottom: 1px;
+  }
+  .d4 .hero__visual {
+    position: relative;
+    aspect-ratio: 1/1;
+    max-width: 280px;
+    margin-left: auto;
+  }
+  .d4 .hero__photo {
+    position: absolute;
+    inset: 0;
+    background: url('assets/images/card-master.jpg') center/cover no-repeat;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(13,20,66,0.18);
+  }
+  .d4 .hero__shape-1 {
+    position: absolute;
+    top: -16px; right: -16px;
+    width: 90px; height: 90px;
+    background: var(--d4-coral);
+    border-radius: 18px;
+    z-index: -1;
+    transform: rotate(8deg);
+  }
+  .d4 .hero__shape-2 {
+    position: absolute;
+    bottom: -12px; left: -12px;
+    width: 70px; height: 70px;
+    border: 2px solid var(--d4-cobalt);
+    border-radius: 14px;
+    z-index: -1;
+    transform: rotate(-6deg);
+  }
+  .d4 .hero__stat {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--d4-snow);
+    border-radius: 10px;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 0 8px 20px rgba(13,20,66,0.12);
+    z-index: 1;
+  }
+  .d4 .hero__stat strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: var(--d4-indigo-deep);
+    line-height: 1;
+    display: block;
+  }
+  .d4 .hero__stat span {
+    font-size: 0.6rem;
+    color: var(--d4-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  /* Logo / accreditation strip */
+  .d4 .creds {
+    background: var(--d4-mist);
+    padding: 0.7rem 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.65rem;
+    color: var(--d4-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+  }
+  .d4 .creds span { white-space: nowrap; }
+  .d4 .creds span::before { content: '◆ '; color: var(--d4-coral); }
+
+  .d4 .features { padding: 1.2rem 1.4rem 0.4rem; background: var(--d4-snow); }
+  .d4 .features__head { margin-bottom: 0.85rem; }
+  .d4 .features__head .label {
+    font-size: 0.62rem;
+    color: var(--d4-cobalt);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .d4 .features__head h2 { font-size: 1.65rem; max-width: 520px; }
+  .d4 .features__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d4 .feature {
+    background: var(--d4-snow);
+    border: 1px solid #e3e8f3;
+    border-radius: 12px;
+    padding: 0.95rem;
+  }
+  .d4 .feature__num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    color: var(--d4-coral);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .d4 .feature h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .d4 .feature p { font-size: 0.72rem; color: var(--d4-slate); line-height: 1.55; }
+
+  .d4 .programs { padding: 1.2rem 1.4rem; background: var(--d4-mist); }
+  .d4 .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .d4 .program {
+    background: var(--d4-snow);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e3e8f3;
+    display: flex;
+    flex-direction: column;
+  }
+  .d4 .program__img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .d4 .program__tag {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--d4-snow);
+    color: var(--d4-indigo-deep);
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 4px 8px; font-weight: 700; border-radius: 4px;
+  }
+  .d4 .program__body { padding: 0.7rem 0.85rem 0.85rem; }
+  .d4 .program h3 { font-size: 0.92rem; margin-bottom: 0.3rem; line-height: 1.15; }
+  .d4 .program p { font-size: 0.7rem; color: var(--d4-slate); line-height: 1.5; margin-bottom: 0.6rem; }
+  .d4 .program__meta { display: flex; justify-content: space-between; align-items: center; }
+  .d4 .program__price {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--d4-indigo-deep);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .d4 .program__cta {
+    background: var(--d4-indigo-deep);
+    color: #fff;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.66rem;
+    font-weight: 600;
+  }
+
+  .d4 .cta-band {
+    background: var(--d4-indigo-deep);
+    color: var(--d4-snow);
+    padding: 1.3rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .d4 .cta-band::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: var(--d4-cobalt);
+    opacity: 0.35;
+    border-radius: 24px;
+    transform: rotate(15deg);
+    z-index: 0;
+  }
+  .d4 .cta-band > * { position: relative; z-index: 1; }
+  .d4 .cta-band h2 { color: var(--d4-snow); font-size: 1.55rem; line-height: 1.05; margin-bottom: 0.4rem; }
+  .d4 .cta-band h2 mark { background: var(--d4-coral); color: var(--d4-snow); padding: 0 0.15em; }
+  .d4 .cta-band p { font-size: 0.76rem; color: rgba(255,255,255,0.78); }
+  .d4 .cta-band__btns { display: flex; flex-direction: column; gap: 0.45rem; align-items: stretch; }
+  .d4 .cta-band .btn-primary { background: var(--d4-coral); color: #fff; text-align: center; }
+  .d4 .cta-band .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: var(--d4-snow);
+    padding: 0.65rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .d4 .footer {
+    background: var(--d4-snow);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.66rem;
+    color: var(--d4-slate);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e3e8f3;
+  }
+
+  /* =============================================================
+     Design 5: Atelier — Charcoal + champagne, editorial luxe
+     (moved from former Design 3 position)
+     ============================================================= */
+  .d5 {
+    --d5-ink: #111111;
+    --d5-charcoal: #1f1f1f;
+    --d5-champagne: #c9a87c;
+    --d5-champagne-light: #e8d5b5;
+    --d5-ivory: #f5f0e8;
+    --d5-ivory-deep: #ebe2d2;
+    --d5-graphite: #5a5751;
+    font-family: 'Inter', sans-serif;
+    color: var(--d5-ink);
+    background: var(--d5-ivory);
+  }
+  .d5 h1, .d5 h2, .d5 h3 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    color: var(--d5-ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .d5 .nav {
+    background: var(--d5-ivory);
+    padding: 0.85rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--d5-ink);
+  }
+  .d5 .nav__brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--d5-ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .d5 .nav__brand small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.55rem;
+    color: var(--d5-graphite);
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    margin-top: 3px;
+    font-weight: 500;
+  }
+  .d5 .nav__menu {
+    display: flex; gap: 1.5rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
+  .d5 .nav__menu a { color: var(--d5-ink); text-decoration: none; }
+  .d5 .nav__menu a.is-active { color: var(--d5-champagne); }
+  .d5 .nav__cta {
+    background: var(--d5-ink);
+    color: var(--d5-champagne-light);
+    padding: 0.55rem 1.1rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+  }
+
+  /* Hero — increased bottom padding so EST. label has clearance */
+  .d5 .hero {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    background: var(--d5-ivory);
+    border-bottom: 1px solid var(--d5-ink);
+    min-height: 340px;
+  }
+  .d5 .hero__text {
+    padding: 1.6rem 1.4rem 2.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--d5-ink);
+    position: relative;
+  }
+  .d5 .hero__text::after {
+    content: '— EST. 2014';
+    position: absolute;
+    bottom: 0.85rem; left: 1.4rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+    color: var(--d5-graphite);
+    font-weight: 600;
+  }
+  .d5 .hero__num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.85rem;
+    color: var(--d5-champagne);
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.04em;
+  }
+  .d5 .hero h1 {
+    font-size: 3rem;
+    line-height: 0.94;
+    margin-bottom: 0.85rem;
+    color: var(--d5-ink);
+  }
+  .d5 .hero h1 em { font-style: italic; color: var(--d5-champagne); }
+  .d5 .hero p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--d5-graphite);
+    margin-bottom: 1rem;
+    max-width: 360px;
+  }
+  .d5 .hero__btns { display: flex; gap: 0.6rem; }
+  .d5 .btn-primary {
+    background: var(--d5-ink);
+    color: var(--d5-champagne-light);
+    padding: 0.7rem 1.3rem;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+  }
+  .d5 .btn-outline {
+    border: 1px solid var(--d5-ink);
+    padding: 0.7rem 1.3rem;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--d5-ink);
+    font-weight: 600;
+  }
+  .d5 .hero__media {
+    background: url('assets/images/program-master.jpg') center/cover no-repeat;
+    position: relative;
+  }
+  .d5 .hero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(17,17,17,0.35));
+  }
+  .d5 .hero__chip {
+    position: absolute;
+    bottom: 1rem; right: 1rem;
+    background: var(--d5-ivory);
+    padding: 0.55rem 0.8rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.9rem;
+    color: var(--d5-ink);
+    z-index: 1;
+    border: 1px solid var(--d5-ink);
+    line-height: 1;
+  }
+  .d5 .hero__chip small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--d5-graphite);
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  /* Marquee — switched to grid so items can't overflow horizontally */
+  .d5 .marquee {
+    background: var(--d5-ink);
+    color: var(--d5-champagne-light);
+    padding: 0.65rem 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-align: center;
+  }
+  .d5 .marquee span { display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+  .d5 .marquee span::before { content: '✦'; color: var(--d5-champagne); flex-shrink: 0; }
+
+  .d5 .features {
+    padding: 1.2rem 1.4rem;
+    background: var(--d5-ivory);
+    border-bottom: 1px solid var(--d5-ink);
+  }
+  .d5 .section-h {
+    margin-bottom: 0.85rem;
+    border-bottom: 1px solid var(--d5-ink);
+    padding-bottom: 0.55rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+  }
+  .d5 .section-h__left { max-width: 60%; }
+  .d5 .section-h .label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--d5-graphite);
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+  }
+  .d5 .section-h h2 { font-size: 1.65rem; }
+  .d5 .section-h__right {
+    font-size: 0.66rem;
+    color: var(--d5-graphite);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    flex-shrink: 0;
+  }
+  .d5 .features__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .d5 .feature {
+    padding: 0.95rem 1rem;
+    border-right: 1px solid var(--d5-ink);
+  }
+  .d5 .feature:last-child { border-right: none; }
+  .d5 .feature__num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.95rem;
+    color: var(--d5-champagne);
+    margin-bottom: 0.4rem;
+  }
+  .d5 .feature h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+  .d5 .feature p { font-size: 0.72rem; color: var(--d5-graphite); line-height: 1.5; }
+
+  .d5 .programs { padding: 1.2rem 1.4rem; background: var(--d5-ivory-deep); }
+  .d5 .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
+  .d5 .program { background: var(--d5-ivory); border: 1px solid var(--d5-ink); }
+  .d5 .program__img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--d5-ink);
+    position: relative;
+  }
+  .d5 .program__tag {
+    position: absolute;
+    top: 0; left: 0;
+    background: var(--d5-ink);
+    color: var(--d5-champagne-light);
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.18em;
+    padding: 4px 8px; font-weight: 600;
+  }
+  .d5 .program__body { padding: 0.75rem 0.85rem; }
+  .d5 .program__num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.75rem;
+    color: var(--d5-champagne);
+    margin-bottom: 0.25rem;
+  }
+  .d5 .program h3 { font-size: 1rem; margin-bottom: 0.35rem; line-height: 1.05; }
+  .d5 .program p { font-size: 0.7rem; color: var(--d5-graphite); line-height: 1.5; margin-bottom: 0.6rem; }
+  .d5 .program__meta {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 0.5rem; border-top: 1px solid var(--d5-ink);
+  }
+  .d5 .program__price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--d5-ink);
+  }
+  .d5 .program__cta {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--d5-ink);
+    font-weight: 600;
+    border-bottom: 1px solid var(--d5-ink);
+    padding-bottom: 1px;
+  }
+
+  .d5 .cta-band {
+    background: var(--d5-ink);
+    color: var(--d5-ivory);
+    padding: 1.3rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .d5 .cta-band h2 { color: var(--d5-ivory); font-size: 1.85rem; line-height: 1; }
+  .d5 .cta-band h2 em { font-style: italic; color: var(--d5-champagne); }
+  .d5 .cta-band p { font-size: 0.76rem; color: rgba(245,240,232,0.7); margin-top: 0.5rem; max-width: 360px; }
+  .d5 .cta-band__right { text-align: right; }
+  .d5 .cta-band .btn-primary {
+    background: var(--d5-champagne);
+    color: var(--d5-ink);
+    display: inline-block;
+    margin-bottom: 0.4rem;
+  }
+  .d5 .cta-band__contact {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--d5-champagne-light);
+    font-weight: 600;
+  }
+
+  .d5 .footer {
+    background: var(--d5-ivory);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.64rem;
+    color: var(--d5-graphite);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--d5-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  /* ---------- Notes panel below mockup ---------- */
+  .design-notes {
+    padding: 0 0.5in;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .note {
+    background: #fafaf9;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    padding: 0.7rem 0.8rem;
+  }
+  .note h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .note p { font-size: 0.72rem; color: #333; line-height: 1.45; }
+
+  .footer-page {
+    text-align: center;
+    padding: 0.25in 0 0.3in;
+    margin: 0 0.5in;
+    margin-top: auto;
+    font-size: 0.62rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border-top: 1px solid #f0f0f0;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER PAGE
+     ============================================================ -->
+<section class="page cover">
+  <div class="cover__top">
+    <div class="cover__mark">BC</div>
+    <div class="cover__brand-text">
+      <strong>BC Medical Spa</strong>
+      <span>Cosmetic Aesthetics College</span>
+    </div>
+  </div>
+
+  <div class="cover__main">
+    <span class="cover__eyebrow">Website Redesign · 2026</span>
+    <h1 class="cover__title">Five <em>concept directions</em><br />for your new website.</h1>
+    <p class="cover__subtitle">
+      A fully responsive, professional, college-grade website redesign for BC Medical Spa.
+      We've prepared five distinct visual directions — each suitable for an official college website
+      and fully responsive across mobile, tablet, and desktop. Review each concept and select the direction
+      that best reflects your institution.
+    </p>
+
+    <div class="cover__concepts">
+      <div class="cover__concept">
+        <div class="cover__concept-num">01</div>
+        <div>
+          <h3>Heritage</h3>
+          <p>Classic college aesthetic — navy and gold, traditional symmetry, formal academic confidence.</p>
+        </div>
+      </div>
+      <div class="cover__concept">
+        <div class="cover__concept-num">02</div>
+        <div>
+          <h3>Bloom</h3>
+          <p>Soft modern — sage and warm rose, friendly editorial layouts, generous whitespace.</p>
+        </div>
+      </div>
+      <div class="cover__concept">
+        <div class="cover__concept-num">03</div>
+        <div>
+          <h3>Campus</h3>
+          <p>Photo-led editorial — forest green and terracotta, classic university with a modern edge.</p>
+        </div>
+      </div>
+      <div class="cover__concept">
+        <div class="cover__concept-num">04</div>
+        <div>
+          <h3>Pulse</h3>
+          <p>Modern minimalist — indigo and coral, geometric, contemporary design-school energy.</p>
+        </div>
+      </div>
+      <div class="cover__concept" style="grid-column: 1 / -1;">
+        <div class="cover__concept-num">05</div>
+        <div>
+          <h3>Atelier</h3>
+          <p>Editorial luxe — charcoal and champagne, magazine-grade typography, premium positioning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover__footer">
+    <span>Prepared for BC Medical Spa</span>
+    <span>Concept Presentation</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     DESIGN 1 — HERITAGE
+     ============================================================ -->
+<section class="page">
+  <div class="design-banner">
+    <div class="design-banner__left">
+      <div class="design-banner__num">1</div>
+      <div>
+        <h2>Heritage</h2>
+        <p>Classic College · Navy &amp; Gold</p>
+      </div>
+    </div>
+    <div class="design-banner__swatches">
+      <span class="swatch-label">Palette</span>
+      <span class="swatch" style="background:#0f1d3a"></span>
+      <span class="swatch" style="background:#2a4380"></span>
+      <span class="swatch" style="background:#b48a55"></span>
+      <span class="swatch" style="background:#e4c79b"></span>
+      <span class="swatch" style="background:#faf6f1; border-color:#ddd"></span>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup__chrome">
+      <span class="mockup__dot"></span><span class="mockup__dot"></span><span class="mockup__dot"></span>
+      <span class="mockup__url">bcmedicalspa.com</span>
+    </div>
+    <div class="d1">
+      <div class="topbar">
+        <span>Coquitlam &amp; West Vancouver, BC</span>
+        <span>Designated Private Training Institution · StudentAid BC Eligible</span>
+      </div>
+      <div class="nav">
+        <div class="nav__brand">
+          <div class="nav__mark">BC</div>
+          <div><div class="nav__name">BC Medical Spa<span class="nav__sub">Cosmetic Aesthetics College</span></div></div>
+        </div>
+        <div class="nav__menu">
+          <a href="#" class="is-active">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Admissions</a><a href="#">Contact</a>
+        </div>
+        <a href="#" class="nav__cta">Apply Now</a>
+      </div>
+      <div class="hero">
+        <div class="hero__eyebrow">Designated Private Training Institution</div>
+        <h1>Advance your career in medical aesthetics.</h1>
+        <p>Train with expert instructors in hands-on, accredited programs across cosmetic laser, skincare, and beauty enhancement. Year-round enrollment with StudentAid BC funding available.</p>
+        <div class="hero__btns">
+          <a href="#" class="btn-primary">Explore Programs</a>
+          <a href="#" class="btn-outline">Register Today</a>
+        </div>
+      </div>
+      <div class="section-h">
+        <span class="eyebrow">Why BC Medical Spa</span>
+        <h2>An accredited path to a thriving career.</h2>
+        <p>Regulated by PTIRU within the BC Ministry of Post-Secondary Education and Future Skills.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><div class="feature__icon">🎓</div><h3>Designated &amp; Regulated</h3><p>Programs reviewed and approved by PTIRU, providing student protection and quality standards.</p></div>
+        <div class="feature"><div class="feature__icon">💼</div><h3>Career-Ready Skills</h3><p>Hands-on training on live models with the technology used in modern medical spas and clinics.</p></div>
+        <div class="feature"><div class="feature__icon">💳</div><h3>Flexible Funding</h3><p>Interest-free installments and StudentAid BC eligibility for qualified diploma programs.</p></div>
+      </div>
+      <div class="programs">
+        <div class="section-h"><span class="eyebrow">Featured Programs</span><h2>Train in modern aesthetics.</h2></div>
+        <div class="programs__grid">
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-master.jpg')"><span class="program__tag">Flagship</span></div>
+            <div class="program__body"><h3>Master of Cosmetic Aesthetics</h3><p>800-hour flagship diploma. StudentAid BC eligible.</p><div class="program__meta"><span class="program__price">$14,085</span><span class="program__cta">Learn more →</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-laser.jpg')"><span class="program__tag">Popular</span></div>
+            <div class="program__body"><h3>Advanced Laser &amp; Skin Care</h3><p>IPL, Diode, ND-YAG combined with skincare certification.</p><div class="program__meta"><span class="program__price">$8,585</span><span class="program__cta">Learn more →</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-microblading.jpg')"></div>
+            <div class="program__body"><h3>Microblading &amp; Ombré Brows</h3><p>Hands-on certification on live models.</p><div class="program__meta"><span class="program__price">$4,085</span><span class="program__cta">Learn more →</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cta-band">
+        <h2>Your future in beauty starts now.</h2>
+        <p>Limited spots available. Reserve your place today and start on the first of next month.</p>
+        <div class="cta-band__btns"><a href="#" class="btn-primary">Apply Now</a><a href="#" class="btn-outline">Contact Advisor</a></div>
+      </div>
+      <div class="footer"><span>© 2026 BC Medical Spa. All rights reserved.</span><span>info@bcmedicalspa.com</span></div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <div class="note"><h4>Mood</h4><p>Established, academic, trustworthy. Reads as a respected post-secondary institution with formal credibility.</p></div>
+    <div class="note"><h4>Typography</h4><p>Cormorant Garamond serif headlines paired with Inter for body — balanced and readable.</p></div>
+    <div class="note"><h4>Best for</h4><p>Building credibility with parents, funders, and prospective students seeking a recognized institution.</p></div>
+  </div>
+
+  <div class="footer-page">BC Medical Spa · Concept 1 of 5 · Heritage</div>
+</section>
+
+<!-- ============================================================
+     DESIGN 2 — BLOOM
+     ============================================================ -->
+<section class="page">
+  <div class="design-banner">
+    <div class="design-banner__left">
+      <div class="design-banner__num" style="background:#2d4a3e; color:#f6ecde;">2</div>
+      <div><h2>Bloom</h2><p>Soft Modern · Sage &amp; Warm Rose</p></div>
+    </div>
+    <div class="design-banner__swatches">
+      <span class="swatch-label">Palette</span>
+      <span class="swatch" style="background:#2d4a3e"></span>
+      <span class="swatch" style="background:#4a6b5d"></span>
+      <span class="swatch" style="background:#c98677"></span>
+      <span class="swatch" style="background:#f3dfd8"></span>
+      <span class="swatch" style="background:#f6ecde; border-color:#ddd"></span>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup__chrome">
+      <span class="mockup__dot"></span><span class="mockup__dot"></span><span class="mockup__dot"></span>
+      <span class="mockup__url">bcmedicalspa.com</span>
+    </div>
+    <div class="d2">
+      <div class="nav">
+        <div class="nav__brand">
+          <div class="nav__mark">BC</div>
+          <div><div class="nav__name">BC Medical Spa<span class="nav__sub">Aesthetics College</span></div></div>
+        </div>
+        <div class="nav__menu"><a href="#" class="is-active">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Admissions</a><a href="#">Contact</a></div>
+        <a href="#" class="nav__cta">Apply Now</a>
+      </div>
+
+      <div class="hero">
+        <div class="hero__text">
+          <span class="hero__tag">★ Now Enrolling · 2026 Cohorts</span>
+          <h1>Beauty, taught with <em>care</em> &amp; mastery.</h1>
+          <p>Step into a profession where artistry meets science. Our hands-on programs blend modern technology with the gentle, attentive instruction you deserve.</p>
+          <div class="hero__btns"><a href="#" class="btn-primary">Browse Programs</a><a href="#" class="btn-text">Book a tour →</a></div>
+        </div>
+        <div class="hero__media"><div class="hero__badge"><strong>800h</strong><span>Flagship Diploma</span></div></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>20+</strong><span>Programs</span></div>
+        <div class="stat"><strong>800</strong><span>Diploma Hours</span></div>
+        <div class="stat"><strong>2</strong><span>Campuses</span></div>
+        <div class="stat"><strong>Year-round</strong><span>Intakes</span></div>
+      </div>
+
+      <div class="features">
+        <div class="features__head">
+          <h2>Built for the way modern students learn.</h2>
+          <p>Small classes, generous mentorship, and real practice on live models from day one.</p>
+        </div>
+        <div class="features__grid">
+          <div class="feature"><div class="feature__icon">✿</div><h3>Holistic Mentorship</h3><p>Industry instructors guide your growth in a supportive, hands-on environment.</p></div>
+          <div class="feature"><div class="feature__icon">◐</div><h3>Modern Curriculum</h3><p>From IPL and microneedling to brows and body contouring — current practice, current tools.</p></div>
+          <div class="feature"><div class="feature__icon">$</div><h3>Accessible Funding</h3><p>Interest-free monthly plans and StudentAid BC eligibility for qualified programs.</p></div>
+        </div>
+      </div>
+
+      <div class="programs">
+        <div class="features__head"><h2>Programs to bloom into.</h2><p>From short certifications to our flagship diploma — find your fit.</p></div>
+        <div class="programs__grid">
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-master.jpg')"><span class="program__tag">Flagship</span></div>
+            <div class="program__body"><h3>Master of Cosmetic Aesthetics</h3><p>Our 800-hour comprehensive diploma.</p><div class="program__meta"><span class="program__price">$14,085</span><a class="program__cta">View →</a></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-laser.jpg')"><span class="program__tag">Popular</span></div>
+            <div class="program__body"><h3>Advanced Laser &amp; Skin Care</h3><p>Combined laser + skincare certification.</p><div class="program__meta"><span class="program__price">$8,585</span><a class="program__cta">View →</a></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-microblading.jpg')"></div>
+            <div class="program__body"><h3>Microblading &amp; Brows</h3><p>Hands-on certification on live models.</p><div class="program__meta"><span class="program__price">$4,085</span><a class="program__cta">View →</a></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h2>Step into your career — gently, confidently.</h2>
+          <p>Spots fill quickly. Reach out today and we'll walk you through start dates and funding options.</p>
+        </div>
+        <div class="cta-band__btns">
+          <a href="#" class="btn-primary">Apply Now</a>
+          <a href="#" class="btn-outline">Talk to Advisor</a>
+        </div>
+      </div>
+
+      <div class="footer"><span>© 2026 BC Medical Spa</span><span>info@bcmedicalspa.com · @bcmedicalspa</span></div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <div class="note"><h4>Mood</h4><p>Warm, contemporary, welcoming. Communicates care, modernity, and approachability.</p></div>
+    <div class="note"><h4>Typography</h4><p>Fraunces serif (with italic flourish) paired with Manrope — friendly and editorial.</p></div>
+    <div class="note"><h4>Best for</h4><p>Attracting career-changers and younger applicants drawn to a brand that feels human and modern.</p></div>
+  </div>
+
+  <div class="footer-page">BC Medical Spa · Concept 2 of 5 · Bloom</div>
+</section>
+
+<!-- ============================================================
+     DESIGN 3 — CAMPUS
+     ============================================================ -->
+<section class="page">
+  <div class="design-banner">
+    <div class="design-banner__left">
+      <div class="design-banner__num" style="background:#1f3d2e; color:#f4ede0;">3</div>
+      <div><h2>Campus</h2><p>Photo-led University · Forest Green &amp; Terracotta</p></div>
+    </div>
+    <div class="design-banner__swatches">
+      <span class="swatch-label">Palette</span>
+      <span class="swatch" style="background:#122418"></span>
+      <span class="swatch" style="background:#1f3d2e"></span>
+      <span class="swatch" style="background:#c66b4f"></span>
+      <span class="swatch" style="background:#efd9cc"></span>
+      <span class="swatch" style="background:#f4ede0; border-color:#ddd"></span>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup__chrome">
+      <span class="mockup__dot"></span><span class="mockup__dot"></span><span class="mockup__dot"></span>
+      <span class="mockup__url">bcmedicalspa.com</span>
+    </div>
+    <div class="d3">
+      <div class="topbar">
+        <span>Designated Private Training Institution · British Columbia</span>
+        <span>info@bcmedicalspa.com</span>
+      </div>
+      <div class="nav">
+        <div class="nav__brand">BC Medical Spa<small>College of Cosmetic Aesthetics</small></div>
+        <div class="nav__menu"><a href="#" class="is-active">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Admissions</a><a href="#">Contact</a></div>
+        <a href="#" class="nav__cta">Apply</a>
+      </div>
+
+      <div class="hero">
+        <div class="hero__text">
+          <div class="hero__kicker">Cosmetic Aesthetics · Est. 2014</div>
+          <h1>A college built around craft &amp; clinical practice.</h1>
+          <p>Train at one of British Columbia's most established cosmetic aesthetics colleges — where every program is hands-on, every cohort is small, and every graduate leaves career-ready.</p>
+          <div class="hero__btns"><a href="#" class="btn-primary">View Programs</a><a href="#" class="btn-outline">Visit Campus</a></div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__quote">
+            "A learning environment where students are taught the science of skin and the artistry of practice."
+            <span>— Programs Faculty</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar__num">01</span>
+          <div><h3>Designated</h3><p>Approved by PTIRU under BC's Private Training Act.</p></div>
+        </div>
+        <div class="pillar">
+          <span class="pillar__num">02</span>
+          <div><h3>Funded</h3><p>StudentAid BC eligibility for qualified diploma programs.</p></div>
+        </div>
+        <div class="pillar">
+          <span class="pillar__num">03</span>
+          <div><h3>Hands-on</h3><p>Live-model practicum across every modality we teach.</p></div>
+        </div>
+        <div class="pillar">
+          <span class="pillar__num">04</span>
+          <div><h3>Two Campuses</h3><p>Coquitlam Centre and West Vancouver locations.</p></div>
+        </div>
+      </div>
+
+      <div class="programs">
+        <div class="section-h">
+          <div>
+            <div class="label">— Academic Calendar</div>
+            <h2>Programs starting this season.</h2>
+          </div>
+          <div class="section-h__right">View all programs →</div>
+        </div>
+        <div class="programs__grid">
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-master.jpg')"><span class="program__tag">Diploma</span></div>
+            <div class="program__body"><h3>Master of Cosmetic Aesthetics</h3><p>Our 800-hour flagship diploma. StudentAid BC eligible.</p><div class="program__meta"><span class="program__price">$14,085</span><span class="program__cta">Read more →</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-laser.jpg')"><span class="program__tag">Advanced</span></div>
+            <div class="program__body"><h3>Advanced Laser &amp; Skin Care</h3><p>Combined laser, microneedling, peels &amp; skincare.</p><div class="program__meta"><span class="program__price">$8,585</span><span class="program__cta">Read more →</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-microblading.jpg')"><span class="program__tag">Beauty</span></div>
+            <div class="program__body"><h3>Microblading &amp; Brows</h3><p>Microblading, ombré, powder &amp; shading techniques.</p><div class="program__meta"><span class="program__price">$4,085</span><span class="program__cta">Read more →</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h2>Build your career on a regulated foundation.</h2>
+          <p>New cohorts begin on the first of each month. Reach out for a campus tour or to discuss funding options with admissions.</p>
+        </div>
+        <div class="cta-band__right">
+          <a href="#" class="btn-primary">Begin Application</a>
+          <a href="#" class="btn-outline">Speak to Admissions</a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© 2026 BC Medical Spa · Designated Private Training Institution</span>
+        <span>Coquitlam · West Vancouver</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <div class="note"><h4>Mood</h4><p>Established, photo-led, intellectually serious. Echoes the visual language of respected liberal-arts colleges.</p></div>
+    <div class="note"><h4>Typography</h4><p>Lora serif headlines paired with Inter — confident, editorial, and college-appropriate.</p></div>
+    <div class="note"><h4>Best for</h4><p>Positioning the school as an established institution while signalling warmth and a strong campus identity.</p></div>
+  </div>
+
+  <div class="footer-page">BC Medical Spa · Concept 3 of 5 · Campus</div>
+</section>
+
+<!-- ============================================================
+     DESIGN 4 — PULSE
+     ============================================================ -->
+<section class="page">
+  <div class="design-banner">
+    <div class="design-banner__left">
+      <div class="design-banner__num" style="background:#0d1442; color:#fff;">4</div>
+      <div><h2>Pulse</h2><p>Modern Minimalist · Indigo &amp; Coral</p></div>
+    </div>
+    <div class="design-banner__swatches">
+      <span class="swatch-label">Palette</span>
+      <span class="swatch" style="background:#0d1442"></span>
+      <span class="swatch" style="background:#2f4ed8"></span>
+      <span class="swatch" style="background:#ff6a4d"></span>
+      <span class="swatch" style="background:#eef1f8"></span>
+      <span class="swatch" style="background:#ffffff; border-color:#ddd"></span>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup__chrome">
+      <span class="mockup__dot"></span><span class="mockup__dot"></span><span class="mockup__dot"></span>
+      <span class="mockup__url">bcmedicalspa.com</span>
+    </div>
+    <div class="d4">
+      <div class="nav">
+        <div class="nav__brand">
+          <div class="nav__mark">BC</div>
+          <div><div class="nav__name">BC Medical Spa<span class="nav__sub">Aesthetics College</span></div></div>
+        </div>
+        <div class="nav__menu"><a href="#" class="is-active">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Admissions</a><a href="#">Contact</a></div>
+        <a href="#" class="nav__cta">Apply Now</a>
+      </div>
+
+      <div class="hero">
+        <div class="hero__text">
+          <span class="hero__pill">Now Enrolling</span>
+          <h1>The future of aesthetics, <mark>taught today.</mark></h1>
+          <p>A modern, accredited college shaping confident professionals through small classes, hands-on practice, and current industry tools.</p>
+          <div class="hero__btns"><a href="#" class="btn-primary">Browse Programs →</a><a href="#" class="btn-text">Book a tour</a></div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__shape-1"></div>
+          <div class="hero__shape-2"></div>
+          <div class="hero__photo"></div>
+          <div class="hero__stat"><strong>800h</strong><span>Diploma</span></div>
+        </div>
+      </div>
+
+      <div class="creds">
+        <span>PTIRU Designated</span>
+        <span>StudentAid BC Eligible</span>
+        <span>Year-Round Intakes</span>
+        <span>2 BC Campuses</span>
+      </div>
+
+      <div class="features">
+        <div class="features__head">
+          <div class="label">— What sets us apart</div>
+          <h2>Career-aligned, accredited, accessible.</h2>
+        </div>
+        <div class="features__grid">
+          <div class="feature"><div class="feature__num">01 · Accreditation</div><h3>Designated by PTIRU</h3><p>Programs reviewed and approved under BC's Private Training Act for student protection.</p></div>
+          <div class="feature"><div class="feature__num">02 · Practice</div><h3>Live-model training</h3><p>Apply every technique on real models — from IPL to microblading — under expert supervision.</p></div>
+          <div class="feature"><div class="feature__num">03 · Funding</div><h3>Affordable pathways</h3><p>Interest-free monthly plans and StudentAid BC for our flagship diploma program.</p></div>
+        </div>
+      </div>
+
+      <div class="programs">
+        <div class="features__head"><div class="label">— Programs</div><h2>Find the path that fits.</h2></div>
+        <div class="programs__grid">
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-master.jpg')"><span class="program__tag">Flagship</span></div>
+            <div class="program__body"><h3>Master of Cosmetic Aesthetics</h3><p>800-hour diploma covering every modality.</p><div class="program__meta"><span class="program__price">$14,085</span><a class="program__cta">View</a></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-laser.jpg')"><span class="program__tag">Popular</span></div>
+            <div class="program__body"><h3>Advanced Laser &amp; Skin Care</h3><p>Combined laser + skincare certification.</p><div class="program__meta"><span class="program__price">$8,585</span><a class="program__cta">View</a></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-microblading.jpg')"><span class="program__tag">Beauty</span></div>
+            <div class="program__body"><h3>Microblading &amp; Brows</h3><p>Hands-on certification on live models.</p><div class="program__meta"><span class="program__price">$4,085</span><a class="program__cta">View</a></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h2>Ready to start? <mark>Apply today.</mark></h2>
+          <p>Cohorts begin on the first of each month. Reserve your seat with a quick online registration.</p>
+        </div>
+        <div class="cta-band__btns">
+          <a href="#" class="btn-primary">Begin Application →</a>
+          <a href="#" class="btn-outline">Talk to an Advisor</a>
+        </div>
+      </div>
+
+      <div class="footer"><span>© 2026 BC Medical Spa</span><span>Designated Private Training Institution</span></div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <div class="note"><h4>Mood</h4><p>Modern, confident, energetic. Reads like a contemporary technical college or design school — current and forward-looking.</p></div>
+    <div class="note"><h4>Typography</h4><p>Space Grotesk display paired with Inter — a clean, modern pairing optimized for screens.</p></div>
+    <div class="note"><h4>Best for</h4><p>Reaching younger prospects and digital-native applicants who expect a polished, contemporary brand experience.</p></div>
+  </div>
+
+  <div class="footer-page">BC Medical Spa · Concept 4 of 5 · Pulse</div>
+</section>
+
+<!-- ============================================================
+     DESIGN 5 — ATELIER (moved from former Design 3)
+     ============================================================ -->
+<section class="page">
+  <div class="design-banner">
+    <div class="design-banner__left">
+      <div class="design-banner__num" style="background:#111; color:#c9a87c;">5</div>
+      <div><h2>Atelier</h2><p>Editorial Luxe · Charcoal &amp; Champagne</p></div>
+    </div>
+    <div class="design-banner__swatches">
+      <span class="swatch-label">Palette</span>
+      <span class="swatch" style="background:#111"></span>
+      <span class="swatch" style="background:#5a5751"></span>
+      <span class="swatch" style="background:#c9a87c"></span>
+      <span class="swatch" style="background:#e8d5b5"></span>
+      <span class="swatch" style="background:#f5f0e8; border-color:#ddd"></span>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup__chrome">
+      <span class="mockup__dot"></span><span class="mockup__dot"></span><span class="mockup__dot"></span>
+      <span class="mockup__url">bcmedicalspa.com</span>
+    </div>
+    <div class="d5">
+      <div class="nav">
+        <div class="nav__brand">BC Medical Spa<small>Designated Private Training Institution</small></div>
+        <div class="nav__menu"><a href="#" class="is-active">Home</a><a href="#">About</a><a href="#">Programs</a><a href="#">Admissions</a><a href="#">Contact</a></div>
+        <a href="#" class="nav__cta">Apply</a>
+      </div>
+
+      <div class="hero">
+        <div class="hero__text">
+          <div class="hero__num">— Vol. 01 / The Craft</div>
+          <h1>The art of <em>aesthetics,</em> mastered in BC.</h1>
+          <p>An accredited college shaping the next generation of aesthetics professionals — where technical mastery meets refined craft.</p>
+          <div class="hero__btns"><a href="#" class="btn-primary">Programs</a><a href="#" class="btn-outline">Admissions</a></div>
+        </div>
+        <div class="hero__media"><div class="hero__chip">800h<small>Master Diploma</small></div></div>
+      </div>
+
+      <div class="marquee">
+        <span>PTIRU Designated</span>
+        <span>StudentAid BC</span>
+        <span>2 BC Campuses</span>
+        <span>Year-Round Intakes</span>
+      </div>
+
+      <div class="features">
+        <div class="section-h">
+          <div class="section-h__left"><div class="label">— The Standard</div><h2>Three pillars of our craft.</h2></div>
+          <div class="section-h__right">01 / 03</div>
+        </div>
+        <div class="features__grid">
+          <div class="feature"><div class="feature__num">01</div><h3>Designation</h3><p>Designated by PTIRU and StudentAid BC eligible. Held to the highest provincial standards.</p></div>
+          <div class="feature"><div class="feature__num">02</div><h3>Mastery</h3><p>Industry-leading instructors. Live-model practicums on every modality from laser to microblading.</p></div>
+          <div class="feature"><div class="feature__num">03</div><h3>Career</h3><p>Graduates open clinics, lead teams, or join Greater Vancouver's most sought-after spas.</p></div>
+        </div>
+      </div>
+
+      <div class="programs">
+        <div class="section-h">
+          <div class="section-h__left"><div class="label">— Programs</div><h2>The collection.</h2></div>
+          <div class="section-h__right">View all →</div>
+        </div>
+        <div class="programs__grid">
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-master.jpg')"><span class="program__tag">Flagship</span></div>
+            <div class="program__body"><div class="program__num">— 01 / Diploma</div><h3>Master of Cosmetic Aesthetics</h3><p>800 hours. Every modality. StudentAid BC eligible.</p><div class="program__meta"><span class="program__price">$14,085</span><span class="program__cta">View</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-laser.jpg')"><span class="program__tag">Advanced</span></div>
+            <div class="program__body"><div class="program__num">— 02 / Combined</div><h3>Laser &amp; Skin Care</h3><p>IPL, Diode, ND-YAG with full skincare program.</p><div class="program__meta"><span class="program__price">$8,585</span><span class="program__cta">View</span></div></div>
+          </div>
+          <div class="program">
+            <div class="program__img" style="background-image:url('assets/images/card-microblading.jpg')"></div>
+            <div class="program__body"><div class="program__num">— 03 / Beauty</div><h3>Microblading &amp; Brows</h3><p>Microblading, ombré, powder &amp; shading.</p><div class="program__meta"><span class="program__price">$4,085</span><span class="program__cta">View</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h2>Begin your <em>practice.</em></h2>
+          <p>Limited cohort sizes. New intakes the first of every month. Speak with admissions to reserve your place.</p>
+        </div>
+        <div class="cta-band__right">
+          <a href="#" class="btn-primary">Apply now →</a>
+          <span class="cta-band__contact">info@bcmedicalspa.com</span>
+        </div>
+      </div>
+
+      <div class="footer"><span>© 2026 BC Medical Spa</span><span>Designated Private Training Institution</span></div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <div class="note"><h4>Mood</h4><p>Premium, editorial, considered. Conveys mastery, craft, and a high-end professional brand.</p></div>
+    <div class="note"><h4>Typography</h4><p>DM Serif Display for editorial impact, Inter for crisp, modern body. Strong rules and grids.</p></div>
+    <div class="note"><h4>Best for</h4><p>Positioning the institution as the premier choice — appeals to career-focused students and industry partners.</p></div>
+  </div>
+
+  <div class="footer-page">BC Medical Spa · Concept 5 of 5 · Atelier</div>
+</section>
+
+</body>
+</html>
