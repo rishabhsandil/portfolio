@@ -209,7 +209,7 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
 .site-footer .brand__logo { background: #fff; border-radius: 6px; padding: 4px 8px; height: 44px; }
 .brand__text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand__name { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.015em; }
-.brand__sub { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-gold-500); }
+.brand__sub { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-gold-500); margin-top: 5px; }
 
 .nav__menu { display: flex; align-items: center; gap: var(--space-6); }
 .nav__list { display: flex; align-items: center; gap: var(--space-5); }
