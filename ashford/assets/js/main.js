@@ -242,11 +242,43 @@
           return;
         }
 
-        if (feedback) {
-          feedback.className = 'form__feedback is-success';
-          feedback.textContent = 'Thank you! Your message has been received. We will reply within 1\u20132 business days.';
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var originalText = submitBtn ? submitBtn.textContent : 'Submit';
+        if (submitBtn) {
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
         }
-        form.reset();
+
+        fetch(form.action || 'https://formsubmit.co/learn@bcmedicalspa.com', {
+          method: form.method || 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            if (feedback) {
+              feedback.className = 'form__feedback is-success';
+              feedback.textContent = 'Thank you! Your message has been received. We will reply within 1\u20132 business days.';
+            }
+            form.reset();
+          } else {
+            if (feedback) {
+              feedback.className = 'form__feedback is-error';
+              feedback.textContent = 'Oops! There was a problem submitting your form.';
+            }
+          }
+        }).catch(function(error) {
+          if (feedback) {
+            feedback.className = 'form__feedback is-error';
+            feedback.textContent = 'Oops! There was a problem submitting your form.';
+          }
+        }).finally(function() {
+          if (submitBtn) {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
       });
     });
   }
