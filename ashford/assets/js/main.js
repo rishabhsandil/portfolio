@@ -249,14 +249,16 @@
           submitBtn.disabled = true;
         }
 
-        fetch(form.action || 'https://formsubmit.co/learn@bcmedicalspa.com', {
+        fetch(form.action, {
           method: form.method || 'POST',
           body: new FormData(form),
           headers: {
             'Accept': 'application/json'
           }
         }).then(function(response) {
-          if (response.ok) {
+          return response.json();
+        }).then(function(data) {
+          if (data.success) {
             if (feedback) {
               feedback.className = 'form__feedback is-success';
               feedback.textContent = 'Thank you! Your message has been received. We will reply within 1\u20132 business days.';
