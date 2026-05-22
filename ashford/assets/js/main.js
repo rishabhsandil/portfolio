@@ -9,11 +9,13 @@
     return Promise.all(includes.map(function (el) {
       return fetch(el.dataset.include)
         .then(function (r) { return r.text(); })
-        .then(function (html) { el.outerHTML = html; })
+        .then(function (html) {
+          el.outerHTML = html;
+        })
         .catch(function (err) {
           console.warn('[components] Failed to load:', el.dataset.include, err);
         });
-    }));
+    })).then(loadComponents); // Recursively load nested components
   }
 
   // -- Scroll Progress Bar ------------------------------------------------------
@@ -171,9 +173,26 @@
       document.body.style.overflow = (isOpen && window.innerWidth <= 768) ? 'hidden' : '';
     });
 
+    // Handle dropdowns on mobile
+    menu.querySelectorAll('.nav__item.has-dropdown > .nav__link, .nav__item.has-mega > .nav__link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          var item = link.parentElement;
+          var wasOpen = item.classList.contains('is-open');
+          // Close all others
+          menu.querySelectorAll('.nav__item').forEach(function(el) { el.classList.remove('is-open'); });
+          // Toggle current
+          if (!wasOpen) item.classList.add('is-open');
+        }
+      });
+    });
+
+    // Close menu on link click (only for actual links, not dropdown triggers)
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        if (window.innerWidth <= 768) {
+        var isTrigger = link.parentElement.classList.contains('has-dropdown') || link.parentElement.classList.contains('has-mega');
+        if (window.innerWidth <= 768 && !isTrigger) {
           menu.classList.remove('is-open');
           toggle.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
@@ -200,89 +219,143 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
-  // -- Form validation -----------------------------------------------------------
+  // -- Multi-Step Form Logic ----------------------------------------------------
   function initForms() {
-    document.querySelectorAll('form[data-form]').forEach(function (form) {
-      var feedback = form.querySelector('.form__feedback');
+    var form = document.getElementById('multi-step-form');
+    var container = document.getElementById('form-container');
+    var success = document.getElementById('form-success');
+    if (!form || !container || !success) return;
 
-      // Live border reset on input
-      form.querySelectorAll('input, textarea, select').forEach(function (field) {
-        field.addEventListener('input', function () {
-          if (field.value.trim()) field.style.borderColor = '';
-        });
+    var steps = form.querySelectorAll('.form-step');
+    var progressSegments = document.querySelectorAll('.form-progress__segment');
+    var currentStep = 1;
+    var STORAGE_KEY = 'ashford_form_state';
+
+    // -- State Management --
+    function saveState() {
+      var data = {
+        step: currentStep,
+        fields: {}
+      };
+      form.querySelectorAll('input, select, textarea').forEach(function(el) {
+        if (el.name && el.name !== 'access_key' && el.name !== 'captcha') {
+          data.fields[el.name] = el.value;
+        }
       });
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        var captcha = form.querySelector('[name="captcha"]');
-        if (captcha && captcha.value.trim() !== '8') {
-          if (feedback) {
-            feedback.className = 'form__feedback is-error';
-            feedback.textContent = 'Please answer the security question correctly (which is bigger, 2 or 8?).';
-          }
-          return;
-        }
-
-        var valid = true;
-        form.querySelectorAll('[required]').forEach(function (field) {
-          if (!field.value.trim()) {
-            field.style.borderColor = 'var(--color-danger)';
-            valid = false;
-          } else {
-            field.style.borderColor = '';
-          }
+    function loadState() {
+      var saved = sessionStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      try {
+        var data = JSON.parse(saved);
+        currentStep = data.step || 1;
+        Object.keys(data.fields).forEach(function(name) {
+          var el = form.querySelector('[name="' + name + '"]');
+          if (el) el.value = data.fields[name];
         });
+        updateUI();
+      } catch(e) { console.error('Form state load failed', e); }
+    }
 
-        if (!valid) {
-          if (feedback) {
-            feedback.className = 'form__feedback is-error';
-            feedback.textContent = 'Please complete all required fields.';
-          }
-          return;
+    // -- UI Updates --
+    function updateUI() {
+      steps.forEach(function(step) {
+        var s = parseInt(step.dataset.step);
+        step.classList.toggle('is-active', s === currentStep);
+        step.classList.toggle('is-past', s < currentStep);
+      });
+      progressSegments.forEach(function(seg) {
+        var s = parseInt(seg.dataset.step);
+        seg.classList.toggle('is-active', s === currentStep);
+        seg.classList.toggle('is-complete', s < currentStep);
+      });
+    }
+
+    // -- Validation --
+    function validateStep(s) {
+      var stepEl = form.querySelector('.form-step[data-step="' + s + '"]');
+      var valid = true;
+      stepEl.querySelectorAll('[required]').forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--color-danger)';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
         }
+      });
+      return valid;
+    }
 
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var originalText = submitBtn ? submitBtn.textContent : 'Submit';
-        if (submitBtn) {
-          submitBtn.textContent = 'Sending...';
-          submitBtn.disabled = true;
+    // -- Submissions --
+    function submitPartial() {
+      var formData = new FormData(form);
+      formData.set('subject', '[Partial Lead] Ashford Career College');
+      // We don't wait for response, just fire and forget
+      fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+    }
+
+    // -- Event Listeners --
+    form.querySelectorAll('.btn--next').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (validateStep(currentStep)) {
+          // Trigger partial submission after Step 1 (since it now contains identity)
+          if (currentStep === 1) submitPartial();
+          currentStep++;
+          updateUI();
+          saveState();
         }
-
-        fetch(form.action, {
-          method: form.method || 'POST',
-          body: new FormData(form),
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(function(response) {
-          return response.json();
-        }).then(function(data) {
-          if (data.success) {
-            if (feedback) {
-              feedback.className = 'form__feedback is-success';
-              feedback.textContent = 'Thank you! Your message has been received. We will reply within 1\u20132 business days.';
-            }
-            form.reset();
-          } else {
-            if (feedback) {
-              feedback.className = 'form__feedback is-error';
-              feedback.textContent = 'Oops! There was a problem submitting your form.';
-            }
-          }
-        }).catch(function(error) {
-          if (feedback) {
-            feedback.className = 'form__feedback is-error';
-            feedback.textContent = 'Oops! There was a problem submitting your form.';
-          }
-        }).finally(function() {
-          if (submitBtn) {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-          }
-        });
       });
     });
+
+    form.querySelectorAll('.btn--back').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        currentStep--;
+        updateUI();
+        saveState();
+      });
+    });
+
+    form.querySelectorAll('input, select, textarea').forEach(function(el) {
+      el.addEventListener('input', saveState);
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (!validateStep(currentStep)) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      var formData = new FormData(form);
+      formData.set('subject', '[Complete Lead] Ashford Career College');
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success) {
+          sessionStorage.removeItem(STORAGE_KEY);
+          container.style.display = 'none';
+          success.classList.add('is-visible');
+        } else {
+          alert('Oops! There was a problem. Please try again.');
+        }
+      }).catch(function() {
+        alert('An error occurred. Please check your connection.');
+      }).finally(function() {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+
+    loadState();
   }
 
   // -- Magnetic button effect --------------------------------------------------

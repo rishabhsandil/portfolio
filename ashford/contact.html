@@ -28,90 +28,101 @@
     </div>
   </section>
 
-  <section class="section">
+  <div class="container-max page-layout">
+    <main class="page-main">
+      <section class="section">
     <div class="container">
-      <div class="info-grid">
-        <div class="info-card">
-          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Coquitlam Campus</h4>
-          <p>2929 Barnet Highway #1214<br />Coquitlam, BC V3B 5R5</p>
-          <p class="muted" style="font-size: 0.85rem;">Located in Coquitlam Centre Mall, on the left side of Heads Up Hair &amp; Body Spa.</p>
-          <a href="https://maps.app.goo.gl/PJjq21aUERF1qWgD8" target="_blank" rel="noopener" class="program-card__cta">Get directions</a>
-        </div>
-        <div class="info-card">
-          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>West Vancouver Campus</h4>
-          <p>1854 Marine Drive<br />West Vancouver, BC</p>
-          <p class="muted" style="font-size: 0.85rem;">Convenient access from across the North Shore.</p>
-        </div>
-        <div class="info-card">
-          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</h4>
-          <p><a href="mailto:learn@bcmedicalspa.com">learn@bcmedicalspa.com</a></p>
-          <p class="muted" style="font-size: 0.85rem;">We respond within 1–2 business days.</p>
-        </div>
-        <div class="info-card">
-          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Follow Us</h4>
-          <p><a href="https://www.instagram.com/ashfordcareercollege/" target="_blank" rel="noopener">@ashfordcareercollege on Instagram</a></p>
-          <p class="muted" style="font-size: 0.85rem;">Stay updated on student work, events, and start dates.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;" id="contact-grid">
-        <div class="reveal">
-          <span class="eyebrow">Contact Form</span>
-          <h2>Send us a message.</h2>
-          <p>Have a question about a specific program, funding, or your application? Send us a quick note and an advisor will follow up.</p>
-
-          <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
-            <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
-            <input type="hidden" name="subject" value="New Contact Form Submission – Ashford Career College" />
-            <div class="form__feedback" role="status" aria-live="polite"></div>
-
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="c-name">Your Name <span class="req">*</span></label>
-                <input class="form__input" type="text" id="c-name" name="name" required autocomplete="name" />
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="c-phone">Phone Number <span class="req">*</span></label>
-                <input class="form__input" type="tel" id="c-phone" name="phone" required autocomplete="tel" />
-              </div>
-            </div>
-
-            <div class="form__group">
-              <label class="form__label" for="c-email">Your Email <span class="req">*</span></label>
-              <input class="form__input" type="email" id="c-email" name="email" required autocomplete="email" />
-            </div>
-
-            <div class="form__group">
-              <label class="form__label" for="c-message">Your Message <span class="req">*</span></label>
-              <textarea class="form__textarea" id="c-message" name="message" required placeholder="How can we help you?"></textarea>
-            </div>
-
-            <div class="form__group">
-              <label class="form__label" for="c-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
-              <input class="form__input" type="text" id="c-captcha" name="captcha" required style="max-width: 200px;" />
-            </div>
-
-            <button type="submit" class="btn btn--gold btn--lg">Send Message</button>
-          </form>
-        </div>
-
-        <div class="reveal">
-          <span class="eyebrow">Visit Coquitlam</span>
-          <h2>Find our flagship campus.</h2>
-          <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3;">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.0!2d-122.798!3d49.281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjkyOSBCYXJuZXQgSGlnaHdheSwgQ29xdWl0bGFtLCBCQw!5e0!3m2!1sen!2sca!4v1700000000000"
-              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ashford Career College Coquitlam location"></iframe>
+        <div class="info-grid">
+          <div class="info-card">
+            <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Coquitlam Campus</h4>
+            <p>2929 Barnet Highway #1214<br />Coquitlam, BC V3B 5R5</p>
+            <p class="muted" style="font-size: 0.85rem;">Located in Coquitlam Centre Mall, on the left side of Heads Up Hair &amp; Body Spa.</p>
+            <a href="https://maps.app.goo.gl/PJjq21aUERF1qWgD8" target="_blank" rel="noopener" class="program-card__cta">Get directions</a>
           </div>
-          <a href="https://maps.app.goo.gl/PJjq21aUERF1qWgD8" target="_blank" rel="noopener" class="btn btn--outline mt-5">Open in Google Maps</a>
+          <div class="info-card">
+            <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>West Vancouver Campus</h4>
+            <p>1854 Marine Drive<br />West Vancouver, BC</p>
+            <p class="muted" style="font-size: 0.85rem;">Convenient access from across the North Shore.</p>
+          </div>
+          <div class="info-card">
+            <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email</h4>
+            <p><a href="mailto:learn@bcmedicalspa.com">learn@bcmedicalspa.com</a></p>
+            <p class="muted" style="font-size: 0.85rem;">We respond within 1–2 business days.</p>
+          </div>
+          <div class="info-card">
+            <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Follow Us</h4>
+            <p><a href="https://www.instagram.com/bcmedicalspa/" target="_blank" rel="noopener">@bcmedicalspa on Instagram</a></p>
+            <p class="muted" style="font-size: 0.85rem;">Stay updated on student work, events, and start dates.</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      
+    </div></section>
+
+      <section class="section section--alt">
+    <div class="container">
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;" id="contact-grid">
+          <div class="reveal">
+            <span class="eyebrow">Contact Form</span>
+            <h2>Send us a message.</h2>
+            <p>Have a question about a specific program, funding, or your application? Send us a quick note and an advisor will follow up.</p>
+
+            <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
+              <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+              <input type="hidden" name="subject" value="New Contact Form Submission – Ashford Career College" />
+              <div class="form__feedback" role="status" aria-live="polite"></div>
+
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="c-name">Your Name <span class="req">*</span></label>
+                  <input class="form__input" type="text" id="c-name" name="name" required autocomplete="name" />
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="c-phone">Phone Number <span class="req">*</span></label>
+                  <input class="form__input" type="tel" id="c-phone" name="phone" required autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="c-email">Your Email <span class="req">*</span></label>
+                <input class="form__input" type="email" id="c-email" name="email" required autocomplete="email" />
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="c-message">Your Message <span class="req">*</span></label>
+                <textarea class="form__textarea" id="c-message" name="message" required placeholder="How can we help you?"></textarea>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="c-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
+                <input class="form__input" type="text" id="c-captcha" name="captcha" required style="max-width: 200px;" />
+              </div>
+
+              <button type="submit" class="btn btn--gold btn--lg">Send Message</button>
+            </form>
+          </div>
+
+          <div class="reveal">
+            <span class="eyebrow">Visit Coquitlam</span>
+            <h2>Find our flagship campus.</h2>
+            <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.0!2d-122.798!3d49.281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjkyOSBCYXJuZXQgSGlnaHdheSwgQ29xdWl0bGFtLCBCQw!5e0!3m2!1sen!2sca!4v1700000000000"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ashford Career College Coquitlam location"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/PJjq21aUERF1qWgD8" target="_blank" rel="noopener" class="btn btn--outline mt-5">Open in Google Maps</a>
+          </div>
+        </div>
+      
+    </div></section>
+    </main>
+    <aside class="page-sidebar">
+      <div class="container">
+      <div data-include="components/get-details-form.html"></div>
+      <div data-include="components/designation.html"></div>
+    
+      </div></aside>
+  </div>
+
 
   <div data-include="components/footer.html"></div>
 

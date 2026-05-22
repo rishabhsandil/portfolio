@@ -28,120 +28,131 @@
     </div>
   </section>
 
-  <section class="section">
+  <div class="container-max page-layout">
+    <main class="page-main">
+      <section class="section">
     <div class="container">
-      <div class="grid" style="grid-template-columns: 1.6fr 1fr; gap: 3rem;" id="reg-grid">
-        <div class="reveal">
-          <h2>Registration Form</h2>
-          <p>Once you have submitted your registration form, please allow us 1–2 days to get back to you. You will be part of a cohort of students who bring outstanding professional experience, excellent academic preparation, and dedication to the profession.</p>
+        <div class="grid" style="grid-template-columns: 1.6fr 1fr; gap: 3rem;" id="reg-grid">
+          <div class="reveal">
+            <h2>Registration Form</h2>
+            <p>Once you have submitted your registration form, please allow us 1–2 days to get back to you. You will be part of a cohort of students who bring outstanding professional experience, excellent academic preparation, and dedication to the profession.</p>
 
-          <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
-            <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
-            <input type="hidden" name="subject" value="New Registration Form Submission – Ashford Career College" />
-            <div class="form__feedback" role="status" aria-live="polite"></div>
+            <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
+              <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+              <input type="hidden" name="subject" value="New Registration Form Submission – Ashford Career College" />
+              <div class="form__feedback" role="status" aria-live="polite"></div>
 
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="reg-name">Your Name <span class="req">*</span></label>
-                <input class="form__input" type="text" id="reg-name" name="name" required autocomplete="name" />
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="reg-name">Your Name <span class="req">*</span></label>
+                  <input class="form__input" type="text" id="reg-name" name="name" required autocomplete="name" />
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="reg-phone">Phone Number <span class="req">*</span></label>
+                  <input class="form__input" type="tel" id="reg-phone" name="phone" required autocomplete="tel" />
+                </div>
               </div>
+
               <div class="form__group">
-                <label class="form__label" for="reg-phone">Phone Number <span class="req">*</span></label>
-                <input class="form__input" type="tel" id="reg-phone" name="phone" required autocomplete="tel" />
+                <label class="form__label" for="reg-email">Your Email <span class="req">*</span></label>
+                <input class="form__input" type="email" id="reg-email" name="email" required autocomplete="email" />
               </div>
-            </div>
 
-            <div class="form__group">
-              <label class="form__label" for="reg-email">Your Email <span class="req">*</span></label>
-              <input class="form__input" type="email" id="reg-email" name="email" required autocomplete="email" />
-            </div>
-
-            <div class="form__group">
-              <label class="form__label" for="reg-address">Your Address <span class="req">*</span></label>
-              <input class="form__input" type="text" id="reg-address" name="address" placeholder="Unit # &amp; Street, City, Postal Code, Province" required autocomplete="street-address" />
-            </div>
-
-            <div class="form__row">
               <div class="form__group">
-                <label class="form__label" for="reg-program">Requested Program</label>
-                <select class="form__select" id="reg-program" name="program">
-                  <option value="">Select a program—</option>
-                  <option>Master of Cosmetic Aesthetics Diploma</option>
-                  <option>Advanced Laser &amp; Skin Care Program</option>
-                  <option>Advanced Skin Care Program</option>
-                  <option>Advanced Laser Program</option>
-                  <option>Aesthetic Dermatology Technician</option>
-                  <option>Microdermabrasion &amp; Skin Care Technician</option>
-                  <option>IPL &amp; Diode Laser Technician</option>
-                  <option>Laser ND-YAG Technician</option>
-                  <option>Laser Teeth Whitening Technician</option>
-                  <option>Microblading &amp; Ombré Brows Technician</option>
-                  <option>Dermaplaning Technician</option>
-                  <option>Cold Body Sculpting &amp; Body Contouring Technician</option>
-                </select>
+                <label class="form__label" for="reg-address">Your Address <span class="req">*</span></label>
+                <input class="form__input" type="text" id="reg-address" name="address" placeholder="Unit # &amp; Street, City, Postal Code, Province" required autocomplete="street-address" />
               </div>
+
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="reg-program">Requested Program</label>
+                  <select class="form__select" id="reg-program" name="program">
+                    <option value="">Select a program—</option>
+                    <option>Master of Cosmetic Aesthetics Diploma</option>
+                    <option>Advanced Laser &amp; Skin Care Program</option>
+                    <option>Advanced Skin Care Program</option>
+                    <option>Advanced Laser Program</option>
+                    <option>Aesthetic Dermatology Technician</option>
+                    <option>Microdermabrasion &amp; Skin Care Technician</option>
+                    <option>IPL &amp; Diode Laser Technician</option>
+                    <option>Laser ND-YAG Technician</option>
+                    <option>Laser Teeth Whitening Technician</option>
+                    <option>Microblading &amp; Ombré Brows Technician</option>
+                    <option>Dermaplaning Technician</option>
+                    <option>Cold Body Sculpting &amp; Body Contouring Technician</option>
+                  </select>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="reg-start">Requested Start Date <span class="req">*</span></label>
+                  <input class="form__input" type="date" id="reg-start" name="start_date" required />
+                </div>
+              </div>
+
               <div class="form__group">
-                <label class="form__label" for="reg-start">Requested Start Date <span class="req">*</span></label>
-                <input class="form__input" type="date" id="reg-start" name="start_date" required />
+                <label class="form__label" for="reg-experience">Previous Education / Work Experience</label>
+                <textarea class="form__textarea" id="reg-experience" name="experience" placeholder="Briefly tell us about your relevant background—"></textarea>
               </div>
+
+              <div class="form__group">
+                <label class="form__label" for="reg-techcourses">Certified Technician Courses (if any)</label>
+                <input class="form__input" type="text" id="reg-techcourses" name="tech_courses" placeholder="List any current certifications" />
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="reg-message">Your Message <span class="req">*</span></label>
+                <textarea class="form__textarea" id="reg-message" name="message" required placeholder="Tell us why you'd like to join Ashford Career College—"></textarea>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="reg-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
+                <input class="form__input" type="text" id="reg-captcha" name="captcha" required style="max-width: 200px;" />
+              </div>
+
+              <button type="submit" class="btn btn--gold btn--lg">Send Registration</button>
+            </form>
+          </div>
+
+          <aside class="reveal">
+            <div class="info-card">
+              <h4>Quick Connect</h4>
+              <p>Contact us via email and one of our associates will be happy to help.</p>
+              <p><strong>Email</strong><br /><a href="mailto:learn@bcmedicalspa.com">learn@bcmedicalspa.com</a></p>
+              <p><strong>Website</strong><br /><a href="https://www.ashfordcareercollege.com">www.ashfordcareercollege.com</a></p>
             </div>
 
-            <div class="form__group">
-              <label class="form__label" for="reg-experience">Previous Education / Work Experience</label>
-              <textarea class="form__textarea" id="reg-experience" name="experience" placeholder="Briefly tell us about your relevant background—"></textarea>
+            <div class="info-card mt-3">
+              <h4>Coquitlam Campus</h4>
+              <p>2929 Barnet Highway #1214<br />Coquitlam, BC V3B 5R5</p>
+              <p>Located in Coquitlam Centre Mall, on the left side of Heads Up Hair &amp; Body Spa.</p>
             </div>
 
-            <div class="form__group">
-              <label class="form__label" for="reg-techcourses">Certified Technician Courses (if any)</label>
-              <input class="form__input" type="text" id="reg-techcourses" name="tech_courses" placeholder="List any current certifications" />
+            <div class="info-card mt-3">
+              <h4>West Vancouver Campus</h4>
+              <p>1854 Marine Drive<br />West Vancouver, BC</p>
             </div>
 
-            <div class="form__group">
-              <label class="form__label" for="reg-message">Your Message <span class="req">*</span></label>
-              <textarea class="form__textarea" id="reg-message" name="message" required placeholder="Tell us why you'd like to join Ashford Career College—"></textarea>
+            <div class="info-card mt-3">
+              <h4>What Happens Next?</h4>
+              <ul class="check-list" style="font-size: 0.9rem;">
+                <li>Advisor reviews your form (1–2 business days)</li>
+                <li>We confirm your spot and start date</li>
+                <li>You complete the Student Enrolment Contract</li>
+                <li>Begin your training on the first of the month</li>
+              </ul>
             </div>
-
-            <div class="form__group">
-              <label class="form__label" for="reg-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
-              <input class="form__input" type="text" id="reg-captcha" name="captcha" required style="max-width: 200px;" />
-            </div>
-
-            <button type="submit" class="btn btn--gold btn--lg">Send Registration</button>
-          </form>
+          </aside>
         </div>
+      
+    </div></section>
+    </main>
+    <aside class="page-sidebar">
+      <div class="container">
+      <div data-include="components/get-details-form.html"></div>
+      <div data-include="components/designation.html"></div>
+    
+      </div></aside>
+  </div>
 
-        <aside class="reveal">
-          <div class="info-card">
-            <h4>Quick Connect</h4>
-            <p>Contact us via email and one of our associates will be happy to help.</p>
-            <p><strong>Email</strong><br /><a href="mailto:learn@bcmedicalspa.com">learn@bcmedicalspa.com</a></p>
-            <p><strong>Website</strong><br /><a href="https://www.ashfordcareercollege.com">www.ashfordcareercollege.com</a></p>
-          </div>
-
-          <div class="info-card mt-3">
-            <h4>Coquitlam Campus</h4>
-            <p>2929 Barnet Highway #1214<br />Coquitlam, BC V3B 5R5</p>
-            <p>Located in Coquitlam Centre Mall, on the left side of Heads Up Hair &amp; Body Spa.</p>
-          </div>
-
-          <div class="info-card mt-3">
-            <h4>West Vancouver Campus</h4>
-            <p>1854 Marine Drive<br />West Vancouver, BC</p>
-          </div>
-
-          <div class="info-card mt-3">
-            <h4>What Happens Next?</h4>
-            <ul class="check-list" style="font-size: 0.9rem;">
-              <li>Advisor reviews your form (1–2 business days)</li>
-              <li>We confirm your spot and start date</li>
-              <li>You complete the Student Enrolment Contract</li>
-              <li>Begin your training on the first of the month</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
 
   <div data-include="components/footer.html"></div>
 
