@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laser ND-YAG | Ashford Career College</title>
+  <meta name="description" content="Specialize in Laser ND-YAG procedures including tattoo removal, carbon peeling, and pigmentation removal. 20 clinical hours of hands-on training." />
+  <meta name="theme-color" content="#0d2618" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    /* Landing Page Specific Overrides */
+    .site-header--lp .nav { height: 70px; }
+    .hero--lp { background: var(--color-navy-900); color: var(--color-white); padding: var(--space-8) 0 var(--space-9); position: relative; overflow: hidden; }
+    .hero--lp::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(185,150,12,0.12), transparent 50%); }
+    .hero--lp h1 { color: var(--color-white); margin-bottom: var(--space-4); }
+    .hero--lp .eyebrow { color: var(--color-gold-300); }
+    .hero--lp .hero__bullets { margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+    .hero--lp .hero__bullet { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.05rem; }
+    .hero--lp .hero__bullet svg { flex-shrink: 0; color: var(--color-gold-400); margin-top: 0.2rem; }
+
+    @media (min-width: 992px) {
+      .lp-grid { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-8); align-items: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div data-include="../components/header-lp.html"></div>
+
+  <section class="hero--lp">
+    <div class="container">
+      <div class="lp-grid">
+        <div class="reveal">
+          <span class="eyebrow">Professional Certificate Program</span>
+          <h1>Laser ND-YAG</h1>
+          <p class="lead" style="color: rgba(255,255,255,0.8);">Become an expert in ND-YAG laser technology. Master high-demand procedures including tattoo removal, carbon peeling, and pigmentation removal with hands-on clinical experience.</p>
+          
+          <div class="hero__bullets">
+            <div class="hero__bullet">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Hands-On Experience:</strong> Train with industry-leading technology and live models in our Coquitlam and West Vancouver campuses.</span>
+            </div>
+            <div class="hero__bullet">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Government Designated:</strong> Accredited by the PTIB and eligible for StudentAid BC financial assistance.</span>
+            </div>
+            <div class="hero__bullet">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Advanced Procedures:</strong> Learn tattoo removal and advanced skin treatments using the latest ND-YAG technology.</span>
+            </div>
+          </div>
+
+          <div class="hero__badges" style="border-top-color: rgba(255,255,255,0.1); margin-top: var(--space-7);">
+            <div class="hero__badge">
+              <strong>20</strong>
+              <span>Clinical Hours</span>
+            </div>
+            <div class="hero__badge">
+              <strong>Monthly</strong>
+              <span>New Intakes</span>
+            </div>
+            <div class="hero__badge">
+              <strong>100%</strong>
+              <span>Hands-on Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="form-top" class="reveal">
+          <div data-include="../components/get-details-form.html"></div>
+          <div data-include="../components/designation-lp.html"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Why Study at Ashford</span>
+        <h2>Premium Training for a Premium Career</h2>
+        <p class="lead">We provide the tools, technology, and expertise you need to succeed independently or in a high-end clinic.</p>
+      </div>
+
+      <div class="grid grid--3 stagger">
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Expert Instruction</h3>
+          <p>Learn from seasoned medical aesthetics professionals who bring years of clinical experience to the classroom.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Modern Technology</h3>
+          <p>Our students train on the latest lasers and skin technology used in top-tier medical spas globally.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Student Support</h3>
+          <p>Small class sizes ensure personalized attention, and our team assists with StudentAid BC funding and career planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split align-items-center">
+        <div class="reveal">
+          <span class="eyebrow">Career Outcomes</span>
+          <h2>The Path to Your New Career</h2>
+          <p>Graduates of the Laser ND-YAG program are prepared for various roles in the beauty and medical industry:</p>
+          <ul class="check-list mt-4">
+            <li>Tattoo Removal Specialist</li>
+            <li>Laser Technician</li>
+            <li>Advanced Skincare Professional</li>
+            <li>Carbon Peeling Expert</li>
+            <li>Spa Owner or Entrepreneur</li>
+          </ul>
+          <a href="#form-top" class="btn btn--gold btn--lg mt-5">Request Program Guide</a>
+        </div>
+        <div class="split__media split__media--frame reveal">
+          <img src="../assets/images/training.jpg" alt="Student training at Ashford Career College" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <span class="eyebrow" style="color: var(--color-gold-300);">Limited Availability</span>
+        <h2>Secure your spot for the next intake.</h2>
+        <p>Our monthly intakes fill up quickly due to small class sizes. Contact an advisor today to check available start dates and funding options.</p>
+        <div class="cta-banner__actions">
+          <a href="#form-top" class="btn btn--gold btn--lg">Get Program Details</a>
+          <a href="mailto:learn@bcmedicalspa.com" class="btn btn--outline-light btn--lg">Email Admissions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="../components/footer-lp.html"></div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Pre-select program in the form
+    window.addEventListener('load', function() {
+      const checkExist = setInterval(function() {
+        const programSelect = document.getElementById('details-program');
+        if (programSelect) {
+          programSelect.value = 'Laser ND-YAG';
+          clearInterval(checkExist);
+        }
+      }, 100);
+    });
+  </script>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+</body>
+</html>
