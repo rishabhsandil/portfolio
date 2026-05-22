@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accreditation & Designation | Ashford Career College</title>
+  <meta name="description" content="Ashford Career College is a designated private training institution in BC, regulated by PTIRU and eligible for StudentAid BC funding." />
+  <meta name="theme-color" content="#0d2618" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .wooden-frame {
+      background: #f8f8f8; /* The Matting */
+      padding: none;
+      border: 1.5rem solid #3d240d; /* Dark Walnut Wood */
+      border-image: linear-gradient(45deg, #2b1706, #4a2c10, #2b1706) 1;
+      box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.6), /* Depth inside frame */
+        0 15px 45px rgba(0,0,0,0.25); /* Professional wall shadow */
+      position: relative;
+      transition: transform 0.3s var(--ease-spring);
+    }
+    .wooden-frame:hover { transform: translateY(-5px) scale(1.01); }
+    .wooden-frame::before {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(255,255,255,0.05); pointer-events: none;
+    }
+    .wooden-frame img {
+      width: 100%; height: auto;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    @media (max-width: 768px) {
+      .wooden-frame { padding: none; border-width: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div data-include="components/header.html"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><a href="about.html">About</a><span>/</span><span>Accreditation</span>
+        </nav>
+        <span class="eyebrow" style="color: var(--color-gold-300);">Quality Assurance</span>
+        <h1>Accreditation &amp; Designation</h1>
+        <p>Education you can trust. We are a designated private training institution dedicated to maintaining the highest standards of aesthetics education in BC.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-max page-layout">
+    <main class="page-main">
+      <section class="section">
+        <div class="container">
+          <div class="reveal">
+            <span class="eyebrow">PTIRU Regulation</span>
+            <h2>Ministry Designation</h2>
+            <p>Ashford Career College is a designated private training institution regulated by the Private Training Institutions Regulatory Unit (PTIRU) within the Ministry of Post-Secondary Education and Future Skills.</p>
+            <p>PTIRU administers the Private Training Act and its regulations, which set standards and provide consumer protection for students. Our designation confirms that our programs meet these rigorous provincial standards.</p>
+          </div>
+
+          <div class="reveal mt-6">
+            <div class="grid grid--2 stagger" style="gap: var(--space-7);">
+              <div>
+                <div class="wooden-frame">
+                  <img src="assets/images/designation-certificate-1.jpeg" alt="Ashford Career College Designation Certificate - Coquitlam" />
+                </div>
+                <p class="text-center mt-4 muted" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Designation Certificate<br />Coquitlam Campus</p>
+              </div>
+              <div>
+                <div class="wooden-frame">
+                  <img src="assets/images/designation-certificate-2.jpeg" alt="Ashford Career College Designation Certificate - West Vancouver" />
+                </div>
+                <p class="text-center mt-4 muted" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Designation Certificate<br />West Vancouver Campus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container">
+          <div class="reveal">
+            <span class="eyebrow">Financial Aid</span>
+            <h2>StudentAid BC Eligibility</h2>
+            <p>Ashford Career College is designated by StudentAid BC for eligible programs. Qualified students may be able to apply for Canada and British Columbia student financial assistance — including loans, grants, and other supports.</p>
+            <p>This eligibility is only granted to institutions that meet specific quality and regulatory requirements, providing further assurance of the quality of our educational offerings.</p>
+            <div style="display: flex; gap: 2rem; align-items: center; margin-top: var(--space-5);">
+              <img src="assets/images/student-aid.jpg" alt="StudentAid BC" style="max-height: 80px; width: auto;" />
+              <img src="assets/images/designated-PTIRU.jpeg" alt="Designated PTIRU" style="max-height: 80px; width: auto;" />
+            </div>
+            <a href="https://studentaidbc.ca/apply/designated" target="_blank" rel="noopener" class="btn btn--gold mt-5">Apply for Funding</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark">
+        <div class="container">
+          <div class="cta-banner reveal">
+            <h2>Ready to start your journey?</h2>
+            <p>Connect with our admissions team to learn more about our accredited programs, clinical training, and available start dates.</p>
+            <div class="cta-banner__actions">
+              <a href="programs.html" class="btn btn--gold btn--lg">Explore Programs</a>
+              <a href="contact.html" class="btn btn--outline-light btn--lg">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="page-sidebar">
+      <div class="container">
+        <div data-include="components/get-details-form.html"></div>
+        <div data-include="components/designation.html"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+</body>
+</html>
