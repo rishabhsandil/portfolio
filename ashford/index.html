@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashford Career College | Designated Cosmetic Aesthetics College in BC</title>
+  <title>Ashford Career College | Designated Career College in BC</title>
   <meta name="description" content="Ashford Career College is a designated private training institution offering accredited cosmetic aesthetics, laser, and skincare programs in Coquitlam and West Vancouver. StudentAid BC eligible." />
   <meta name="theme-color" content="#0d2618" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +24,7 @@
     <div class="container">
       <div class="hero__inner">
         <span class="eyebrow fade-up">Designated Private Training Institution</span>
-        <h1 class="fade-up delay-1">Advance Your Career in Medical Aesthetics.</h1>
+        <h1 class="fade-up delay-1">Advance Your Career.</h1>
         <p class="fade-up delay-2">
           Train with expert instructors in hands-on, accredited programs across cosmetic laser, skincare,
           and beauty enhancement. Year-round enrollment, small class sizes, and StudentAid BC funding
@@ -188,7 +188,7 @@
             <div class="reveal">
               <span class="eyebrow">Our Mission</span>
               <h2>Empowering students with real-world aesthetic expertise.</h2>
-              <p>At Ashford Career College, we are dedicated to empowering students through expert-led, practical training in cosmetic aesthetics. From laser and skincare to beauty enhancement techniques, our programs are designed to support confident, job-ready skills — conveniently located in the heart of the Lower Mainland.</p>
+              <p>At Ashford Career College, we are dedicated to empowering students through expert-led, practical career training. From laser and skincare to beauty enhancement techniques, our programs are designed to support confident, job-ready skills — conveniently located in the heart of the Lower Mainland.</p>
               <ul class="check-list mt-3">
                 <li>Designated by PTIRU under BC's Private Training Act</li>
                 <li>StudentAid BC eligible programs available</li>
@@ -248,6 +248,40 @@
   <button id="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
+
+  <!-- Email Signup Popup -->
+  <div id="email-popup" class="email-popup" role="dialog" aria-modal="true" aria-labelledby="popup-heading">
+    <div class="email-popup__backdrop"></div>
+    <div class="email-popup__card">
+      <button class="email-popup__close" id="popup-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="popup-content">
+        <span class="eyebrow">Stay in the Loop</span>
+        <h3 id="popup-heading">Get Updates from Ashford</h3>
+        <p>Be the first to hear about new programs, upcoming start dates, and exclusive offers.</p>
+        <form class="email-popup__form" id="popup-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+          <input type="hidden" name="subject" value="[Newsletter Signup] Ashford Career College" />
+          <input type="hidden" name="from_name" value="Ashford Admissions" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+          <div class="form__group">
+            <label for="popup-name">Full Name</label>
+            <input type="text" id="popup-name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form__group">
+            <label for="popup-email">Email Address</label>
+            <input type="email" id="popup-email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form__check">
+            <input type="checkbox" id="popup-optin" name="optin" required />
+            <label for="popup-optin">I agree to receive marketing emails from Ashford Career College. You can unsubscribe at any time.</label>
+          </div>
+          <button type="submit" class="btn btn--gold" style="width:100%;">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>

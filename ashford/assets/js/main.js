@@ -358,6 +358,145 @@
     loadState();
   }
 
+  // -- Mobile Get Details Drawer ------------------------------------------------
+  function initMobileDrawer() {
+    var bar      = document.getElementById('mobile-cta-bar');
+    var drawer   = document.getElementById('mobile-drawer');
+    var trigger  = document.getElementById('mobile-cta-trigger');
+    var closeBtn = document.getElementById('drawer-close');
+    var backdrop = document.getElementById('drawer-backdrop');
+    var form     = document.getElementById('drawer-form');
+    var body     = document.getElementById('drawer-body');
+    if (!bar || !drawer) return;
+    if (window.innerWidth > 768) return;
+
+    document.body.classList.add('has-mobile-cta');
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      bar.classList.add('is-hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      bar.classList.remove('is-hidden');
+      document.body.style.overflow = '';
+    }
+
+    trigger  && trigger.addEventListener('click', openDrawer);
+    closeBtn && closeBtn.addEventListener('click', closeDrawer);
+    backdrop && backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            body.innerHTML =
+              '<div style="text-align:center;padding:var(--space-6) 0">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:0 auto var(--space-4);display:block"><polyline points="20 6 9 17 4 12"/></svg>' +
+              '<h3 style="font-family:var(--font-serif);color:var(--color-navy-900);margin-bottom:var(--space-3)">Details on the way!</h3>' +
+              '<p style="color:var(--color-gray-700);font-size:0.875rem">An admissions advisor will be in touch within 1–2 business days.</p>' +
+              '</div>';
+            setTimeout(closeDrawer, 3000);
+          } else {
+            alert('Oops! Something went wrong. Please try again.');
+            submitBtn.textContent = 'Get Program Details →';
+            submitBtn.disabled = false;
+          }
+        }).catch(function () {
+          alert('An error occurred. Please check your connection.');
+          submitBtn.textContent = 'Get Program Details →';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  }
+
+  // -- Email Signup Popup -------------------------------------------------------
+  function initEmailPopup() {
+    var popup = document.getElementById('email-popup');
+    if (!popup) return;
+    if (sessionStorage.getItem('ashford_popup_dismissed')) return;
+
+    var closeBtn  = document.getElementById('popup-close');
+    var backdrop  = popup.querySelector('.email-popup__backdrop');
+    var form      = document.getElementById('popup-form');
+    var content   = document.getElementById('popup-content');
+    var dismissed = false;
+
+    function dismiss() {
+      if (dismissed) return;
+      dismissed = true;
+      popup.classList.remove('is-visible');
+      sessionStorage.setItem('ashford_popup_dismissed', '1');
+      window.removeEventListener('scroll', onScroll);
+    }
+
+    function onScroll() {
+      if (window.scrollY > 60) dismiss();
+    }
+
+    setTimeout(function () {
+      popup.classList.add('is-visible');
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }, 1500);
+
+    closeBtn && closeBtn.addEventListener('click', dismiss);
+    backdrop  && backdrop.addEventListener('click', dismiss);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') dismiss();
+    });
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.textContent = 'Subscribing...';
+        submitBtn.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.success) {
+            window.removeEventListener('scroll', onScroll);
+            content.innerHTML =
+              '<div class="email-popup__success">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+              '<h3>You\'re on the list!</h3>' +
+              '<p>Thanks for signing up. We\'ll be in touch with updates and offers soon.</p>' +
+              '</div>';
+            setTimeout(dismiss, 2800);
+          } else {
+            alert('Oops! Something went wrong. Please try again.');
+            submitBtn.textContent = 'Subscribe';
+            submitBtn.disabled = false;
+          }
+        }).catch(function () {
+          alert('An error occurred. Please check your connection.');
+          submitBtn.textContent = 'Subscribe';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  }
+
   // -- Magnetic button effect --------------------------------------------------
   function initMagneticButtons() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -393,6 +532,8 @@
     initFooterYear();
     initForms();
     initMagneticButtons();
+    initMobileDrawer();
+    initEmailPopup();
   });
 
 })();

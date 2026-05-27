@@ -1,4 +1,74 @@
 
+  <!-- Mobile Get Details CTA Bar -->
+  <div class="mobile-cta-bar" id="mobile-cta-bar">
+    <span>Ready to learn more?</span>
+    <button class="btn btn--gold" id="mobile-cta-trigger">Get Details &rarr;</button>
+  </div>
+
+  <!-- Mobile Get Details Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-heading">
+    <div class="mobile-drawer__backdrop" id="drawer-backdrop"></div>
+    <div class="mobile-drawer__sheet">
+      <div class="mobile-drawer__handle"></div>
+      <div class="mobile-drawer__header">
+        <h3 id="drawer-heading">Get Program Details</h3>
+        <button class="mobile-drawer__close" id="drawer-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="mobile-drawer__body" id="drawer-body">
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:var(--space-5);">Receive more info about our programs.</p>
+        <form id="drawer-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+          <input type="hidden" name="subject" value="[Mobile Get Details] Ashford Career College" />
+          <input type="hidden" name="from_name" value="Ashford Admissions" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+          <div class="form__group">
+            <label class="form__label" for="drawer-program">Program of Interest <span class="req">*</span></label>
+            <select id="drawer-program" name="program" class="form__select" required>
+              <option value="" disabled selected>Select a program</option>
+              <option value="Master Diploma">Master of Cosmetic Aesthetics</option>
+              <option value="Advanced Laser Skincare">Advanced Laser &amp; Skin Care</option>
+              <option value="Advanced Laser">Advanced Laser</option>
+              <option value="Advanced Skincare">Advanced Skin Care</option>
+              <option value="Aesthetic Dermatology">Aesthetic Dermatology</option>
+              <option value="IPL Diode">IPL &amp; Diode Laser</option>
+              <option value="Laser ND-YAG">Laser ND-YAG</option>
+              <option value="Teeth Whitening">Laser Teeth Whitening</option>
+              <option value="Microdermabrasion">Microdermabrasion</option>
+              <option value="Dermaplaning">Dermaplaning</option>
+              <option value="Microblading">Microblading &amp; Brows</option>
+              <option value="Body Sculpting">Body Sculpting</option>
+              <option value="Other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="drawer-campus">Preferred Campus <span class="req">*</span></label>
+            <select id="drawer-campus" name="campus" class="form__select" required>
+              <option value="" disabled selected>Select location</option>
+              <option value="Coquitlam">Coquitlam Centre</option>
+              <option value="West Vancouver">West Vancouver</option>
+              <option value="Online">Online / Hybrid</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="drawer-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="drawer-name" name="name" class="form__input" placeholder="Your Name" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="drawer-email">Email <span class="req">*</span></label>
+            <input type="email" id="drawer-email" name="email" class="form__input" placeholder="your@email.com" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="drawer-phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="drawer-phone" name="phone" class="form__input" placeholder="(000) 000-0000" required />
+          </div>
+          <button type="submit" class="btn btn--gold" style="width:100%;margin-top:var(--space-2);">Get Program Details &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <footer class="site-footer site-footer--lp" style="padding: var(--space-7) 0 var(--space-6); background: var(--color-navy-900);">
     <div class="container">
       <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-5);">
@@ -6,7 +76,7 @@
           <img src="../assets/logo-mark.png" alt="" class="brand__logo" style="height: 64px;" />
           <div class="brand__text">
             <span class="brand__name">Ashford Career College</span>
-            <span class="brand__sub" style="color: var(--color-gold-300);">Cosmetic Aesthetics College</span>
+            <span class="brand__sub" style="color: var(--color-gold-300);">Career College</span>
           </div>
         </div>
         
