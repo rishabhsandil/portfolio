@@ -13,140 +13,192 @@
 </head>
 <body>
 
-    <div id="scroll-progress" aria-hidden="true"></div>
-
+  <div id="scroll-progress" aria-hidden="true"></div>
   <div data-include="components/header.html"></div>
 
   <section class="page-hero">
     <div class="container">
-      <div class="page-hero__inner">
+      <div>
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a><span>/</span><span>About</span>
         </nav>
         <span class="eyebrow" style="color: var(--color-gold-300);">Our Story</span>
         <h1>About Ashford Career College</h1>
-        <p>A designated private training institution dedicated to empowering the next generation of skilled professionals in British Columbia.</p>
+         <p>Ashford Career College is built with a vision to create meaningful career opportunities both within our local communities and beyond. Based in British Columbia, the college is committed to helping students gain practical, industry-focused education that leads to real employment outcomes.</p>
+            <p>By working closely with employers, instructors, and community partners, Ashford Career College aims to support workforce growth while empowering students to build stable, rewarding futures. As a growing institution, the college is focused on creating an inclusive learning environment where students can gain hands-on skills, confidence, and career-ready training for today's evolving industries.</p>
+            <p>Ashford Career College believes education should be accessible, supportive, and directly connected to real-world success — helping shape the next generation of skilled professionals.</p>
+          </div>
+    </div>
+  </section>
+
+  <!-- Journey to Excellence — full width, right after first section -->
+  <section class="section section--alt journey-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Journey to Excellence</span>
+        <h2>How we got here — and where we're going.</h2>
+      </div>
+
+      <div class="journey-grid reveal">
+
+        <!-- Left: milestones — icon next to text -->
+        <div class="journey-labels">
+
+          <div class="journey-milestone">
+            <div class="journey-icon" style="border-color:#d94f3d;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#d94f3d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="0,13 9,4 18,13"/><rect x="2" y="8.5" width="14" height="9.5" rx="1"/><rect x="5.5" y="12" width="3.5" height="6"/><rect x="9.5" y="12" width="3.5" height="6"/></svg>
+            </div>
+            <div class="journey-milestone__body">
+              <span class="rl-year" style="color:#d94f3d;">Before Ashford</span>
+              <h4 class="rl-title">BC Medical Spa</h4>
+              <p class="rl-desc">What began as specialized cosmetic &amp; medical aesthetics training laid the foundation for something much bigger. BC Medical Spa built its reputation around hands-on training designed to prepare students for real client work and industry standards.</p>
+            </div>
+          </div>
+
+          <div class="journey-milestone">
+            <div class="journey-icon" style="border-color:#b8960c;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#b8960c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="9,0 11.2,6.2 18,6.2 12.5,10 14.5,16.5 9,12.8 3.5,16.5 5.5,10 0,6.2 6.8,6.2"/></svg>
+            </div>
+            <div class="journey-milestone__body">
+              <span class="rl-year" style="color:#b8960c;">2026</span>
+              <h4 class="rl-title">A New Era</h4>
+              <p class="rl-desc">Ashford Career College officially launched with a renewed vision: to become a modern, career-driven institution offering practical education across diverse industries — while continuing its roots in medical aesthetics and cosmetology.</p>
+            </div>
+          </div>
+
+          <div class="journey-milestone">
+            <div class="journey-icon" style="border-color:#1a5c3a;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#1a5c3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="8"/><circle cx="9" cy="9" r="4"/><line x1="9" y1="0" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="18"/><line x1="0" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="18" y2="9"/></svg>
+            </div>
+            <div class="journey-milestone__body">
+              <span class="rl-year" style="color:#1a5c3a;">The Future</span>
+              <h4 class="rl-title">Looking Ahead</h4>
+              <p class="rl-desc">Ashford's long-term vision is accessible, practical education that adapts to the changing workforce — rooted in career-focused learning, hands-on training, community impact, and industry partnerships.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: road image with matching pins -->
+        <div class="journey-road">
+          <img src="assets/images/roadmap-road.png" alt="Journey to Excellence roadmap" class="roadmap-bg-img" />
+
+          <div class="rm-pin rm-pin--1">
+            <div class="rm-pin__circle" style="border-color:#d94f3d;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#d94f3d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="0,13 9,4 18,13"/><rect x="2" y="8.5" width="14" height="9.5" rx="1"/><rect x="5.5" y="12" width="3.5" height="6"/><rect x="9.5" y="12" width="3.5" height="6"/></svg>
+            </div>
+          </div>
+          <div class="rm-pin rm-pin--2">
+            <div class="rm-pin__circle" style="border-color:#b8960c;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#b8960c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="9,0 11.2,6.2 18,6.2 12.5,10 14.5,16.5 9,12.8 3.5,16.5 5.5,10 0,6.2 6.8,6.2"/></svg>
+            </div>
+          </div>
+          <div class="rm-pin rm-pin--3">
+            <div class="rm-pin__circle" style="border-color:#1a5c3a;">
+              <svg viewBox="0 0 18 18" fill="none" stroke="#1a5c3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="8"/><circle cx="9" cy="9" r="4"/><line x1="9" y1="0" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="18"/><line x1="0" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="18" y2="9"/></svg>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <div class="container-max page-layout">
     <main class="page-main">
-      <section class="section">
-    <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Our Mission</span>
-          <h2>Practical, expert-led career training.</h2>
-          <p>At Ashford Career College, we are dedicated to empowering students through expert-led, practical career training. From laser therapy and skincare to advanced beauty enhancement techniques, our programs are designed to support confident, job-ready skills, conveniently located in the heart of Coquitlam and West Vancouver.</p>
-          <p>We believe a great aesthetic professional is built through hands-on practice, mentorship from experienced instructors, and a deep understanding of the science behind every treatment. Every program at Ashford Career College reflects that belief.</p>
-        </div>
-      
-    </div></section>
-
+      <!-- Designated & Regulated -->
       <section class="section section--alt">
-    <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Designated &amp; Regulated</span>
-          <h2>Education you can trust.</h2>
-          <p class="lead">We are a designated private training institution, regulated by the Private Training Institutions Regulatory Unit (PTIRU) within the Ministry of Post-Secondary Education and Future Skills.</p>
-        </div>
-
-        <div class="grid grid--2 stagger">
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>PTIRU Designation</h3>
-            <p>PTIRU (formerly PTIB) administers BC's Private Training Act and its regulations, which set standards and provide consumer protection for students. Our designation confirms that our programs meet those standards.</p>
-            <a href="https://www.privatetraininginstitutions.gov.bc.ca/" target="_blank" rel="noopener" class="program-card__cta mt-3">Learn about PTIRU</a>
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Designated &amp; Regulated</span>
+            <h2>Education you can trust.</h2>
+            <p class="lead">We are a designated private training institution, regulated by the Private Training Institutions Regulatory Unit (PTIRU) within the Ministry of Post-Secondary Education and Future Skills.</p>
           </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div class="grid grid--2 stagger">
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>PTIRU Designation</h3>
+              <p>PTIRU (formerly PTIB) administers BC's Private Training Act and its regulations, which set standards and provide consumer protection for students. Our designation confirms that our programs meet those standards.</p>
+              <a href="https://www.privatetraininginstitutions.gov.bc.ca/" target="_blank" rel="noopener" class="program-card__cta mt-3">Learn about PTIRU</a>
             </div>
-            <h3>StudentAid BC Eligible</h3>
-            <p>Ashford Career College is also designated by StudentAid BC for eligible programs. Qualified students may be able to apply for Canada and British Columbia student financial assistance — including loans, grants, and other supports.</p>
-            <a href="https://studentaidbc.ca/apply/designated" target="_blank" rel="noopener" class="program-card__cta mt-3">Check designation</a>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <h3>StudentAid BC Eligible</h3>
+              <p>Ashford Career College is also designated by StudentAid BC for eligible programs. Qualified students may be able to apply for Canada and British Columbia student financial assistance — including loans, grants, and other supports.</p>
+              <a href="https://studentaidbc.ca/apply/designated" target="_blank" rel="noopener" class="program-card__cta mt-3">Check designation</a>
+            </div>
           </div>
         </div>
-      
-    </div></section>
+      </section>
 
+      <!-- Why Choose Us -->
       <section class="section">
-    <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Why Choose Us</span>
-          <h2>What makes Ashford Career College different.</h2>
-        </div>
-
-        <div class="grid grid--3 stagger">
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </div>
-            <h3>Comprehensive Programs</h3>
-            <p>Career-aligned training across cosmetic laser, skincare, and in-demand beauty services — from Nd:YAG laser to microblading, dermaplaning, body contouring, and more.</p>
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2>What makes Ashford Career College different.</h2>
           </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <div class="grid grid--3 stagger">
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+              <h3>Comprehensive Programs</h3>
+              <p>Career-aligned training across cosmetic laser, skincare, and in-demand professional services — from Nd:YAG laser to microblading, dermaplaning, body contouring, and more.</p>
             </div>
-            <h3>Flexible &amp; Accessible</h3>
-            <p>Year-round enrollment and interest-free installment plans. Some programs may also be eligible for approved funding providers and StudentAid BC.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+              <h3>Flexible &amp; Accessible</h3>
+              <p>Year-round enrollment and interest-free installment plans. Some programs may also be eligible for approved funding providers and StudentAid BC.</p>
             </div>
-            <h3>Hands-On Instruction</h3>
-            <p>Expert instructors guide students through small classes in an immersive learning environment that builds both confidence and clinical competence.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <h3>Hands-On Instruction</h3>
+              <p>Expert instructors guide students through small classes in an immersive learning environment that builds both confidence and clinical competence.</p>
             </div>
-            <h3>Serving the Lower Mainland</h3>
-            <p>Students attend from across Greater Vancouver — including Coquitlam, Burnaby, Surrey, and West Vancouver — with two convenient campuses.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+              <h3>Serving the Lower Mainland</h3>
+              <p>Students attend from across Greater Vancouver — including Coquitlam, Burnaby, Surrey, and West Vancouver — with two convenient campuses.</p>
             </div>
-            <h3>Career Outcomes</h3>
-            <p>Graduates are equipped to launch independent businesses or secure positions at cosmetic spas and clinics across the industry.</p>
-          </div>
-          <div class="feature-card reveal">
-            <div class="feature-card__icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+              <h3>Career Outcomes</h3>
+              <p>Graduates are equipped to launch independent businesses or secure positions at clinics and spas across the industry.</p>
             </div>
-            <h3>Modern Equipment</h3>
-            <p>Train on the technology used in today's medical spas — IPL, Diode, ND-YAG, RF, HIFU, cavitation, and more.</p>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></div>
+              <h3>Modern Equipment</h3>
+              <p>Train on the technology used in today's medical spas — IPL, Diode, ND-YAG, RF, HIFU, cavitation, and more.</p>
+            </div>
           </div>
         </div>
-      
-    </div></section>
+      </section>
 
+      <!-- CTA -->
       <section class="section section--dark">
-    <div class="container">
-        <div class="section-header reveal">
-          <h2>Join the next generation of aesthetic professionals.</h2>
-          <p class="lead" style="color: rgba(255,255,255,0.85); margin: 0 auto;">Whether you're expanding your skills in laser therapy and advanced beauty services, our programs are designed to help you thrive.</p>
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Join the next generation of skilled professionals.</h2>
+            <p class="lead" style="color:rgba(255,255,255,0.85);margin:0 auto;">Whether you're launching a new career or expanding your professional skills, our programs are designed to help you thrive.</p>
+          </div>
+          <div class="text-center">
+            <a href="programs.html" class="btn btn--gold btn--lg">View Programs</a>
+            <a href="contact.html" class="btn btn--outline-light btn--lg" style="margin-left:0.75rem;">Talk to an Advisor</a>
+          </div>
         </div>
-        <div class="text-center">
-          <a href="programs.html" class="btn btn--gold btn--lg">View Programs</a>
-          <a href="contact.html" class="btn btn--outline-light btn--lg" style="margin-left: 0.75rem;">Talk to an Advisor</a>
-        </div>
-      
-    </div></section>
+      </section>
+
     </main>
     <aside class="page-sidebar">
       <div class="container">
-      <div data-include="components/get-details-form.html"></div>
-      <div data-include="components/designation.html"></div>
-    
-      </div></aside>
+        <div data-include="components/get-details-form.html"></div>
+        <div data-include="components/designation.html"></div>
+      </div>
+    </aside>
   </div>
-
 
   <div data-include="components/footer.html"></div>
 

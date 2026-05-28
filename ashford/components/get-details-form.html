@@ -1,9 +1,9 @@
 <aside class="reveal">
   <div class="info-card info-card--form">
     <div id="form-container">
-      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; letter-spacing: -0.01em;">Get Details</h3>
-      <p style="font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.45;">Receive more info about our programs.</p>
-      
+      <h3>Get Details</h3>
+      <p>Receive more info about our programs and upcoming start dates.</p>
+
       <div class="form-progress">
         <div class="form-progress__segment is-active" data-step="1"></div>
         <div class="form-progress__segment" data-step="2"></div>
@@ -21,18 +21,18 @@
               <label class="form__label" for="details-program">Program of Interest <span class="req">*</span></label>
               <select id="details-program" name="program" class="form__select" required>
                 <option value="" disabled selected>Select a program</option>
-                <option value="Master Diploma">Master of Cosmetic Aesthetics</option>
-                <option value="Advanced Laser Skincare">Advanced Laser &amp; Skin Care (120h)</option>
-                <option value="Advanced Laser">Advanced Laser (100h)</option>
-                <option value="Advanced Skincare">Advanced Skin Care (120h)</option>
-                <option value="Aesthetic Dermatology">Aesthetic Dermatology</option>
-                <option value="IPL Diode">IPL &amp; Diode Laser</option>
-                <option value="Laser ND-YAG">Laser ND-YAG</option>
-                <option value="Teeth Whitening">Laser Teeth Whitening</option>
-                <option value="Microdermabrasion">Microdermabrasion</option>
-                <option value="Dermaplaning">Dermaplaning</option>
-                <option value="Microblading">Microblading &amp; Brows</option>
-                <option value="Body Sculpting">Body Sculpting</option>
+                <option value="Master Diploma">Master of Cosmetic Aesthetics Program</option>
+                <option value="Advanced Laser Skincare">Advanced Laser &amp; Skin Care Program</option>
+                <option value="Advanced Laser">Advanced Laser Program</option>
+                <option value="Advanced Skincare">Advanced Skin Care Program</option>
+                <option value="Aesthetic Dermatology">Aesthetic Dermatology Program</option>
+                <option value="IPL Diode">IPL &amp; Diode Laser Program</option>
+                <option value="Laser ND-YAG">Laser ND-YAG Program</option>
+                <option value="Teeth Whitening">Laser Teeth Whitening Program</option>
+                <option value="Microdermabrasion">Microdermabrasion Program</option>
+                <option value="Dermaplaning">Dermaplaning Program</option>
+                <option value="Microblading">Microblading &amp; Brows Program</option>
+                <option value="Body Sculpting">Body Sculpting Program</option>
                 <option value="Other">Other / Not Sure</option>
               </select>
             </div>
@@ -49,18 +49,16 @@
               <label class="form__label" for="details-name">Full Name <span class="req">*</span></label>
               <input type="text" id="details-name" name="name" class="form__input" placeholder="Your Name" required />
             </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="details-email">Email <span class="req">*</span></label>
-                <input type="email" id="details-email" name="email" class="form__input" placeholder="your@email.com" required />
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="details-phone">Phone <span class="req">*</span></label>
-                <input type="tel" id="details-phone" name="phone" class="form__input" placeholder="(000) 000-0000" required />
-              </div>
+            <div class="form__group">
+              <label class="form__label" for="details-email">Email <span class="req">*</span></label>
+              <input type="email" id="details-email" name="email" class="form__input" placeholder="your@email.com" required />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="details-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="details-phone" name="phone" class="form__input" placeholder="(000) 000-0000" required />
             </div>
             <div class="form-nav">
-              <button type="button" class="btn btn--gold btn--next">Get Program Details &rarr;</button>
+              <button type="button" class="btn btn--gold btn--next">Continue &rarr;</button>
             </div>
           </div>
 
@@ -74,8 +72,8 @@
               <select id="details-start" name="start_timeline" class="form__select">
                 <option value="" disabled selected>Select timing</option>
                 <option value="Immediately">As soon as possible</option>
-                <option value="1-3 Months">Within 1-3 months</option>
-                <option value="3-6 Months">Within 3-6 months</option>
+                <option value="1-3 Months">Within 1–3 months</option>
+                <option value="3-6 Months">Within 3–6 months</option>
                 <option value="Just Browsing">Just exploring for now</option>
               </select>
             </div>
@@ -96,7 +94,7 @@
             </div>
             <div class="form-nav">
               <button type="button" class="btn btn--back" aria-label="Go back">&larr;</button>
-              <button type="submit" class="btn btn--gold">Send Details</button>
+              <button type="submit" class="btn btn--gold">Send Message</button>
             </div>
           </div>
         </div>
@@ -105,8 +103,8 @@
 
     <div class="form-success" id="form-success">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      <h3 style="color: var(--color-gold-300);">Information Sent!</h3>
-      <p>Thank you. An admissions advisor will contact you within 1-2 business days with the details you requested.</p>
+      <h3>Information Sent!</h3>
+      <p>Thank you. An admissions advisor will be in touch within 1–2 business days.</p>
       <button type="button" class="btn btn--outline-light mt-5" onclick="location.reload()">Send Another Request</button>
     </div>
   </div>

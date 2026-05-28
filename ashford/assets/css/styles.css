@@ -33,8 +33,8 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-  --space-5: 1.5rem;  --space-6: 2rem;   --space-7: 3rem;    --space-8: 4.5rem;
-  --space-9: 7rem;
+  --space-5: 1.5rem;  --space-6: 2rem;   --space-7: 3rem;    --space-8: 4rem;
+  --space-9: 5rem;
 
   --container-max: 1240px;
   --radius-sm: 4px; --radius-md: 10px; --radius-lg: 18px; --radius-xl: 28px; --radius-pill: 999px;
@@ -452,12 +452,12 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
 }
 .info-card.info-card--form::after { display: none; }
 
-.info-card--form h3 { color: var(--color-white); font-size: 1.45rem; margin-bottom: 0.25rem; font-family: var(--font-serif); }
-.info-card--form p { color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: var(--space-6); }
+.info-card--form h3 { color: var(--color-white); font-size: 1.45rem; margin-bottom: 0.35rem; font-family: var(--font-serif); text-align: center; }
+.info-card--form p { color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: var(--space-5); text-align: center; line-height: 1.5; }
 
 .info-card--form .form { display: flex; flex-direction: column; gap: var(--space-4); }
 .info-card--form .form__group { display: flex; flex-direction: column; gap: 0.45rem; }
-.info-card--form .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.info-card--form .form__row { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
 
 .info-card--form .form__label { 
   color: rgba(255,255,255,0.85); 
@@ -664,8 +664,8 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
   .mobile-cta-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
+    justify-content: center;
+    gap: var(--space-3);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -677,6 +677,7 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
     border-top: 1px solid rgba(255,255,255,0.07);
     transition: transform 0.3s var(--ease-out);
   }
+  .mobile-cta-bar .btn { flex: 1; text-align: center; justify-content: center; }
   .mobile-cta-bar.is-hidden { transform: translateY(100%); }
   .mobile-cta-bar span {
     font-size: 0.85rem;
@@ -996,4 +997,197 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
   .hero__actions .btn { width: 100%; }
   .stats { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
   .cta-banner { padding: var(--space-7) var(--space-4); }
+}
+
+/* =========================================================
+   20. FAQ ACCORDION
+   ========================================================= */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.faq-item {
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  overflow: hidden;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.faq-item:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-gray-300);
+}
+.faq-item.is-open {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-navy-600);
+}
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  line-height: 1.45;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color var(--transition), background var(--transition);
+}
+.faq-question:hover { color: var(--color-navy-700); background: var(--color-gray-100); }
+.faq-item.is-open .faq-question { color: var(--color-navy-800); background: var(--color-rose-100); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-spring), border-color var(--transition), background var(--transition);
+}
+.faq-icon svg { width: 10px; height: 10px; stroke: var(--color-gray-500); transition: stroke var(--transition); }
+.faq-item.is-open .faq-icon {
+  transform: rotate(180deg);
+  border-color: var(--color-navy-600);
+  background: var(--color-navy-800);
+}
+.faq-item.is-open .faq-icon svg { stroke: var(--color-white); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s var(--ease-spring), padding 0.22s var(--ease-out);
+}
+.faq-item.is-open .faq-answer { max-height: 400px; }
+.faq-answer__inner {
+  padding: 0 var(--space-6) var(--space-5);
+  font-size: 0.9rem;
+  color: var(--color-gray-700);
+  line-height: 1.75;
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: var(--space-4);
+}
+.faq-answer__inner a { color: var(--color-navy-700); text-decoration: underline; text-underline-offset: 2px; }
+.faq-answer__inner a:hover { color: var(--color-gold-500); }
+@media (max-width: 768px) {
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-question { padding: var(--space-4) var(--space-5); font-size: 0.9rem; }
+  .faq-answer__inner { padding: 0 var(--space-5) var(--space-4); padding-top: var(--space-3); }
+}
+
+/* =========================================================
+   21. ABOUT EXTENDED + ROADMAP
+   ========================================================= */
+.about-body {
+  max-width: 760px;
+  margin: var(--space-6) auto 0;
+  text-align: center;
+}
+.about-body p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-gray-800);
+  margin-bottom: var(--space-4);
+}
+.about-body p:last-child { margin-bottom: 0; }
+
+/* ── Journey to Excellence (full-width, outside sidebar layout) ─────────── */
+.journey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  margin-top: var(--space-7);
+}
+
+/* Milestone column — icon next to text */
+.journey-labels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.journey-milestone {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.journey-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+.journey-icon svg { width: 22px; height: 22px; }
+.journey-milestone__body { padding-top: 0.15rem; }
+.journey-milestone__body .rl-year {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+.journey-milestone__body .rl-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+  margin-bottom: 0.4rem;
+}
+.journey-milestone__body .rl-desc {
+  font-size: 0.92rem;
+  color: var(--color-gray-700);
+  line-height: 1.7;
+}
+
+/* Road image column */
+.journey-road { position: relative; }
+.roadmap-bg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Milestone pin circles on road image */
+.rm-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.rm-pin--1 { top: 68%; left: 20%; }
+.rm-pin--2 { top: 40%; left: 50%; }
+.rm-pin--3 { top: 16%; left: 74%; }
+
+.rm-pin__circle {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  transition: transform 0.2s var(--ease-spring);
+}
+.rm-pin__circle:hover { transform: scale(1.1); }
+.rm-pin__circle svg { width: 20px; height: 20px; }
+
+@media (max-width: 900px) {
+  .journey-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .journey-road { max-width: 480px; margin: 0 auto; }
 }
