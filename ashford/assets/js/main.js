@@ -497,6 +497,54 @@
     }
   }
 
+  // -- Generic AJAX form handler ([data-form]) ---------------------------------
+  // Used by simple single-step forms (Contact, Registration) that just need to
+  // POST to submit.php and show inline success/error feedback.
+  function initGenericForms() {
+    document.querySelectorAll('form[data-form]').forEach(function (form) {
+      var feedback = form.querySelector('.form__feedback');
+
+      function setFeedback(msg, isError) {
+        if (!feedback) return;
+        feedback.textContent = msg || '';
+        feedback.style.color = isError ? 'var(--color-danger)' : 'var(--color-success)';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        setFeedback('');
+
+        // HTML5 validation (form has novalidate)
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var original  = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) { submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (r) { return r.json().catch(function () { return { success: false }; }); })
+        .then(function (data) {
+          if (data.success) {
+            form.reset();
+            setFeedback('Thanks — your message has been sent. An advisor will follow up shortly.', false);
+          } else {
+            setFeedback(data.message || 'Sorry — something went wrong. Please try again.', true);
+          }
+        }).catch(function () {
+          setFeedback('Network error. Please check your connection and try again.', true);
+        }).finally(function () {
+          if (submitBtn) { submitBtn.textContent = original; submitBtn.disabled = false; }
+        });
+      });
+    });
+  }
+
   // -- Magnetic button effect --------------------------------------------------
   function initMagneticButtons() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -522,7 +570,20 @@
   initBackToTop();
 
   // Load components then initialize everything that depends on the DOM
+  // Load Cloudflare Turnstile after components are in the DOM
+  function loadTurnstile() {
+    if (document.getElementById('cf-turnstile-script')) return;
+    if (!document.querySelector('.cf-turnstile')) return; // no widgets on this page
+    var s = document.createElement('script');
+    s.id = 'cf-turnstile-script';
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
   loadComponents().then(function () {
+    loadTurnstile();
     initHeaderScroll();
     initMobileNav();
     initActiveNav();
@@ -531,6 +592,7 @@
     initMarquee();
     initFooterYear();
     initForms();
+    initGenericForms();
     initMagneticButtons();
     initMobileDrawer();
     initEmailPopup();

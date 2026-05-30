@@ -66,9 +66,9 @@
             <h2>Send us a message.</h2>
             <p>Have a question about a specific program, funding, or your application? Send us a quick note and an advisor will follow up.</p>
 
-            <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
-              <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+            <form class="form mt-5" action="/submit.php" method="POST" data-form novalidate>
               <input type="hidden" name="subject" value="New Contact Form Submission – Ashford Career College" />
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
               <div class="form__feedback" role="status" aria-live="polite"></div>
 
               <div class="form__row">
@@ -92,9 +92,8 @@
                 <textarea class="form__textarea" id="c-message" name="message" required placeholder="How can we help you?"></textarea>
               </div>
 
-              <div class="form__group">
-                <label class="form__label" for="c-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
-                <input class="form__input" type="text" id="c-captcha" name="captcha" required style="max-width: 200px;" />
+              <div class="form__group form__captcha">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADY2mcY4G9ohW6bX"></div>
               </div>
 
               <button type="submit" class="btn btn--gold btn--lg">Send Message</button>

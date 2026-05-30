@@ -259,11 +259,10 @@
         <span class="eyebrow">Stay in the Loop</span>
         <h3 id="popup-heading">Get Updates from Ashford</h3>
         <p>Be the first to hear about new programs, upcoming start dates, and exclusive offers.</p>
-        <form class="email-popup__form" id="popup-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+        <form class="email-popup__form" id="popup-form" action="/submit.php" method="POST">
           <input type="hidden" name="subject" value="[Newsletter Signup] Ashford Career College" />
           <input type="hidden" name="from_name" value="Ashford Admissions" />
-          <input type="checkbox" name="botcheck" style="display:none" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="form__group">
             <label for="popup-name">Full Name</label>
             <input type="text" id="popup-name" name="name" placeholder="Jane Smith" required />
@@ -275,6 +274,9 @@
           <div class="form__check">
             <input type="checkbox" id="popup-optin" name="optin" required />
             <label for="popup-optin">I agree to receive marketing emails from Ashford Career College. You can unsubscribe at any time.</label>
+          </div>
+          <div class="form__group form__captcha">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADY2mcY4G9ohW6bX" data-theme="dark" data-size="compact"></div>
           </div>
           <button type="submit" class="btn btn--gold" style="width:100%;">Subscribe</button>
         </form>

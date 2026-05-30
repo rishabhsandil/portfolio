@@ -37,9 +37,9 @@
             <h2>Registration Form</h2>
             <p>Once you have submitted your registration form, please allow us 1–2 days to get back to you. You will be part of a cohort of students who bring outstanding professional experience, excellent academic preparation, and dedication to the profession.</p>
 
-            <form class="form mt-5" action="https://api.web3forms.com/submit" method="POST" data-form novalidate>
-              <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+            <form class="form mt-5" action="/submit.php" method="POST" data-form novalidate>
               <input type="hidden" name="subject" value="New Registration Form Submission – Ashford Career College" />
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
               <div class="form__feedback" role="status" aria-live="polite"></div>
 
               <div class="form__row">
@@ -103,9 +103,8 @@
                 <textarea class="form__textarea" id="reg-message" name="message" required placeholder="Tell us why you'd like to join Ashford Career College—"></textarea>
               </div>
 
-              <div class="form__group">
-                <label class="form__label" for="reg-captcha">Security Question: Which is bigger, 2 or 8? <span class="req">*</span></label>
-                <input class="form__input" type="text" id="reg-captcha" name="captcha" required style="max-width: 200px;" />
+              <div class="form__group form__captcha">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAADY2mcY4G9ohW6bX"></div>
               </div>
 
               <button type="submit" class="btn btn--gold btn--lg">Send Registration</button>

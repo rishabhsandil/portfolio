@@ -9,10 +9,10 @@
         <div class="form-progress__segment" data-step="2"></div>
       </div>
 
-      <form action="https://api.web3forms.com/submit" method="POST" class="form" id="multi-step-form">
-        <input type="hidden" name="access_key" value="7265658b-ef35-45b6-9daa-5f1f4bebfec3" />
+      <form action="/submit.php" method="POST" class="form" id="multi-step-form">
         <input type="hidden" name="subject" value="Get Details Submission – Ashford Career College" id="form-subject" />
         <input type="hidden" name="from_name" value="Ashford Admissions" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="form-steps">
           <!-- Step 1: Primary Info -->
@@ -91,6 +91,9 @@
             <div class="form__group">
               <label class="form__label" for="details-message">Any specific questions?</label>
               <textarea id="details-message" name="message" class="form__input" placeholder="How can we help?" style="min-height: 80px;"></textarea>
+            </div>
+            <div class="form__group form__captcha">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAADY2mcY4G9ohW6bX" data-theme="dark" data-size="compact"></div>
             </div>
             <div class="form-nav">
               <button type="button" class="btn btn--back" aria-label="Go back">&larr;</button>

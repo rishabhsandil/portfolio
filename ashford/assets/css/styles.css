@@ -541,6 +541,23 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
 .form-nav .btn--back { flex: 0 0 54px; padding: 0; background: rgba(255,255,255,0.08); color: var(--color-white); border: 1px solid rgba(255,255,255,0.1); }
 .form-nav .btn--back:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); }
 
+.form__captcha {
+  text-align: center;
+  margin: var(--space-4) 0 var(--space-3);
+  min-height: 65px;
+}
+.form__captcha .cf-turnstile {
+  display: inline-block;
+  vertical-align: top;
+}
+/* Shrink compact widget visually (Turnstile's smallest native size is 130x120) */
+.form__captcha .cf-turnstile[data-size="compact"] {
+  transform: scale(0.75);
+  transform-origin: top center;
+  margin-bottom: -30px; /* absorb space freed by the scale */
+}
+.form__captcha:has(.cf-turnstile[data-size="compact"]) { min-height: 100px; }
+
 .form-success { text-align: center; padding: var(--space-8) 0; display: none; }
 .form-success.is-visible { display: block; animation: fadeUp 0.6s var(--ease-spring) forwards; }
 .form-success svg { width: 64px; height: 64px; color: var(--color-gold-400); margin: 0 auto 1.5rem; }
@@ -962,7 +979,7 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
   :root { --header-height: 64px; --space-9: 5rem; --space-8: 3.5rem; }
   .brand__logo { height: 46px; }
   .brand__name { font-size: 1rem; }
-  .brand__sub { display: none; }
+  .brand__sub { font-size: 0.58rem; letter-spacing: 0.16em; }
   .topbar { display: none; }
   .nav__toggle { display: flex; }
   
