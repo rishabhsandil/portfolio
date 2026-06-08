@@ -369,8 +369,6 @@
     var body     = document.getElementById('drawer-body');
     if (!bar || !drawer) return;
     if (window.innerWidth > 768) return;
-    if (document.body.classList.contains('no-mobile-cta')) return; // opt-out (e.g. program pages)
-
     document.body.classList.add('has-mobile-cta');
 
     function openDrawer() {
@@ -508,7 +506,8 @@
       function setFeedback(msg, isError) {
         if (!feedback) return;
         feedback.textContent = msg || '';
-        feedback.style.color = isError ? 'var(--color-danger)' : 'var(--color-success)';
+        feedback.classList.toggle('is-success', !isError && !!msg);
+        feedback.classList.toggle('is-error', !!isError && !!msg);
       }
 
       form.addEventListener('submit', function (e) {
