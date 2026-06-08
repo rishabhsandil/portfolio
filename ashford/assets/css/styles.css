@@ -702,6 +702,10 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
 .mobile-cta-bar,
 .mobile-drawer { display: none; }
 
+/* Pages that opt out of the mobile Get Details CTA (e.g. program pages) */
+body.no-mobile-cta .mobile-cta-bar,
+body.no-mobile-cta .mobile-drawer { display: none !important; }
+
 @media (max-width: 768px) {
   body.has-mobile-cta { padding-bottom: 68px; }
 

@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# Redirect requests for .../index.html to the clean directory URL
+# (e.g. /index.html -> /,  /lp/index.html -> /lp/)
+RewriteCond %{THE_REQUEST} \s/+(.*?)index\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Redirect requests for /page.html to the clean URL /page,
+# so old links/bookmarks still work and search engines index the clean version.
+# Skip /components/ — those .html files are partials fetched by the page's JS
+# (data-include), not page navigations, and must be served as-is without a redirect.
+RewriteCond %{REQUEST_URI} !^/components/
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Internally serve page.html when /page is requested,
+# without changing the URL shown in the browser.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+DirectoryIndex index.html

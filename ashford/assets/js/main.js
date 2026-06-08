@@ -369,6 +369,7 @@
     var body     = document.getElementById('drawer-body');
     if (!bar || !drawer) return;
     if (window.innerWidth > 768) return;
+    if (document.body.classList.contains('no-mobile-cta')) return; // opt-out (e.g. program pages)
 
     document.body.classList.add('has-mobile-cta');
 
@@ -595,7 +596,7 @@
     initGenericForms();
     initMagneticButtons();
     initMobileDrawer();
-    initEmailPopup();
+    // initEmailPopup(); // Disabled: home screen subscription popup
   });
 
 })();
