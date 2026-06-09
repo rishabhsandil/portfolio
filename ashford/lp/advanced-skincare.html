@@ -28,12 +28,14 @@
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5PZ39CFJX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W5PZ39CFJX');
-  </script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-W5PZ39CFJX');
+gtag('config', 'AW-853928503');
+</script>
 </head>
 <body>
 
@@ -175,23 +177,6 @@
     });
   </script>
 
-  <script>
-  document.addEventListener('click', function (event) {
-    if (event.target.closest('[type="submit"]')) {
-      let gtmAttempts = 0;
-      const gtmTimer = setInterval(function () {
-        gtmAttempts++;
-        const target = document.querySelector('.wpcf7-response-output');
-        if (target && target.innerText.includes('Thank you for your message. ')) {
-          gtag('event', 'conversion', { send_to: 'AW-853928503/08lgCP_L4aMcELfUl5cD' });
-          clearInterval(gtmTimer);
-        } else if (gtmAttempts > 10) {
-          clearInterval(gtmTimer);
-        }
-      }, 1000);
-    }
-  });
-  </script>
 
   <!-- Back to Top -->
   <button id="back-to-top" aria-label="Back to top">
