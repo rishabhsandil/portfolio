@@ -105,6 +105,11 @@ if ($subject === '') {
     $subject = $SITE_NAME . ' - Form Submission';
 }
 
+// RFC 2047 encode so non-ASCII characters don't corrupt the Subject header.
+if (preg_match('/[^\x20-\x7E]/', $subject)) {
+    $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+}
+
 /* ── Reply-To ─────────────────────────────────────────────────────────── */
 
 $replyEmail = '';

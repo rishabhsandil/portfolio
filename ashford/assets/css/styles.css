@@ -704,7 +704,8 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
 
 /* Pages that opt out of the mobile Get Details CTA (e.g. program pages) */
 body.no-mobile-cta .mobile-cta-bar,
-body.no-mobile-cta .mobile-drawer { display: none !important; }
+body.no-mobile-cta .mobile-drawer,
+body.no-mobile-cta .info-card--form { display: none !important; }
 
 @media (max-width: 768px) {
   body.has-mobile-cta { padding-bottom: 68px; }
