@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start Your Application — ACES</title>
+<meta name="description" content="Begin your study-abroad journey with ACES. Tell us about your goals and a dedicated advisor will be in touch with the next steps.">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="ACES home">
+      <img class="logo logo-color" src="assets/brand/aces-logo.png" alt="ACES — Alpine Career and Education Services">
+      <img class="logo logo-white" src="assets/brand/aces-logo-white.png" alt="">
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="study-abroad.html">Study Abroad</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="apply.html" class="btn btn-accent">Start your application
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-head" style="padding-bottom:clamp(30px,4vw,50px)">
+  <div class="container">
+    <div class="hero-head">
+      <div>
+        <p class="crumb" data-reveal>Home / Start Your Application</p>
+        <h1 class="h-display" data-reveal data-reveal-delay="1">Start your application.</h1>
+      </div>
+      <div class="h-side">
+        <p class="lead" data-reveal data-reveal-delay="2">It begins with a conversation, not a commitment. Share a few details and a dedicated advisor will reach out — usually within one business day — with clear, personalised next steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:clamp(24px,4vw,48px)">
+  <div class="container">
+    <div class="split wide-left" style="align-items:start">
+      <!-- FORM -->
+      <div class="float-card" data-reveal>
+        <form class="form" action="submit.php" method="post" data-ajax novalidate>
+          <input type="hidden" name="subject" value="ACES — New Application">
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="form-success" role="status">Thank you — your application has been received. A dedicated ACES advisor will be in touch within one business day. ✦</div>
+
+          <!-- 1 · About you -->
+          <div class="form-group">
+            <p class="gh">1 · About you</p>
+            <div class="form-row">
+              <div class="field"><label for="first_name">First name</label><input id="first_name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" required></div>
+              <div class="field"><label for="last_name">Last name</label><input id="last_name" name="last_name" type="text" placeholder="Last name" autocomplete="family-name" required></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+              <div class="field"><label for="mobile">Mobile number</label><input id="mobile" name="mobile" type="tel" placeholder="(604) 000-0000" autocomplete="tel" pattern="[0-9+()\s\-]{7,}" required></div>
+            </div>
+            <div class="field"><label for="citizenship">Country of citizenship</label><input id="citizenship" name="citizenship" type="text" placeholder="e.g. India" autocomplete="country-name" required></div>
+            <div class="field"><span class="flabel">Where do you currently live?</span>
+              <div class="choice">
+                <label class="opt"><input type="radio" name="current_country" value="Canada" required><span>Canada</span></label>
+                <label class="opt"><input type="radio" name="current_country" value="United States"><span>United States</span></label>
+                <label class="opt"><input type="radio" name="current_country" value="Other"><span>Other</span></label>
+              </div>
+            </div>
+            <div class="field"><span class="flabel">Have you studied in Canada or the United States before?</span>
+              <div class="choice">
+                <label class="opt"><input type="radio" name="studied_canada_us" value="Yes" required><span>Yes</span></label>
+                <label class="opt"><input type="radio" name="studied_canada_us" value="No"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 · Your study plan -->
+          <div class="form-group">
+            <p class="gh">2 · Your study plan</p>
+            <div class="field"><span class="flabel">Which program do you wish to study?</span>
+              <div class="choice">
+                <label class="opt"><input type="radio" name="program" value="Medicine" required><span>Medicine</span></label>
+                <label class="opt"><input type="radio" name="program" value="Dentistry"><span>Dentistry</span></label>
+                <label class="opt"><input type="radio" name="program" value="Physiotherapy"><span>Physiotherapy</span></label>
+                <label class="opt"><input type="radio" name="program" value="Law"><span>Law</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 · Background declarations -->
+          <div class="form-group">
+            <p class="gh">3 · Background declarations</p>
+            <p class="form-note" style="margin:.1rem 0 .3rem">Please answer honestly. A "yes" won't automatically affect your eligibility — it just helps us advise you correctly.</p>
+            <div class="ynlist">
+              <div class="yn"><span class="yn-q">Have you ever been excluded or suspended from a course of study?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="excluded_or_suspended" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="excluded_or_suspended" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Have you ever been asked to show cause why your enrolment should continue?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="asked_to_show_cause" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="asked_to_show_cause" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Have you ever been asked to explain unsatisfactory academic progress?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="unsatisfactory_progress" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="unsatisfactory_progress" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Have you ever been refused an entry visa to any country?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="refused_entry_visa" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="refused_entry_visa" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Have you ever been convicted of a crime?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="convicted_of_a_crime" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="convicted_of_a_crime" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Do you hold an Australian visa that is not a student visa?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="australian_non_student_visa" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="australian_non_student_visa" value="No"><span>No</span></label></div></div>
+              <div class="yn"><span class="yn-q">Do you have a disability, impairment or long-term medical condition?</span>
+                <div class="choice"><label class="opt"><input type="radio" name="disability_or_condition" value="Yes" required><span>Yes</span></label><label class="opt"><input type="radio" name="disability_or_condition" value="No"><span>No</span></label></div></div>
+            </div>
+          </div>
+
+          <!-- 4 · How did you hear -->
+          <div class="form-group">
+            <p class="gh">4 · How did you hear about Alpine?</p>
+            <div class="choice">
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="My university" required><span>My university</span></label>
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="Google search"><span>Google search</span></label>
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="A friend"><span>A friend</span></label>
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="My family"><span>My family</span></label>
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="Social media"><span>Social media</span></label>
+              <label class="opt"><input type="radio" name="how_did_you_hear" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+
+          <!-- 5 · Consent -->
+          <div class="form-group">
+            <p class="gh">5 · Consent</p>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="consent_information_true" value="Yes" required> I declare that the information provided is true, complete and accurate, and that my academic records are genuine.</label>
+              <label class="check"><input type="checkbox" name="consent_visa_compliance" value="Yes" required> I understand it is my responsibility to comply with all student-visa conditions.</label>
+              <label class="check"><input type="checkbox" name="consent_expenses" value="Yes" required> I accept responsibility for all expenses related to my study and stay abroad.</label>
+              <label class="check"><input type="checkbox" name="consent_inquiries" value="Yes" required> I authorise ACES to make any inquiries necessary to process my application.</label>
+              <label class="check"><input type="checkbox" name="consent_institution_rules" value="Yes" required> I agree to comply with the rules and regulations of the institution I am admitted to.</label>
+            </div>
+          </div>
+
+          <button class="btn btn-accent" type="submit" style="justify-self:start">Submit application
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+          <p class="form-note">By submitting, you agree to be contacted by ACES about your enquiry. We never share your details.</p>
+        </form>
+      </div>
+
+      <!-- SIDE -->
+      <div class="stack" style="position:sticky;top:120px">
+        <p class="eyebrow" data-reveal>What happens next</p>
+        <h2 data-reveal data-reveal-delay="1" style="font-size:clamp(1.7rem,2.6vw,2.4rem)">Three simple steps.</h2>
+        <div class="steps" data-reveal style="margin-top:.6rem">
+          <div class="step" style="padding:1.1rem 0"><span class="s-num">01</span><div><h3 style="font-size:1.15rem">We review</h3><p style="font-size:.95rem">An advisor reads your details and prepares tailored options.</p></div></div>
+          <div class="step" style="padding:1.1rem 0"><span class="s-num">02</span><div><h3 style="font-size:1.15rem">We talk</h3><p style="font-size:.95rem">A free consultation — in person, by phone or online.</p></div></div>
+          <div class="step" style="padding:1.1rem 0"><span class="s-num">03</span><div><h3 style="font-size:1.15rem">We plan</h3><p style="font-size:.95rem">A clear roadmap from application to arrival.</p></div></div>
+        </div>
+        <div class="float-card" data-reveal style="margin-top:1rem">
+          <p class="eyebrow">Prefer to talk?</p>
+          <p class="info" style="margin-top:.6rem"><span class="v"><a href="tel:+16043168015">(604) 316-8015</a></span></p>
+          <p class="info"><span class="v"><a href="mailto:info@alpinestudy.com">info@alpinestudy.com</a></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="brand-col">
+        <a class="brand" href="index.html" aria-label="ACES home">
+          <img class="logo" src="assets/brand/aces-logo-white.png" alt="ACES — Alpine Career and Education Services">
+        </a>
+        <p class="f-about">Alpine Career &amp; Education Services — helping students achieve their academic and career goals in Canada, Australia, the UK and Ireland.</p>
+        <a href="apply.html" class="textlink" style="color:var(--clay-soft)">Start your application
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="study-abroad.html">Study Abroad</a></li></ul></div>
+      <div><h5>Services</h5><ul><li><a href="services.html#counselling">Counselling</a></li><li><a href="services.html#applications">Applications</a></li><li><a href="services.html#visa">Visa Support</a></li><li><a href="services.html#scholarships">Scholarships</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="tel:+16043168015">(604) 316-8015</a></li><li><a href="mailto:info@alpinestudy.com">info@alpinestudy.com</a></li><li><span style="color:rgba(237,230,214,.72)">6638 152A St, Unit 109<br>Surrey, BC V3X 7J1</span></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Alpine Career &amp; Education Services. All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v12M8 12h6"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 11v6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
