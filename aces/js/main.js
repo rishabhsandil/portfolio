@@ -25,6 +25,7 @@
       toggle.addEventListener('click', function () {
         var open = links.classList.toggle('open');
         toggle.classList.toggle('open', open);
+        if (nav) nav.classList.toggle('menu-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.style.overflow = open ? 'hidden' : '';
       });
@@ -32,6 +33,7 @@
         a.addEventListener('click', function () {
           links.classList.remove('open');
           toggle.classList.remove('open');
+          if (nav) nav.classList.remove('menu-open');
           document.body.style.overflow = '';
         });
       });
