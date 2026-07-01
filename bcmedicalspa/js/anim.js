@@ -20,6 +20,7 @@
     docEl.classList.add('gsap-ready');                  // tell main.js to stand down on reveals
 
     var desktop = window.matchMedia('(pointer:fine)').matches && window.innerWidth > 900;
+    if (desktop) docEl.classList.add('parallax');       // enables the parallax CSS overscan
 
     /* ---------- Smooth inertia scroll (fine-pointer desktop only) ---------- */
     if (desktop && window.Lenis) {
@@ -94,9 +95,11 @@
         }).to(sSpans, { yPercent: 0, opacity: 1, ease: 'sine.out', duration: 1.4, stagger: { each: 0.18 } })
           .to({}, { duration: 0.5 });                     // gentle hold once assembled
       } else {
+        /* Mobile: a simple, clear once-off rise (no scrub) so the headline is
+           never left half-hidden mid-scroll. */
         gsap.to(sSpans, {
-          yPercent: 0, opacity: 1, ease: 'sine.out', duration: 1.2, stagger: { each: 0.16 },
-          scrollTrigger: { trigger: statementH2, start: 'top 82%', end: 'top 42%', scrub: 1.4 }
+          yPercent: 0, opacity: 1, ease: 'power2.out', duration: 1, stagger: 0.05,
+          scrollTrigger: { trigger: statementH2, start: 'top 86%', once: true }
         });
       }
     }
@@ -110,36 +113,38 @@
       });
     });
 
-    /* ---------- Feature images: soft scale-reveal + stronger parallax ---------- */
-    gsap.utils.toArray('.split__media, .svc__media, .visit__media').forEach(function (m) {
-      var img = m.querySelector('img'); if (!img) return;
-      gsap.fromTo(img, { scale: 1.09 }, {
-        scale: 1, duration: 1.5, ease: 'power2.out',
-        scrollTrigger: { trigger: m, start: 'top 90%', once: true }
+    /* ---------- Image scale-reveal + parallax (DESKTOP ONLY) ----------
+       Skipped on mobile/touch for clarity and smoothness — there the images
+       simply fade in with their section. */
+    if (desktop) {
+      gsap.utils.toArray('.split__media, .svc__media, .visit__media').forEach(function (m) {
+        var img = m.querySelector('img'); if (!img) return;
+        gsap.fromTo(img, { scale: 1.09 }, {
+          scale: 1, duration: 1.5, ease: 'power2.out',
+          scrollTrigger: { trigger: m, start: 'top 90%', once: true }
+        });
+        gsap.fromTo(img, { yPercent: -15 }, {
+          yPercent: 15, ease: 'none',
+          scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: 1 }
+        });
       });
-      gsap.fromTo(img, { yPercent: -15 }, {
-        yPercent: 15, ease: 'none',
-        scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: 1 }
-      });
-    });
 
-    /* ---------- Gallery (about page): subtle parallax drift ---------- */
-    gsap.utils.toArray('.gallery figure').forEach(function (fig) {
-      var img = fig.querySelector('img'); if (!img) return;
-      gsap.fromTo(img, { yPercent: -8 }, {
-        yPercent: 8, ease: 'none',
-        scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      gsap.utils.toArray('.gallery figure').forEach(function (fig) {
+        var img = fig.querySelector('img'); if (!img) return;
+        gsap.fromTo(img, { yPercent: -8 }, {
+          yPercent: 8, ease: 'none',
+          scrollTrigger: { trigger: fig, start: 'top bottom', end: 'bottom top', scrub: 1 }
+        });
       });
-    });
 
-    /* ---------- Hero image: soft scale-in on load + parallax on scroll ---------- */
-    var heroImg = document.querySelector('.hero__media img');
-    if (heroImg) {
-      gsap.fromTo(heroImg, { scale: 1.08 }, { scale: 1, duration: 2.1, ease: 'power2.out' });
-      gsap.to(heroImg, {
-        yPercent: 12, ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-      });
+      var heroImg = document.querySelector('.hero__media img');
+      if (heroImg) {
+        gsap.fromTo(heroImg, { scale: 1.08 }, { scale: 1, duration: 2.1, ease: 'power2.out' });
+        gsap.to(heroImg, {
+          yPercent: 12, ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+        });
+      }
     }
 
     /* keep ScrollTrigger positions correct once fonts/images settle */

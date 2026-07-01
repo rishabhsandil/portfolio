@@ -12,18 +12,41 @@
   <link rel="icon" type="image/png" href="../assets/logo-mark-new.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <style>
-    /* Landing Page Specific Overrides */
+    /* Landing Page Specific Overrides — minimalist */
     .site-header--lp .nav { height: 70px; }
-    .hero--lp { background: var(--color-navy-900); color: var(--color-white); padding: var(--space-8) 0 var(--space-9); position: relative; overflow: hidden; }
+
+    /* Green banner: course name + capture form only */
+    .hero--lp { background: var(--color-navy-900); color: var(--color-white); padding: var(--space-8) 0; position: relative; overflow: hidden; }
     .hero--lp::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(185,150,12,0.12), transparent 50%); }
     .hero--lp h1 { color: var(--color-white); margin-bottom: var(--space-4); }
     .hero--lp .eyebrow { color: var(--color-gold-300); }
-    .hero--lp .hero__bullets { margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
-    .hero--lp .hero__bullet { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.05rem; }
-    .hero--lp .hero__bullet svg { flex-shrink: 0; color: var(--color-gold-400); margin-top: 0.2rem; }
+    .hero--lp .lead { color: rgba(255,255,255,0.82); max-width: 42ch; margin-bottom: 0; }
 
     @media (min-width: 992px) {
-      .lp-grid { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-8); align-items: start; }
+      .lp-grid { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-8); align-items: center; }
+    }
+
+    /* White information area below the banner */
+    .lp-overview { display: grid; gap: var(--space-7); align-items: start; }
+    .lp-info .eyebrow { justify-content: flex-start; }
+    .lp-overview__title { font-size: 1.6rem; margin: var(--space-2) 0 var(--space-6); }
+    .lp-info .hero__bullets { margin: 0; display: flex; flex-direction: column; gap: var(--space-5); }
+    .lp-info .hero__bullet { display: flex; align-items: flex-start; gap: 0.85rem; font-size: 1rem; line-height: 1.65; color: var(--color-gray-700); }
+    .lp-info .hero__bullet svg { flex-shrink: 0; color: var(--color-gold-500); margin-top: 0.15rem; }
+    .lp-info .hero__bullet strong { color: var(--color-navy-900); }
+    .lp-cta { margin-top: var(--space-7); }
+
+    .lp-aside { display: flex; flex-direction: column; gap: var(--space-5); }
+    .lp-facts { background: var(--color-cream); border: 1px solid var(--color-gray-200); }
+    .lp-facts:hover { transform: none; box-shadow: var(--shadow-sm); }
+    .lp-facts__title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--color-gold-600); margin-bottom: var(--space-4); padding-bottom: 0.6rem; border-bottom: 1px solid var(--color-gray-300); }
+    .lp-facts .hero__badges { display: flex !important; flex-direction: column; gap: var(--space-4) !important; border-top: none !important; margin-top: 0 !important; padding-top: 0 !important; }
+    .lp-facts .hero__badge { flex-direction: row; align-items: baseline; justify-content: space-between; gap: var(--space-4); }
+    .lp-facts .hero__badge strong { color: var(--color-navy-900); font-size: 1.35rem; }
+    .lp-facts .hero__badge span { color: var(--color-gray-500); text-align: right; }
+
+    @media (min-width: 992px) {
+      .lp-overview { grid-template-columns: 1fr 340px; gap: var(--space-8); }
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -50,7 +73,21 @@ gtag('config', 'AW-853928503');
           <span class="eyebrow">Professional Certificate Program</span>
           <h1>Advanced Skin Care</h1>
           <p class="lead" style="color: rgba(255,255,255,0.8);">Become a specialist in medical-grade skincare. Our Advanced 120-hour program provides in-depth training in dermatology, chemical peels, and microneedling through hands-on clinical practice.</p>
-          
+        </div>
+
+        <div id="form-top" class="reveal">
+          <div data-include="../components/get-details-form.html"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section lp-info">
+    <div class="container">
+      <div class="lp-overview">
+        <div class="lp-overview__main reveal">
+          <span class="eyebrow">Program Overview</span>
+          <h2 class="lp-overview__title">What you&rsquo;ll learn</h2>
           <div class="hero__bullets">
             <div class="hero__bullet">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -65,8 +102,12 @@ gtag('config', 'AW-853928503');
               <span><strong>Clinical Expertise:</strong> Master advanced dermatology concepts, professional peels, and medical-grade microneedling.</span>
             </div>
           </div>
-
-          <div class="hero__badges" style="border-top-color: rgba(255,255,255,0.1); margin-top: var(--space-7);">
+          <a href="#form-top" class="btn btn--primary lp-cta">Request Program Details</a>
+        </div>
+        <aside class="lp-aside reveal">
+          <div class="info-card lp-facts">
+            <h4 class="lp-facts__title">At a Glance</h4>
+            <div class="hero__badges" style="border-top-color: rgba(255,255,255,0.1); margin-top: var(--space-7);">
             <div class="hero__badge">
               <strong>120</strong>
               <span>Clinical Hours</span>
@@ -80,13 +121,10 @@ gtag('config', 'AW-853928503');
               <span>Hands-on Focus</span>
             </div>
           </div>
-        </div>
-
-        <div id="form-top" class="reveal">
-          <div data-include="../components/get-details-form.html"></div>
-          <div data-include="../components/designation-lp.html"></div>
-        </div>
+          </div>
+        </aside>
       </div>
+      <div data-include="../components/designation-lp.html"></div>
     </div>
   </section>
 

@@ -267,7 +267,15 @@ strong{font-weight:500}
 .tcard__more svg{width:13px;height:13px;transition:transform .4s var(--ease)}
 .tcard:hover .tcard__more svg{transform:translateX(4px)}
 @media(max-width:900px){.tgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:460px){.tgrid{grid-template-columns:1fr}.tcard{aspect-ratio:3/3.4}.tcard__body p{max-height:6em;opacity:1;margin-top:.5rem}}
+/* Mobile: compact 2-up tiles (image + label), no long descriptions — scannable. */
+@media(max-width:560px){
+  .tgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tcard{aspect-ratio:1/1.12}
+  .tcard__body{padding:14px}
+  .tcard__ix{margin-bottom:.35rem;font-size:.56rem}
+  .tcard__body h3{font-size:1.02rem;line-height:1.1}
+  .tcard__body p,.tcard__more{display:none}
+}
 
 /* =========================================================================
    SPLIT (image + text)
@@ -559,12 +567,14 @@ a.chip:hover{color:var(--olive);border-color:var(--olive);background-color:var(-
 .gsap-ready .reveal{transition:none}
 
 /* Feature images get generous overscan so the (stronger) parallax never
-   reveals an edge, and the transform transition is removed (GSAP drives it). */
-.gsap-ready .hero__media img{animation:none;height:138%;top:-19%}
-.gsap-ready .split__media img,
-.gsap-ready .svc__media img,
-.gsap-ready .visit__media img{height:150%;transition:box-shadow .6s var(--ease);will-change:transform}
-.gsap-ready .gallery img{transition:none;height:124%;will-change:transform}
+   reveals an edge, and the transform transition is removed (GSAP drives it).
+   Scoped to `.parallax` (desktop only) — on mobile there is no parallax, so
+   images keep their normal height and stay perfectly framed. */
+.gsap-ready.parallax .hero__media img{animation:none;height:138%;top:-19%}
+.gsap-ready.parallax .split__media img,
+.gsap-ready.parallax .svc__media img,
+.gsap-ready.parallax .visit__media img{height:150%;transition:box-shadow .6s var(--ease);will-change:transform}
+.gsap-ready.parallax .gallery img{transition:none;height:124%;will-change:transform}
 
 /* Masked word reveal for headings (built by anim.js). The negative margins
    expand the clip box so tall/italic glyphs are never trimmed, without
@@ -572,3 +582,46 @@ a.chip:hover{color:var(--olive);border-color:var(--olive);background-color:var(-
 .gsap-ready .word{display:inline-block;overflow:hidden;
   padding:.14em .04em;margin:-.14em -.04em;vertical-align:top}
 .gsap-ready .word>span{display:inline-block;will-change:transform}
+
+/* =========================================================================
+   MOBILE CONSOLIDATION  (≤700px)
+   Tighter section rhythm and calmer spacing so the page reads as a short,
+   scannable sequence rather than an endless scroll.
+   ========================================================================= */
+@media(max-width:700px){
+  :root{--section:56px}
+  .section--tight{padding-block:44px}
+  .sec-head{gap:.6rem;margin-bottom:1.8rem}
+  .statement h2{font-size:clamp(1.6rem,6vw,2rem)}
+  .statement .lead{margin-top:1.2rem}
+  .split{gap:1.6rem}
+  .split__body .btn,.split__body .tlink{margin-top:1.4rem}
+  .steps{gap:1.4rem}
+  .visit{gap:1.6rem}
+  .phead{padding-top:clamp(120px,22vh,150px);padding-bottom:28px}
+  .cta h2{font-size:clamp(2rem,9vw,2.6rem)}
+  /* keep content clear of the sticky action bar */
+  body{padding-bottom:72px}
+  .footer{padding-bottom:20px}
+}
+
+/* =========================================================================
+   MOBILE STICKY ACTION BAR
+   A permanent bottom bar (like the reference sites) with the three actions
+   that matter: Call · Book · Directions. Hidden on desktop.
+   ========================================================================= */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  grid-template-columns:1fr 1.15fr 1fr;gap:7px;align-items:stretch;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));
+  background:rgba(244,239,230,.94);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);box-shadow:0 -6px 24px -18px rgba(40,38,28,.5)}
+.mbar__item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  padding:9px 4px;border-radius:12px;border:1px solid var(--line);background:var(--cream-2);
+  font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);transition:background-color var(--t) var(--ease),color var(--t) var(--ease),transform var(--t) var(--ease)}
+.mbar__item svg{width:19px;height:19px;stroke-width:1.6}
+.mbar__item:active{transform:scale(.96)}
+.mbar__item--primary{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.mbar__item--primary:active{background:var(--olive-deep)}
+@media(max-width:700px){ .mbar{display:grid} }
+body.menu-open .mbar{opacity:0;visibility:hidden;pointer-events:none}

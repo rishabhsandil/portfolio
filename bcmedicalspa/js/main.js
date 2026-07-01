@@ -21,6 +21,7 @@
   if (toggle && drawer) {
     var setOpen = function (open) {
       drawer.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);   // hides the sticky action bar
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     };
