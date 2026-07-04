@@ -2,9 +2,11 @@
 declare(strict_types=1);
 
 /*
- * ACES — form handler (adapted from the Ashford Career College submit.php).
- * Sends application/contact submissions to info@alpinestudy.com.
- * Cloudflare Turnstile was removed (no ACES keys); honeypot spam check kept.
+ * Aspire — form handler (adapted from the Ashford Career College submit.php).
+ * Sends application/contact submissions to the address in $RECIPIENT below.
+ * NOTE: update the placeholder aspirecareers.ca addresses once the real
+ * domain/mailbox is confirmed by the client.
+ * Cloudflare Turnstile was removed (no keys); honeypot spam check kept.
  */
 
 header('Content-Type: application/json; charset=utf-8');
@@ -17,12 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 /* ── Config ───────────────────────────────────────────────────────────── */
 
-$RECIPIENT  = 'info@alpinestudy.com';
+$RECIPIENT  = 'info@aspirecareers.ca';
 $BCC        = [];
 
-$FROM_EMAIL = 'info@alpinestudy.com';
-$FROM_NAME  = 'Alpine Career & Education Services Website';
-$SITE_NAME  = 'Alpine Career & Education Services';
+$FROM_EMAIL = 'info@aspirecareers.ca';
+$FROM_NAME  = 'Aspire Career & Educational Services Website';
+$SITE_NAME  = 'Aspire Career & Educational Services';
 
 /* ── Honeypot ─────────────────────────────────────────────────────────── */
 

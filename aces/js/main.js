@@ -1,4 +1,4 @@
-/* ACES — interactions. Native scrolling (no smooth-scroll library).
+/* Aspire — interactions. Native scrolling (no smooth-scroll library).
    Reveals are fail-safe: if anything goes wrong, content is shown. */
 (function () {
   'use strict';
@@ -115,6 +115,27 @@
       });
     });
 
+    /* ---- Best-country-by-field filter ---- */
+    var fxGrid = document.getElementById('fieldGrid');
+    var fxChips = document.querySelectorAll('.fx-chip');
+    if (fxGrid && fxChips.length) {
+      var fxCards = fxGrid.querySelectorAll('.fx-card');
+      fxChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var f = chip.getAttribute('data-filter');
+          fxChips.forEach(function (c) {
+            var on = c === chip;
+            c.classList.toggle('active', on);
+            c.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          fxCards.forEach(function (card) {
+            var show = f === 'all' || (' ' + card.getAttribute('data-countries') + ' ').indexOf(' ' + f + ' ') !== -1;
+            card.hidden = !show;
+          });
+        });
+      });
+    }
+
     /* ---- Anchor smoothing with nav offset (native, lightweight) ---- */
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (e) {
@@ -171,12 +192,12 @@
               lockForm(form);
             } else {
               if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-              alert((res && res.message) || 'Sorry, we could not send your message. Please call (604) 316-8015 or email info@alpinestudy.com.');
+              alert((res && res.message) || 'Sorry, we could not send your message. Please call (604) 316-8015 or email info@aspirecareers.ca.');
             }
           })
           .catch(function () {
             if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-            alert('Network error — please email info@alpinestudy.com or call (604) 316-8015.');
+            alert('Network error — please email info@aspirecareers.ca or call (604) 316-8015.');
           });
       });
     });
