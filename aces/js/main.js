@@ -37,7 +37,7 @@
       /* ---- Hero headline typewriter (homepage only) ---- */
       var heroType = document.getElementById('heroType');
       if (heroType && !reduce) {
-        var typePhrases = ['Globally.', 'In Medicine.', 'In Law.', 'In Engineering.', 'In Computer Science.'];
+        var typePhrases = ['Medicine.', 'Law.', 'Veterinary.', 'Health and Social Work.', 'High Demand Fields.', 'Canada and Globally.'];
         // Reserve enough height for the tallest wrapped state across every phrase
         // (including the brief empty pause between words) so the line count never
         // changes and the rest of the hero doesn't jump as text types/deletes.
@@ -440,12 +440,12 @@
                 lockForm(form);
               } else {
                 if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-                alert((res && res.message) || 'Sorry, we could not send your message. Please call (604) 316-8015 or email info@aspirecareers.ca.');
+                alert((res && res.message) || 'Sorry, we could not send your message. Please call +1 (604) 316-8015 or email info@aspirecareers.ca.');
               }
             })
             .catch(function () {
               if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-              alert('Network error — please email info@aspirecareers.ca or call (604) 316-8015.');
+              alert('Network error — please email info@aspirecareers.ca or call +1 (604) 316-8015.');
             });
         });
       });
