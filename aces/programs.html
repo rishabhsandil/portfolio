@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programs — Domestic &amp; Abroad, by Field | Aspire</title>
+<meta name="description" content="See which program is right for your field, whether that's in Canada or abroad — from medicine and nursing to AI, data analytics, engineering and business — with Aspire Career &amp; Educational Services.">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div data-include="components/notice.html"></div>
+
+<div data-include="components/header.html"></div>
+
+<main>
+<!-- ============ HERO (with consultation form) ============ -->
+<section class="hero compact hero-split">
+  <img class="hero-bg" src="assets/images/graduation.jpg" alt="A bright, modern university study space" fetchpriority="high">
+  <div class="container wide">
+    <div class="hero-grid">
+      <div class="hero-inner">
+        <p class="eyebrow" data-in>Programs</p>
+        <h1 class="h-display" data-in="2">Start with your field. We'll match the program.</h1>
+        <p class="sub" data-in="3">Whether you're staying in Canada or heading abroad, we start with the field you want to build a career in and match you to the program that fits it best. Here's a field-by-field guide to where Canadian students most often study.</p>
+      </div>
+
+      <div class="hero-form" data-in="4">
+        <p class="eyebrow">Get started</p>
+        <h3>Request a Free Consultation</h3>
+        <form class="form" action="submit.php" method="post" data-ajax novalidate>
+          <input type="hidden" name="subject" value="Aspire — Programs page consultation request">
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="form-success" role="status">Thanks — we've got your details and will be in touch shortly. ✦</div>
+          <div class="field"><label for="hf-name">Name</label><input id="hf-name" name="name" type="text" placeholder="Your full name" required></div>
+          <div class="field"><label for="hf-phone">Phone</label><input id="hf-phone" name="phone" type="tel" placeholder="(604) 000-0000" required></div>
+          <div class="field"><label for="hf-email">Email</label><input id="hf-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field"><label for="hf-city">City</label><input id="hf-city" name="city" type="text" placeholder="Your city" required></div>
+          <div class="field"><label for="hf-message">Message</label><textarea id="hf-message" name="message" placeholder="Tell us what you're hoping to study" required></textarea></div>
+          <button class="btn btn-accent" type="submit">Submit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST PROGRAM BY FIELD -->
+<section class="section" id="by-field" style="padding-top:clamp(48px,7vw,88px)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow" data-reveal>Programs</p>
+        <h2 data-reveal data-reveal-delay="1">Program <span class="it">by field</span>.</h2>
+      </div>
+      <p class="lead" data-reveal data-reveal-delay="2">Know the career you're after? Scan the full list to see where each field is strongest — in Canada or abroad — and the colleges and universities students most often choose. Filter by destination if you already have one in mind.</p>
+    </div>
+    <div class="fx-filters" data-reveal role="group" aria-label="Filter fields by country">
+      <button type="button" class="fx-chip active" data-filter="all" aria-pressed="true">All fields</button>
+      <button type="button" class="fx-chip" data-filter="canada" aria-pressed="false">Domestic (Canada)</button>
+      <button type="button" class="fx-chip" data-filter="australia" aria-pressed="false">Australia</button>
+      <button type="button" class="fx-chip" data-filter="uk" aria-pressed="false">United Kingdom</button>
+      <button type="button" class="fx-chip" data-filter="ireland" aria-pressed="false">Ireland</button>
+      <button type="button" class="fx-chip" data-filter="caribbean" aria-pressed="false">Caribbean</button>
+    </div>
+    <div class="fx-grid" id="fieldGrid" data-reveal data-reveal-delay="1">
+      <article class="fx-card" data-countries="uk caribbean"><h3>Medicine</h3><div class="fx-country"><span>United Kingdom</span><span>Caribbean</span></div><div class="fx-unis"><span>Oxford</span><span>Imperial</span><span>St. George's</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Nursing</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>Sydney</span><span>Monash</span><span>Griffith</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Dentistry</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>Melbourne</span><span>Griffith</span><span>James Cook</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Pharmacy</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>Monash</span><span>UQ</span><span>Griffith</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Physiotherapy</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>Sydney</span><span>Bond</span><span>Melbourne</span></div></article>
+      <article class="fx-card" data-countries="australia caribbean"><h3>Veterinary Science</h3><div class="fx-country"><span>Australia</span><span>Caribbean</span></div><div class="fx-unis"><span>Sydney</span><span>Melbourne</span><span>Ross Vet</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>AI &amp; Computer Science</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>Waterloo</span><span>Toronto</span></div></article>
+      <article class="fx-card" data-countries="ireland"><h3>AI &amp; Computer Science</h3><div class="fx-country"><span>Ireland</span></div><div class="fx-unis"><span>UCC</span><span>Limerick</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>Software Engineering</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>Waterloo</span><span>Toronto</span><span>UBC</span></div></article>
+      <article class="fx-card" data-countries="ireland"><h3>Data Analytics</h3><div class="fx-country"><span>Ireland</span></div><div class="fx-unis"><span>Limerick</span><span>UCC</span><span>MTU</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>Cybersecurity</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>Waterloo</span><span>Toronto</span><span>Calgary</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>Engineering</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>Waterloo</span><span>Toronto</span><span>UBC</span></div></article>
+      <article class="fx-card" data-countries="ireland"><h3>Biotechnology</h3><div class="fx-country"><span>Ireland</span></div><div class="fx-unis"><span>UCC</span><span>Limerick</span><span>ATU</span></div></article>
+      <article class="fx-card" data-countries="uk"><h3>Business</h3><div class="fx-country"><span>United Kingdom</span></div><div class="fx-unis"><span>LSE</span><span>Warwick</span><span>Manchester</span></div></article>
+      <article class="fx-card" data-countries="uk ireland"><h3>Finance</h3><div class="fx-country"><span>United Kingdom</span><span>Ireland</span></div><div class="fx-unis"><span>LSE</span><span>Imperial</span><span>UCC</span></div></article>
+      <article class="fx-card" data-countries="uk ireland"><h3>Law</h3><div class="fx-country"><span>United Kingdom</span><span>Ireland</span></div><div class="fx-unis"><span>Oxford</span><span>LSE</span><span>UCC</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Hospitality</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>Griffith</span><span>Bond</span><span>UQ</span></div></article>
+      <article class="fx-card" data-countries="australia"><h3>Environmental Science</h3><div class="fx-country"><span>Australia</span></div><div class="fx-unis"><span>UQ</span><span>James Cook</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>Environmental Science</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>UBC</span></div></article>
+      <article class="fx-card" data-countries="ireland australia"><h3>Agriculture</h3><div class="fx-country"><span>Ireland</span><span>Australia</span></div><div class="fx-unis"><span>UCD</span><span>UQ</span></div></article>
+      <article class="fx-card" data-countries="canada"><h3>Agriculture</h3><div class="fx-country"><span>Domestic (Canada)</span></div><div class="fx-unis"><span>Guelph</span></div></article>
+    </div>
+    <p class="fx-note muted" data-reveal>Universities shown are representative of each field — we'll match you to the best-fit institution for your grades, budget and goals.</p>
+  </div>
+</section>
+
+<!-- COMPARE / HELP -->
+<section class="section panel-dark on-dark">
+  <div class="container">
+    <div class="split" style="align-items:center">
+      <div class="stack">
+        <p class="eyebrow" data-reveal>Still deciding?</p>
+        <h2 data-reveal data-reveal-delay="1">We'll help you compare — honestly.</h2>
+        <p data-reveal data-reveal-delay="2">Cost of living, tuition, course length, visa rules, post-study work and lifestyle all differ between countries. In a single conversation, we'll weigh them against your goals and budget so you can choose with confidence.</p>
+        <a href="contact.html" class="btn btn-light" data-reveal data-reveal-delay="3" style="margin-top:1rem">Talk to an advisor
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </div>
+      <div class="stats" data-reveal style="grid-template-columns:1fr 1fr">
+        <div class="stat"><div class="num"><span data-count="4">0</span></div><div class="label">Destinations to compare</div></div>
+        <div class="stat"><div class="num"><span data-count="6">0</span></div><div class="label">Services that travel with you</div></div>
+        <div class="stat"><div class="num"><span data-count="100">0</span><span class="suffix">+</span></div><div class="label">Programs reviewed for fit</div></div>
+        <div class="stat"><div class="num"><span data-count="1">0</span></div><div class="label">Advisor, all the way through</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section tight">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <img src="assets/images/graduates.jpg" alt="">
+      <p class="eyebrow" style="color:var(--clay-soft)">Your career awaits</p>
+      <h2>Know your field? Let's get you there.</h2>
+      <p>Start your application and we'll build a plan around the career you're aiming at — and the country that fits it best.</p>
+      <div class="cta-actions">
+        <a href="apply.html" class="btn btn-light">Start your application
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="contact.html" class="btn btn-ghost-light">Talk to an advisor</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div data-include="components/footer.html"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aspire — Study at the Right University, Anywhere in the World</title>
-<meta name="description" content="Aspire helps ambitious students find and get into the right course — at the right university — anywhere in the world, matched to the field they want to study, with expert support on applications, visas, scholarships and arrival.">
+<title>Aspire — The Right Program for Canadian Students, At Home or Abroad</title>
+<meta name="description" content="Aspire helps Canadian students find and get into the right course — in Canada or abroad — matched to the field they want to study, with expert support on applications, visas, funding and arrival.">
 <link rel="icon" type="image/png" href="assets/brand/favicon.png">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,48 +13,8 @@
 </head>
 <body>
 
-<!-- ============ IMPORTANT-NOTICE MODAL ============ -->
-<div class="notice" id="notice" role="dialog" aria-modal="true" aria-labelledby="noticeTitle" aria-describedby="noticeBody" hidden>
-  <div class="notice-backdrop" data-notice-close></div>
-  <div class="notice-dialog" role="document">
-    <button class="notice-close" type="button" aria-label="Close notice" data-notice-close>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <p class="notice-eyebrow">Important Notice</p>
-    <h2 id="noticeTitle">We Are Not a Career College.</h2>
-    <div class="notice-rule"></div>
-    <div id="noticeBody">
-      <p>Aspire Career &amp; Educational Services is <strong>not a private career college or training institution</strong> and does <strong>not deliver academic or vocational programs</strong>.</p>
-      <p>Aspire does <strong>not offer, deliver, or operate academic or vocational programs</strong>, and does <strong>not grant or issue diplomas, certificates, or credentials</strong>.</p>
-      <p>Aspire provides <strong>independent education advisory and application-support services only</strong>, assisting individuals in exploring programs offered by <strong>separately accredited colleges and universities in Canada and abroad</strong>.</p>
-      <p>All admissions decisions, program delivery, and credential issuance are made solely <strong>by the respective institutions</strong>. Aspire does <strong>not guarantee admission or exclusive access to any program</strong>.</p>
-    </div>
-    <div class="notice-actions">
-      <button class="btn btn-accent" type="button" data-notice-close>I understand</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ NAV ============ -->
-<header class="nav on-dark" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="Aspire — Career and Educational Services, home">
-      <span class="wordmark"><span class="wm-name">Aspire<span class="dot">.</span></span><span class="wm-sub">Career &amp; Educational Services</span></span>
-    </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="study-abroad.html">Study Abroad</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="apply.html" class="btn btn-accent">Start your application
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
+<div data-include="components/notice.html"></div>
+<div data-include="components/header.html"></div>
 
 <main>
 <!-- ============ HERO (standard, full-width, with consultation form) ============ -->
@@ -63,9 +23,9 @@
   <div class="container wide">
     <div class="hero-grid">
       <div class="hero-inner">
-        <p class="eyebrow" data-in>International University Admissions</p>
+        <p class="eyebrow" data-in>For Canadian Students</p>
         <h1 class="h-display" data-in="2">Professional courses, <span class="it">globally</span>.</h1>
-        <p class="sub" data-in="3">Tell us the field you want to study, and we'll help you find the right course and university for it — anywhere in the world, with one dedicated advisor beside you the whole way.</p>
+        <p class="sub" data-in="3">Tell us the field you want to study, and we'll help you find the right course and program for it — in Canada or abroad — with one dedicated advisor beside you the whole way.</p>
         <div class="hero-actions" data-in="4">
           <a href="apply.html" class="btn btn-accent">Start your application
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
@@ -101,7 +61,7 @@
       <div class="stack" data-reveal data-reveal-delay="1">
         <p class="eyebrow">About Aspire</p>
         <h2>We start with your <span class="it">field</span> — then find the university to match.</h2>
-        <p class="muted">At Aspire, we're committed to guiding students toward successful academic and career paths by assisting with admissions to top colleges and universities around the world. Our goal is to simplify the admissions process — matching the field you want to build a career in with the right course and the right university, wherever it is.</p>
+        <p class="muted">At Aspire, we're committed to guiding Canadian students toward successful academic and career paths by assisting with admissions to top colleges and universities in Canada and abroad. Our goal is to simplify the admissions process — matching the field you want to build a career in with the right course and the right institution, whether that's here at home or internationally.</p>
         <p class="muted">With expert guidance, personalised support and one dedicated advisor beside you from your first question to your first day on campus, we help you make informed decisions about your future. Aspire is here to navigate your journey toward academic excellence and a fulfilling career.</p>
         <a href="about.html" class="textlink" style="margin-top:.6rem">More about us
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
@@ -147,61 +107,86 @@
   </div>
 </section>
 
-<!-- ============ OFFER — VERTICAL TABS ============ -->
+<!-- ============ SERVICES — TWO-TRACK ROADMAP ============ -->
 <section class="section" id="services" style="background:var(--paper-2);border-block:1px solid var(--line)">
-  <div class="container wide">
+  <div class="container wide" data-tabs>
     <div class="center" style="max-width:640px;margin:0 auto clamp(40px,5vw,64px)">
-      <p class="eyebrow center" data-reveal>Services</p>
-      <h2 data-reveal data-reveal-delay="1">What we offer</h2>
-      <p class="muted" data-reveal data-reveal-delay="2" style="margin:.8rem auto 0">From a first question to your first week abroad — six services, one seamless journey. Choose one to explore.</p>
+      <p class="eyebrow center" data-reveal>How We Help</p>
+      <h2 data-reveal data-reveal-delay="1">A clear roadmap, wherever you study.</h2>
+      <p class="muted" data-reveal data-reveal-delay="2" style="margin:.8rem auto 0">Every Canadian student's path looks a little different. Choose yours below to see how Aspire guides you, step by step.</p>
     </div>
 
-    <div class="offer-grid" data-tabs data-reveal>
-      <div class="tablist" role="tablist">
-        <button class="tab active" data-tab="s1"><span>Counselling</span><span class="t-i">01</span></button>
-        <button class="tab" data-tab="s2"><span>Application Assistance</span><span class="t-i">02</span></button>
-        <button class="tab" data-tab="s3"><span>Visa Support</span><span class="t-i">03</span></button>
-        <button class="tab" data-tab="s4"><span>Scholarships</span><span class="t-i">04</span></button>
-        <button class="tab" data-tab="s5"><span>Pre-Departure</span><span class="t-i">05</span></button>
-        <button class="tab" data-tab="s6"><span>Accommodation</span><span class="t-i">06</span></button>
-      </div>
+    <div class="track-toggle" data-reveal role="tablist">
+      <button class="tab active" data-tab="abroad">Studying Abroad</button>
+      <button class="tab" data-tab="domestic">Studying in Canada</button>
+    </div>
 
-      <div class="o-panels">
-        <div class="o-panel active" data-panel="s1">
-          <div class="o-media"><img src="assets/images/counseling.jpg" alt="Advisor and students reviewing course options"></div>
-          <div class="o-text"><p class="eyebrow">As you begin</p><h3>Counselling Services</h3><p>Personalised advice to help you choose the right course and the right institution — matched to your goals, grades and budget.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>Ideal for students unsure where, or what, to study.</div>
-            <a href="services.html#counselling" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    <div class="track-panel active" data-panel="abroad">
+      <div class="rm-grid">
+        <div class="rm-labels">
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <div><h3>Career Guidance</h3><p>We start with the field you want to build a career in, and the goals behind it.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+            <div><h3>School Match</h3><p>We match you to the universities and colleges abroad where your field is strongest.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h3>Application with University/College</h3><p>We prepare and submit your application, documents and statement of purpose.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+            <div><h3>Visa Process</h3><p>Complete support with your study visa application and required documentation.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div><h3>Pre-Departure Services</h3><p>Orientation and guidance so you land ready, confident and settled fast.</p></div>
+          </div>
         </div>
-        <div class="o-panel" data-panel="s2">
-          <div class="o-media"><img src="assets/images/study-desk.jpg" alt="A student preparing an application at a desk"></div>
-          <div class="o-text"><p class="eyebrow">Step by step</p><h3>Application Assistance</h3><p>Comprehensive, step-by-step guidance through the application process for institutions in your destination country — documents, statements and deadlines handled.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>We refine your statement of purpose for impact.</div>
-            <a href="services.html#applications" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+        <div class="rm-road">
+          <img class="rm-road-img" src="assets/images/roadmap-road.png" alt="" aria-hidden="true">
+          <div class="rm-pin rm-pin--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="rm-pin rm-pin--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+          <div class="rm-pin rm-pin--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="rm-pin rm-pin--4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+          <div class="rm-pin rm-pin--5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
         </div>
-        <div class="o-panel" data-panel="s3">
-          <div class="o-media"><img src="assets/images/airport.jpg" alt="An aircraft wing above the clouds"></div>
-          <div class="o-text"><p class="eyebrow">The paperwork</p><h3>Visa Support</h3><p>Comprehensive assistance with visa applications and the required documentation for studying abroad — so you avoid the common mistakes that cause delays.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Document checklists, financials and interview prep.</div>
-            <a href="services.html#visa" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+      </div>
+    </div>
+
+    <div class="track-panel" data-panel="domestic">
+      <div class="rm-grid">
+        <div class="rm-labels">
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <div><h3>Career Guidance</h3><p>We start with the field you want to build a career in, and the goals behind it.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+            <div><h3>School Matching</h3><p>We match you to the best Canadian college or university programs in your field.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h3>Application with University/College</h3><p>We prepare and submit your application, documents and statement of purpose.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V10M10 21V6M14 21V13M18 21V8"/></svg></div>
+            <div><h3>Financial Planning &amp; Funding</h3><p>Guidance on tuition planning, scholarships and the funding options available to you.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div><h3>Support Until Day 1</h3><p>We stay with you right through to your first day of school.</p></div>
+          </div>
         </div>
-        <div class="o-panel" data-panel="s4">
-          <div class="o-media"><img src="assets/images/library.jpg" alt="A warmly lit library aisle"></div>
-          <div class="o-text"><p class="eyebrow">Make it affordable</p><h3>Scholarship Information</h3><p>Details on available scholarships and financial aid options across multiple countries — and support presenting strong, well-timed applications.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg>We help you find funding you may be eligible for.</div>
-            <a href="services.html#scholarships" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
-        </div>
-        <div class="o-panel" data-panel="s5">
-          <div class="o-media"><img src="assets/images/grad-alt.jpg" alt="A graduate celebrating outside their university"></div>
-          <div class="o-text"><p class="eyebrow">Arrive ready</p><h3>Pre-Departure Orientation</h3><p>Sessions designed to prepare you for the journey and for life in your destination country — from packing and budgeting to culture and settling in.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Land feeling confident, not overwhelmed.</div>
-            <a href="services.html#pre-departure" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
-        </div>
-        <div class="o-panel" data-panel="s6">
-          <div class="o-media"><img src="assets/images/graduation.jpg" alt="A bright modern study space beside large windows"></div>
-          <div class="o-text"><p class="eyebrow">A place to land</p><h3>Accommodation Assistant</h3><p>Help finding rooms, apartments or homestays — whether you're on your own, part of a group, or looking to connect with other international students.</p>
-            <div class="o-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Somewhere safe and comfortable, waiting when you land.</div>
-            <a href="services.html#accommodation" class="textlink">Explore service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+        <div class="rm-road">
+          <img class="rm-road-img" src="assets/images/roadmap-road.png" alt="" aria-hidden="true">
+          <div class="rm-pin rm-pin--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="rm-pin rm-pin--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+          <div class="rm-pin rm-pin--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="rm-pin rm-pin--4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V10M10 21V6M14 21V13M18 21V8"/></svg></div>
+          <div class="rm-pin rm-pin--5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
         </div>
       </div>
     </div>
@@ -271,63 +256,6 @@
   </div>
 </section>
 
-<!-- ============ DESTINATIONS (secondary, career-framed) ============ -->
-<section class="section">
-  <div class="container wide">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow" data-reveal>Global reach</p>
-        <h2 data-reveal data-reveal-delay="1">Universities around the world,<br>matched to your <span class="it">field</span>.</h2>
-      </div>
-      <p class="lead" data-reveal data-reveal-delay="2">We know which universities lead in each field — across Canada, Australia, the UK, Ireland and beyond — and we'll help you weigh the options and choose with confidence. Here's where our students most often study.</p>
-    </div>
-    <div class="country-grid" data-reveal>
-      <a class="country" href="study-abroad.html#canada">
-        <img src="assets/images/canada.jpg" alt="Toronto skyline with the CN Tower at golden hour beside Lake Ontario">
-        <div class="c-body"><span class="c-flag">Best for</span><h3>Canada</h3><p>Engineering, computer science &amp; AI, nursing and co-op programs with strong graduate jobs.</p>
-          <span class="c-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
-      </a>
-      <a class="country" href="study-abroad.html#australia">
-        <img src="assets/images/australia.jpg" alt="Sydney Harbour with the Opera House and city skyline">
-        <div class="c-body"><span class="c-flag">Best for</span><h3>Australia</h3><p>Nursing, medicine, physiotherapy and hospitality, with hands-on industry placements.</p>
-          <span class="c-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
-      </a>
-      <a class="country" href="study-abroad.html#uk">
-        <img src="assets/images/uk.jpg" alt="Aerial view of London with the River Thames and Tower Bridge">
-        <div class="c-body"><span class="c-flag">Best for</span><h3>United Kingdom</h3><p>Medicine, law, economics and business at globally recognised universities.</p>
-          <span class="c-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
-      </a>
-      <a class="country" href="study-abroad.html#ireland">
-        <img src="assets/images/ireland.jpg" alt="Colourful seaside houses below St Colman's Cathedral in Cobh, Ireland">
-        <div class="c-body"><span class="c-flag">Best for</span><h3>Ireland</h3><p>Technology, data analytics, biotech and finance, beside global tech and pharma HQs.</p>
-          <span class="c-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROCESS (dark) ============ -->
-<section class="section panel-dark on-dark">
-  <div class="container" style="position:relative">
-    <div class="split wide-left" style="align-items:start">
-      <div class="stack" style="position:sticky;top:120px">
-        <p class="eyebrow" data-reveal>The journey</p>
-        <h2 data-reveal data-reveal-delay="1">A clear path from question to campus.</h2>
-        <p data-reveal data-reveal-delay="2">No jargon, no guesswork — just a guided route with a real person beside you at every turn.</p>
-        <a href="apply.html" class="btn btn-accent" data-reveal data-reveal-delay="3" style="margin-top:1rem">Start your application
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </div>
-      <div class="steps" data-reveal>
-        <div class="step" style="border-color:var(--line-dark)"><span class="s-num">01</span><div><h3 style="color:var(--paper)">Discover</h3><p>A free consultation to understand your goals, grades, budget and the life you want abroad.</p></div></div>
-        <div class="step" style="border-color:var(--line-dark)"><span class="s-num">02</span><div><h3 style="color:var(--paper)">Shortlist</h3><p>We match you to the fields, courses and institutions that genuinely fit the career you're aiming at.</p></div></div>
-        <div class="step" style="border-color:var(--line-dark)"><span class="s-num">03</span><div><h3 style="color:var(--paper)">Apply</h3><p>We prepare and refine your applications and documents, then submit with confidence.</p></div></div>
-        <div class="step" style="border-color:var(--line-dark)"><span class="s-num">04</span><div><h3 style="color:var(--paper)">Fund &amp; secure</h3><p>Scholarship guidance, visa support and accommodation — the practical pieces, sorted.</p></div></div>
-        <div class="step" style="border-color:var(--line-dark);border-bottom-color:var(--line-dark)"><span class="s-num">05</span><div><h3 style="color:var(--paper)">Depart</h3><p>Pre-departure orientation prepares you for arrival, study and everyday life abroad.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CTA BAND ============ -->
 <section class="section tight">
   <div class="container wide">
@@ -346,40 +274,7 @@
 </section>
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="container wide">
-    <div class="footer-top">
-      <div class="brand-col">
-        <a class="brand" href="index.html" aria-label="Aspire home">
-          <span class="wordmark"><span class="wm-name">Aspire<span class="dot">.</span></span><span class="wm-sub">Career &amp; Educational Services</span></span>
-        </a>
-        <p class="f-about">Aspire helps students find and get into the right course, at the right university — anywhere in the world.</p>
-        <a href="apply.html" class="textlink" style="color:var(--orange-soft)">Start your application
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </div>
-      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="study-abroad.html">Study Abroad</a></li></ul></div>
-      <div><h5>Services</h5><ul><li><a href="services.html#counselling">Counselling</a></li><li><a href="services.html#applications">Applications</a></li><li><a href="services.html#visa">Visa Support</a></li><li><a href="services.html#scholarships">Scholarships</a></li></ul></div>
-      <div><h5>Contact</h5><ul><li><a href="tel:+16043168015">(604) 316-8015</a></li><li><a href="mailto:info@aspirecareers.ca">info@aspirecareers.ca</a></li><li><span style="color:rgba(241,233,217,.72)">6638 152A St, Unit 109<br>Surrey, BC V3X 7J1</span></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Aspire Career &amp; Educational Services. All rights reserved.</span>
-      <div class="socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v12M8 12h6"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 11v6"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- ============ MOBILE STICKY ACTION BAR ============ -->
-<nav class="mobile-bar" aria-label="Quick actions">
-  <a href="tel:+16043168015" aria-label="Call Aspire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-  <a href="study-abroad.html" aria-label="Explore fields and destinations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.9 6.4-6.4 2.9 2.9-6.4 6.4-2.9z"/></svg>Explore</a>
-  <a href="contact.html" aria-label="Message us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message</a>
-  <a href="apply.html" class="mb-primary" aria-label="Start your application"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Apply</a>
-</nav>
+<div data-include="components/footer.html"></div>
 
 <script src="js/main.js"></script>
 </body>

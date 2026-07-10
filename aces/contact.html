@@ -13,47 +13,9 @@
 </head>
 <body>
 
-<!-- ============ IMPORTANT-NOTICE MODAL ============ -->
-<div class="notice" id="notice" role="dialog" aria-modal="true" aria-labelledby="noticeTitle" aria-describedby="noticeBody" hidden>
-  <div class="notice-backdrop" data-notice-close></div>
-  <div class="notice-dialog" role="document">
-    <button class="notice-close" type="button" aria-label="Close notice" data-notice-close>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <p class="notice-eyebrow">Important Notice</p>
-    <h2 id="noticeTitle">We Are Not a Career College.</h2>
-    <div class="notice-rule"></div>
-    <div id="noticeBody">
-      <p>Aspire Career &amp; Educational Services is <strong>not a private career college or training institution</strong> and does <strong>not deliver academic or vocational programs</strong>.</p>
-      <p>Aspire does <strong>not offer, deliver, or operate academic or vocational programs</strong>, and does <strong>not grant or issue diplomas, certificates, or credentials</strong>.</p>
-      <p>Aspire provides <strong>independent education advisory and application-support services only</strong>, assisting individuals in exploring programs offered by <strong>separately accredited colleges and universities in Canada and abroad</strong>.</p>
-      <p>All admissions decisions, program delivery, and credential issuance are made solely <strong>by the respective institutions</strong>. Aspire does <strong>not guarantee admission or exclusive access to any program</strong>.</p>
-    </div>
-    <div class="notice-actions">
-      <button class="btn btn-accent" type="button" data-notice-close>I understand</button>
-    </div>
-  </div>
-</div>
+<div data-include="components/notice.html"></div>
 
-<header class="nav on-dark" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="Aspire home">
-      <span class="wordmark"><span class="wm-name">Aspire<span class="dot">.</span></span><span class="wm-sub">Career &amp; Educational Services</span></span>
-    </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="study-abroad.html">Study Abroad</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="apply.html" class="btn btn-accent">Start your application
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
+<div data-include="components/header.html"></div>
 
 <main>
 <!-- ============ HERO ============ -->
@@ -119,39 +81,7 @@
 </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="brand-col">
-        <a class="brand" href="index.html" aria-label="Aspire home">
-          <span class="wordmark"><span class="wm-name">Aspire<span class="dot">.</span></span><span class="wm-sub">Career &amp; Educational Services</span></span>
-        </a>
-        <p class="f-about">Aspire helps students find and get into the right course, at the right university — anywhere in the world.</p>
-        <a href="apply.html" class="textlink" style="color:var(--clay-soft)">Start your application
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </div>
-      <div><h5>Explore</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="study-abroad.html">Study Abroad</a></li></ul></div>
-      <div><h5>Services</h5><ul><li><a href="services.html#counselling">Counselling</a></li><li><a href="services.html#applications">Applications</a></li><li><a href="services.html#visa">Visa Support</a></li><li><a href="services.html#scholarships">Scholarships</a></li></ul></div>
-      <div><h5>Contact</h5><ul><li><a href="tel:+16043168015">(604) 316-8015</a></li><li><a href="mailto:info@aspirecareers.ca">info@aspirecareers.ca</a></li><li><span style="color:rgba(237,230,214,.72)">6638 152A St, Unit 109<br>Surrey, BC V3X 7J1</span></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Aspire Career &amp; Educational Services. All rights reserved.</span>
-      <div class="socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h-2a2 2 0 0 0-2 2v12M8 12h6"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 11v6"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- ============ MOBILE STICKY ACTION BAR ============ -->
-<nav class="mobile-bar" aria-label="Quick actions">
-  <a href="tel:+16043168015" aria-label="Call Aspire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>Call</a>
-  <a href="study-abroad.html" aria-label="Explore fields and destinations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.9 6.4-6.4 2.9 2.9-6.4 6.4-2.9z"/></svg>Explore</a>
-  <a href="contact.html" aria-label="Message us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message</a>
-  <a href="apply.html" class="mb-primary" aria-label="Start your application"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Apply</a>
-</nav>
+<div data-include="components/footer.html"></div>
 
 <script src="js/main.js"></script>
 </body>
