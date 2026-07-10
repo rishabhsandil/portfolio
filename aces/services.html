@@ -49,211 +49,91 @@
   </div>
 </section>
 
-<!-- TRACK INTRO + TOGGLE -->
-<section class="section tight" style="padding-bottom:0">
-  <div class="container">
-    <div class="center" style="max-width:640px;margin:0 auto clamp(28px,4vw,44px)">
-      <p class="eyebrow center" data-reveal>Choose your path</p>
-      <h2 data-reveal data-reveal-delay="1">Same standard of care, two different roads.</h2>
-      <p class="muted" data-reveal data-reveal-delay="2" style="margin:.8rem auto 0">Every service below adapts to where you're studying. Pick your path to see the five steps in detail.</p>
+<!-- ============ TWO-TRACK ROADMAP ============ -->
+<section class="section" id="roadmap" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="container wide" data-tabs>
+    <div class="center" style="max-width:640px;margin:0 auto clamp(40px,5vw,64px)">
+      <p class="eyebrow center" data-reveal>How We Help</p>
+      <h2 data-reveal data-reveal-delay="1">A clear roadmap, wherever you study.</h2>
+      <p class="muted" data-reveal data-reveal-delay="2" style="margin:.8rem auto 0">Every Canadian student's path looks a little different. Choose yours below to see how Aspire guides you, step by step.</p>
     </div>
-  </div>
-</section>
 
-<div data-tabs>
-  <div class="container">
-    <div class="track-toggle" data-reveal role="tablist" style="margin:0 auto clamp(20px,3vw,32px)">
+    <div class="track-toggle" data-reveal role="tablist">
       <button class="tab active" data-tab="abroad">Studying Abroad</button>
       <button class="tab" data-tab="domestic">Studying in Canada</button>
     </div>
+
+    <div class="track-panel active" data-panel="abroad">
+      <div class="rm-grid">
+        <div class="rm-labels">
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <div><h3>Career Guidance</h3><p>We start with the field you want to build a career in, and the goals behind it.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+            <div><h3>School Match</h3><p>We match you to the universities and colleges abroad where your field is strongest.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h3>Application with University/College</h3><p>We prepare and submit your application, documents and statement of purpose.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+            <div><h3>Visa Process</h3><p>Complete support with your study visa application and required documentation.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+            <div><h3>Pre-Departure Services</h3><p>Orientation and guidance so you land ready, confident and settled fast.</p></div>
+          </div>
+        </div>
+        <div class="rm-road">
+          <img class="rm-road-img" src="assets/images/roadmap-road.png" alt="" aria-hidden="true">
+          <div class="rm-pin rm-pin--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="rm-pin rm-pin--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+          <div class="rm-pin rm-pin--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="rm-pin rm-pin--4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+          <div class="rm-pin rm-pin--5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="track-panel" data-panel="domestic">
+      <div class="rm-grid">
+        <div class="rm-labels">
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <div><h3>Career Guidance</h3><p>We start with the field you want to build a career in, and the goals behind it.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+            <div><h3>School Matching</h3><p>We match you to the best Canadian college or university programs in your field.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h3>Application with University/College</h3><p>We prepare and submit your application, documents and statement of purpose.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V10M10 21V6M14 21V13M18 21V8"/></svg></div>
+            <div><h3>Financial Planning &amp; Funding</h3><p>Guidance on tuition planning, scholarships and the funding options available to you.</p></div>
+          </div>
+          <div class="rm-milestone">
+            <div class="rm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div><h3>Support Until Day 1</h3><p>We stay with you right through to your first day of school.</p></div>
+          </div>
+        </div>
+        <div class="rm-road">
+          <img class="rm-road-img" src="assets/images/roadmap-road.png" alt="" aria-hidden="true">
+          <div class="rm-pin rm-pin--1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div class="rm-pin rm-pin--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+          <div class="rm-pin rm-pin--3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="rm-pin rm-pin--4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V10M10 21V6M14 21V13M18 21V8"/></svg></div>
+          <div class="rm-pin rm-pin--5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- ============ ABROAD TRACK ============ -->
-  <div class="track-panel active" data-panel="abroad">
-    <!-- 01 CAREER GUIDANCE -->
-    <section class="section" id="abroad-guidance">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">01</span>
-            <p class="eyebrow" data-reveal>As you begin</p>
-            <h2 data-reveal data-reveal-delay="1">Career Guidance</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Personalised guidance to help you clarify your goals, academic background and budget — the foundation everything else builds on. We take the time to understand what you actually want from your career before recommending a single program.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Goal &amp; profile assessment</li><li class="pill">Career &amp; course advice</li><li class="pill">Budget planning</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/counseling.jpg" alt="An advisor talking through study options with students"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 SCHOOL MATCH -->
-    <section class="section" id="abroad-match" style="background:var(--ivory-2);border-block:1px solid var(--line)">
-      <div class="container">
-        <div class="split wide-right" style="align-items:center">
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/study-desk.jpg" alt="A student writing notes beside a coffee at a desk"></div>
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">02</span>
-            <p class="eyebrow" data-reveal>Finding the fit</p>
-            <h2 data-reveal data-reveal-delay="1">School Match</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Once we know your field and goals, we map the universities and colleges abroad where that field is strongest — not just the popular names, but the ones that genuinely fit your grades, budget and goals.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Program matching</li><li class="pill">Institution shortlisting</li><li class="pill">Fit assessment</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 APPLICATION -->
-    <section class="section" id="abroad-application">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">03</span>
-            <p class="eyebrow" data-reveal>Step by step</p>
-            <h2 data-reveal data-reveal-delay="1">Application with University/College</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Comprehensive, step-by-step guidance through the application process for institutions in your destination country. We help you prepare documents, craft a compelling statement of purpose, meet deadlines, and submit applications that present you at your best.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Document preparation</li><li class="pill">Statement of purpose</li><li class="pill">Deadline management</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/study-desk.jpg" alt="A student preparing an application at a desk"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 VISA -->
-    <section class="section" id="abroad-visa" style="background:var(--ivory-2);border-block:1px solid var(--line)">
-      <div class="container">
-        <div class="split wide-right" style="align-items:center">
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/airport.jpg" alt="An aircraft wing above the clouds, symbolising travel abroad"></div>
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">04</span>
-            <p class="eyebrow" data-reveal>The paperwork</p>
-            <h2 data-reveal data-reveal-delay="1">Visa Process</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Comprehensive assistance with visa applications and the required documentation for studying abroad. We guide you through each requirement, help you avoid the common mistakes that cause delays, and prepare you for what to expect at every stage.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Document checklists</li><li class="pill">Financial requirements</li><li class="pill">Interview preparation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 PRE-DEPARTURE -->
-    <section class="section" id="abroad-predeparture">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">05</span>
-            <p class="eyebrow" data-reveal>Arrive ready</p>
-            <h2 data-reveal data-reveal-delay="1">Pre-Departure Services</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Orientation to prepare you for the journey and for life in your destination country — from packing and budgeting to culture, transport and healthcare — plus help finding rooms, apartments or homestays, so you have somewhere safe and comfortable waiting when you land.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Travel &amp; arrival</li><li class="pill">Cultural orientation</li><li class="pill">Housing &amp; homestays</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/grad-alt.jpg" alt="A graduate holding up their cap outside a university building"></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ DOMESTIC TRACK ============ -->
-  <div class="track-panel" data-panel="domestic">
-    <!-- 01 CAREER GUIDANCE -->
-    <section class="section" id="domestic-guidance">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">01</span>
-            <p class="eyebrow" data-reveal>As you begin</p>
-            <h2 data-reveal data-reveal-delay="1">Career Guidance</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Personalised guidance to help you clarify your goals, academic background and budget — right here in Canada. We take the time to understand what you actually want from your career before recommending a single program.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Goal &amp; profile assessment</li><li class="pill">Career &amp; course advice</li><li class="pill">Budget planning</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/counseling.jpg" alt="An advisor talking through study options with students"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 SCHOOL MATCHING -->
-    <section class="section" id="domestic-match" style="background:var(--ivory-2);border-block:1px solid var(--line)">
-      <div class="container">
-        <div class="split wide-right" style="align-items:center">
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/study-desk.jpg" alt="A student writing notes beside a coffee at a desk"></div>
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">02</span>
-            <p class="eyebrow" data-reveal>Finding the fit</p>
-            <h2 data-reveal data-reveal-delay="1">School Matching</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">We map the Canadian colleges and universities where your field is strongest — matched to your grades, budget and goals, so you apply to the programs that are genuinely worth it.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Program matching</li><li class="pill">Institution shortlisting</li><li class="pill">Fit assessment</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 APPLICATION -->
-    <section class="section" id="domestic-application">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">03</span>
-            <p class="eyebrow" data-reveal>Step by step</p>
-            <h2 data-reveal data-reveal-delay="1">Application with University/College</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Comprehensive, step-by-step guidance through the application process for institutions across Canada. We help you prepare documents, craft a compelling statement of purpose, meet deadlines, and submit applications that present you at your best.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Document preparation</li><li class="pill">Statement of purpose</li><li class="pill">Deadline management</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/study-desk.jpg" alt="A student preparing an application at a desk"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 FINANCIAL PLANNING & FUNDING -->
-    <section class="section" id="domestic-funding" style="background:var(--ivory-2);border-block:1px solid var(--line)">
-      <div class="container">
-        <div class="split wide-right" style="align-items:center">
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/library.jpg" alt="A long library aisle lit by warm hanging bulbs"></div>
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">04</span>
-            <p class="eyebrow" data-reveal>Make it affordable</p>
-            <h2 data-reveal data-reveal-delay="1">Financial Planning &amp; Funding</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">Details on available scholarships and financial aid options across Canadian institutions. We help you identify the funding you may be eligible for, understand the criteria, and present strong, well-timed applications — plus practical tuition planning.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Scholarship matching</li><li class="pill">Eligibility review</li><li class="pill">Tuition planning</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 SUPPORT UNTIL DAY 1 -->
-    <section class="section" id="domestic-support">
-      <div class="container">
-        <div class="split" style="align-items:center">
-          <div class="stack">
-            <span class="idx" style="font-family:var(--serif);font-size:1.1rem;color:var(--clay)">05</span>
-            <p class="eyebrow" data-reveal>All the way through</p>
-            <h2 data-reveal data-reveal-delay="1">Support Until Day 1</h2>
-            <p data-reveal data-reveal-delay="2" class="muted">From your acceptance letter to your first day on campus — including help settling into student housing near your new school — we stay with you through every practical detail, so day one feels like a formality, not a leap.</p>
-            <ul class="pill-tags" data-reveal data-reveal-delay="3" style="margin-top:.4rem">
-              <li class="pill">Housing support</li><li class="pill">Orientation</li><li class="pill">Settling-in guidance</li>
-            </ul>
-          </div>
-          <div class="media ratio-4-5 hover-zoom" data-reveal><img src="assets/images/graduation.jpg" alt="A bright, modern study space with tables beside floor-to-ceiling windows"></div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
+</section>
 
 <!-- CTA -->
 <section class="section tight">

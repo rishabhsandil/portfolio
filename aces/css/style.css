@@ -156,15 +156,97 @@ strong{font-weight:600}
 
 @media(max-width:900px){
   .nav-toggle{display:flex}
-  .nav-links{position:fixed;inset:0;width:100%;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;padding:5.5rem var(--gutter) 2rem;transform:translateX(100%);transition:transform .4s var(--ease)}
+  /* top is pinned just below the fixed header bar (measured ~64px) rather than
+     inset:0 + top padding — so this box's own edge, not a padding illusion, is what
+     keeps scrolled content from ever reaching the header: overflow-y:auto clips at
+     the box boundary, so it can't paint over the logo no matter how far you scroll. */
+  .nav-links{position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;background:var(--paper);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:1.5rem var(--gutter) 2rem;transform:translateX(100%);transition:transform .4s var(--ease);overflow-y:auto}
   .nav-links.open{transform:translateX(0)}
   .nav-links a{font-size:1.7rem;font-family:var(--serif);color:var(--ink)!important}
+  .nav-links > a,.nav-links > .nav-item{width:100%;text-align:center;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+  .nav-links > a:last-child,.nav-links > .nav-item:last-child{border-bottom:none}
+  .nav-item.has-mega > a{padding:0}
   .nav-cta .btn{display:none}
   .nav .brand{position:relative;z-index:60}              /* keep logo above the open menu */
   .nav.scrolled .nav-links,.nav-links{box-shadow:none}
-  /* when the menu is open, drop the nav's backdrop-filter so the fixed full-screen
-     menu is sized to the viewport (backdrop-filter would make .nav its containing block) */
-  .nav.menu-open{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:transparent!important;box-shadow:none!important;border-bottom-color:transparent!important}
+  /* when the menu is open, the header bar must stay solid (not transparent) so it
+     masks the field list as it scrolls up underneath the pinned logo/toggle — an
+     opaque bar reads as a header; a transparent one lets scrolled text show through
+     and visually collide with the logo. backdrop-filter still has to go, though:
+     any filter on .nav would make it the containing block for .nav-links's fixed
+     inset:0, breaking full-viewport coverage. */
+  .nav.menu-open{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--paper)!important;box-shadow:none!important;border-bottom-color:var(--line)!important}
+  /* the full-screen mobile menu is always a light panel, even when the header sits on
+     a dark hero — the toggle (now an X) and logo must switch back to dark regardless
+     of the page's on-dark state, since they now sit on the opaque light header bar */
+  .nav.on-dark.menu-open .nav-toggle span{background:var(--ink)}
+  .nav.on-dark.menu-open .wordmark .wm-name{color:var(--ink)}
+  .nav.on-dark.menu-open .wordmark .wm-sub{color:var(--muted)}
+}
+
+/* ---------- Programs mega-menu (Program → Field click → Country popup → Colleges) ---------- */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item.has-mega > a{display:inline-flex;align-items:center;gap:.35em}
+.nav-item.has-mega > a svg{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-item.has-mega:hover > a svg,.nav-item.has-mega.mega-open > a svg{transform:rotate(180deg)}
+/* the panel itself opens on hover (desktop) / tap (mobile, via .mega-open) — this is
+   the ONE hover-driven level. Fields/Countries below are click-driven accordions, not hover. */
+/* invisible hover-bridge: without this, moving the mouse from the trigger down to the
+   panel crosses a gap that isn't part of .nav-item's hover box, so :hover drops and the
+   panel closes before you reach it. This pseudo-element fills that gap so hover stays
+   continuous from the trigger straight into the panel. */
+.nav-item.has-mega::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:120px;height:20px;z-index:69}
+.mega{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(10px) scale(.98);width:min(800px,92vw);max-height:min(78vh,620px);overflow-y:auto;overflow-x:hidden;background:var(--paper);border-radius:var(--r-lg);box-shadow:0 40px 80px -24px rgba(6,28,34,.4),0 2px 0 rgba(6,28,34,.03);border:1px solid var(--line);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .1s linear .2s;z-index:70}
+.mega::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:var(--r-lg) var(--r-lg) 0 0}
+.mega::-webkit-scrollbar{width:7px}
+.mega::-webkit-scrollbar-track{background:transparent}
+.mega::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.mega{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.nav-item.has-mega:hover .mega,.nav-item.has-mega.mega-open .mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s}
+.mega-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:clamp(18px,2vw,26px)}
+.mega-group{padding:0 clamp(12px,1.4vw,20px)}
+.mega-group + .mega-group{border-left:1px solid var(--line)}
+.mega-group h4{display:flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 .8rem}
+.mega-group h4 .g-icon{width:28px;height:28px;flex:none;border-radius:8px;background:rgba(4,117,143,.09);color:var(--teal);display:inline-flex;align-items:center;justify-content:center}
+.mega-group h4 .g-icon svg{width:15px;height:15px}
+.mega-field{border-bottom:1px solid var(--line)}
+.mega-field:last-child{border-bottom:none}
+.nav-links .nav-item.has-mega .mega-field-btn{display:flex;align-items:center;justify-content:space-between;gap:.6em;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:.6em .5em;margin:0 -0.5em;font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+.nav-links .nav-item.has-mega .mega-field-btn:hover{background:rgba(4,117,143,.06);color:var(--teal)}
+.mega-field-btn svg{width:13px;height:13px;flex:none;color:var(--muted);transition:transform .25s var(--ease)}
+.mega-field.field-open .mega-field-btn svg{transform:rotate(90deg)}
+.mega-field.field-open .mega-field-btn{color:var(--teal)}
+/* countries "pop up" — revealed only after the field is clicked, not on hover */
+.mega-countries{display:flex;flex-wrap:wrap;gap:.4rem;max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.mega-field.field-open .mega-countries{max-height:220px;padding:.15rem 0 .7rem}
+.nav-links .nav-item.has-mega .mega-countries a{font-size:.74rem;font-weight:600;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.38em 1em;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.nav-links .nav-item.has-mega .mega-countries a::after{display:none}
+.nav-links .nav-item.has-mega .mega-countries a:hover{color:#fff;background:var(--teal);border-color:var(--teal)}
+.mega-foot{display:flex;align-items:center;justify-content:center;gap:.6em;padding:.9rem clamp(18px,2vw,26px);border-top:1px solid var(--line);background:var(--paper-2);border-radius:0 0 var(--r-lg) var(--r-lg);font-size:.82rem}
+.mega-foot span{color:var(--muted)}
+.mega-foot a{display:inline-flex;align-items:center;gap:.4em;font-weight:700}
+/* the mega panel always has a light background, even on pages/states where the header
+   itself sits on-dark — .nav-links a's on-dark color rule outranks a plain ".mega-foot a"
+   selector on specificity, so this needs to match it (and win on source order) or the
+   link goes pale-on-pale and disappears, same class of bug the country pills already had */
+.nav-links .nav-item.has-mega .mega-foot a{color:var(--teal)}
+.mega-foot a svg{width:12px;height:12px;transition:transform .25s var(--ease)}
+.mega-foot a:hover svg{transform:translate(2px,-2px)}
+
+@media(max-width:900px){
+  .nav-item.has-mega{width:100%;flex-direction:column;align-items:stretch}
+  .nav-item.has-mega::after{display:none}
+  .nav-item.has-mega > a{justify-content:center}
+  .mega{position:static;transform:none;width:100%;max-width:360px;margin:1rem auto 0;max-height:none;overflow-y:visible;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;background:transparent;padding:0;display:none;z-index:auto}
+  .mega::before{display:none}
+  .nav-item.has-mega.mega-open .mega,.nav-item.has-mega:hover .mega{display:block;transform:none}
+  .mega-grid{grid-template-columns:1fr;padding:0}
+  .mega-group{padding:0}
+  .mega-group + .mega-group{border-left:none;border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem}
+  .mega-group h4{color:var(--teal)}
+  .nav-links .nav-item.has-mega .mega-field-btn{font-size:1rem}
+  .mega-foot{background:transparent;border-radius:0;margin-top:.5rem;flex-wrap:wrap}
+  .mega-foot a{font-size:.85rem;font-family:var(--sans)}
 }
 @media(max-width:560px){.wordmark .wm-name{font-size:1.3rem}.wordmark .wm-sub{font-size:.5rem;letter-spacing:.18em}}
 /* sticky side columns are a desktop nicety — disable on stacked layouts so they don't overlap */
@@ -194,6 +276,9 @@ strong{font-weight:600}
 .hero h1{color:#fff;max-width:15ch;margin:.9rem 0 0;overflow-wrap:break-word}
 @media(max-width:560px){.hero h1.h-display{font-size:clamp(2.15rem,10vw,2.9rem)}}
 .hero .it{color:var(--orange-soft)}
+.hero-type::after{content:"";display:inline-block;width:3px;height:.82em;background:currentColor;margin-left:.1em;vertical-align:-.05em;animation:heroTypeBlink 1s step-end infinite}
+@keyframes heroTypeBlink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-type::after{animation:none}}
 .hero .sub{color:rgba(255,255,255,.9);font-size:clamp(1.05rem,1.35vw,1.24rem);line-height:1.6;max-width:54ch;margin-top:1.25rem}
 .hero .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem}
 .hero .hero-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:2.4rem}
@@ -335,6 +420,24 @@ strong{font-weight:600}
 .fx-card .fx-unis span{font-size:.75rem;font-weight:500;letter-spacing:.01em;color:var(--muted);background:#fff;border:1px solid var(--line);padding:.34em .78em;border-radius:999px}
 .fx-card[hidden]{display:none}
 .fx-note{font-size:.85rem;margin-top:clamp(20px,2.6vw,30px)}
+
+/* ---------- Field+country result (universities & programs, from the Programs mega-menu) ---------- */
+#fieldResult{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+#fieldResult.is-visible{opacity:1;transform:none}
+.result-head{max-width:640px;margin:0 auto;text-align:center}
+.result-head h2{margin:.3rem 0 .5rem;font-size:clamp(1.5rem,3vw,2.1rem)}
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:clamp(16px,2vw,22px);margin:clamp(24px,3vw,36px) auto 0;text-align:left;max-width:1100px}
+.uni-card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(20px,2.2vw,26px);display:flex;flex-direction:column;gap:.7rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.uni-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:rgba(4,117,143,.3)}
+.uni-card-head{display:flex;flex-direction:column;gap:.3rem}
+.uni-card-head h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.05rem,1.4vw,1.2rem);letter-spacing:-.01em;color:var(--ink);line-height:1.25}
+.uni-loc{font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
+.uni-blurb{font-size:.92rem;color:var(--muted);line-height:1.55}
+.uni-programs{list-style:none;margin:.2rem 0 0;padding:.85rem 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:.7rem}
+.uni-programs li{display:flex;flex-direction:column;gap:.2rem}
+.prog-name{font-size:.86rem;font-weight:700;color:var(--ink)}
+.prog-desc{font-size:.84rem;color:var(--muted);line-height:1.5}
+.result-actions{margin-top:clamp(24px,3vw,34px);display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap}
 
 /* ---------- Track toggle (services roadmap) ---------- */
 .track-toggle{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-bottom:clamp(32px,4.5vw,52px)}
