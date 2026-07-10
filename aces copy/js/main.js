@@ -1,4 +1,4 @@
-/* Aspire — interactions. Native scrolling (no smooth-scroll library).
+/* ACES — interactions. Native scrolling (no smooth-scroll library).
    Reveals are fail-safe: if anything goes wrong, content is shown. */
 (function () {
   'use strict';
@@ -37,39 +37,6 @@
           document.body.style.overflow = '';
         });
       });
-    }
-
-    /* ---- Important-notice modal (once per browser session) ---- */
-    var notice = document.getElementById('notice');
-    if (notice) {
-      var noticeKey = 'aspire-notice-dismissed';
-      var seen = false;
-      try { seen = sessionStorage.getItem(noticeKey) === '1'; } catch (e) {}
-      var lastFocus = null;
-      function closeNotice() {
-        notice.classList.remove('open');
-        document.body.style.overflow = '';
-        try { sessionStorage.setItem(noticeKey, '1'); } catch (e) {}
-        document.removeEventListener('keydown', onNoticeKey);
-        setTimeout(function () { notice.hidden = true; }, 360);
-        if (lastFocus && lastFocus.focus) lastFocus.focus();
-      }
-      function onNoticeKey(e) { if (e.key === 'Escape') closeNotice(); }
-      function openNotice() {
-        lastFocus = document.activeElement;
-        notice.hidden = false;
-        // force reflow so the transition runs from the hidden state
-        void notice.offsetWidth;
-        notice.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', onNoticeKey);
-        var focusBtn = notice.querySelector('.notice-actions .btn') || notice.querySelector('.notice-close');
-        if (focusBtn) focusBtn.focus();
-      }
-      notice.querySelectorAll('[data-notice-close]').forEach(function (el) {
-        el.addEventListener('click', closeNotice);
-      });
-      if (!seen) setTimeout(openNotice, 500);
     }
 
     /* ---- Scroll reveal (fail-safe) ---- */
@@ -148,27 +115,6 @@
       });
     });
 
-    /* ---- Best-country-by-field filter ---- */
-    var fxGrid = document.getElementById('fieldGrid');
-    var fxChips = document.querySelectorAll('.fx-chip');
-    if (fxGrid && fxChips.length) {
-      var fxCards = fxGrid.querySelectorAll('.fx-card');
-      fxChips.forEach(function (chip) {
-        chip.addEventListener('click', function () {
-          var f = chip.getAttribute('data-filter');
-          fxChips.forEach(function (c) {
-            var on = c === chip;
-            c.classList.toggle('active', on);
-            c.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-          fxCards.forEach(function (card) {
-            var show = f === 'all' || (' ' + card.getAttribute('data-countries') + ' ').indexOf(' ' + f + ' ') !== -1;
-            card.hidden = !show;
-          });
-        });
-      });
-    }
-
     /* ---- Anchor smoothing with nav offset (native, lightweight) ---- */
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (e) {
@@ -225,12 +171,12 @@
               lockForm(form);
             } else {
               if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-              alert((res && res.message) || 'Sorry, we could not send your message. Please call (604) 316-8015 or email info@aspirecareers.ca.');
+              alert((res && res.message) || 'Sorry, we could not send your message. Please call (604) 316-8015 or email info@alpinestudy.com.');
             }
           })
           .catch(function () {
             if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-            alert('Network error — please email info@aspirecareers.ca or call (604) 316-8015.');
+            alert('Network error — please email info@alpinestudy.com or call (604) 316-8015.');
           });
       });
     });

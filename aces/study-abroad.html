@@ -13,6 +13,28 @@
 </head>
 <body>
 
+<!-- ============ IMPORTANT-NOTICE MODAL ============ -->
+<div class="notice" id="notice" role="dialog" aria-modal="true" aria-labelledby="noticeTitle" aria-describedby="noticeBody" hidden>
+  <div class="notice-backdrop" data-notice-close></div>
+  <div class="notice-dialog" role="document">
+    <button class="notice-close" type="button" aria-label="Close notice" data-notice-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <p class="notice-eyebrow">Important Notice</p>
+    <h2 id="noticeTitle">We Are Not a Career College.</h2>
+    <div class="notice-rule"></div>
+    <div id="noticeBody">
+      <p>Aspire Career &amp; Educational Services is <strong>not a private career college or training institution</strong> and does <strong>not deliver academic or vocational programs</strong>.</p>
+      <p>Aspire does <strong>not offer, deliver, or operate academic or vocational programs</strong>, and does <strong>not grant or issue diplomas, certificates, or credentials</strong>.</p>
+      <p>Aspire provides <strong>independent education advisory and application-support services only</strong>, assisting individuals in exploring programs offered by <strong>separately accredited colleges and universities in Canada and abroad</strong>.</p>
+      <p>All admissions decisions, program delivery, and credential issuance are made solely <strong>by the respective institutions</strong>. Aspire does <strong>not guarantee admission or exclusive access to any program</strong>.</p>
+    </div>
+    <div class="notice-actions">
+      <button class="btn btn-accent" type="button" data-notice-close>I understand</button>
+    </div>
+  </div>
+</div>
+
 <header class="nav on-dark" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html" aria-label="Aspire home">
@@ -34,14 +56,33 @@
 </header>
 
 <main>
-<!-- ============ HERO ============ -->
-<section class="hero compact">
+<!-- ============ HERO (with consultation form) ============ -->
+<section class="hero compact hero-split">
   <img class="hero-bg" src="assets/images/graduation.jpg" alt="A bright, modern university study space" fetchpriority="high">
-  <div class="container">
-    <div class="hero-inner">
-      <p class="eyebrow" data-in>Study Destinations</p>
-      <h1 class="h-display" data-in="2">Start with your field. We'll match the university.</h1>
-      <p class="sub" data-in="3">Our students study at universities around the world. These four destinations are where they most often study — each strongest for different fields. Here's what each is best for, plus a field-by-field guide to where you should study.</p>
+  <div class="container wide">
+    <div class="hero-grid">
+      <div class="hero-inner">
+        <p class="eyebrow" data-in>Study Destinations</p>
+        <h1 class="h-display" data-in="2">Start with your field. We'll match the university.</h1>
+        <p class="sub" data-in="3">Our students study at universities around the world. These four destinations are where they most often study — each strongest for different fields. Here's what each is best for, plus a field-by-field guide to where you should study.</p>
+      </div>
+
+      <div class="hero-form" data-in="4">
+        <p class="eyebrow">Get started</p>
+        <h3>Request a Free Consultation</h3>
+        <form class="form" action="submit.php" method="post" data-ajax novalidate>
+          <input type="hidden" name="subject" value="Aspire — Study Abroad page consultation request">
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="form-success" role="status">Thanks — we've got your details and will be in touch shortly. ✦</div>
+          <div class="field"><label for="hf-name">Name</label><input id="hf-name" name="name" type="text" placeholder="Your full name" required></div>
+          <div class="field"><label for="hf-phone">Phone</label><input id="hf-phone" name="phone" type="tel" placeholder="(604) 000-0000" required></div>
+          <div class="field"><label for="hf-email">Email</label><input id="hf-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field"><label for="hf-city">City</label><input id="hf-city" name="city" type="text" placeholder="Your city" required></div>
+          <div class="field"><label for="hf-message">Message</label><textarea id="hf-message" name="message" placeholder="Tell us what you're hoping to study" required></textarea></div>
+          <button class="btn btn-accent" type="submit">Submit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
