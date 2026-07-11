@@ -291,18 +291,28 @@ strong{font-weight:600}
 .hero.compact .sub{max-width:62ch}
 
 /* Hero with a consultation-request capture card (homepage) */
-.hero-grid{display:grid;grid-template-columns:1.05fr .9fr;gap:clamp(28px,4vw,64px);align-items:center;padding-block:clamp(132px,17vw,168px) clamp(52px,8vw,88px)}
-.hero-split .hero-inner{padding-block:0;max-width:640px}
+.hero-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:clamp(28px,4vw,64px);align-items:center;padding-block:clamp(132px,17vw,168px) clamp(52px,8vw,88px)}
+.hero-split .hero-inner{padding-block:0;max-width:none}
+/* only index.html uses .hero-split without .compact, so this only shrinks the
+   homepage headline (which is long, "Your pathway to..."), not the shorter
+   one-liners on the other .hero.compact pages that already use a smaller size.
+   ".hero h1{max-width:15ch}" was tuned for those short one-liners and was
+   quietly capping this longer headline's line length too - override it here
+   so lines stretch across the full column instead of wrapping early. */
+.hero-split .h-display{font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.03em;max-width:none}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr;padding-block:clamp(120px,16vw,150px) clamp(40px,6vw,60px)}}
 .hero.compact .hero-grid{padding-block:clamp(118px,15vw,146px) clamp(40px,6vw,64px)}
-.hero-form{background:var(--paper-2);border-radius:var(--r-md);padding:clamp(24px,3vw,34px);box-shadow:0 40px 80px -32px rgba(4,20,26,.6)}
+.hero-form{background:var(--paper-2);border-radius:var(--r-md);padding:clamp(16px,1.8vw,22px);box-shadow:0 40px 80px -32px rgba(4,20,26,.6);max-width:340px;width:100%;justify-self:end}
 .hero-form .eyebrow{color:var(--teal)}
 .hero-form .eyebrow::before{background:var(--orange)}
-.hero-form h3{font-family:var(--display);color:var(--ink);font-weight:600;font-size:clamp(1.25rem,2.1vw,1.55rem);line-height:1.2;margin:.35rem 0 1.3rem}
-.hero-form .form{gap:.9rem}
-.hero-form .field label{color:var(--ink)}
-.hero-form .btn{width:100%;justify-content:center;margin-top:.3rem}
-@media(max-width:960px){.hero-form{max-width:480px}}
+.hero-form h3{font-family:var(--display);color:var(--ink);font-weight:600;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.2;margin:.3rem 0 .8rem}
+.hero-form .form{gap:.55rem}
+.hero-form .field{gap:.3rem}
+.hero-form .field label{color:var(--ink);font-size:.76rem}
+.hero-form .field input,.hero-form .field textarea{padding:.6em .85em;font-size:.92rem}
+.hero-form .field textarea{min-height:60px}
+.hero-form .btn{width:100%;justify-content:center;margin-top:.2rem}
+@media(max-width:960px){.hero-form{max-width:480px;justify-self:stretch}}
 @media(max-width:560px){.hero.compact .h-display{font-size:clamp(2rem,8vw,2.6rem)}}
 
 /* CSS-only intro fade (never gates content behind JS) */
