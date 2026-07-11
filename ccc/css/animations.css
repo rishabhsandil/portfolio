@@ -1,0 +1,144 @@
+/* Optimized Premium Animations for Chai Coffee Company */
+/* Using built-in jQuery Appear plugin */
+
+/* Base styles for elements before they appear */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in.appeared {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in-left.appeared {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in-right.appeared {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-zoom {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-zoom.appeared {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Subtle button hover */
+.btn:hover, 
+.hero_btn:hover {
+    opacity: 0.9;
+}
+
+/* Gentle image hover zoom */
+.hov_zoom img,
+.main-iamge img {
+    transition: transform 0.4s ease-out;
+}
+
+.hov_zoom:hover img,
+.main-iamge:hover img {
+    transform: scale(1.05);
+}
+
+/* Menu item hover */
+.hero-menu-item {
+    transition: opacity 0.2s ease;
+}
+
+.hero-menu-item:hover {
+    opacity: 0.85;
+}
+
+/* Link hover */
+a {
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Input focus */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid rgba(248, 153, 58, 0.5);
+    outline-offset: 2px;
+}
+
+/* Navigation link */
+.main-menu nav ul li a {
+    transition: opacity 0.2s ease;
+}
+
+.main-menu nav ul li a:hover {
+    opacity: 0.7;
+}
+
+/* Price highlight */
+.hero-menu-item:hover .hero-menu-item-price {
+    color: #F8993A;
+}
+
+/* Navigation hide/show on scroll */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.main-header.nav-up {
+    transform: translateY(-100%);
+}
+
+/* Responsive - disable animations on mobile */
+@media (max-width: 768px) {
+    .animate-in,
+    .animate-in-left,
+    .animate-in-right,
+    .animate-zoom {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .btn:hover, 
+    .hero_btn:hover,
+    .hov_zoom:hover img,
+    .main-iamge:hover img,
+    .hero-menu-item:hover,
+    a:hover,
+    .main-menu nav ul li a:hover {
+        transform: none;
+        opacity: 1;
+    }
+}

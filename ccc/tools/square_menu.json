@@ -1,0 +1,586 @@
+{
+  "source": "https://chaicoffeecompany.square.site/s/order?item=all&location=LECM71VC99CEN",
+  "categoryCount": 20,
+  "categories": [
+    {
+      "name": "Most popular",
+      "itemCount": 4,
+      "items": [
+        {
+          "name": "Doodh Patti Chai",
+          "description": "A rich chai made with 100% milk, spices – strong and creamy and loaded with cardamom.",
+          "price": "CAD$5.65"
+        },
+        {
+          "name": "Chicken Veggie Sandwich",
+          "description": "Grilled chicken chunks, onions, tomatoes, bell peppers, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Paneer Veggie Sandwich",
+          "description": "Cottage cheese, onions, tomatoes, bell peppers, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Chicken Kathi Roll",
+          "description": "Yoghurt-marinated chicken masala filling with pickled onions, wrapped in a pan-fried wheat flatbread.",
+          "price": "CAD$10.45"
+        }
+      ]
+    },
+    {
+      "name": "Chai (Hot)",
+      "itemCount": 7,
+      "items": [
+        {
+          "name": "Cardamom Chai",
+          "description": "A robust chai infused with aromatic cardamom.",
+          "price": "CAD$5.45"
+        },
+        {
+          "name": "Chai Affogato",
+          "description": "Rich, black chai, poured over creamy vanilla ice cream, with a hint of our aromatic spice mix.",
+          "price": "CAD$5.95"
+        },
+        {
+          "name": "Doodh Patti Chai",
+          "description": "A rich chai made with 100% milk, spices – strong and creamy and loaded with cardamom.",
+          "price": "CAD$5.65"
+        },
+        {
+          "name": "Ginger Chai",
+          "description": "A robust chai infused with spicy ginger.",
+          "price": "CAD$5.45"
+        },
+        {
+          "name": "Just Chai",
+          "description": "Indian style tea with 50\\50 milk and water, sugar and a pinch of house made masala spice mix.",
+          "price": "CAD$4.75"
+        },
+        {
+          "name": "London Fog",
+          "description": "Indian chai with vanilla, a twisted London Fog.",
+          "price": "CAD$5.45"
+        },
+        {
+          "name": "Matcha",
+          "description": "A vibrant and earthy Japanese green tea powder whisked with hot water or milk.",
+          "price": "CAD$6.45"
+        }
+      ]
+    },
+    {
+      "name": "Chai (Iced)",
+      "itemCount": 2,
+      "items": [
+        {
+          "name": "Fruit Iced Matcha",
+          "description": "Chilled and refreshing Matcha, with a muddled fruit base.",
+          "price": "CAD$8.25"
+        },
+        {
+          "name": "Iced Matcha",
+          "description": "Chilled and refreshing Matcha, perfect for a hot day.",
+          "price": "CAD$7.45"
+        }
+      ]
+    },
+    {
+      "name": "Coffee (Hot)",
+      "itemCount": 5,
+      "items": [
+        {
+          "name": "Affogato",
+          "description": "A scoop of vanilla ice cream \"drowned\" in a shot of hot espresso.",
+          "price": "CAD$5.65"
+        },
+        {
+          "name": "Flat White",
+          "description": "Smooth and velvety espresso with steamed milk, no froth.",
+          "price": "CAD$4.75"
+        },
+        {
+          "name": "Mocha",
+          "description": "A decadent blend of espresso, chocolate, and steamed milk.",
+          "price": "CAD$5.25"
+        },
+        {
+          "name": "Piccolo",
+          "description": "A small latte with a strong espresso-to-milk ratio.",
+          "price": "CAD$4.25"
+        },
+        {
+          "name": "Spanish Latte",
+          "description": "Sweet and rich latte with sweetened condensed milk.",
+          "price": "CAD$5.25"
+        }
+      ]
+    },
+    {
+      "name": "Something Else",
+      "itemCount": 10,
+      "items": [
+        {
+          "name": "Babyccino",
+          "description": "A frothy blend of steamed milk topped with a sprinkle of cocoa powder, crafted especially for kids.",
+          "price": "CAD$2.95"
+        },
+        {
+          "name": "Badam Milk",
+          "description": "Creamy milk infused with finely ground almonds, aromatic saffron, and fragrant cardamom, slow-cooked for a rich and flavorful rose petals topped experience",
+          "price": "CAD$6.95"
+        },
+        {
+          "name": "Fruit Lassi",
+          "description": "Creamy yogurt blended with your choice of mango, strawberry, or blueberry, offering a refreshing and fruity twist to this traditional lassi.",
+          "price": "CAD$6.95"
+        },
+        {
+          "name": "Golden/Turmeric Latte",
+          "description": "A creamy, aromatic milk-based drink infused with fresh raw turmeric, and blended with a mix of warming spices and a hint of nutty flavor.",
+          "price": "CAD$6.95"
+        },
+        {
+          "name": "Hot Chocolate",
+          "description": "A luscious blend of rich chocolate and steamed milk creates a creamy texture, topped with a sprinkle of cocoa powder.",
+          "price": "CAD$5.75"
+        },
+        {
+          "name": "Kadha",
+          "description": "A traditional indian ayurvedic herbal blend featuring honey, lime, ginger, and turmeric, complemented by warm spices like cloves, cinnamon, and pepper, perfect for soothing throat discomfort and cold symptoms.",
+          "price": "CAD$5.25"
+        },
+        {
+          "name": "Nimbu Soda",
+          "description": "A refreshing blend of citrus-infused soda water, featuring a choice between sweet, salty, or a delightful sweet and salty mix, served ice-cold with a fizzy finish.",
+          "price": "CAD$6.45"
+        },
+        {
+          "name": "Salty/Masala Lassi",
+          "description": "A savory yogurt-based drink with a house blend of refreshing and digestive spices, creating a creamy and tangy lassi rerfresher.",
+          "price": "CAD$6.45"
+        },
+        {
+          "name": "Shikanji",
+          "description": "A traditional indian refreshing blend of lemon water or soda infused with a house blend of digestive spices, delivering a perfect balance of sweet, salty, lemon and spiced flavors.",
+          "price": "CAD$6.45"
+        },
+        {
+          "name": "Sweet Lassi",
+          "description": "A refreshing blend of creamy yogurt, sugar served chilled for a sweet and tangy treat.",
+          "price": "CAD$6.45"
+        }
+      ]
+    },
+    {
+      "name": "Shakes",
+      "itemCount": 7,
+      "items": [
+        {
+          "name": "Banana Shake",
+          "description": "A creamy blend of ripe bananas and chilled milk, finished with a generous dollop of whipped cream.",
+          "price": "CAD$6.85"
+        },
+        {
+          "name": "Blueberry Shake",
+          "description": "A velvety blend of ripe blueberries and creamy vanilla ice cream, topped with a dollop of refreshing whipped cream.",
+          "price": "CAD$6.85"
+        },
+        {
+          "name": "Chocolate Shake",
+          "description": "Rich chocolate blended to perfection with creamy milk, topped with a generous swirl of indulgent whipped cream.",
+          "price": "CAD$6.85"
+        },
+        {
+          "name": "Mango Shake",
+          "description": "A luscious blend of fresh mango creates a creamy texture and refreshing flavor, topped with a swirl of whipped cream.",
+          "price": "CAD$6.85"
+        },
+        {
+          "name": "Mix Any 2 Shake",
+          "description": "Choose any two flavors from strawberry, mango, blueberry, chocolate, vanilla, or banana, blended into a creamy milkshake base and topped with a generous dollop of whipped cream.",
+          "price": "CAD$6.95"
+        },
+        {
+          "name": "Strawberry Shake",
+          "description": "Blended with fresh strawberries, creamy milk shake topped with a generous swirl of refreshing whipped cream.",
+          "price": "CAD$6.85"
+        },
+        {
+          "name": "Vanilla Shake",
+          "description": "A smooth vanilla shake blended to perfection, topped with a generous swirl of rich whipped cream.",
+          "price": "CAD$6.85"
+        }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "itemCount": 8,
+      "items": [
+        {
+          "name": "Bottled Water",
+          "description": "",
+          "price": "CAD$2.45"
+        },
+        {
+          "name": "Canada Dry",
+          "description": "",
+          "price": "CAD$2.95"
+        },
+        {
+          "name": "Coke",
+          "description": "",
+          "price": "CAD$2.95"
+        },
+        {
+          "name": "Coke Zero",
+          "description": "",
+          "price": "CAD$2.95"
+        },
+        {
+          "name": "Kombucha",
+          "description": "",
+          "price": "CAD$4.95"
+        },
+        {
+          "name": "Limca",
+          "description": "",
+          "price": "CAD$3.95"
+        },
+        {
+          "name": "RedBull",
+          "description": "",
+          "price": "CAD$4.95"
+        },
+        {
+          "name": "Sprite",
+          "description": "",
+          "price": "CAD$2.95"
+        }
+      ]
+    },
+    {
+      "name": "Seasonal Drinks",
+      "itemCount": 6,
+      "items": [
+        {
+          "name": "Biscoff Latte",
+          "description": "A rich espresso blended with creamy Biscoff spread, topped with a generous sprinkle of crushed Biscoff cookies for a delightful crunch.",
+          "price": "CAD$6.75"
+        },
+        {
+          "name": "Iced Biscoff Latte",
+          "description": "Rich espresso blended with smooth milk and a touch of Biscoff cookie flavor, topped with creamy vanilla cold foam and garnished with crushed Biscoff cookies. Served with a side of Biscoff cookie for a delightful crunch.",
+          "price": "CAD$8.45"
+        },
+        {
+          "name": "Peppermint Mocha",
+          "description": "Rich espresso blended with velvety chocolate and a refreshing hint of peppermint - a perfect christmas taste.",
+          "price": "CAD$6.75"
+        },
+        {
+          "name": "Iced Peppermint Mocha",
+          "description": "A refreshing blend of rich mocha and cool peppermint, served over ice for a revitalizing treat. Perfectly balanced with a creamy texture and a hint of sweetness.",
+          "price": "CAD$8.45"
+        },
+        {
+          "name": "Iced Pistachio Latte",
+          "description": "A refreshing iced latte made with rich espresso and creamy milk, blended with pistachio flavor and topped with a layer of cold foam and a sprinkle of crushed pistachios.",
+          "price": "CAD$8.45"
+        },
+        {
+          "name": "Pistachio Latte",
+          "description": "Rich espresso combined with a smooth, creamy textured milk, subtly infused with pistachio flavor, and finished with a sprinkle of crushed pistachios on top.",
+          "price": "CAD$6.75"
+        }
+      ]
+    },
+    {
+      "name": "Grilled Sandwiches",
+      "itemCount": 7,
+      "items": [
+        {
+          "name": "Aloo Tikki Sandwich",
+          "description": "Pan-fried potato patty, onions, cottage cheese, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips",
+          "price": "CAD$9.95"
+        },
+        {
+          "name": "Chicken Veggie Sandwich",
+          "description": "Grilled chicken chunks, onions, tomatoes, bell peppers, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Egg Salad Sandwich",
+          "description": "Boiled egg chunks, onions, bell peppers, green chilies, cilantro, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Just Cheese Sandwich",
+          "description": "Cheese blend with seasonings between two slices of bread, toasted and grilled. Served with a side of potato chips.",
+          "price": "CAD$8.45"
+        },
+        {
+          "name": "Just Veggie Sandwich",
+          "description": "Mix of onions, tomatoes, corn, bell peppers, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips.",
+          "price": "CAD$9.45"
+        },
+        {
+          "name": "Just Nutella Sandwich",
+          "description": "Nutella hazelnut spread on two slices of bread, pan toasted in butter",
+          "price": "CAD$8.45"
+        },
+        {
+          "name": "Paneer Veggie Sandwich",
+          "description": "Cottage cheese, onions, tomatoes, bell peppers, green chilies, and cheese between two slices of bread, toasted and grilled. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        }
+      ]
+    },
+    {
+      "name": "Toasts",
+      "itemCount": 4,
+      "items": [
+        {
+          "name": "Avocado Toast",
+          "description": "Open-faced toast with smashed avocado, onions, tomatoes, bell peppers, cheese, lime and seasoning. Served with crispy onion garnish.",
+          "price": "CAD$9.95"
+        },
+        {
+          "name": "Butter Toast",
+          "description": "Two slices of bread, pan toasted with butter.",
+          "price": "CAD$4.95"
+        },
+        {
+          "name": "Chilli Cheese Toast",
+          "description": "Open faced toast with cheese blend, green chilies, onions, and spicy seasonings.",
+          "price": "CAD$9.95"
+        },
+        {
+          "name": "Mushroom Toast",
+          "description": "Open faced toast with sautéed mushrooms.",
+          "price": "CAD$9.95"
+        }
+      ]
+    },
+    {
+      "name": "Maggi",
+      "itemCount": 3,
+      "items": [
+        {
+          "name": "Chicken Maggi",
+          "description": "Maggi noodles cooked with chicken, onions, bell peppers, carrots, corn, beans, and seasoning.",
+          "price": "CAD$8.95"
+        },
+        {
+          "name": "Just Maggi",
+          "description": "Instant noodles cooked with a dash of butter.",
+          "price": "CAD$6.45"
+        },
+        {
+          "name": "Veggie Maggi",
+          "description": "Maggi noodles cooked with onions, bell peppers, carrots, corn beans and seasoning.",
+          "price": "CAD$7.95"
+        }
+      ]
+    },
+    {
+      "name": "Pasta",
+      "itemCount": 3,
+      "items": [
+        {
+          "name": "Just Pasta",
+          "description": "Penne pasta cooked in your choice of sauce and cheese",
+          "price": "CAD$12.45"
+        },
+        {
+          "name": "Just Veggie Pasta",
+          "description": "Penne pasta cooked in your choice of sauce with onions, bell peppers, carrots and mushrooms.",
+          "price": "CAD$14.45"
+        },
+        {
+          "name": "Chicken Pasta",
+          "description": "Penne pasta cooked in your choice of sauce with chicken, onions, bell peppers, carrots and mushrooms.",
+          "price": "CAD$16.95"
+        }
+      ]
+    },
+    {
+      "name": "Snacks",
+      "itemCount": 5,
+      "items": [
+        {
+          "name": "Baked Nachos",
+          "description": "Corn chips with tomato sauce, onions, tomatoes, bell peppers, green chilies, and cheese.",
+          "price": "CAD$10.45"
+        },
+        {
+          "name": "Bun Makkhan",
+          "description": "Two buns, pan toasted with butter.",
+          "price": "CAD$4.95"
+        },
+        {
+          "name": "Cheesy Garlic Bread",
+          "description": "Open faced toast with garlic butter and cheese blend.",
+          "price": "CAD$8.95"
+        },
+        {
+          "name": "Corn Chat",
+          "description": "Boiled corn sautéed in butter with onions, cucumbers, lime and seasoning.",
+          "price": "CAD$5.95"
+        },
+        {
+          "name": "Guacamole & Chips",
+          "description": "Corn chips with house made guacamole.",
+          "price": "CAD$9.45"
+        }
+      ]
+    },
+    {
+      "name": "Kathi Rolls",
+      "itemCount": 2,
+      "items": [
+        {
+          "name": "Chicken Kathi Roll",
+          "description": "Yoghurt-marinated chicken masala filling with pickled onions, wrapped in a pan-fried wheat flatbread.",
+          "price": "CAD$10.45"
+        },
+        {
+          "name": "Paneer Kathi Roll",
+          "description": "Yogurt-marinated cottage cheese masala filling with pickled onions, wrapped in a pan-fried wheat flatbread.",
+          "price": "CAD$10.45"
+        }
+      ]
+    },
+    {
+      "name": "Bun Sliders",
+      "itemCount": 3,
+      "items": [
+        {
+          "name": "Aloo Tikki Slider",
+          "description": "Two buns with a pan fried potato patty topped with cheese and grilled.",
+          "price": "CAD$9.45"
+        },
+        {
+          "name": "Paneer Slider",
+          "description": "Two buns with chunks of cottage cheese masala filling, topped with cheese and grilled.)",
+          "price": "CAD$9.95"
+        },
+        {
+          "name": "Chicken Slider",
+          "description": "Two buns with chicken masala filling, topped with cheese and grilled.",
+          "price": "CAD$10.45"
+        }
+      ]
+    },
+    {
+      "name": "Eggs",
+      "itemCount": 5,
+      "items": [
+        {
+          "name": "Egg Bhurji Paratha",
+          "description": "Indian style masala scrambled eggs with onions, tomatoes, and green chilies, served with a pan-fried wheat flatbread.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Bun Omelette",
+          "description": "Omelette with two organic eggs, onions, tomatoes, bell peppers, and green chilies, served between two pan-toasted buns.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Just French Toast",
+          "description": "Two slices of bread dipped in a sweet egg batter and pan-fried.",
+          "price": "CAD$10.45"
+        },
+        {
+          "name": "Masala French Toast",
+          "description": "Two slices of bread dipped in a masala egg and veggies batter and pan-fried.",
+          "price": "CAD$11.95"
+        },
+        {
+          "name": "Nutella French Toast",
+          "description": "Slices of bread stuffed with Nutella and dipped in a sweet egg batter and pan-fried.",
+          "price": "CAD$11.95"
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "itemCount": 2,
+      "items": [
+        {
+          "name": "Brownie Sundae",
+          "description": "Chunks of your choice of brownie with two scoops of vanilla ice cream and chocolate or caramel sauce.",
+          "price": "CAD$10.95"
+        },
+        {
+          "name": "Cookie Sundae",
+          "description": "Chunks of your choice of cookie with two scoops of vanilla ice cream and chocolate or caramel sauce.",
+          "price": "CAD$10.25"
+        }
+      ]
+    },
+    {
+      "name": "Baked Goods",
+      "itemCount": 5,
+      "items": [
+        {
+          "name": "Banana Bread",
+          "description": "Moist banana bread, rich with ripe bananas and a hint of vanilla. Served as is or toasted, with the option to add a pat of creamy butter.",
+          "price": "CAD$0.00"
+        },
+        {
+          "name": "Cookies",
+          "description": "Choose from a selection of freshly baked cookies, available either as they are or served warm.",
+          "price": "CAD$0.00"
+        },
+        {
+          "name": "Patty - Puff Pastry",
+          "description": "",
+          "price": "CAD$0.00"
+        },
+        {
+          "name": "Red Velvet Cake",
+          "description": "",
+          "price": "CAD$9.45"
+        },
+        {
+          "name": "Tiramisu",
+          "description": "",
+          "price": "CAD$8.45"
+        }
+      ]
+    },
+    {
+      "name": "Extras",
+      "itemCount": 1,
+      "items": [
+        {
+          "name": "To Go Bag",
+          "description": "",
+          "price": "CAD$0.50"
+        }
+      ]
+    },
+    {
+      "name": "Croissant Sandwich",
+      "itemCount": 3,
+      "items": [
+        {
+          "name": "Egg Salad Croissant Sandwich",
+          "description": "Egg Salad filling between a croissant, grilled and topped with a crunchy lettuce leaf. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Tandoori Chicken Croissant Sandwich",
+          "description": "Chicken filling tossed in tandoori sauce between a croissant, grilled and topped with a crunchy lettuce leaf. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        },
+        {
+          "name": "Tandoori Paneer Croissant Sandwich",
+          "description": "Paneer and veggies filling between a croissant, grilled and topped with a crunchy lettuce leaf. Served with a side of potato chips.",
+          "price": "CAD$11.45"
+        }
+      ]
+    }
+  ]
+}
