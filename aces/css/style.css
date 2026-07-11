@@ -596,6 +596,41 @@ strong{font-weight:600}
 .cta-band p{color:rgba(241,233,217,.85);max-width:48ch;margin-top:1.1rem}
 .cta-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.1rem}
 
+/* ---------- Landing pages (Google Ads only — not linked from the main site nav) ----------
+   Minimal static header/footer (no fixed positioning, no scroll-color transition, no
+   mega-menu) since these pages have nothing to navigate to except the lead form and,
+   via the logo, back to the main site. */
+.lp-header{background:var(--ink);padding:.9rem 0}
+.lp-header .nav-inner{padding:0;max-width:var(--container-wide);margin-inline:auto}
+.lp-header .wordmark .wm-name{color:var(--paper)}
+.lp-header .wordmark .wm-sub{color:var(--teal-light)}
+.lp-header .nav-cta{display:flex;align-items:center;gap:.6rem}
+@media(max-width:640px){.lp-header .nav-cta .btn span{display:none}}
+.lp-hero{padding-block:clamp(48px,7vw,84px)}
+.lp-hero .hero-grid{padding-block:0}
+/* .panel-dark h3{color:var(--paper)} is meant for headings sitting directly on the
+   dark panel — but the hero-form card floating on top of it is its own light card,
+   so its heading needs to win back the dark ink color or it goes pale-on-pale */
+.panel-dark .hero-form h3{color:var(--ink)}
+.lp-hero .eyebrow::before{background:var(--orange-soft)}
+.lp-hero .lead{color:rgba(241,233,217,.85);max-width:52ch;margin-top:1.1rem;font-size:1.05rem;line-height:1.6}
+.lp-hero .hero-form{max-width:380px}
+/* photo background, same technique as the main site's .hero/.hero-bg: an absolutely
+   positioned img behind everything (z-index:-2) plus a dark gradient (z-index:-1) for
+   text legibility, sitting above panel-dark's own solid background color */
+.lp-hero{position:relative;isolation:isolate;overflow:hidden}
+.lp-hero .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.lp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(7,54,64,.94),rgba(7,54,64,.82) 48%,rgba(7,54,64,.58))}
+.lp-facts{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:1.6rem}
+.lp-facts span{font-size:.85rem;color:rgba(241,233,217,.85);display:inline-flex;align-items:center;gap:.5em}
+.lp-facts span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.lp-footer{background:var(--ink-2);color:rgba(241,233,217,.75);padding:clamp(32px,5vw,44px) 0;text-align:center}
+.lp-footer .wordmark{display:inline-flex}
+.lp-footer .wordmark .wm-name{color:var(--paper)}
+.lp-footer .wordmark .wm-sub{color:var(--teal-light)}
+.lp-footer p{font-size:.82rem;margin-top:.8rem}
+.lp-footer a{color:var(--teal-light)}
+
 /* ---------- Utilities ---------- */
 .divider{height:1px;background:var(--line);border:0}
 .pill-tags{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none}

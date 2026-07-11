@@ -24,9 +24,10 @@
 
   /* ---- Active nav link (header is shared markup, so mark the current page via JS) ---- */
   function initActiveNav() {
-    var path = window.location.pathname.split('/').pop() || 'index.html';
+    var path = window.location.pathname.split('/').pop();
     document.querySelectorAll('.nav-links a').forEach(function (a) {
-      if (a.getAttribute('href') === path) a.classList.add('active');
+      var href = a.getAttribute('href');
+      if (href === path || (!path && href === '/')) a.classList.add('active');
     });
   }
 
