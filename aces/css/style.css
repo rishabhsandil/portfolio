@@ -300,6 +300,7 @@ strong{font-weight:600}
    quietly capping this longer headline's line length too - override it here
    so lines stretch across the full column instead of wrapping early. */
 .hero-split .h-display{font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.03em;max-width:none}
+.hero-split .sub{font-size:clamp(.88rem,1vw,.98rem)}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr;padding-block:clamp(120px,16vw,150px) clamp(40px,6vw,60px)}}
 .hero.compact .hero-grid{padding-block:clamp(118px,15vw,146px) clamp(40px,6vw,64px)}
 .hero-form{background:var(--paper-2);border-radius:var(--r-md);padding:clamp(16px,1.8vw,22px);box-shadow:0 40px 80px -32px rgba(4,20,26,.6);max-width:340px;width:100%;justify-self:end}
