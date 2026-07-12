@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | marketing monk. Creative Agency</title>
+<meta name="description" content="Talk strategy with marketing monk. — send a project brief or book a free brand audit call.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div data-include="components/header.html"></div>
+
+<main>
+
+  <section class="page-hero">
+    <div class="ghost-wrap">
+      <span class="eyebrow">Let's talk strategy</span>
+      <div class="ghost gold" aria-hidden="true">Contact</div>
+    </div>
+    <div class="container">
+      <p class="sub" data-reveal>Tell us about your business below, or grab a slot on our calendar for a free 20-minute brand audit call.</p>
+    </div>
+  </section>
+
+  <!-- ===== Audit-style contact panel ===== -->
+  <section class="section">
+    <div class="container wide">
+      <div class="panel-dark">
+        <div class="audit-bg" aria-hidden="true">
+          <img src="assets/images/audit-bg.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="audit-panel">
+          <div class="audit-copy">
+            <h2>Send a Brief</h2>
+            <p>What are you hoping to achieve, and by when? The more you tell us, the sharper our first reply.</p>
+            <div class="calendar-block" style="margin-top:2rem">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+              <h3>Prefer to book a call?</h3>
+              <p style="font-size:.9rem;margin:.6rem auto 0;max-width:36ch">Grab a free 20-minute brand audit slot directly on our calendar.</p>
+              <p style="font-size:.8rem;margin-top:.9rem;opacity:.7"><em>[Booking calendar embed — placeholder until the client provides a live booking link]</em></p>
+            </div>
+          </div>
+          <form class="audit-form" data-form action="#" method="post">
+            <div class="u-field">
+              <label for="cf-name">Your Name</label>
+              <input id="cf-name" name="name" type="text" placeholder="Enter your Name" required autocomplete="name">
+            </div>
+            <div class="u-field">
+              <label for="cf-business">Business Name</label>
+              <input id="cf-business" name="business" type="text" placeholder="Enter your Business" autocomplete="organization">
+            </div>
+            <div class="u-field">
+              <label for="cf-email">Your Email</label>
+              <input id="cf-email" name="email" type="email" placeholder="Enter the Email" required autocomplete="email">
+            </div>
+            <div class="u-field">
+              <label for="cf-phone">Phone</label>
+              <input id="cf-phone" name="phone" type="tel" placeholder="Optional" autocomplete="tel">
+            </div>
+            <div class="u-field">
+              <label for="cf-message">Project Description</label>
+              <textarea id="cf-message" name="message" placeholder="Type Here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-light">Send Brief</button>
+            <p class="form-success">Thanks — we'll get back to you within one business day.</p>
+          </form>
+        </div>
+        <div class="email-marquee" aria-hidden="true">
+          <div class="marquee">
+            <span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span><span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span><span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span>
+            <span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span><span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span><span>hello<span class="at">@</span>marketingmonk.ca</span><span class="x">✕</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Direct contact ===== -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card" data-reveal>
+          <h4>Email</h4>
+          <p style="margin-top:.4rem"><a class="textlink" href="mailto:hello@marketingmonk.ca">hello@marketingmonk.ca</a></p>
+        </div>
+        <div class="card" data-reveal data-reveal-delay="1">
+          <h4>Phone</h4>
+          <p style="margin-top:.4rem" class="muted">[Phone — confirm with client]</p>
+        </div>
+        <div class="card" data-reveal data-reveal-delay="2">
+          <h4>Studio</h4>
+          <p style="margin-top:.4rem" class="muted">[Studio address — confirm with client]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-include="components/footer.html"></div>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/anim.js"></script>
+</body>
+</html>
