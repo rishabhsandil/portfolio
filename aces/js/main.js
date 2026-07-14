@@ -441,12 +441,12 @@
                 lockForm(form);
               } else {
                 if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-                alert((res && res.message) || 'Sorry, we could not send your message. Please call +1 (604) 316-8015 or email info@aspirecareers.ca.');
+                alert((res && res.message) || 'Sorry, we could not send your message. Please call +1 (604) 316-8015 or email info@acesglobal.ca.');
               }
             })
             .catch(function () {
               if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
-              alert('Network error, please email info@aspirecareers.ca or call +1 (604) 316-8015.');
+              alert('Network error, please email info@acesglobal.ca or call +1 (604) 316-8015.');
             });
         });
       });

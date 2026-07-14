@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 /* ── Config ───────────────────────────────────────────────────────────── */
 
-$RECIPIENT  = 'info@aspirecareers.ca';
+$RECIPIENT  = 'info@acesglobal.ca';
 $BCC        = ['info@alpinestudy.com'];
 
-$FROM_EMAIL = 'info@aspirecareers.ca';
+$FROM_EMAIL = 'info@acesglobal.ca';
 $FROM_NAME  = 'Aspire Career & Educational Services Website';
 $SITE_NAME  = 'Aspire Career & Educational Services';
 
