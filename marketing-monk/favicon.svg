@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- yellow blob badge (matches the .wm-badge placeholder wordmark; swap when the real logo file arrives) -->
+  <path fill="#FFCC00" d="M21 3h23c10 0 17 7 17 17v24c0 10-7 17-17 17H9c-3.3 0-6-2.7-6-6V20C3 10 10 3 21 3Z"/>
+  <text x="32" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" fill="#000">m</text>
+</svg>

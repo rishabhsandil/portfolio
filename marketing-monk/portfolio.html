@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Works | marketing monk. Creative Agency</title>
-<meta name="description" content="Selected work from marketing monk. across automotive, real estate, salons, restaurants, mortgage brokers and more. Filter by industry.">
+<meta name="description" content="Selected work from marketing monk. — automotive, food, fitness, real estate, weddings and more, each showcased on its own.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="css/style.css">
+<script>try{var mmv=sessionStorage.getItem("mm-nav");document.documentElement.classList.add("veiling");if(!mmv)document.documentElement.classList.add("veil-fresh");sessionStorage.removeItem("mm-nav")}catch(e){document.documentElement.classList.add("veiling")}</script>
 </head>
 <body>
+<div class="page-veil" aria-hidden="true"><div class="pv-badge">marketing<br>monk<span>.</span></div></div>
 
 <div data-include="components/header.html"></div>
 
@@ -15,93 +18,159 @@
 
   <section class="page-hero">
     <div class="ghost-wrap">
-      <span class="eyebrow">Selected work, by industry</span>
+      <span class="eyebrow">Selected work, industry by industry</span>
       <div class="ghost gold" aria-hidden="true">Works</div>
     </div>
     <div class="container">
-      <p class="sub" data-reveal>A sample of brands, sites and campaigns we've built — filter by the industry closest to yours.</p>
+      <p class="sub" data-reveal>Every industry gets its own showcase — pick yours below, or scroll the reel.</p>
     </div>
   </section>
 
+  <!-- ===== Browse by industry (category circles) ===== -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="cat-grid" data-assemble="flow">
+        <a class="cat" href="#automotive" data-reveal>
+          <span class="cat-ring"><img decoding="async" src="assets/images/automotive.jpg" alt="Automotive work" loading="lazy"></span>
+          <h3>Automotive</h3>
+        </a>
+        <a class="cat" href="#food" data-reveal data-reveal-delay="1">
+          <span class="cat-ring"><img decoding="async" src="assets/images/restaurant.jpg" alt="Restaurant, brewery and cafe work" loading="lazy"></span>
+          <h3>Food &amp; Café</h3>
+        </a>
+        <a class="cat" href="#fitness" data-reveal data-reveal-delay="2">
+          <span class="cat-ring"><img decoding="async" src="assets/images/fitness.jpg" alt="Fitness and gym work" loading="lazy"></span>
+          <h3>Fitness</h3>
+        </a>
+        <a class="cat" href="#real-estate" data-reveal data-reveal-delay="3">
+          <span class="cat-ring"><img decoding="async" src="assets/images/real-estate.jpg" alt="Real estate work" loading="lazy"></span>
+          <h3>Real Estate</h3>
+        </a>
+        <a class="cat" href="#pre-wedding" data-reveal>
+          <span class="cat-ring"><img decoding="async" src="assets/images/pre-wedding.jpg" alt="Pre-wedding photography work" loading="lazy"></span>
+          <h3>Pre-Wedding</h3>
+        </a>
+        <a class="cat" href="#salon-spa" data-reveal data-reveal-delay="1">
+          <span class="cat-ring"><img decoding="async" src="assets/images/salon-spa.jpg" alt="Salon and spa work" loading="lazy"></span>
+          <h3>Salon &amp; Spa</h3>
+        </a>
+        <a class="cat" href="#car-detailing" data-reveal data-reveal-delay="2">
+          <span class="cat-ring"><img decoding="async" src="assets/images/car-detailing.jpg" alt="Car detailing work" loading="lazy"></span>
+          <h3>Car Detailing</h3>
+        </a>
+        <a class="cat" href="#immigration" data-reveal data-reveal-delay="3">
+          <span class="cat-ring"><img decoding="async" src="assets/images/immigration.jpg" alt="Immigration consultancy work" loading="lazy"></span>
+          <h3>Immigration</h3>
+        </a>
+        <a class="cat" href="#mortgage-broker" data-reveal>
+          <span class="cat-ring"><img decoding="async" src="assets/images/mortgage-broker.jpg" alt="Mortgage broker work" loading="lazy"></span>
+          <h3>Mortgage</h3>
+        </a>
+        <a class="cat" href="#blog-work" data-reveal data-reveal-delay="1">
+          <span class="cat-ring"><img decoding="async" src="assets/images/blog-seo.jpg" alt="Content and SEO work" loading="lazy"></span>
+          <h3>Content &amp; SEO</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Per-industry showcase bands ===== -->
   <section class="section">
     <div class="container wide">
 
-      <div class="fx-filters" data-reveal>
-        <button class="fx-chip active" data-filter="all" aria-pressed="true">All Work</button>
-        <button class="fx-chip" data-filter="automotive" aria-pressed="false">Automotive</button>
-        <button class="fx-chip" data-filter="immigration" aria-pressed="false">Immigration</button>
-        <button class="fx-chip" data-filter="salon-spa" aria-pressed="false">Salon &amp; Spa</button>
-        <button class="fx-chip" data-filter="car-detailing" aria-pressed="false">Car Detailing</button>
-        <button class="fx-chip" data-filter="real-estate" aria-pressed="false">Real Estate</button>
-        <button class="fx-chip" data-filter="pre-wedding" aria-pressed="false">Pre-Wedding</button>
-        <button class="fx-chip" data-filter="mortgage-broker" aria-pressed="false">Mortgage Broker</button>
-        <button class="fx-chip" data-filter="restaurant" aria-pressed="false">Restaurant</button>
-        <button class="fx-chip" data-filter="brewery-cafe" aria-pressed="false">Brewery &amp; Café</button>
+      <div class="case-band" id="automotive" data-reveal>
+        <img decoding="async" src="assets/images/automotive.jpg" alt="Falcone Auto Group campaign" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">01 · Automotive</span>
+          <h3>Falcone Auto Group</h3>
+          <p class="cb-scope">Full site rebuild + inventory-led social campaign across three showrooms.</p>
+          <p class="cb-more"><strong>Also:</strong> DriveWell Motors — brand refresh and paid ad campaign.</p>
+        </div>
       </div>
 
-      <div class="ind-grid" id="fxGrid">
-
-        <div class="ind-card" id="automotive" data-industry="automotive" data-reveal>
-          <img decoding="async" src="assets/images/automotive.jpg" alt="Falcone Auto Group project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Automotive</span><h3>Falcone Auto Group</h3><p>Full site rebuild + inventory-led social campaign.</p></div>
+      <div class="case-band" id="food" data-reveal>
+        <img decoding="async" src="assets/images/restaurant.jpg" alt="Ember & Oak restaurant brand" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">02 · Restaurant, Brewery &amp; Café</span>
+          <h3>Ember &amp; Oak</h3>
+          <p class="cb-scope">Menu-forward site and reservation flow integration.</p>
+          <p class="cb-more"><strong>Also:</strong> Tidewater Brewing Co. — taproom launch campaign · Maple &amp; Vine Café — community social content.</p>
         </div>
-
-        <div class="ind-card" data-industry="automotive" data-reveal data-reveal-delay="1">
-          <img decoding="async" src="assets/images/car-detailing.jpg" alt="DriveWell Motors project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Automotive</span><h3>DriveWell Motors</h3><p>Brand refresh and paid ad campaign across three locations.</p></div>
-        </div>
-
-        <div class="ind-card" id="immigration" data-industry="immigration" data-reveal data-reveal-delay="2">
-          <img decoding="async" src="assets/images/immigration.jpg" alt="Horizon Immigration Co. project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Immigration</span><h3>Horizon Immigration Co.</h3><p>Trust-first site rebuild and multilingual content strategy.</p></div>
-        </div>
-
-        <div class="ind-card" id="salon-spa" data-industry="salon-spa" data-reveal>
-          <img decoding="async" src="assets/images/salon-spa.jpg" alt="Bloom & Bare Salon project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Salon &amp; Spa</span><h3>Bloom &amp; Bare Salon</h3><p>Booking-first site and reels content calendar.</p></div>
-        </div>
-
-        <div class="ind-card" id="car-detailing" data-industry="car-detailing" data-reveal data-reveal-delay="1">
-          <img decoding="async" src="assets/images/car-detailing.jpg" alt="Glasswork Detailing project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Car Detailing</span><h3>Glasswork Detailing</h3><p>Before/after content system and local SEO push.</p></div>
-        </div>
-
-        <div class="ind-card" id="real-estate" data-industry="real-estate" data-reveal data-reveal-delay="2">
-          <img decoding="async" src="assets/images/real-estate.jpg" alt="Harborline Realty project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Real Estate</span><h3>Harborline Realty</h3><p>Listing-ready site and agent personal-brand content.</p></div>
-        </div>
-
-        <div class="ind-card" id="pre-wedding" data-industry="pre-wedding" data-reveal>
-          <img decoding="async" src="assets/images/pre-wedding.jpg" alt="Golden Hour Photography project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Pre-Wedding</span><h3>Golden Hour Photography</h3><p>Portfolio site rebuild and inquiry form overhaul.</p></div>
-        </div>
-
-        <div class="ind-card" id="mortgage-broker" data-industry="mortgage-broker" data-reveal data-reveal-delay="1">
-          <img decoding="async" src="assets/images/mortgage-broker.jpg" alt="Northshore Mortgage project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Mortgage Broker</span><h3>Northshore Mortgage</h3><p>Credibility-first rebrand and explainer content series.</p></div>
-        </div>
-
-        <div class="ind-card" id="restaurant" data-industry="restaurant" data-reveal data-reveal-delay="2">
-          <img decoding="async" src="assets/images/restaurant.jpg" alt="Ember & Oak project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Restaurant</span><h3>Ember &amp; Oak</h3><p>Menu-forward site and reservation flow integration.</p></div>
-        </div>
-
-        <div class="ind-card" id="brewery-cafe" data-industry="brewery-cafe" data-reveal>
-          <img decoding="async" src="assets/images/brewery-cafe.jpg" alt="Tidewater Brewing Co. project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Brewery &amp; Café</span><h3>Tidewater Brewing Co.</h3><p>Event-driven social strategy and taproom launch campaign.</p></div>
-        </div>
-
-        <div class="ind-card" data-industry="brewery-cafe" data-reveal data-reveal-delay="1">
-          <img decoding="async" src="assets/images/blog-social.jpg" alt="Maple & Vine Café project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Brewery &amp; Café</span><h3>Maple &amp; Vine Café</h3><p>Local-first brand refresh and community social content.</p></div>
-        </div>
-
-        <div class="ind-card" data-industry="immigration" data-reveal data-reveal-delay="2">
-          <img decoding="async" src="assets/images/contact-office.jpg" alt="Coastal Immigration Partners project" loading="lazy">
-          <div class="ind-body"><span class="ind-idx">Immigration</span><h3>Coastal Immigration Partners</h3><p>Lead-gen landing pages and consultation booking flow.</p></div>
-        </div>
-
       </div>
+
+      <div class="case-band" id="fitness" data-reveal>
+        <img decoding="async" src="assets/images/fitness.jpg" alt="Forge Athletics gym brand" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">03 · Fitness</span>
+          <h3>Forge Athletics</h3>
+          <p class="cb-scope">Gym brand build-out and membership-drive campaign — reels, trainer spotlights and a join-now funnel.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="real-estate" data-reveal>
+        <img decoding="async" src="assets/images/real-estate.jpg" alt="Harborline Realty listing site" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">04 · Real Estate</span>
+          <h3>Harborline Realty</h3>
+          <p class="cb-scope">Listing-ready site and agent personal-brand content.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="pre-wedding" data-reveal>
+        <img decoding="async" src="assets/images/pre-wedding.jpg" alt="Golden Hour Photography portfolio site" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">05 · Pre-Wedding</span>
+          <h3>Golden Hour Photography</h3>
+          <p class="cb-scope">Portfolio site rebuild and inquiry form overhaul — booked solid within a season.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="salon-spa" data-reveal>
+        <img decoding="async" src="assets/images/salon-spa.jpg" alt="Bloom & Bare Salon site" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">06 · Salon &amp; Spa</span>
+          <h3>Bloom &amp; Bare Salon</h3>
+          <p class="cb-scope">Booking-first site and reels content calendar.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="car-detailing" data-reveal>
+        <img decoding="async" src="assets/images/car-detailing.jpg" alt="Glasswork Detailing content system" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">07 · Car Detailing</span>
+          <h3>Glasswork Detailing</h3>
+          <p class="cb-scope">Before/after content system and local SEO push.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="immigration" data-reveal>
+        <img decoding="async" src="assets/images/immigration.jpg" alt="Horizon Immigration site" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">08 · Immigration</span>
+          <h3>Horizon Immigration Co.</h3>
+          <p class="cb-scope">Trust-first site rebuild and multilingual content strategy.</p>
+          <p class="cb-more"><strong>Also:</strong> Coastal Immigration Partners — lead-gen landing pages and booking flow.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="mortgage-broker" data-reveal>
+        <img decoding="async" src="assets/images/mortgage-broker.jpg" alt="Northshore Mortgage rebrand" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">09 · Mortgage Broker</span>
+          <h3>Northshore Mortgage</h3>
+          <p class="cb-scope">Credibility-first rebrand and explainer content series.</p>
+        </div>
+      </div>
+
+      <div class="case-band" id="blog-work" data-reveal>
+        <img decoding="async" src="assets/images/blog-seo.jpg" alt="Content and SEO programs" loading="lazy">
+        <div class="cb-body">
+          <span class="cb-cat">10 · Content &amp; SEO</span>
+          <h3>Search-First Content Programs</h3>
+          <p class="cb-scope">Ongoing blog and on-page SEO retainers across our client base — the quiet engine behind the numbers.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 

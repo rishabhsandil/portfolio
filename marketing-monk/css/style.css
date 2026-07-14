@@ -307,6 +307,25 @@ strong{font-weight:700}
 [data-reveal-delay="2"]{transition-delay:.2s}
 [data-reveal-delay="3"]{transition-delay:.3s}
 
+/* ---------- Page-transition veil ----------
+   Exit: anim.js slides the veil up over the page, sets a sessionStorage flag, then
+   navigates. Entrance: a tiny inline <head> script on every page reads that flag and adds
+   html.veiling BEFORE first paint, so the destination loads already covered; the reveal
+   is pure CSS (veilOut) so it can never strand a black screen if JS/GSAP fails. */
+.page-veil{position:fixed;inset:0;z-index:300;background:#0A0A0A;display:flex;align-items:center;justify-content:center;transform:translateY(103%);pointer-events:none;will-change:transform;backface-visibility:hidden}
+.page-veil .pv-badge{background:var(--yellow);border-radius:38% 38% 34% 12%/52% 52% 26% 22%;padding:.9em 1.3em 1em;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.6vw,1.9rem);line-height:1.08;color:var(--black);text-transform:lowercase;transform:rotate(-2deg)}
+/* Entrance runs on EVERY full page load (html.veiling is always added pre-paint).
+   On page-to-page transitions the badge is deliberately NOT re-animated — the exit wipe
+   already popped it in, and restarting it from opacity:0 on the destination's first frame
+   reads as a flicker at the page seam. Only on DIRECT visits (html.veil-fresh — no
+   transition flag) does the badge pop, and the swipe waits a beat longer for it. */
+html.veiling .page-veil{transform:none;animation:veilOut .8s .35s cubic-bezier(.76,0,.24,1) forwards}
+html.veiling.veil-fresh .page-veil{animation-delay:.75s}
+html.veiling.veil-fresh .page-veil .pv-badge{animation:pvPop .55s .1s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes veilOut{to{transform:translateY(-103%)}}
+@keyframes pvPop{from{transform:scale(.55) rotate(-10deg);opacity:0}to{transform:scale(1) rotate(-2deg);opacity:1}}
+@media(prefers-reduced-motion:reduce){html.veiling .page-veil{animation:none;transform:translateY(103%)}html.veiling.veil-fresh .page-veil .pv-badge{animation:none;opacity:1}}
+
 /* When the GSAP layer is active (html.gsap-ready), it fully owns entrances —
    neutralize the CSS reveal states/transitions so the two systems never fight. */
 .gsap-ready [data-reveal]{opacity:1;transform:none;filter:none;transition:none}
@@ -362,6 +381,36 @@ strong{font-weight:700}
 .fx-chip{font-family:var(--sans);font-size:.85rem;font-weight:600;padding:.6em 1.25em;border-radius:999px;background:var(--white);color:var(--ink);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
 .fx-chip:hover{background:var(--yellow-soft)}
 .fx-chip.active{background:var(--black);color:var(--yellow)}
+
+/* ---------- Works: category circles (browse-by-industry index) ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,4vw,56px);max-width:1080px;margin-inline:auto}
+/* 10 items in 3 columns leaves one orphan — center it */
+.cat-grid .cat:last-child:nth-child(3n+1){grid-column:2}
+@media(max-width:640px){
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:clamp(18px,5vw,28px)}
+  .cat-grid .cat:last-child:nth-child(3n+1){grid-column:auto}
+}
+.cat{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.cat .cat-ring{width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;position:relative;isolation:isolate;background:#151515}
+.cat .cat-ring img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
+.cat:hover .cat-ring img{transform:scale(1.09)}
+.cat .cat-ring::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid transparent;transition:border-color .3s var(--ease)}
+.cat:hover .cat-ring::after{border-color:var(--yellow)}
+.cat h3{font-size:clamp(1rem,1.4vw,1.2rem)}
+
+/* ---------- Works: per-industry showcase bands (stacked cinematic rows) ---------- */
+.case-band{position:relative;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;min-height:clamp(300px,34vw,440px);display:flex;align-items:center;scroll-margin-top:110px}
+.case-band + .case-band{margin-top:clamp(18px,2.4vw,32px)}
+.case-band > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s var(--ease)}
+.case-band:hover > img{transform:scale(1.04)}
+.case-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.12) 100%);z-index:-1}
+.case-band .cb-body{padding:clamp(24px,3.5vw,56px);color:#fff;max-width:560px}
+.case-band .cb-cat{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);display:block;margin-bottom:.6rem}
+.case-band h3{color:#fff;font-size:clamp(1.5rem,2.6vw,2.2rem)}
+.case-band .cb-scope{color:rgba(255,255,255,.85);font-size:.95rem;margin-top:.5rem}
+.case-band .cb-more{margin-top:1.1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);font-size:.86rem}
+.case-band .cb-more strong{color:#fff}
+@media(max-width:640px){.case-band{min-height:340px;align-items:flex-end}.case-band::after{background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.85) 70%)}}
 
 /* ---------- Stats (interior pages) ---------- */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(20px,3vw,40px)}
