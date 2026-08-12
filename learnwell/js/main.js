@@ -1,4 +1,9 @@
-/* Learnwell: free consultation landing page */
+/* Learnwell: free consultation landing page
+   The lead form and the newsletter form are the institute's own LeadConnector
+   (GoHighLevel) embeds, the same two forms learnwellinstitute.ca uses. They are
+   cross-origin iframes: submission, validation and Cloudflare Turnstile are all
+   handled inside them by link.msgsndr.com/js/form_embed.js, so there is nothing
+   for this file to do. Fields are edited in the client's GoHighLevel account. */
 (function () {
   'use strict';
 
@@ -38,57 +43,4 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* ---- lead form ----
-     Validates client side, then swaps in the confirmation panel.
-     Wire the submit handler to the CRM endpoint when it is available. */
-  var form = document.getElementById('leadForm');
-  var done = document.getElementById('formDone');
-
-  if (form && done) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var firstBad = null;
-      Array.prototype.forEach.call(form.elements, function (el) {
-        if (!el.name || !el.willValidate) return;
-        var wrap = el.closest('.field');
-        var ok = el.checkValidity();
-        if (wrap) wrap.classList.toggle('is-bad', !ok);
-        if (!ok && !firstBad) firstBad = el;
-      });
-
-      if (firstBad) {
-        firstBad.focus();
-        return;
-      }
-
-      form.hidden = true;
-      done.hidden = false;
-      done.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    });
-
-    form.addEventListener('input', function (e) {
-      var wrap = e.target.closest('.field');
-      if (wrap && wrap.classList.contains('is-bad') && e.target.checkValidity()) {
-        wrap.classList.remove('is-bad');
-      }
-    });
-  }
-
-  /* ---- newsletter ---- */
-  var sub = document.getElementById('subForm');
-  var subDone = document.getElementById('subDone');
-  if (sub && subDone) {
-    sub.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('subEmail');
-      if (!email.checkValidity()) {
-        email.focus();
-        return;
-      }
-      email.value = '';
-      subDone.hidden = false;
-    });
-  }
 })();

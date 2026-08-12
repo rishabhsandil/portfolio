@@ -1,5 +1,5 @@
 /* ============================================================
-   Aspire — Career & Educational Services
+   Aspire, Career & Educational Services
    Palette derived from the official logo: petrol TEAL #04758F +
    vivid ORANGE #F7931E. Minimal, corporate layout with a
    contemporary edge: Space Grotesk display + Inter body.
@@ -13,7 +13,7 @@
   --paper:#F6F3EB;
   --paper-2:#FCFAF3;
   --paper-3:#EAE5D6;
-  --ink:#0C2E37;          /* deep petrol — headings & strong text */
+  --ink:#0C2E37;          /* deep petrol, headings & strong text */
   --ink-2:#073640;        /* dark sections / footer (brand teal-dark) */
   --teal:#04758F;         /* brand primary */
   --teal-2:#0A6075;
@@ -78,7 +78,7 @@ h2{font-size:clamp(1.9rem,3.7vw,3rem)}
 h3{font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.18}
 h4{font-size:1.1rem;line-height:1.3;font-weight:600}
 p{max-width:66ch}
-/* accent word — Space Grotesk has no italic, so the "flair" is a teal colour hit */
+/* accent word, Space Grotesk has no italic, so the "flair" is a teal colour hit */
 .it{font-style:normal;font-weight:600;color:var(--teal)}
 em{font-style:normal;color:var(--teal);font-weight:500}
 strong{font-weight:600}
@@ -157,7 +157,7 @@ strong{font-weight:600}
 @media(max-width:900px){
   .nav-toggle{display:flex}
   /* top is pinned just below the fixed header bar (measured ~64px) rather than
-     inset:0 + top padding — so this box's own edge, not a padding illusion, is what
+     inset:0 + top padding, so this box's own edge, not a padding illusion, is what
      keeps scrolled content from ever reaching the header: overflow-y:auto clips at
      the box boundary, so it can't paint over the logo no matter how far you scroll. */
   .nav-links{position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;background:var(--paper);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:1.5rem var(--gutter) 2rem;transform:translateX(100%);transition:transform .4s var(--ease);overflow-y:auto}
@@ -170,14 +170,14 @@ strong{font-weight:600}
   .nav .brand{position:relative;z-index:60}              /* keep logo above the open menu */
   .nav.scrolled .nav-links,.nav-links{box-shadow:none}
   /* when the menu is open, the header bar must stay solid (not transparent) so it
-     masks the field list as it scrolls up underneath the pinned logo/toggle — an
+     masks the field list as it scrolls up underneath the pinned logo/toggle, an
      opaque bar reads as a header; a transparent one lets scrolled text show through
      and visually collide with the logo. backdrop-filter still has to go, though:
      any filter on .nav would make it the containing block for .nav-links's fixed
      inset:0, breaking full-viewport coverage. */
   .nav.menu-open{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--paper)!important;box-shadow:none!important;border-bottom-color:var(--line)!important}
   /* the full-screen mobile menu is always a light panel, even when the header sits on
-     a dark hero — the toggle (now an X) and logo must switch back to dark regardless
+     a dark hero, the toggle (now an X) and logo must switch back to dark regardless
      of the page's on-dark state, since they now sit on the opaque light header bar */
   .nav.on-dark.menu-open .nav-toggle span{background:var(--ink)}
   .nav.on-dark.menu-open .wordmark .wm-name{color:var(--ink)}
@@ -189,7 +189,7 @@ strong{font-weight:600}
 .nav-item.has-mega > a{display:inline-flex;align-items:center;gap:.35em}
 .nav-item.has-mega > a svg{width:13px;height:13px;transition:transform .25s var(--ease)}
 .nav-item.has-mega:hover > a svg,.nav-item.has-mega.mega-open > a svg{transform:rotate(180deg)}
-/* the panel itself opens on hover (desktop) / tap (mobile, via .mega-open) — this is
+/* the panel itself opens on hover (desktop) / tap (mobile, via .mega-open), this is
    the ONE hover-driven level. Fields/Countries below are click-driven accordions, not hover. */
 /* invisible hover-bridge: without this, moving the mouse from the trigger down to the
    panel crosses a gap that isn't part of .nav-item's hover box, so :hover drops and the
@@ -216,7 +216,7 @@ strong{font-weight:600}
 .mega-field-btn svg{width:13px;height:13px;flex:none;color:var(--muted);transition:transform .25s var(--ease)}
 .mega-field.field-open .mega-field-btn svg{transform:rotate(90deg)}
 .mega-field.field-open .mega-field-btn{color:var(--teal)}
-/* countries "pop up" — revealed only after the field is clicked, not on hover */
+/* countries "pop up", revealed only after the field is clicked, not on hover */
 .mega-countries{display:flex;flex-wrap:wrap;gap:.4rem;max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
 .mega-field.field-open .mega-countries{max-height:220px;padding:.15rem 0 .7rem}
 .nav-links .nav-item.has-mega .mega-countries a{font-size:.74rem;font-weight:600;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.38em 1em;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
@@ -226,7 +226,7 @@ strong{font-weight:600}
 .mega-foot span{color:var(--muted)}
 .mega-foot a{display:inline-flex;align-items:center;gap:.4em;font-weight:700}
 /* the mega panel always has a light background, even on pages/states where the header
-   itself sits on-dark — .nav-links a's on-dark color rule outranks a plain ".mega-foot a"
+   itself sits on-dark, .nav-links a's on-dark color rule outranks a plain ".mega-foot a"
    selector on specificity, so this needs to match it (and win on source order) or the
    link goes pale-on-pale and disappears, same class of bug the country pills already had */
 .nav-links .nav-item.has-mega .mega-foot a{color:var(--teal)}
@@ -249,7 +249,7 @@ strong{font-weight:600}
   .mega-foot a{font-size:.85rem;font-family:var(--sans)}
 }
 @media(max-width:560px){.wordmark .wm-name{font-size:1.3rem}.wordmark .wm-sub{font-size:.5rem;letter-spacing:.18em}}
-/* sticky side columns are a desktop nicety — disable on stacked layouts so they don't overlap */
+/* sticky side columns are a desktop nicety, disable on stacked layouts so they don't overlap */
 @media(max-width:820px){.split [style*="position:sticky"]{position:static!important;top:auto!important}}
 
 /* ---------- Editorial hero (Armonia-style) ---------- */
@@ -332,7 +332,7 @@ strong{font-weight:600}
 [data-reveal-delay="4"]{transition-delay:.32s}
 .clip-reveal{clip-path:inset(0 0 100% 0);transition:clip-path 1.05s var(--ease)}
 .clip-reveal.in{clip-path:inset(0 0 0 0)}
-/* Images/media are ALWAYS visible — never gated behind a JS reveal */
+/* Images/media are ALWAYS visible, never gated behind a JS reveal */
 .media,.o-media,.hero-figure{opacity:1!important;transform:none!important;clip-path:none!important}
 
 /* ---------- Stats ---------- */
@@ -446,6 +446,15 @@ strong{font-weight:600}
 .uni-blurb{font-size:.92rem;color:var(--muted);line-height:1.55}
 .uni-programs{list-style:none;margin:.2rem 0 0;padding:.85rem 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:.7rem}
 .uni-programs li{display:flex;flex-direction:column;gap:.2rem}
+/* Single featured program (landing pages with exactly one college/program) */
+.uni-grid.single{grid-template-columns:1fr}
+.uni-grid.single .uni-card{padding:clamp(24px,3vw,40px)}
+@media(min-width:768px){
+  .uni-grid.single .uni-card{display:grid;grid-template-columns:1fr 1.05fr;column-gap:clamp(32px,4vw,56px);align-items:start}
+  .uni-grid.single .uni-card-head{grid-column:1;grid-row:1}
+  .uni-grid.single .uni-blurb{grid-column:1;grid-row:2}
+  .uni-grid.single .uni-programs{grid-column:2;grid-row:1 / 3;border-top:none;margin-top:0;padding:0 0 0 clamp(28px,3vw,44px);border-left:1px solid var(--line)}
+}
 .prog-name{font-size:.86rem;font-weight:700;color:var(--ink)}
 .prog-desc{font-size:.84rem;color:var(--muted);line-height:1.5}
 .result-actions{margin-top:clamp(24px,3vw,34px);display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap}
@@ -596,7 +605,7 @@ strong{font-weight:600}
 .cta-band p{color:rgba(241,233,217,.85);max-width:48ch;margin-top:1.1rem}
 .cta-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.1rem}
 
-/* ---------- Landing pages (Google Ads only — not linked from the main site nav) ----------
+/* ---------- Landing pages (Google Ads only, not linked from the main site nav) ----------
    Minimal static header/footer (no fixed positioning, no scroll-color transition, no
    mega-menu) since these pages have nothing to navigate to except the lead form and,
    via the logo, back to the main site. */
@@ -609,7 +618,7 @@ strong{font-weight:600}
 .lp-hero{padding-block:clamp(48px,7vw,84px)}
 .lp-hero .hero-grid{padding-block:0}
 /* .panel-dark h3{color:var(--paper)} is meant for headings sitting directly on the
-   dark panel — but the hero-form card floating on top of it is its own light card,
+   dark panel, but the hero-form card floating on top of it is its own light card,
    so its heading needs to win back the dark ink color or it goes pale-on-pale */
 .panel-dark .hero-form h3{color:var(--ink)}
 .lp-hero .eyebrow::before{background:var(--orange-soft)}

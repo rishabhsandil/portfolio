@@ -1,0 +1,6 @@
+# per-project notes (DESIGN.md, README.md, ...) at any depth
+# the repo's own root README.md stays tracked
+*/**/*.md
+
+# archives and site backups, any depth
+*.zip

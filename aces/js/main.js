@@ -1,4 +1,4 @@
-/* Aspire — interactions. Native scrolling (no smooth-scroll library).
+/* Aspire interactions. Native scrolling (no smooth-scroll library).
    Reveals are fail-safe: if anything goes wrong, content is shown. */
 (function () {
   'use strict';
@@ -89,7 +89,7 @@
             }
           }
         }
-        // markup already shows "Globally." fully typed — hold it on screen before the
+        // markup already shows "Globally." fully typed, hold it on screen before the
         // first deletion starts, instead of deleting immediately on page load
         setTimeout(typeTick, PAUSE_FULL_MS);
       }
@@ -115,7 +115,7 @@
         });
         links.querySelectorAll('a').forEach(function (a) {
           // the Programs mega-menu trigger toggles its panel on mobile instead of
-          // closing the whole menu — handled separately below
+          // closing the whole menu (handled separately below)
           if (a.parentElement.classList.contains('has-mega')) return;
           a.addEventListener('click', function () {
             links.classList.remove('open');
@@ -128,7 +128,7 @@
 
       /* ---- Programs mega-menu ----
          Panel itself: hover on desktop (pure CSS), tap-to-toggle on mobile (JS below).
-         Fields → Countries: click-to-expand accordion, same on every device — clicking
+         Fields → Countries: click-to-expand accordion, same on every device, clicking
          a field name reveals its countries; clicking a country navigates to the result. */
       var megaTrigger = document.querySelector('.nav-item.has-mega > a');
       var megaItem = megaTrigger ? megaTrigger.parentElement : null;
@@ -279,7 +279,7 @@
         });
 
         /* Deep-link from the Programs mega-menu: ?field=medicine&country=uk
-           builds a direct "your match" view — field name, country, and a card
+           builds a direct "your match" view: field name, country, and a card
            per college tagged to that specific country (not the field's full,
            mixed-country list), each listing the programs it runs with a brief
            description. Keyed "field|shortName" against the pill text used in
@@ -290,12 +290,12 @@
           'medicine|MUA (Nevis)': { full: 'Medical University of the Americas (MUA)', location: 'Nevis, St. Kitts and Nevis', blurb: 'Founded in 1998 with 1,800+ graduates and a 5:1 student-to-faculty ratio; 93% three-year U.S. residency placement rate.', programs: [{ name: '4-Year MD Program', desc: 'Ten-semester Doctor of Medicine program: basic science on Nevis, clinical rotations in the U.S. and Canada.' }, { name: '5-Year & 6-Year BSc/MD Program', desc: 'Accelerated pre-med-to-MD pathways for students who want a foundational science year (or two) before the MD program.' }, { name: 'MBBS to MD Pathway', desc: 'Advanced-standing transfer for MBBS graduates seeking MD-equivalent standing to practice in the U.S. and Canada.' }] },
           'medicine|St. Matthew\'s (SMUSOM)': { full: 'St. Matthew\'s University School of Medicine (SMUSOM)', location: 'Grand Cayman', blurb: 'Established in 1997 with 2,300+ graduates; 100% three-year residency placement rate and 97% first-time USMLE Step 2 CK pass rate (2024).', programs: [{ name: 'MBBS to MD Pathway', desc: 'Direct-entry advanced standing for MBBS graduates: basic science on Grand Cayman, clinical rotations across the U.S. and Canada.' }] },
           'veterinary-science|St. Matthew\'s (SMUSVM)': { full: 'St. Matthew\'s University School of Veterinary Medicine (SMUSVM)', location: 'Grand Cayman', blurb: 'Founded in 2005 with 450+ DVM graduates. Listed with the AVMA and a Provisional Member of AAVMC, with up to $65,000 USD in scholarships available.', programs: [{ name: 'Doctor of Veterinary Medicine (DVM) Program', desc: 'Ten semesters: seven on Grand Cayman, then clinical rotations at affiliated schools in the U.S., Canada or the U.K.' }, { name: 'Pre-Veterinary Master\'s & Gateway Programs', desc: 'Pathway options for students who need extra science preparation before starting the DVM program, on-campus or online.' }] },
-          'law|The University of Law': { full: 'The University of Law', location: 'England, United Kingdom', blurb: 'One of the UK\'s leading specialist providers of legal education, with campuses across England and a strong focus on preparing students for professional legal careers.', programs: [{ name: 'Law programs — details coming soon', desc: '' }] },
-          'health-care-assistant|Western Community College': { full: 'Western Community College', location: 'Surrey, BC', blurb: 'A BC Care Aide & Community Health Worker Registry-recognized certificate that prepares you for frontline care roles, with supervised clinical placements in hospitals and long-term care. 96% graduate employment rate.', programs: [{ name: 'Health Care Assistant Certificate', desc: '26 weeks (745 hours), including 270 supervised practicum hours; weekday, evening or weekend options. Leads to roles as a Health Care Assistant, Community Health Worker or Residential Care Aide.' }] },
-          'medical-lab-assistant|Western Community College': { full: 'Western Community College', location: 'Surrey, BC', blurb: 'A BCSLS-approved certificate in specimen collection, phlebotomy and laboratory safety, with 120 hours of clinical work experience. 96% graduate employment rate.', programs: [{ name: 'Medical Laboratory Assistant Certificate', desc: '32 weeks (640 hours) covering specimen handling, quality control and phlebotomy, leading to BCSLS certification eligibility.' }] },
-          'registered-massage-therapy|Western Community College': { full: 'Western Community College', location: 'Surrey, BC', blurb: 'A two-year diploma preparing you to write the College of Complementary Health Professionals of BC board exams, with 630 supervised practicum hours.', programs: [{ name: 'Registered Massage Therapy Diploma', desc: '2 years (2,575 hours) across six semesters: musculoskeletal assessment, treatment, pathology and clinical practice, leading to RMT registration in BC.' }] },
-          'community-support-worker|Western Community College': { full: 'Western Community College', location: 'Surrey, BC', blurb: 'A diploma in advocacy, community engagement and person-centred support for people with developmental disabilities, with 200 practicum hours. 96% graduate employment rate.', programs: [{ name: 'Community Support Worker Diploma', desc: '52 weeks (1,040 hours) with flexible weekday, evening or weekend study. Prepares you for roles across community living, youth, addiction and non-profit services.' }] },
-          'paralegal|Western Community College': { full: 'Western Community College', location: 'Surrey, BC', blurb: 'A diploma in legal research, case preparation and document drafting under lawyer supervision, with a 160-hour practicum. 96% graduate employment rate.', programs: [{ name: 'Diploma in Paralegal Studies', desc: '48 weeks full-time (1,245 hours) covering torts, corporate, family, real property and criminal law, preparing you for paralegal and legal assistant roles.' }] }
+          'law|The University of Law': { full: 'The University of Law', location: 'England, United Kingdom', blurb: 'One of the UK\'s leading specialist providers of legal education, with campuses across England and a strong focus on preparing students for professional legal careers.', programs: [{ name: 'Law programs (details coming soon)', desc: '' }] },
+          'health-care-assistant|Colleges across Canada': { full: 'Colleges across Canada', location: 'Canada', blurb: 'We match you to a college that fits your goals, budget and location. This registry-recognized certificate prepares you for frontline care roles, with supervised clinical placements in hospitals and long-term care. 96% graduate employment rate.', programs: [{ name: 'Health Care Assistant Certificate', desc: '26 weeks (745 hours), including 270 supervised practicum hours; weekday, evening or weekend options. Leads to roles as a Health Care Assistant, Community Health Worker or Residential Care Aide.' }] },
+          'medical-lab-assistant|Colleges across Canada': { full: 'Colleges across Canada', location: 'Canada', blurb: 'We match you to a college that fits your goals, budget and location. This certificate covers specimen collection, phlebotomy and laboratory safety, with 120 hours of clinical work experience. 96% graduate employment rate.', programs: [{ name: 'Medical Laboratory Assistant Certificate', desc: '32 weeks (640 hours) covering specimen handling, quality control and phlebotomy, leading to lab-certification eligibility.' }] },
+          'registered-massage-therapy|Colleges across Canada': { full: 'Colleges across Canada', location: 'Canada', blurb: 'We match you to a college that fits your goals, budget and location. This two-year diploma prepares you to write the provincial board exams, with 630 supervised practicum hours.', programs: [{ name: 'Registered Massage Therapy Diploma', desc: '2 years (2,575 hours) across six semesters: musculoskeletal assessment, treatment, pathology and clinical practice, leading to RMT registration in BC.' }] },
+          'community-support-worker|Colleges across Canada': { full: 'Colleges across Canada', location: 'Canada', blurb: 'We match you to a college that fits your goals, budget and location. This diploma covers advocacy, community engagement and person-centred support for people with developmental disabilities, with 200 practicum hours. 96% graduate employment rate.', programs: [{ name: 'Community Support Worker Diploma', desc: '52 weeks (1,040 hours) with flexible weekday, evening or weekend study. Prepares you for roles across community living, youth, addiction and non-profit services.' }] },
+          'paralegal|Colleges across Canada': { full: 'Colleges across Canada', location: 'Canada', blurb: 'We match you to a college that fits your goals, budget and location. This diploma covers legal research, case preparation and document drafting under lawyer supervision, with a 160-hour practicum. 96% graduate employment rate.', programs: [{ name: 'Diploma in Paralegal Studies', desc: '48 weeks full-time (1,245 hours) covering torts, corporate, family, real property and criminal law, preparing you for paralegal and legal assistant roles.' }] }
         };
         var deepParams = new URLSearchParams(window.location.search);
         var deepCountry = deepParams.get('country');
