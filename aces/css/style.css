@@ -450,7 +450,7 @@ strong{font-weight:600}
 .uni-grid.single{grid-template-columns:1fr}
 .uni-grid.single .uni-card{padding:clamp(24px,3vw,40px)}
 @media(min-width:768px){
-  .uni-grid.single .uni-card{display:grid;grid-template-columns:1fr 1.05fr;column-gap:clamp(32px,4vw,56px);align-items:start}
+  .uni-grid.single .uni-card{display:grid;grid-template-columns:1fr 1.05fr;grid-template-rows:auto 1fr;column-gap:clamp(32px,4vw,56px);align-items:start}
   .uni-grid.single .uni-card-head{grid-column:1;grid-row:1}
   .uni-grid.single .uni-blurb{grid-column:1;grid-row:2}
   .uni-grid.single .uni-programs{grid-column:2;grid-row:1 / 3;border-top:none;margin-top:0;padding:0 0 0 clamp(28px,3vw,44px);border-left:1px solid var(--line)}
