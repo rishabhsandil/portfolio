@@ -468,6 +468,7 @@
             .then(function (res) {
               var okBox = form.querySelector('.form-success');
               if (res && res.success) {
+                if (btn) { btn.innerHTML = 'Submitted'; btn.style.opacity = ''; }
                 if (okBox) okBox.classList.add('show');
                 form.querySelectorAll('input,select,textarea,button').forEach(function (f) { if (f.type !== 'hidden') f.setAttribute('disabled', 'true'); });
                 if (!thanks) window.location.href = '../thank-you.html';
