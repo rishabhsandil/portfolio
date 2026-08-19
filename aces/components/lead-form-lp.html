@@ -1,0 +1,55 @@
+<div class="hero-form" id="lead-form" data-reveal data-reveal-delay="4">
+  <p class="eyebrow">Get started</p>
+  <h3>Request Your Free Consultation</h3>
+  <div class="lf-progress" aria-hidden="true">
+    <span class="lf-seg is-active" data-step="1"></span>
+    <span class="lf-seg" data-step="2"></span>
+  </div>
+  <form class="form" action="../submit.php" method="post" id="lead-form-el" novalidate>
+    <input type="hidden" name="subject" value="Aspire LP Lead">
+    <input type="hidden" name="from_name" value="Aspire Website">
+    <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <div class="form-success" role="status">Thanks! We've got your details and will be in touch shortly. &#10022;</div>
+
+    <div class="lf-step is-active" data-step="1">
+      <div class="field"><label for="lf-program">Program of interest</label>
+        <select id="lf-program" name="program" required>
+          <option value="" disabled selected>Select a program</option>
+          <option value="Medicine">Medicine</option>
+          <option value="Veterinary Science">Veterinary Science</option>
+          <option value="Law">Law</option>
+          <option value="Health Care Assistant">Health Care Assistant</option>
+          <option value="Medical Laboratory Assistant">Medical Laboratory Assistant</option>
+          <option value="Registered Massage Therapy">Registered Massage Therapy</option>
+          <option value="Community Support Worker">Community Support Worker</option>
+          <option value="Paralegal Studies">Paralegal Studies</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="field"><label for="lf-name">Name</label><input id="lf-name" name="name" type="text" placeholder="Your full name" required></div>
+      <div class="field"><label for="lf-phone">Phone</label><input id="lf-phone" name="phone" type="tel" placeholder="(604) 000-0000" required></div>
+      <div class="field"><label for="lf-email">Email</label><input id="lf-email" name="email" type="email" placeholder="you@email.com" required></div>
+      <div class="field"><label for="lf-city">City</label><input id="lf-city" name="city" type="text" placeholder="Your city" required></div>
+      <button type="button" class="btn btn-accent lf-next">Next step
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+
+    <div class="lf-step" data-step="2">
+      <div class="field"><label for="lf-start">When are you hoping to start?</label>
+        <select id="lf-start" name="start_timeline">
+          <option value="" selected>Select timing</option>
+          <option value="As soon as possible">As soon as possible</option>
+          <option value="Within 3 months">Within 3 months</option>
+          <option value="Within 6 months">Within 6 months</option>
+          <option value="Just exploring for now">Just exploring for now</option>
+        </select>
+      </div>
+      <div class="field"><label for="lf-message">Please provide more details regarding your query</label><textarea id="lf-message" name="message" placeholder="Tell us a bit more about what you're looking for" required></textarea></div>
+      <div class="lf-nav">
+        <button type="button" class="btn lf-back" aria-label="Back to previous step">Back</button>
+        <button type="submit" class="btn btn-accent">Submit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+      </div>
+    </div>
+  </form>
+</div>

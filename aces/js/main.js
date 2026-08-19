@@ -404,6 +404,84 @@
             });
         });
       });
+
+      /* ---- Two-step landing-page lead form (Program preselected; opens the Thank You page in a new tab so Meta can track completions) ---- */
+      (function initLeadForm() {
+        var form = document.getElementById('lead-form-el');
+        if (!form) return;
+        var steps = form.querySelectorAll('.lf-step');
+        // Progress segments live in .lf-progress, a sibling of the form, not inside it.
+        var wrap = document.getElementById('lead-form');
+        var segs = wrap ? wrap.querySelectorAll('.lf-seg') : [];
+        var progSel = form.querySelector('#lf-program');
+        // Preselect the program for this landing page (set via window.ASPIRE_LP_PROGRAM).
+        if (progSel && window.ASPIRE_LP_PROGRAM) {
+          var opt = form.querySelector('#lf-program option[value="' + window.ASPIRE_LP_PROGRAM + '"]');
+          if (opt) progSel.value = window.ASPIRE_LP_PROGRAM;
+        }
+        function show(n) {
+          steps.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') === n); });
+          segs.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') <= n); });
+        }
+        function validateStep(n) {
+          var stepEl = form.querySelector('.lf-step[data-step="' + n + '"]');
+          var firstBad = null;
+          stepEl.querySelectorAll('input,select,textarea').forEach(function (f) {
+            if (!f.disabled && !f.checkValidity() && !firstBad) firstBad = f;
+          });
+          if (firstBad) { firstBad.reportValidity(); return false; }
+          return true;
+        }
+        var partialSent = false;
+        function submitPartial() {
+          var fd = new FormData(form);
+          var prog = (progSel && progSel.value) ? progSel.value : 'General enquiry';
+          fd.set('subject', 'Aspire LP Partial Lead - ' + prog);
+          // Fire and forget: capture the contact details even if step 2 is abandoned.
+          fetch(form.getAttribute('action'), { method: 'POST', body: fd }).catch(function () {});
+        }
+        form.querySelectorAll('.lf-next').forEach(function (b) {
+          b.addEventListener('click', function () {
+            if (!validateStep(1)) return;
+            if (!partialSent) { submitPartial(); partialSent = true; }
+            show(2);
+          });
+        });
+        form.querySelectorAll('.lf-back').forEach(function (b) {
+          b.addEventListener('click', function () { show(1); });
+        });
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!validateStep(2)) return;
+          if (!form.checkValidity()) { show(1); validateStep(1); return; }
+          var btn = form.querySelector('button[type="submit"]');
+          var btnText = btn ? btn.innerHTML : '';
+          // Open the Thank You page now, inside the click gesture, so the browser does
+          // not block it as a popup (an async open after fetch would be blocked).
+          var thanks = window.open('../thank-you.html', '_blank');
+          if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.innerHTML = 'Sending…'; }
+          var fd = new FormData(form);
+          var prog = (progSel && progSel.value) ? progSel.value : 'General enquiry';
+          fd.set('subject', 'Aspire LP Lead - ' + prog);
+          fetch(form.getAttribute('action'), { method: 'POST', body: fd })
+            .then(function (r) { return r.json().catch(function () { return { success: false }; }); })
+            .then(function (res) {
+              var okBox = form.querySelector('.form-success');
+              if (res && res.success) {
+                if (okBox) okBox.classList.add('show');
+                form.querySelectorAll('input,select,textarea,button').forEach(function (f) { if (f.type !== 'hidden') f.setAttribute('disabled', 'true'); });
+                if (!thanks) window.location.href = '../thank-you.html';
+              } else {
+                if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
+                alert((res && res.message) || 'Sorry, we could not send your message. Please call +1 (604) 316-8015 or email info@acesglobal.ca.');
+              }
+            })
+            .catch(function () {
+              if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
+              alert('Network error, please email info@acesglobal.ca or call +1 (604) 316-8015.');
+            });
+        });
+      })();
     });
   });
 })();
