@@ -102,6 +102,13 @@
         })
         .then(function (data) {
           if (data.success) {
+            // a real page change, so the URL updates and ad platforms
+            // can fire a conversion on the thank-you URL
+            var to = form.getAttribute('data-redirect');
+            if (to) {
+              window.location.href = to;
+              return;
+            }
             form.reset();
             say(opts.successMsg, false);
           } else {
@@ -135,7 +142,7 @@
   wireForm(document.getElementById('subForm'), {
     feedbackId: 'subDone',
     invalidMsg: 'Please enter a valid email address.',
-    successMsg: 'Merci. The checklist is on its way to your inbox.',
+    successMsg: 'Thank you. The checklist is on its way to your inbox.',
     errorMsg: 'Sorry, that did not go through. Please try again.'
   });
 })();

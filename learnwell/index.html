@@ -214,7 +214,8 @@
         <h2 class="form__title">Reserve your free consultation</h2>
         <p class="form__sub">Fill out the form and a member of our team will be in touch within 24 hours.</p>
 
-        <form action="mail.php" method="POST" id="leadForm" class="lead" novalidate>
+        <form action="mail.php" method="POST" id="leadForm" class="lead"
+              data-redirect="thank-you" novalidate>
           <input type="hidden" name="subject" value="[Free consultation] Learnwell landing page">
           <input type="hidden" name="pathway_interest" id="pathwayField" value="Not specified">
           <input type="hidden" name="page" id="pageField" value="">
@@ -293,16 +294,6 @@
                 <option>Late evening, after 9 PM</option>
               </select>
             </div>
-          </div>
-
-          <div class="field">
-            <label for="format">How you prefer to study <span aria-hidden="true">*</span></label>
-            <select id="format" name="format" required>
-              <option value="" selected disabled>Select one</option>
-              <option>Online, live with an instructor</option>
-              <option>In person at the Surrey campus</option>
-              <option>Either works</option>
-            </select>
           </div>
 
           <div class="field">

@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
    which is not their own domain, so it is very likely a typo on their site.
    Do not ship until the client confirms the address that should receive leads. */
 
-$RECIPIENT  = 'info@learnwellinstitute.ca';
-$BCC        = ['rishabhsandil@gmail.com'];
+$RECIPIENT  = 'marketing@learnwellinstitute.ca';
+$BCC        = [];
 
 $FROM_EMAIL = 'no-reply@learnwellinstitute.ca';   // must be on the sending domain
 $FROM_NAME  = 'Learnwell Landing Page';
@@ -96,7 +96,7 @@ function pretty_label(string $key): string
    The browser validates too, but a POST can arrive from anywhere. */
 
 $required = ['first_name', 'last_name', 'email', 'phone',
-             'french_level', 'goal', 'status', 'best_time', 'format'];
+             'french_level', 'goal', 'status', 'best_time'];
 
 $isNewsletter = strpos((string)($_POST['subject'] ?? ''), '[Prep checklist]') !== false;
 
@@ -111,6 +111,17 @@ if (!$isNewsletter) {
             exit;
         }
     }
+}
+
+/* An unticked checkbox is not submitted at all, so this has to be checked
+   server side too, not just with the required attribute on the input. */
+if (!$isNewsletter && trim((string)($_POST['consent'] ?? '')) === '') {
+    http_response_code(422);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Please agree to be contacted so we can reach you.'
+    ]);
+    exit;
 }
 
 if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -194,7 +205,16 @@ $headers[] = 'X-Mailer: PHP/' . phpversion();
 
 $sent = @mail($RECIPIENT, $subject, $body, implode("\r\n", $headers));
 
+/* The page submits with fetch and Accept: application/json. A plain form post
+   (JavaScript unavailable) gets a real redirect instead, so the URL still
+   changes to the thank-you page. */
+$wantsJson = stripos((string)($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json') !== false;
+
 if ($sent) {
+    if (!$wantsJson) {
+        header('Location: thank-you', true, 303);
+        exit;
+    }
     echo json_encode(['success' => true]);
 } else {
     http_response_code(500);
