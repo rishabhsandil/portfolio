@@ -10,7 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<!-- bump ?v= on every deploy so browsers and the CDN edge fetch the new file -->
+<link rel="stylesheet" href="css/style.css?v=20260820">
 </head>
 <body>
 
@@ -149,7 +150,7 @@
         </ul>
 
         <div class="path__cta">
-          <a href="#form" class="btn btn--primary btn--block">Book a Free Consultation</a>
+          <a href="#form" class="btn btn--primary btn--block" data-pathway="Francophone Accelerator (NCLC 5)">Book a Free Consultation</a>
         </div>
       </article>
 
@@ -181,7 +182,7 @@
         </ul>
 
         <div class="path__cta">
-          <a href="#form" class="btn btn--accent btn--block">Book a Free Consultation</a>
+          <a href="#form" class="btn btn--accent btn--block" data-pathway="Express Entry Accelerator (NCLC 7)">Book a Free Consultation</a>
         </div>
       </article>
 
@@ -213,25 +214,116 @@
         <h2 class="form__title">Reserve your free consultation</h2>
         <p class="form__sub">Fill out the form and a member of our team will be in touch within 24 hours.</p>
 
-        <div class="form__embed">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/CNbpjsmh86E6WusrEM1e"
-            style="width:100%;height:720px;border:none;border-radius:10px"
-            id="inline-CNbpjsmh86E6WusrEM1e"
-            title="Learnwell contact form"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Leanwell contact form"
-            data-height="720"
-            data-layout-iframe-id="inline-CNbpjsmh86E6WusrEM1e"
-            data-form-id="CNbpjsmh86E6WusrEM1e"
-            scrolling="no"></iframe>
-        </div>
+        <form action="mail.php" method="POST" id="leadForm" class="lead" novalidate>
+          <input type="hidden" name="subject" value="[Free consultation] Learnwell landing page">
+          <input type="hidden" name="pathway_interest" id="pathwayField" value="Not specified">
+          <input type="hidden" name="page" id="pageField" value="">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <p class="form__feedback" id="formFeedback" role="status" aria-live="polite" hidden></p>
+
+          <div class="row">
+            <div class="field">
+              <label for="fname">First name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fname" name="first_name" autocomplete="given-name" required>
+            </div>
+            <div class="field">
+              <label for="lname">Last name <span aria-hidden="true">*</span></label>
+              <input type="text" id="lname" name="last_name" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="604 555 0000" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="level">Where is your French right now? <span aria-hidden="true">*</span></label>
+              <select id="level" name="french_level" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Starting from zero</option>
+                <option>I know a few words and phrases</option>
+                <option>I can handle simple everyday exchanges</option>
+                <option>I can hold a conversation on familiar topics</option>
+                <option>Comfortable in most situations, want exam polish</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="goal">What are you working toward? <span aria-hidden="true">*</span></label>
+              <select id="goal" name="goal" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Express Entry points toward permanent residence</option>
+                <option>A Francophone Mobility work permit</option>
+                <option>A TEF or TCF score I need for an application</option>
+                <option>Career growth, or a job that needs French</option>
+                <option>Study, travel or personal interest</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="status">Your status in Canada <span aria-hidden="true">*</span></label>
+              <select id="status" name="status" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Canadian citizen</option>
+                <option>Permanent resident</option>
+                <option>Work permit</option>
+                <option>Study permit</option>
+                <option>Visitor</option>
+                <option>Applying from outside Canada</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="calltime">Best time to reach you <span aria-hidden="true">*</span></label>
+              <select id="calltime" name="best_time" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Mornings</option>
+                <option>Afternoons</option>
+                <option>Evenings</option>
+                <option>Late evening, after 9 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="format">How you prefer to study <span aria-hidden="true">*</span></label>
+            <select id="format" name="format" required>
+              <option value="" selected disabled>Select one</option>
+              <option>Online, live with an instructor</option>
+              <option>In person at the Surrey campus</option>
+              <option>Either works</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Anything else we should know? <span class="opt">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" placeholder="Your timeline, a deadline you are working to, or any questions."></textarea>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" value="Yes" required>
+            <span>I agree that Learnwell Institute may contact me by phone, text or email about my
+              consultation and its programs. Message and data rates may apply, and I can opt out
+              at any time.</span>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--block" id="formSubmit">
+            <span class="btn__label">Reserve my free consultation</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="form__fine">We never share your information with third parties.</p>
+        </form>
 
         <div class="form__alt">
           <a class="btn btn--wa" href="https://wa.me/16049060006" target="_blank" rel="noopener">
@@ -418,25 +510,14 @@
       <h2>Get the TEF/TCF Canada prep checklist, free</h2>
       <p class="magnet__sub">Study tips, NCLC benchmark tables, and cohort start dates, straight to your inbox.</p>
     </div>
-    <div class="magnet__form">
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/eMlsnwSzV9JVQWN3OQxa"
-        style="width:100%;height:64px;border:none"
-        id="inline-eMlsnwSzV9JVQWN3OQxa"
-        title="Learnwell subscription form"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="learnwell subscription form"
-        data-height="432"
-        data-layout-iframe-id="inline-eMlsnwSzV9JVQWN3OQxa"
-        data-form-id="eMlsnwSzV9JVQWN3OQxa"
-        scrolling="no"></iframe>
-    </div>
+    <form class="magnet__form" action="mail.php" method="POST" id="subForm" novalidate>
+      <input type="hidden" name="subject" value="[Prep checklist] Learnwell landing page">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="sr-only" for="subEmail">Email address</label>
+      <input type="email" id="subEmail" name="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn--accent">Send it to me</button>
+      <p class="magnet__done" id="subDone" role="status" aria-live="polite" hidden></p>
+    </form>
   </div>
 </section>
 
@@ -520,7 +601,6 @@
 
 <a href="#form" class="sticky-cta">Book free consultation</a>
 
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20260820"></script>
 </body>
 </html>

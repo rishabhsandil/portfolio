@@ -253,18 +253,52 @@ button,input,select,textarea{font:inherit;color:inherit}
 .form{padding:34px 34px 30px;box-shadow:var(--shadow-lg);color:var(--ink)}
 .form__title{font-size:1.65rem;color:var(--navy-800)}
 .form__sub{margin-top:8px;color:var(--muted);font-size:.95rem}
-.form__embed{margin-top:22px}
-.form__embed iframe{width:100%;min-height:720px;border:0;border-radius:var(--r-sm);display:block}
-
-/* form_embed.js parks the embed off-screen (opacity:0; left:-9999px) until it
-   gets a reveal handshake back from the widget. That handshake does not always
-   arrive off the client's own domain, so pin it visible; the vendor's height
-   resizing still works normally. */
-.form__embed iframe,
-.magnet__form iframe{
-  position:relative!important;left:auto!important;
-  opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+/* ---------- form controls ----------
+   The card sits on the dark Reserve band, so every control sets its own
+   colour rather than inheriting white text. */
+.lead{margin-top:24px;display:flex;flex-direction:column;gap:16px;color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field label{
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-800);
 }
+.field label span[aria-hidden]{color:var(--coral)}
+.field label .opt{color:var(--muted-2);font-weight:700;letter-spacing:.06em}
+.field input,.field select,.field textarea{
+  width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:var(--r-sm);
+  background:#fff;color:var(--ink);font-size:.97rem;
+  transition:border-color .18s, box-shadow .18s;
+}
+.field select option{color:var(--ink);background:#fff}
+.field textarea{resize:vertical;min-height:92px;font-family:var(--body)}
+.field select{
+  appearance:none;cursor:pointer;padding-right:40px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23595F72' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px;
+}
+.field input::placeholder,.field textarea::placeholder{color:#A9AEC0}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:0;border-color:var(--indigo);box-shadow:0 0 0 4px rgba(80,60,245,.14);
+}
+.field.is-bad input,.field.is-bad select,.field.is-bad textarea{
+  border-color:var(--coral);box-shadow:0 0 0 4px rgba(255,85,68,.12);
+}
+
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.82rem;line-height:1.55;color:var(--muted)}
+.consent input{
+  flex:0 0 auto;width:20px;height:20px;margin-top:2px;accent-color:var(--indigo);cursor:pointer;
+}
+.consent.is-bad{color:#B3243A}
+.consent.is-bad input{outline:2px solid var(--coral);outline-offset:2px}
+
+.form__feedback{
+  padding:13px 16px;border-radius:var(--r-sm);font-size:.9rem;font-weight:700;line-height:1.5;
+}
+.form__feedback.is-error{background:#FFF1F2;border:1.5px solid #FFC9CF;color:#B3243A}
+.form__feedback.is-success{background:#ECFDF3;border:1.5px solid #A9E5C1;color:#1A7F47}
+.form__fine{margin-top:2px;font-size:.76rem;line-height:1.55;color:var(--muted-2);text-align:center}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+#formSubmit[disabled]{opacity:.65;cursor:progress;transform:none}
 
 .form__alt{
   display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;padding-top:20px;
@@ -459,8 +493,15 @@ button,input,select,textarea{font:inherit;color:inherit}
 .magnet__in{display:flex;align-items:center;justify-content:space-between;gap:38px;flex-wrap:wrap}
 .magnet h2{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.05rem)}
 .magnet__sub{margin-top:9px;color:#BFC5E4;font-size:.95rem;max-width:52ch}
-.magnet__form{flex:1 1 420px;min-width:min(100%,360px)}
-.magnet__form iframe{width:100%;min-height:64px;border:0;display:block}
+.magnet__form{display:flex;gap:10px;flex-wrap:wrap;flex:1 1 420px;min-width:min(100%,360px)}
+.magnet__form input{
+  flex:1 1 240px;padding:15px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);color:#fff;
+}
+.magnet__form input::placeholder{color:#9CA3C9}
+.magnet__form input:focus{outline:0;border-color:var(--amber);box-shadow:0 0 0 4px rgba(252,184,75,.18)}
+.magnet__done{flex-basis:100%;font-size:.88rem;font-weight:800;color:var(--amber)}
+.magnet__done.is-error{color:#FFC9CF}
 
 /* =========================================================
    FOOTER
