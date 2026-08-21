@@ -207,12 +207,12 @@ $sent = @mail($RECIPIENT, $subject, $body, implode("\r\n", $headers));
 
 /* The page submits with fetch and Accept: application/json. A plain form post
    (JavaScript unavailable) gets a real redirect instead, so the URL still
-   changes to the thank-you page. */
+   changes to the confirmation page. */
 $wantsJson = stripos((string)($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json') !== false;
 
 if ($sent) {
     if (!$wantsJson) {
-        header('Location: thank-you', true, 303);
+        header('Location: /thankyou/', true, 303);
         exit;
     }
     echo json_encode(['success' => true]);
