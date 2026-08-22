@@ -85,13 +85,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .eyebrow--onDark{color:var(--lime-bright)}
 .h2{font-size:1.875rem;color:var(--deep)}
 .h2--onDark{color:#fff}
-.h3{font-size:1.5rem;color:var(--deep)}
-.h3 span{font-family:var(--body);font-size:.66em;font-weight:500;color:var(--muted)}
 .lede{margin-top:16px;color:var(--muted);font-size:1.0625rem;line-height:1.7}
 .lede--onDark{color:var(--onDark)}
 @media (min-width:1024px){
   .h2{font-size:2.25rem}
-  .h3{font-size:1.75rem}
 }
 
 /* ---------- shared bits ---------- */
@@ -252,29 +249,90 @@ button,input,select,textarea{font:inherit;color:inherit}
   font-family:var(--body);font-size:.7rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--onDark-dim);margin-bottom:24px;
 }
-/* stages spread the full width so they line up with the outcome row beneath */
-.rail__stages{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.rail__stage{display:flex;flex-direction:column;gap:6px;min-width:0}
+/* Stacked on small screens; a 3-up pathway with arrows between from 900px, where
+   `align-items:start` lets one stage expand without dragging the others down. */
+.rail__stages{display:grid;grid-template-columns:1fr;gap:0}
+.rail__stage{min-width:0}
+.rail__arw{display:none}
+
+/* Progression tone. One colour getting brighter, not three different colours:
+   all three are the brand lime's own hue (73.3deg) and saturation (82%), and
+   only lightness moves, 34% -> 43% -> 58%, with the brand lime itself as the
+   middle step. Every axis is monotonic, so the ramp reads as one thing
+   intensifying: contrast on --deep goes 5.4 -> 8.6 -> 12.3 and relative
+   luminance goes 0.29 -> 0.49 -> 0.72. All three clear AA.
+   The tone drives the label, title, badge, button and bullets together, so a
+   whole stage brightens as a unit rather than just its heading. */
+.rail__stage--s1{--tone:#7E9E10}
+.rail__stage--s2{--tone:#A0C814}
+.rail__stage--s3{--tone:#C5EC3C}
+
+.rail__d{border-top:1px solid var(--deep-line)}
+.rail__stage--s1 .rail__d{border-top:0}
+.rail__d summary{
+  list-style:none;cursor:pointer;display:grid;gap:8px;padding:18px 0;
+}
+.rail__d summary::-webkit-details-marker{display:none}
 .rail__k{
   font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--onDark-dim);
+  text-transform:uppercase;color:var(--tone);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.rail__k b{
+  font-size:.92em;font-weight:700;letter-spacing:.12em;color:var(--tone);
+  border:1px solid currentColor;border-radius:var(--r);padding:3px 8px;
 }
 .rail__v{
   font-family:var(--display);font-size:2.75rem;font-weight:700;
-  letter-spacing:-.03em;line-height:1;color:var(--lime);
+  letter-spacing:-.03em;line-height:1;color:var(--tone);
 }
 .rail__v--word{
   font-family:var(--body);font-size:1.125rem;font-weight:700;
-  letter-spacing:-.01em;line-height:1.25;color:#fff;max-width:9rem;
+  letter-spacing:-.01em;line-height:1.25;color:var(--tone);max-width:9rem;
 }
-.rail__stage--hi .rail__k{color:var(--lime-bright)}
-.rail__arw{flex:0 0 auto;display:grid;place-items:center}
-.rail__arw svg{width:30px;height:30px;fill:none;stroke:var(--lime);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
-@media (min-width:1024px){
-  .rail__stages{gap:34px}
+
+/* Reads as a button, but the whole summary is the hit target, which is a bigger
+   tap area than the pill alone and needs no JS. */
+.rail__more{
+  justify-self:start;display:inline-flex;align-items:center;gap:7px;margin-top:2px;
+  font-family:var(--body);font-size:.8125rem;font-weight:700;color:var(--tone);
+  border:1px solid currentColor;border-radius:var(--r);padding:7px 14px;
+  transition:background-color .18s ease;
+}
+.rail__d summary:hover .rail__more{background:rgba(255,255,255,.07)}
+.rail__more svg{
+  width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease;
+}
+.rail__d[open] .rail__more svg{transform:rotate(180deg)}
+.rail__d:not([open]) .on-open{display:none}
+.rail__d[open] .on-closed{display:none}
+
+.rail__body{padding:0 0 22px;max-width:34rem}
+.rail__body p{font-family:var(--body);font-size:.9375rem;line-height:1.7;color:var(--onDark)}
+.rail__body ul{margin-top:16px;padding-top:16px;border-top:1px solid var(--deep-line);display:grid;gap:10px}
+.rail__body li{
+  position:relative;padding-left:18px;
+  font-family:var(--body);font-size:.875rem;color:var(--onDark);
+}
+.rail__body li::before{
+  content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;
+  border-radius:50%;background:var(--tone);
+}
+
+@media (min-width:900px){
+  .rail__stages{grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:0 28px}
+  .rail__arw{display:grid;place-items:center;padding-top:64px}
+  .rail__arw svg{
+    width:34px;height:34px;fill:none;stroke:var(--lime);stroke-width:1.5;
+    stroke-linecap:round;stroke-linejoin:round;opacity:.5;
+  }
+  .rail__d,.rail__stage--s1 .rail__d{border-top:0}
+  .rail__d summary{padding:0}
   .rail__v{font-size:3.75rem}
   .rail__v--word{font-size:1.375rem;max-width:11rem}
-  .rail__arw svg{width:38px;height:38px}
+  .rail__more{margin-top:16px}
+  .rail__body{padding:22px 0 0}
 }
 .rail__out{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
@@ -289,83 +347,6 @@ button,input,select,textarea{font:inherit;color:inherit}
   content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;
   border-radius:50%;background:var(--lime);
 }
-
-/* =========================================================
-   2. YOUR FRENCH PATHWAY
-   ========================================================= */
-.stages{display:grid;grid-template-columns:1fr;gap:24px}
-@media (min-width:900px){.stages{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.stage{
-  position:relative;border-radius:var(--r);padding:32px;
-  display:flex;flex-direction:column;
-}
-.stage--start{background:#fff;border:1px solid var(--line)}
-.stage--hi{background:var(--deep);border:1px solid var(--deep)}
-.stage__k{
-  display:block;font-family:var(--body);font-size:.7rem;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
-}
-/* reserve the corner the NCLC badge is absolutely positioned into */
-.stage--hi .stage__k{padding-right:76px}
-.stage--hi .stage__k{color:var(--lime-bright)}
-.stage__clb{
-  display:block;margin-top:14px;font-family:var(--display);font-weight:700;
-  font-size:4rem;letter-spacing:-.04em;line-height:1;color:var(--lime);
-}
-.stage__clb--word{
-  font-family:var(--display);font-size:1.875rem;letter-spacing:-.02em;
-  line-height:1.15;color:var(--deep);
-}
-@media (min-width:1024px){
-  .stage__clb{font-size:4.5rem}
-  .stage__clb--word{font-size:2rem}
-}
-.stage__d{
-  font-family:var(--body);margin-top:18px;font-size:.9375rem;line-height:1.7;
-  color:var(--muted);
-}
-.stage--hi .stage__d{color:var(--onDark)}
-.stage__l{
-  margin-top:22px;padding-top:20px;display:grid;gap:11px;
-  border-top:1px solid var(--line);
-}
-.stage--hi .stage__l{border-top-color:var(--deep-line)}
-.stage__l li{
-  position:relative;padding-left:18px;
-  font-family:var(--body);font-size:.875rem;color:var(--muted);
-}
-.stage--hi .stage__l li{color:var(--onDark)}
-.stage__l li::before{
-  content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;
-  border-radius:50%;background:var(--accent);
-}
-.stage--hi .stage__l li::before{background:var(--lime)}
-.stage__tag{
-  position:absolute;top:28px;right:28px;
-  font-family:var(--body);font-size:.65rem;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--lime-bright);
-  border:1px solid rgba(160,200,20,.35);padding:4px 10px;border-radius:var(--r);
-}
-
-/* ---------- why French ---------- */
-.whyfr{margin-top:80px}
-.whyfr__head{max-width:44rem}
-.whyfr__grid{
-  display:grid;grid-template-columns:1fr;gap:4px 32px;margin-top:36px;
-}
-@media (min-width:640px){.whyfr__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:1024px){.whyfr__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.whyfr__grid li{
-  display:flex;align-items:flex-start;gap:12px;
-  border-top:1px solid var(--line);padding:18px 0;
-}
-.whyfr__grid svg{
-  width:18px;height:18px;flex:0 0 auto;margin-top:4px;
-  fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
-}
-.whyfr__grid h4{font-family:var(--body);font-size:.9375rem;font-weight:700;color:var(--deep)}
-.whyfr__grid p{font-size:.875rem;color:var(--muted);margin-top:5px;line-height:1.65}
-.whyfr__grid a{color:var(--accent);font-weight:600}
 
 /* =========================================================
    3. DEMO CLASS + FORM
@@ -429,7 +410,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .form__fine{text-align:center;font-size:.75rem;color:var(--muted);line-height:1.6}
 
 /* =========================================================
-   4. WHY CHOOSE US
+   2. WHY CHOOSE US
    ========================================================= */
 .stats{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
@@ -467,7 +448,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 /* =========================================================
-   5. FAQ
+   4. FAQ
    ========================================================= */
 .faq{display:grid;gap:12px}
 .faq details{
@@ -493,7 +474,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 /* =========================================================
-   6. FINAL CTA
+   5. FINAL CTA
    ========================================================= */
 .final{background:var(--lime);padding:72px 0}
 @media (min-width:1024px){.final{padding:88px 0}}
@@ -634,7 +615,6 @@ button,input,select,textarea{font:inherit;color:inherit}
   .hero__text{order:1}
   .hero__media{order:2}
   .rail{order:3}
-  .whyfr{margin-top:64px}
   .stats{margin-bottom:56px}
 }
 
@@ -647,18 +627,10 @@ button,input,select,textarea{font:inherit;color:inherit}
   .sechead{margin-bottom:40px;text-align:left}
   .section{padding:64px 0}
   .hero,.demo{padding:56px 0}
-  .rail__stages{display:grid;grid-template-columns:1fr;gap:0}
-  .rail__arw{display:none}
-  .rail__stage{padding:16px 0;border-top:1px solid var(--deep-line)}
-  .rail__stage:first-child{border-top:0;padding-top:0}
   /* :not() keeps these from re-overriding the --word modifier, which is set on
      the same element and would otherwise lose to a later same-specificity rule */
   .rail__v:not(.rail__v--word){font-size:2.5rem}
   .rail__v--word{max-width:none}
-  .stage{padding:26px}
-  .stage__tag{top:22px;right:22px}
-  .stage__clb:not(.stage__clb--word){font-size:3.25rem}
-  .stage__clb--word{font-size:1.625rem}
   .form__head,.lead{padding:22px}
   .sticky-cta{display:block}
   /* keep the footer clear of the sticky bar */
