@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 /* ── Config ───────────────────────────────────────────────────────────── */
 
 $RECIPIENT  = 'info@acesglobal.ca';
-$BCC        = ['info@alpinestudy.com'];
+$BCC        = ['manjot15857@gmail.com'];
 
 $FROM_EMAIL = 'info@acesglobal.ca';
 $FROM_NAME  = 'Aspire Career & Educational Services Website';
