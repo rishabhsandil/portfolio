@@ -420,6 +420,26 @@
           var opt = form.querySelector('#lf-program option[value="' + window.ASPIRE_LP_PROGRAM + '"]');
           if (opt) progSel.value = window.ASPIRE_LP_PROGRAM;
         }
+        // Lock the destination on pages that only serve one region (set via
+        // window.ASPIRE_LP_DESTINATION, e.g. "Caribbean" on the Medicine and Vet pages).
+        var destSel = form.querySelector('#lf-destination');
+        if (destSel && window.ASPIRE_LP_DESTINATION) {
+          var only = window.ASPIRE_LP_DESTINATION;
+          destSel.innerHTML = '';
+          var single = document.createElement('option');
+          single.value = only;
+          single.textContent = only;
+          single.selected = true;
+          destSel.appendChild(single);
+        }
+        // Domestic (Canada) pages ask for the applicant's status in Canada.
+        var statusField = form.querySelector('#lf-status-field');
+        var statusSel = form.querySelector('#lf-status');
+        if (statusField && statusSel && window.ASPIRE_LP_DOMESTIC) {
+          statusField.hidden = false;
+          statusSel.disabled = false;
+          statusSel.required = true;
+        }
         function show(n) {
           steps.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') === n); });
           segs.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') <= n); });

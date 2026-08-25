@@ -9,7 +9,7 @@
     <input type="hidden" name="subject" value="Aspire LP Lead">
     <input type="hidden" name="from_name" value="Aspire Website">
     <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-    <div class="form-success" role="status">Thanks! We've got your details and will be in touch shortly. &#10022;</div>
+    <div class="form-success" role="status">Thanks! Check your inbox: we've emailed you a link to book your Zoom consultation. &#10022;</div>
 
     <div class="lf-step is-active" data-step="1">
       <div class="field"><label for="lf-program">Program of interest</label>
@@ -34,6 +34,17 @@
           <option value="Caribbean Countries (Medicine and Vet Courses)">Caribbean Countries (Medicine and Vet Courses)</option>
           <option value="United Kingdom">United Kingdom</option>
           <option value="Ireland">Ireland</option>
+        </select>
+      </div>
+      <!-- Domestic (Canada) landing pages only: revealed and made required by main.js
+           when the page sets window.ASPIRE_LP_DOMESTIC = true. Disabled while hidden so
+           it is skipped by validation and left out of the submitted FormData. -->
+      <div class="field" id="lf-status-field" hidden>
+        <label for="lf-status">What is your status in Canada?</label>
+        <select id="lf-status" name="canada_status" disabled>
+          <option value="" disabled selected>Select your status</option>
+          <option value="Permanent Resident">Permanent Resident (PR)</option>
+          <option value="Canadian Citizen">Canadian Citizen</option>
         </select>
       </div>
       <div class="field"><label for="lf-name">Name</label><input id="lf-name" name="name" type="text" placeholder="Your full name" required></div>
