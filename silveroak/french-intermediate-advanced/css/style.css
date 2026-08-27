@@ -102,7 +102,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tag i{width:6px;height:6px;border-radius:50%;background:var(--lime);flex:0 0 auto}
 
 .ticks{display:grid;gap:12px}
-.ticks--two{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
 .ticks--stack{grid-template-columns:1fr}
 .ticks li{display:flex;align-items:flex-start;gap:12px;font-size:.9375rem;color:var(--onDark)}
 .tick{
@@ -220,18 +219,53 @@ button,input,select,textarea{font:inherit;color:inherit}
   .hero__in{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:64px;align-items:center}
 }
 
+/* The headline is a question and runs long, so it sits a step below the old
+   display sizes and leans on weight rather than scale. */
 .hero h1{
-  margin-top:22px;font-size:2.25rem;color:#fff;line-height:1.1;letter-spacing:-.02em;
+  margin-top:22px;font-size:2rem;color:#fff;line-height:1.12;letter-spacing:-.022em;
+  max-width:17ch;
 }
-@media (min-width:1024px){.hero h1{font-size:3rem}}
-@media (min-width:1280px){.hero h1{font-size:3.5rem}}
+@media (min-width:1024px){.hero h1{font-size:2.625rem}}
+@media (min-width:1280px){.hero h1{font-size:3rem}}
+.hero__sub{
+  font-family:var(--body);margin-top:14px;font-size:1.125rem;font-weight:700;
+  letter-spacing:-.01em;color:var(--lime);max-width:24rem;
+}
+@media (min-width:1024px){.hero__sub{font-size:1.375rem}}
 .hero__lead{
-  font-family:var(--body);margin-top:22px;max-width:34rem;
+  font-family:var(--body);margin-top:20px;max-width:34rem;
   color:var(--onDark);font-size:1.0625rem;line-height:1.7;
 }
-.hero .ticks{margin-top:30px;max-width:34rem}
-.hero__cta{margin-top:34px}
-.hero__note{margin-top:16px;font-size:.875rem;color:var(--onDark-dim);max-width:32rem}
+
+/* ---------- the two immigration routes ----------
+   Question, arrow, answer. On the wide layout the arrow sits in its own column
+   so both rows align on it; below 640px it rotates to point down and the row
+   becomes a simple stack. */
+.routes{display:grid;gap:14px;margin-top:28px;max-width:40rem}
+.routes li{
+  display:grid;grid-template-columns:auto;gap:10px;
+  background:var(--deep-2);border:1px solid var(--deep-line);border-radius:var(--r);
+  padding:18px 20px;
+}
+.routes__q{
+  font-family:var(--body);font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;
+}
+.routes__arw{display:block;line-height:0}
+.routes__arw svg{
+  width:22px;height:22px;fill:none;stroke:var(--lime);stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;transform:rotate(90deg);
+}
+.routes__a{
+  font-family:var(--body);font-size:.9375rem;line-height:1.65;color:var(--onDark);
+}
+.routes__a b{color:var(--lime-bright);font-weight:700}
+@media (min-width:640px){
+  /* the question is short, so it takes a tight column and the answer keeps the
+     rest; a fixed wider question column squeezed the answer to five lines at
+     laptop widths */
+  .routes li{grid-template-columns:minmax(0,10rem) auto minmax(0,1fr);align-items:center;gap:0 18px}
+  .routes__arw svg{transform:none}
+}
 
 .hero__media{
   margin:0;border:1px solid var(--deep-line);border-radius:var(--r);padding:8px;
@@ -240,15 +274,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero__media img{width:100%;height:auto;border-radius:1px}
 
 /* ---------- visual pathway rail ---------- */
-.rail{
-  grid-column:1 / -1;margin-top:8px;padding-top:44px;
-  border-top:1px solid var(--deep-line);
-}
-@media (min-width:1024px){.rail{margin-top:24px}}
-.rail__label{
-  font-family:var(--body);font-size:.7rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--onDark-dim);margin-bottom:24px;
-}
+/* The rail keeps the deep surface wherever it goes: its colour ramp runs
+   #7E9E10 -> #A0C814 -> #C5EC3C, and the top two fail contrast on anything
+   light, so this section must not be flipped to a pale background. */
+.section--deep{position:relative;overflow:hidden;background:var(--deep)}
+.section--deep .sechead{position:relative;z-index:1}
+.rail{position:relative;z-index:1}
 /* Stacked on small screens; a 3-up pathway with arrows between from 900px, where
    `align-items:start` lets one stage expand without dragging the others down. */
 .rail__stages{display:grid;grid-template-columns:1fr;gap:0}
@@ -353,6 +384,22 @@ button,input,select,textarea{font:inherit;color:inherit}
    ========================================================= */
 .demo{position:relative;overflow:hidden;background:var(--deep);padding:80px 0}
 @media (min-width:1024px){.demo{padding:96px 0}}
+
+/* The form sits between two deep sections, the hero above and the pathway rail
+   below, so it takes the light band. The strong contrast the brief asked for
+   comes from that sandwich rather than from a dark panel of its own. */
+.demo--light{background:var(--tint);border-block:1px solid var(--line-soft)}
+.demo--light .demo__text .lede{color:var(--muted)}
+.demo--light .ticks li{color:var(--ink)}
+.demo--light .tick{background:var(--tint-card)}
+.demo--light .tick svg{stroke:var(--accent)}
+.demo--light .panel{background:#fff;border-color:var(--line)}
+.demo--light .panel p{color:var(--muted)}
+.demo--light .panel a{color:var(--accent)}
+/* dark header strip, so the card still reads as the focal object on a pale band */
+.demo--light .form__head{background:var(--deep);border-bottom-color:var(--deep)}
+.demo--light .form__title{color:#fff}
+.demo--light .form__sub{color:var(--onDark)}
 .demo__in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:48px}
 @media (min-width:1024px){
   .demo__in{grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:64px;align-items:start}
@@ -614,7 +661,6 @@ button,input,select,textarea{font:inherit;color:inherit}
   /* the CTA must stay reachable, so the photo drops below the copy */
   .hero__text{order:1}
   .hero__media{order:2}
-  .rail{order:3}
   .stats{margin-bottom:56px}
 }
 
@@ -640,8 +686,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:519px){
   .utility__right{display:none}
   .utility__in{justify-content:center;min-height:36px}
-  .ticks--two{grid-template-columns:1fr}
-  .hero__cta{width:100%}
   .foot__bar-in{justify-content:center;text-align:center}
 }
 
