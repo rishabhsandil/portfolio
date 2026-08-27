@@ -201,7 +201,17 @@ $wantsJson = stripos((string)($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json'
 
 if ($sent) {
     if (!$wantsJson) {
-        header('Location: /thankyou/', true, 303);
+        /* Derived from this script's own location rather than hardcoded to
+           "/thankyou/", so it holds whether the page sits at the domain root or
+           under a subpath. /a/b/mail.php gives /a/thankyou/, /b/mail.php gives
+           /thankyou/. */
+        $script = (string)($_SERVER['SCRIPT_NAME'] ?? '');
+        $parts  = array_values(array_filter(explode('/', $script), 'strlen'));
+        array_pop($parts);                      // drop mail.php
+        array_pop($parts);                      // drop the landing page folder
+        $base   = $parts ? '/' . implode('/', $parts) : '';
+
+        header('Location: ' . $base . '/thankyou/', true, 303);
         exit;
     }
     echo json_encode(['success' => true]);

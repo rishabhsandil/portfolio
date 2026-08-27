@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- bump ?v= on every deploy so browsers and the CDN edge fetch the new file -->
-<link rel="stylesheet" href="css/style.css?v=20260821">
+<link rel="stylesheet" href="css/style.css?v=63ec75c786">
 </head>
 <body>
 
@@ -156,8 +156,10 @@
           you find the right class.</p>
       </div>
 
+      <!-- relative, so it resolves whether the page is deployed at the domain root
+           or under a subpath; the server normalises the trailing slash -->
       <form action="mail.php" method="POST" id="leadForm" class="lead"
-            data-redirect="/thankyou/" novalidate>
+            data-redirect="../thankyou/" novalidate>
         <input type="hidden" name="subject" value="[Free demo class] French landing page">
         <input type="hidden" name="page" id="pageField" value="">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -516,6 +518,6 @@
 
 <a href="#form" class="sticky-cta">Book a free demo class</a>
 
-<script src="js/main.js?v=20260821"></script>
+<script src="js/main.js?v=df04353002"></script>
 </body>
 </html>
