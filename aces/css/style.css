@@ -630,6 +630,7 @@ strong{font-weight:600}
 .lp-hero .hero-form{max-width:380px}
 /* Two-step landing-page lead form */
 .hero-form .field select{padding:.6em .85em;font-size:.92rem}
+.hero-form .field select.is-locked{color:var(--ink);-webkit-text-fill-color:var(--ink);opacity:1;background:rgba(4,117,143,.05);border-style:dashed;cursor:not-allowed}
 .lf-progress{display:flex;gap:.4rem;margin:0 0 1rem}
 .lf-seg{flex:1;height:4px;border-radius:999px;background:var(--line);transition:background .3s var(--ease)}
 .lf-seg.is-active{background:var(--orange)}

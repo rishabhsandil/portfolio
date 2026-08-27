@@ -414,31 +414,48 @@
         // Progress segments live in .lf-progress, a sibling of the form, not inside it.
         var wrap = document.getElementById('lead-form');
         var segs = wrap ? wrap.querySelectorAll('.lf-seg') : [];
+        // Lock a <select> to one value: disable it (so it cannot be changed) but keep the
+        // value in the submission via a hidden input carrying the same field name.
+        function lockSelect(sel, value) {
+          var nm = sel.getAttribute('name');
+          sel.value = value;
+          sel.disabled = true;
+          sel.classList.add('is-locked');
+          sel.removeAttribute('required');
+          if (nm) {
+            sel.removeAttribute('name');
+            var hid = document.createElement('input');
+            hid.type = 'hidden'; hid.name = nm; hid.value = value;
+            sel.parentNode.appendChild(hid);
+          }
+        }
+
         var progSel = form.querySelector('#lf-program');
-        // Preselect the program for this landing page (set via window.ASPIRE_LP_PROGRAM).
-        if (progSel && window.ASPIRE_LP_PROGRAM) {
-          var opt = form.querySelector('#lf-program option[value="' + window.ASPIRE_LP_PROGRAM + '"]');
-          if (opt) progSel.value = window.ASPIRE_LP_PROGRAM;
+        var program = window.ASPIRE_LP_PROGRAM;
+        var choices = window.ASPIRE_LP_PROGRAM_CHOICES; // optional array of allowed programs
+        // Program: preselected and locked, unless the page allows a small set of choices
+        // (Medicine and Vet share the Caribbean, so those two stay switchable).
+        if (progSel) {
+          if (choices && choices.length) {
+            Array.prototype.slice.call(progSel.options).forEach(function (o) {
+              if (choices.indexOf(o.value) === -1) o.remove();
+            });
+            if (program) progSel.value = program;
+          } else if (program) {
+            lockSelect(progSel, program);
+          }
         }
-        // Lock the destination on pages that only serve one region (set via
-        // window.ASPIRE_LP_DESTINATION, e.g. "Caribbean" on the Medicine and Vet pages).
+
+        // "Where would you like to study?": removed on domestic (Canada) pages; preselected
+        // and locked to the course country on international pages (window.ASPIRE_LP_DESTINATION).
         var destSel = form.querySelector('#lf-destination');
-        if (destSel && window.ASPIRE_LP_DESTINATION) {
-          var only = window.ASPIRE_LP_DESTINATION;
-          destSel.innerHTML = '';
-          var single = document.createElement('option');
-          single.value = only;
-          single.textContent = only;
-          single.selected = true;
-          destSel.appendChild(single);
-        }
-        // Domestic (Canada) pages ask for the applicant's status in Canada.
-        var statusField = form.querySelector('#lf-status-field');
-        var statusSel = form.querySelector('#lf-status');
-        if (statusField && statusSel && window.ASPIRE_LP_DOMESTIC) {
-          statusField.hidden = false;
-          statusSel.disabled = false;
-          statusSel.required = true;
+        if (destSel) {
+          var destField = destSel.closest('.field');
+          if (window.ASPIRE_LP_DOMESTIC) {
+            if (destField) destField.parentNode.removeChild(destField);
+          } else if (window.ASPIRE_LP_DESTINATION) {
+            lockSelect(destSel, window.ASPIRE_LP_DESTINATION);
+          }
         }
         function show(n) {
           steps.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') === n); });

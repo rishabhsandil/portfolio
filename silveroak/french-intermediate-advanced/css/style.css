@@ -392,13 +392,25 @@ button,input,select,textarea{font:inherit;color:inherit}
 .demo--light .form__head{background:var(--deep);border-bottom-color:var(--deep)}
 .demo--light .form__title{color:#fff}
 .demo--light .form__sub{color:var(--onDark)}
-/* one card, centred, since there is no longer a column beside it */
-.demo__in{position:relative;z-index:1;max-width:560px;margin-inline:auto}
+/* Two arrangements of the same markup. On a phone the form has to follow the
+   hero routes directly, and the demo-class copy then falls underneath it, which
+   also lands it immediately above the pathway section. From 1024px the pair goes
+   back side by side, copy left and form right, which is the desktop layout the
+   client wants kept.
 
-/* ---------- experience a class ---------- */
-.experience{max-width:44rem}
-.experience .lede{margin-inline:0}
-.experience .ticks{margin-top:32px}
+   The form comes first in the source and the columns are placed explicitly,
+   rather than leaving the copy first and flipping with `order`. Flipping would
+   have left a keyboard user on a phone tabbing into the copy's phone and
+   WhatsApp links before reaching the form sitting above them. */
+.demo__in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:48px}
+.demo__text .lede{margin-inline:0;max-width:34rem}
+.demo__text .ticks{margin-top:32px}
+
+@media (min-width:1024px){
+  .demo__in{grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:64px;align-items:start}
+  .demo__text{grid-column:1;grid-row:1}
+  .form{grid-column:2;grid-row:1}
+}
 
 /* ---------- form card ---------- */
 .form{

@@ -33,7 +33,7 @@ $SITE_NAME  = 'Aspire Career & Educational Services';
  * Schedules). Configure that tool to generate the Zoom link on booking so the
  * student gets the meeting invite automatically.
  * Set $AUTOREPLY = false to switch the auto-reply off entirely. */
-$AUTOREPLY         = true;
+$AUTOREPLY         = false; // STASHED 2026-08-20: booking auto-reply not ready yet. Flip to true to re-enable (also restore the thank-you.html booking copy/button).
 $BOOKING_URL       = 'https://calendly.com/acesglobal/consultation'; // <-- replace with the client's real booking link
 $REPLY_FROM_EMAIL  = 'info@acesglobal.ca';
 $REPLY_FROM_NAME   = 'Aspire Career & Educational Services';
