@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- bump ?v= on every deploy so browsers and the CDN edge fetch the new file -->
-<link rel="stylesheet" href="css/style.css?v=63ec75c786">
+<link rel="stylesheet" href="css/style.css?v=7c0c428291">
 </head>
 <body>
 
@@ -114,7 +114,7 @@
     </div>
 
     <figure class="hero__media">
-      <img src="assets/images/hero-class.jpg" width="900" height="600" fetchpriority="high"
+      <img src="assets/images/hero-class.jpg" width="900" height="600" loading="lazy"
            alt="Close-up of a French exam preparation workbook, notes and highlighters on a study desk">
     </figure>
 
@@ -122,36 +122,14 @@
 </section>
 
 
-<!-- ============ 2. DEMO CLASS + LEAD FORM ============ -->
+<!-- ============ 2. LEAD FORM ============ -->
 <section class="demo demo--light" id="demo">
   <div class="wrap demo__in">
-
-    <div class="demo__text">
-      <p class="eyebrow">Experience a class</p>
-      <h2 class="h2">See How We Teach Before You Enroll.</h2>
-      <p class="lede">Attend a free French demo class, meet our instructors and
-        experience our teaching approach before choosing your program.</p>
-
-      <ul class="ticks ticks--stack">
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Experience our teaching style</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Understand your appropriate French level</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Explore the right program for your goal</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Learn about available class schedules</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Ask questions about your learning pathway</li>
-      </ul>
-
-      <div class="panel">
-        <p>Prefer to talk first? Call <a href="tel:+16047504013">604-750-4013</a> or
-          <a href="https://wa.me/16047504013" target="_blank" rel="noopener">message us on WhatsApp</a>.
-          Our team can answer questions about levels, schedules and TEF or TCF preparation before
-          you book.</p>
-      </div>
-    </div>
 
     <!-- FORM CARD -->
     <div class="form" id="form">
       <div class="form__head">
-        <h2 class="form__title">Reserve Your FREE Demo Class</h2>
+        <h2 class="form__title">Find out more about our classes</h2>
         <p class="form__sub">Tell us a little about yourself and our team will contact you to help
           you find the right class.</p>
       </div>
@@ -240,7 +218,32 @@
   </div>
 </section>
 
-<!-- ============ 3. THE PATHWAY ============ -->
+<!-- ============ 3. EXPERIENCE A CLASS ============ -->
+<section class="section" id="experience">
+  <div class="wrap experience">
+    <p class="eyebrow">Experience a class</p>
+    <h2 class="h2">See How We Teach Before You Enroll.</h2>
+    <p class="lede">Attend a free French demo class, meet our instructors and
+      experience our teaching approach before choosing your program.</p>
+
+    <ul class="ticks">
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Experience our teaching style</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Understand your appropriate French level</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Explore the right program for your goal</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Learn about available class schedules</li>
+      <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Ask questions about your learning pathway</li>
+    </ul>
+
+    <div class="panel">
+      <p>Prefer to talk first? Call <a href="tel:+16047504013">604-750-4013</a> or
+        <a href="https://wa.me/16047504013" target="_blank" rel="noopener">message us on WhatsApp</a>.
+        Our team can answer questions about levels, schedules and TEF or TCF preparation before
+        you book.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. THE PATHWAY ============ -->
 <section class="section section--deep" id="pathway">
   <span class="grid-overlay" aria-hidden="true"></span>
   <div class="wrap">
@@ -341,7 +344,7 @@
   </div>
 </section>
 
-<!-- ============ 4. WHY CHOOSE US ============ -->
+<!-- ============ 5. WHY CHOOSE US ============ -->
 <section class="section" id="why">
   <div class="wrap">
 
@@ -390,7 +393,7 @@
 </section>
 
 
-<!-- ============ 5. FAQ ============ -->
+<!-- ============ 6. FAQ ============ -->
 <section class="section section--tint" id="faq">
   <div class="wrap wrap--narrow">
     <div class="sechead">
@@ -424,7 +427,7 @@
   </div>
 </section>
 
-<!-- ============ 6. FINAL CTA ============ -->
+<!-- ============ 7. FINAL CTA ============ -->
 <section class="final">
   <div class="wrap final__in">
     <ol class="final__rail" aria-label="French Foundations to CLB 5 to CLB 7">

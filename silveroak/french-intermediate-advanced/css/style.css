@@ -101,14 +101,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 .tag i{width:6px;height:6px;border-radius:50%;background:var(--lime);flex:0 0 auto}
 
-.ticks{display:grid;gap:12px}
-.ticks--stack{grid-template-columns:1fr}
-.ticks li{display:flex;align-items:flex-start;gap:12px;font-size:.9375rem;color:var(--onDark)}
+.ticks{display:grid;grid-template-columns:1fr;gap:12px}
+.ticks li{display:flex;align-items:flex-start;gap:12px;font-size:.9375rem;color:var(--ink)}
 .tick{
   display:grid;place-items:center;flex:0 0 auto;
-  width:26px;height:26px;border-radius:var(--r);background:var(--lime-dim);
+  width:26px;height:26px;border-radius:var(--r);background:var(--tint-card);
 }
-.tick svg{width:14px;height:14px;fill:none;stroke:var(--lime);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.tick svg{width:14px;height:14px;fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* faint rule pattern over the deep sections, the reference's opacity-5 overlay */
 .grid-overlay{
@@ -120,11 +119,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 .panel{
-  background:var(--deep-2);border:1px solid var(--deep-line);border-radius:var(--r);
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
   padding:22px 24px;margin-top:32px;
 }
-.panel p{font-size:.9375rem;color:var(--onDark);line-height:1.7}
-.panel a{color:var(--lime-bright);text-decoration:none;font-weight:600}
+.panel p{font-size:.9375rem;color:var(--muted);line-height:1.7}
+.panel a{color:var(--accent);text-decoration:none;font-weight:600}
 .panel a:hover{text-decoration:underline}
 
 /* ---------- buttons ---------- */
@@ -385,27 +384,21 @@ button,input,select,textarea{font:inherit;color:inherit}
 .demo{position:relative;overflow:hidden;background:var(--deep);padding:80px 0}
 @media (min-width:1024px){.demo{padding:96px 0}}
 
-/* The form sits between two deep sections, the hero above and the pathway rail
-   below, so it takes the light band. The strong contrast the brief asked for
-   comes from that sandwich rather than from a dark panel of its own. */
+/* The form sits directly under the hero on a light band, so it reads as the
+   next step rather than as a separate pitch. Its supporting copy moved out to
+   the Experience a class section further down. */
 .demo--light{background:var(--tint);border-block:1px solid var(--line-soft)}
-.demo--light .demo__text .lede{color:var(--muted)}
-.demo--light .ticks li{color:var(--ink)}
-.demo--light .tick{background:var(--tint-card)}
-.demo--light .tick svg{stroke:var(--accent)}
-.demo--light .panel{background:#fff;border-color:var(--line)}
-.demo--light .panel p{color:var(--muted)}
-.demo--light .panel a{color:var(--accent)}
 /* dark header strip, so the card still reads as the focal object on a pale band */
 .demo--light .form__head{background:var(--deep);border-bottom-color:var(--deep)}
 .demo--light .form__title{color:#fff}
 .demo--light .form__sub{color:var(--onDark)}
-.demo__in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:48px}
-@media (min-width:1024px){
-  .demo__in{grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:64px;align-items:start}
-}
-.demo__text .lede{max-width:34rem}
-.demo__text .ticks{margin-top:32px}
+/* one card, centred, since there is no longer a column beside it */
+.demo__in{position:relative;z-index:1;max-width:560px;margin-inline:auto}
+
+/* ---------- experience a class ---------- */
+.experience{max-width:44rem}
+.experience .lede{margin-inline:0}
+.experience .ticks{margin-top:32px}
 
 /* ---------- form card ---------- */
 .form{
@@ -665,6 +658,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 @media (max-width:767px){
+  /* The form is the next section, so on a phone the photo is the only thing
+     standing between the CLB 7 route and the first field. It is decorative and
+     carries nothing the copy does not, so it steps aside rather than pushing the
+     form the better part of a screen down. It returns at 768px. */
+  .hero__media{display:none}
   html{scroll-padding-top:84px}
   .nav__in{min-height:66px}
   .drawer{top:66px}
