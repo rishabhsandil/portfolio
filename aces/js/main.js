@@ -409,6 +409,85 @@
         });
       });
 
+      /* ---- Landing-page fixed fields (Program / Study destination) ----
+         Each landing page advertises one program and one destination, so those two
+         selects are preselected and locked rather than left for the visitor to set.
+         This runs independently of initLeadForm and re-applies on every DOM change:
+         the form arrives via fetch, and on some hosts a redirect on that request makes
+         it land after the first pass, which used to leave both fields unlocked and let
+         a visitor submit a destination the page isn't advertising. Re-running is cheap
+         because lockSelect no-ops once a field is locked. */
+      (function initLPFieldLocks() {
+        // Lock a <select> to one value: disable it (so it cannot be changed) but keep the
+        // value in the submission via a hidden input carrying the same field name.
+        function lockSelect(sel, value) {
+          if (!sel || sel.disabled) return; // already locked, nothing to redo
+          var owner = sel.closest ? sel.closest('form') : null;
+          var nm = sel.getAttribute('name');
+          // A host serving an older lead-form component won't have the option at all,
+          // which would leave the field rendering blank. Add it rather than show nothing.
+          var known = Array.prototype.some.call(sel.options, function (o) { return o.value === value; });
+          if (!known) {
+            var opt = document.createElement('option');
+            opt.value = value; opt.textContent = value;
+            sel.appendChild(opt);
+          }
+          sel.value = value;
+          sel.disabled = true;
+          sel.classList.add('is-locked');
+          sel.removeAttribute('required');
+          if (nm) {
+            sel.removeAttribute('name');
+            var dupe = (owner || document).querySelector('input[type="hidden"][name="' + nm + '"]');
+            if (!dupe) {
+              var hid = document.createElement('input');
+              hid.type = 'hidden'; hid.name = nm; hid.value = value;
+              sel.parentNode.appendChild(hid);
+            }
+          }
+        }
+
+        function applyLPLocks() {
+          var f = document.getElementById('lead-form-el');
+          if (!f) return;
+          var progSel = f.querySelector('#lf-program');
+          var program = window.ASPIRE_LP_PROGRAM;
+          var choices = window.ASPIRE_LP_PROGRAM_CHOICES; // optional array of allowed programs
+          // Program: preselected and locked, unless the page allows a small set of choices
+          // (Medicine and Vet share the Caribbean, so those two stay switchable).
+          if (progSel) {
+            if (choices && choices.length) {
+              // Those pages keep a working dropdown, so prune and preselect once per
+              // element - re-running would overwrite whatever the visitor picked.
+              if (progSel.getAttribute('data-lp-choices') !== 'done') {
+                Array.prototype.slice.call(progSel.options).forEach(function (o) {
+                  if (choices.indexOf(o.value) === -1) o.remove();
+                });
+                if (program) progSel.value = program;
+                progSel.setAttribute('data-lp-choices', 'done');
+              }
+            } else if (program) {
+              lockSelect(progSel, program);
+            }
+          }
+
+          // "Where would you like to study?": domestic pages lock to "Canada";
+          // international pages lock to the course country (window.ASPIRE_LP_DESTINATION).
+          var destSel = f.querySelector('#lf-destination');
+          if (destSel) {
+            if (window.ASPIRE_LP_DOMESTIC) lockSelect(destSel, 'Canada');
+            else if (window.ASPIRE_LP_DESTINATION) lockSelect(destSel, window.ASPIRE_LP_DESTINATION);
+          }
+        }
+
+        // Only landing pages declare these globals; everywhere else this is a no-op.
+        if (!window.ASPIRE_LP_PROGRAM && !window.ASPIRE_LP_DOMESTIC && !window.ASPIRE_LP_DESTINATION) return;
+        applyLPLocks();
+        if ('MutationObserver' in window && document.body) {
+          new MutationObserver(applyLPLocks).observe(document.body, { childList: true, subtree: true });
+        }
+      })();
+
       /* ---- Two-step landing-page lead form (Program preselected; opens the Thank You page in a new tab so Meta can track completions) ---- */
       (function initLeadForm() {
         var form = document.getElementById('lead-form-el');
@@ -417,48 +496,6 @@
         // Progress segments live in .lf-progress, a sibling of the form, not inside it.
         var wrap = document.getElementById('lead-form');
         var segs = wrap ? wrap.querySelectorAll('.lf-seg') : [];
-        // Lock a <select> to one value: disable it (so it cannot be changed) but keep the
-        // value in the submission via a hidden input carrying the same field name.
-        function lockSelect(sel, value) {
-          var nm = sel.getAttribute('name');
-          sel.value = value;
-          sel.disabled = true;
-          sel.classList.add('is-locked');
-          sel.removeAttribute('required');
-          if (nm) {
-            sel.removeAttribute('name');
-            var hid = document.createElement('input');
-            hid.type = 'hidden'; hid.name = nm; hid.value = value;
-            sel.parentNode.appendChild(hid);
-          }
-        }
-
-        var progSel = form.querySelector('#lf-program');
-        var program = window.ASPIRE_LP_PROGRAM;
-        var choices = window.ASPIRE_LP_PROGRAM_CHOICES; // optional array of allowed programs
-        // Program: preselected and locked, unless the page allows a small set of choices
-        // (Medicine and Vet share the Caribbean, so those two stay switchable).
-        if (progSel) {
-          if (choices && choices.length) {
-            Array.prototype.slice.call(progSel.options).forEach(function (o) {
-              if (choices.indexOf(o.value) === -1) o.remove();
-            });
-            if (program) progSel.value = program;
-          } else if (program) {
-            lockSelect(progSel, program);
-          }
-        }
-
-        // "Where would you like to study?": preselected and locked. Domestic (Canada) pages
-        // lock it to "Canada"; international pages lock it to the course country (window.ASPIRE_LP_DESTINATION).
-        var destSel = form.querySelector('#lf-destination');
-        if (destSel) {
-          if (window.ASPIRE_LP_DOMESTIC) {
-            lockSelect(destSel, 'Canada');
-          } else if (window.ASPIRE_LP_DESTINATION) {
-            lockSelect(destSel, window.ASPIRE_LP_DESTINATION);
-          }
-        }
         function show(n) {
           steps.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') === n); });
           segs.forEach(function (s) { s.classList.toggle('is-active', +s.getAttribute('data-step') <= n); });
@@ -475,7 +512,9 @@
         var partialSent = false;
         function submitPartial() {
           var fd = new FormData(form);
-          var prog = (progSel && progSel.value) ? progSel.value : 'General enquiry';
+          // Read from the payload, not the <select>: on landing pages the field is
+          // locked and submits via a hidden input of the same name.
+          var prog = fd.get('program') || 'General enquiry';
           fd.set('subject', 'Aspire LP Partial Lead - ' + prog);
           // Fire and forget: capture the contact details even if step 2 is abandoned.
           fetch(form.getAttribute('action'), { method: 'POST', body: fd }).catch(function () {});
@@ -501,7 +540,9 @@
           var thanks = window.open('../thank-you.html', '_blank');
           if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.innerHTML = 'Sending…'; }
           var fd = new FormData(form);
-          var prog = (progSel && progSel.value) ? progSel.value : 'General enquiry';
+          // Read from the payload, not the <select>: on landing pages the field is
+          // locked and submits via a hidden input of the same name.
+          var prog = fd.get('program') || 'General enquiry';
           fd.set('subject', 'Aspire LP Lead - ' + prog);
           fetch(form.getAttribute('action'), { method: 'POST', body: fd })
             .then(function (r) { return r.json().catch(function () { return { success: false }; }); })
