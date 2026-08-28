@@ -312,7 +312,7 @@ strong{font-weight:600}
 .hero-form .eyebrow::before{background:var(--orange)}
 .hero-form h3{font-family:var(--display);color:var(--ink);font-weight:600;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.2;margin:.3rem 0 .8rem}
 .hero-form .form{gap:.55rem}
-.hero-form .field{gap:.3rem}
+.hero-form .field{gap:.42rem}
 .hero-form .field label{color:var(--ink);font-size:.76rem}
 .hero-form .field input,.hero-form .field textarea{padding:.6em .85em;font-size:.92rem}
 .hero-form .field textarea{min-height:60px}
@@ -640,7 +640,7 @@ strong{font-weight:600}
 .lf-seg{flex:1;height:4px;border-radius:999px;background:var(--line);transition:background .3s var(--ease)}
 .lf-seg.is-active{background:var(--orange)}
 .lf-step{display:none}
-.lf-step.is-active{display:flex;flex-direction:column;gap:.7rem;animation:lfIn .3s var(--ease)}
+.lf-step.is-active{display:flex;flex-direction:column;gap:.95rem;animation:lfIn .3s var(--ease)}
 @keyframes lfIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .hero-form .btn.lf-next{margin-top:.4rem}
 .lf-nav{display:flex;gap:.6rem;align-items:stretch;margin-top:.4rem}

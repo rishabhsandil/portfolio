@@ -449,13 +449,12 @@
           }
         }
 
-        // "Where would you like to study?": removed on domestic (Canada) pages; preselected
-        // and locked to the course country on international pages (window.ASPIRE_LP_DESTINATION).
+        // "Where would you like to study?": preselected and locked. Domestic (Canada) pages
+        // lock it to "Canada"; international pages lock it to the course country (window.ASPIRE_LP_DESTINATION).
         var destSel = form.querySelector('#lf-destination');
         if (destSel) {
-          var destField = destSel.closest('.field');
           if (window.ASPIRE_LP_DOMESTIC) {
-            if (destField) destField.parentNode.removeChild(destField);
+            lockSelect(destSel, 'Canada');
           } else if (window.ASPIRE_LP_DESTINATION) {
             lockSelect(destSel, window.ASPIRE_LP_DESTINATION);
           }
