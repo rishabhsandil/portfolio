@@ -9,7 +9,7 @@ RewriteRule ^ /%1 [R=301,L]
 # so old links/bookmarks still work and search engines index the clean version.
 # Skip /components/ — those .html files are partials fetched by the page's JS
 # (data-include), not page navigations, and must be served as-is without a redirect.
-RewriteCond %{REQUEST_URI} !^/components/
+RewriteCond %{REQUEST_URI} !/components/
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
@@ -19,5 +19,15 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.+)$ $1.html [L]
+
+# Shared JS/CSS must revalidate. main.js carries the landing-page logic that
+# preselects and locks the Program and Study destination fields, so a stale
+# cached copy silently breaks those pages. ETag revalidation keeps the files
+# cacheable but stops a CDN or browser serving an old build after a deploy.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
 
 DirectoryIndex index.html
