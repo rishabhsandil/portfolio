@@ -211,6 +211,10 @@ strong{font-weight:600}
 .mega-group h4 .g-icon svg{width:15px;height:15px}
 .mega-field{border-bottom:1px solid var(--line)}
 .mega-field:last-child{border-bottom:none}
+/* Sub-item nested under the field above it (e.g. Addiction & Mental Health under Community Support Worker) */
+.mega-field.mega-field-sub{margin-left:.85rem;border-left:1.5px solid var(--line)}
+.mega-field.mega-field-sub .mega-field-btn{padding-left:.9em;font-weight:500;color:var(--muted)}
+.nav-links .nav-item.has-mega .mega-field.mega-field-sub .mega-field-btn:hover{color:var(--teal)}
 .nav-links .nav-item.has-mega .mega-field-btn{display:flex;align-items:center;justify-content:space-between;gap:.6em;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:.6em .5em;margin:0 -0.5em;font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
 .nav-links .nav-item.has-mega .mega-field-btn:hover{background:rgba(4,117,143,.06);color:var(--teal)}
 .mega-field-btn svg{width:13px;height:13px;flex:none;color:var(--muted);transition:transform .25s var(--ease)}
