@@ -286,6 +286,39 @@ strong{font-weight:700}
 .email-marquee span .at{color:var(--yellow)}
 .email-marquee .x{font-size:.7em;color:rgba(255,255,255,.5)}
 
+/* ---------- Client logo strip (ships with the footer → every page) ---------- */
+.client-strip-sec{padding:clamp(48px,6vw,84px) 0 clamp(36px,4.5vw,60px)}
+.cl-eyebrow{display:block;text-align:center;margin-bottom:clamp(16px,2vw,26px)}
+/* Uses --panel-light like every other raised panel on the site. The logo files whose
+   artwork sat on a white/light background have had it knocked out to transparency during
+   image prep, so they blend into this panel rather than forcing the strip to be white. */
+.client-strip{background:var(--panel-light);border-radius:var(--r-lg);padding-block:clamp(18px,2.1vw,26px);overflow:hidden;position:relative}
+.client-strip::before,.client-strip::after{content:"";position:absolute;top:0;bottom:0;width:clamp(48px,7vw,110px);z-index:2;pointer-events:none}
+.client-strip::before{left:0;background:linear-gradient(90deg,var(--panel-light),transparent)}
+.client-strip::after{right:0;background:linear-gradient(-90deg,var(--panel-light),transparent)}
+.client-strip .marquee{animation-duration:64s;gap:clamp(30px,3.6vw,52px)}
+/* Fixed slot per logo so a long wordmark and a square badge get equal visual weight:
+   wide marks fill the slot width, square ones fill its height. The source files are
+   pre-trimmed to their artwork, so object-fit does the rest. */
+/* The slot size is a variable so the tile and the image share one definite length.
+   Percentages are deliberately avoided here: neither max-height:100% nor height:100%
+   resolves against a centred grid area, so the marks overflowed and got clipped. */
+/* Slot is wide-ish but generous in height: with object-fit:contain a square badge is
+   limited by the height and a long wordmark by the width, so too short a slot makes
+   the square marks read much smaller than the wide ones. */
+.client-strip{--cl-w:clamp(118px,11.5vw,158px);--cl-h:clamp(56px,5.9vw,78px)}
+.cl-logo{flex:none;display:flex}
+/* Radius is invisible on the white-background marks and stops the ones with a dark
+   background baked in from reading as hard rectangles cut into the white strip. */
+.cl-logo img{width:var(--cl-w);height:var(--cl-h);object-fit:contain;border-radius:6px}
+@media(prefers-reduced-motion:reduce){
+  .client-strip .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:clamp(18px,2vw,26px)}
+  .client-strip::before,.client-strip::after{display:none}
+  /* The second copy only exists to make the -50% loop seamless. Once the marquee stops
+     and wraps into a static grid it would just show every client twice. */
+  .cl-logo[aria-hidden="true"]{display:none}
+}
+
 /* ---------- Footer ---------- */
 .footer-wrap{padding:0 clamp(10px,1.6vw,24px) clamp(10px,1.6vw,24px)}
 .footer{background:linear-gradient(185deg,#050505 8%,#0A0A08 34%,#2B2300 62%,#67520A 88%,#8F7100 100%);color:rgba(255,255,255,.85);border-radius:var(--r-xl);overflow:hidden;position:relative;padding:clamp(40px,5vw,72px) clamp(24px,4vw,64px) 0}
@@ -412,6 +445,25 @@ html.veiling.veil-fresh .page-veil .pv-badge{animation:pvPop .55s .1s cubic-bezi
 .case-band .cb-more strong{color:#fff}
 @media(max-width:640px){.case-band{min-height:340px;align-items:flex-end}.case-band::after{background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.85) 70%)}}
 
+/* ---------- Case-band reel (client-supplied 9:16 social video) ---------- */
+/* The band's gradient fades out to the right, so a portrait player sits in that open
+   space without fighting the copy on the left. The band keeps its background image. */
+.case-band.has-reel{justify-content:space-between;gap:clamp(16px,2.5vw,40px)}
+.cb-reel{flex:none;position:relative;margin:clamp(20px,2.6vw,40px) clamp(24px,3.5vw,56px) clamp(20px,2.6vw,40px) 0;
+  width:clamp(150px,15vw,215px);aspect-ratio:9/16;border-radius:var(--r-md);overflow:hidden;
+  background:#0B0B0B;box-shadow:0 18px 48px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.16)}
+.cb-reel video{width:100%;height:100%;object-fit:cover;display:block}
+.cb-reel figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.6rem .7rem .6rem;
+  font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);
+  text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72))}
+/* Below the band's two-column point the copy takes the full width, so the reel drops to a
+   small portrait thumbnail beside it rather than towering over the text. */
+@media(max-width:860px){
+  .case-band.has-reel{align-items:flex-end}
+  .cb-reel{width:clamp(104px,17vw,140px);margin-bottom:clamp(24px,3.5vw,56px)}
+}
+
+
 /* ---------- Stats (interior pages) ---------- */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(20px,3vw,40px)}
 .stat .num{font-family:var(--display);font-size:clamp(2.4rem,5vw,4.2rem);line-height:.95;font-weight:700;display:flex;align-items:baseline;gap:.05em;letter-spacing:-.03em}
@@ -434,8 +486,9 @@ html.veiling.veil-fresh .page-veil .pv-badge{animation:pvPop .55s .1s cubic-bezi
 
 /* ---------- Team ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px)}
-@media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.team-grid{grid-template-columns:1fr}}
+.team-grid.six{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.team-grid,.team-grid.six{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.team-grid,.team-grid.six{grid-template-columns:1fr}}
 .team-card .t-ava{aspect-ratio:4/5;border-radius:var(--r-lg);background:linear-gradient(160deg,#1A1A1A,#000);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--yellow);margin-bottom:1rem}
 .team-card h4{font-size:1.02rem}
 .team-card .role{font-size:.8rem;font-weight:500;color:var(--muted)}

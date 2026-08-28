@@ -194,6 +194,28 @@
         counters.forEach(function (el) { co.observe(el); });
       }
 
+      /* ---- Case-band reels: only play while on screen ----
+         The markup carries no `autoplay` and preload="none", so playback is driven entirely
+         from here: nothing downloads until the band is scrolled to, and an off-screen reel
+         is paused rather than left running. Under reduced motion it never plays and the
+         poster frame stands in. If this script fails the poster still shows. */
+      var reels = [].slice.call(document.querySelectorAll('.cb-reel video'));
+      if (reels.length && !reduce && 'IntersectionObserver' in window) {
+        var ro = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            var v = e.target;
+            if (e.isIntersecting) {
+              v.muted = true;               // belt and braces: autoplay needs it muted
+              var pr = v.play();
+              if (pr && pr.catch) pr.catch(function () {});   // blocked autoplay → keep poster
+            } else if (!v.paused) {
+              v.pause();
+            }
+          });
+        }, { threshold: 0.35 });
+        reels.forEach(function (v) { ro.observe(v); });
+      }
+
       /* ---- Testimonial carousel (image + quote slide together; one shared arrow set) ---- */
       document.querySelectorAll('.t-carousel').forEach(function (car) {
         var slides = [].slice.call(car.querySelectorAll('.t-slide'));
