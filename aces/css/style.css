@@ -632,6 +632,7 @@ strong{font-weight:600}
 .lp-hero .eyebrow::before{background:var(--orange-soft)}
 .lp-hero .lead{color:rgba(241,233,217,.85);max-width:52ch;margin-top:1.1rem;font-size:1.05rem;line-height:1.6}
 .lp-hero .hero-form{max-width:380px}
+.lp-hero .lp-badge{display:inline-flex;align-items:center;gap:.5em;background:rgba(247,147,30,.16);color:var(--orange-soft);border:1px solid rgba(247,147,30,.4);border-radius:999px;padding:.45em 1.05em;font-size:.8rem;font-weight:600;letter-spacing:.02em;margin:0 0 1.1rem}
 /* Two-step landing-page lead form */
 .hero-form .field select{padding:.6em .85em;font-size:.92rem}
 .hero-form .field select.is-locked{color:var(--ink);-webkit-text-fill-color:var(--ink);opacity:1;background:rgba(4,117,143,.05);border-style:dashed;cursor:not-allowed}
