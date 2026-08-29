@@ -21,6 +21,7 @@
   --yellow:#FFCC00;
   --yellow-deep:#E6B800;
   --yellow-soft:#FFE066;
+  --team-backdrop:#F5B01A;  /* sampled from the team photos' seamless — warmer than --yellow */
   --black:#000000;
   --ink:#111111;
   --white:#FFFFFF;
@@ -165,14 +166,22 @@ strong{font-weight:700}
 .hero-media{margin-top:clamp(40px,5vw,72px)}
 .collage{border-radius:var(--r-xl);overflow:hidden;background:#050505;padding:clamp(14px,2vw,28px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px);will-change:transform}
 .collage .c-tile{border-radius:14px;overflow:hidden;aspect-ratio:16/10;position:relative;background:#111}
-.collage .c-tile img{width:100%;height:100%;object-fit:cover}
+.collage .c-tile img,.collage .c-tile video{width:100%;height:100%;object-fit:cover;display:block}
+/* The reel is 9:16, so left in flow its intrinsic height inflates both grid rows and the
+   16:10 stills stop filling theirs (black gaps under every tile). Taking it out of flow
+   lets the tile be sized purely by its 2-row span, exactly as the old image tile was. */
+.collage .c-tile.has-video video{position:absolute;inset:0;z-index:0}
+/* The reel tile carries real client footage, so it gets a lighter scrim than the stock
+   stills — the standard .5 overlay flattens moving image far more than a photo. */
+.collage .c-tile.has-video::before{background:rgba(0,0,0,.28)}
+.collage .c-tile.has-video:hover::before{opacity:.5}
 /* dark wash as a composited overlay, NOT an image filter — filters force the GPU to
    re-rasterize every tile per frame while the pin/scrub transforms them (scroll jank) */
 .collage .c-tile::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:1;transition:opacity .45s var(--ease)}
 .collage .c-tile:hover::before{opacity:.45}
 .collage .c-tile span{position:absolute;left:.9rem;bottom:.7rem;color:rgba(255,255,255,.85);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;z-index:2}
 .collage .c-tile.tall{grid-row:span 2;aspect-ratio:auto}
-@media(max-width:700px){.collage{grid-template-columns:repeat(2,1fr)}.collage .c-tile.tall{grid-row:auto;aspect-ratio:16/10}}
+@media(max-width:700px){.collage{grid-template-columns:repeat(2,1fr)}.collage .c-tile.tall{grid-row:auto;aspect-ratio:16/10}.collage .c-tile.tall.has-video{grid-row:span 2;aspect-ratio:auto}}
 
 /* ---------- Logo marquee strip ---------- */
 .logo-strip{background:var(--panel-light);border-radius:var(--r-lg);padding-block:clamp(20px,2.6vw,32px);overflow:hidden;position:relative}
@@ -489,7 +498,13 @@ html.veiling.veil-fresh .page-veil .pv-badge{animation:pvPop .55s .1s cubic-bezi
 .team-grid.six{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.team-grid,.team-grid.six{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.team-grid,.team-grid.six{grid-template-columns:1fr}}
-.team-card .t-ava{aspect-ratio:4/5;border-radius:var(--r-lg);background:linear-gradient(160deg,#1A1A1A,#000);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--yellow);margin-bottom:1rem}
+/* Only half the team have headshots so far. The initials tiles use the same warm yellow
+   as the photo backdrop rather than the old black gradient, so a row mixing the two reads
+   as one set instead of looking half-broken. Drop the black back in only if every member
+   ends up with a photo. */
+.team-card .t-ava{aspect-ratio:4/5;border-radius:var(--r-lg);background:var(--team-backdrop);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--black);margin-bottom:1rem;overflow:hidden}
+.team-card .t-ava.has-photo{background:var(--team-backdrop)}
+.team-card .t-ava img{width:100%;height:100%;object-fit:cover;display:block}
 .team-card h4{font-size:1.02rem}
 .team-card .role{font-size:.8rem;font-weight:500;color:var(--muted)}
 

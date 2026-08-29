@@ -194,12 +194,12 @@
         counters.forEach(function (el) { co.observe(el); });
       }
 
-      /* ---- Case-band reels: only play while on screen ----
+      /* ---- Reels (hero collage tile + Works case band): only play while on screen ----
          The markup carries no `autoplay` and preload="none", so playback is driven entirely
          from here: nothing downloads until the band is scrolled to, and an off-screen reel
          is paused rather than left running. Under reduced motion it never plays and the
          poster frame stands in. If this script fails the poster still shows. */
-      var reels = [].slice.call(document.querySelectorAll('.cb-reel video'));
+      var reels = [].slice.call(document.querySelectorAll('video[data-reel]'));
       if (reels.length && !reduce && 'IntersectionObserver' in window) {
         var ro = new IntersectionObserver(function (entries) {
           entries.forEach(function (e) {
