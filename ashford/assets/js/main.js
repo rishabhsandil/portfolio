@@ -219,6 +219,33 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
+  // -- Thank You redirect -------------------------------------------------------
+  // Navigates to the Thank You page after a successful submission. The Google Ads
+  // conversion is fired first with an event_callback so it is not cut short by the
+  // navigation; the timeout is the fallback for when gtag never calls back.
+  function goToThankYou(form) {
+    var action = (form && form.getAttribute('action')) || '/submit.php';
+    // Clean URL, matching every other internal link on the site. .htaccess 301s
+    // /thank-you.html to /thank-you, so linking the .html would cost a redirect.
+    var url = action.replace('submit.php', 'thank-you');
+    var done = false;
+    function go() {
+      if (done) return;
+      done = true;
+      window.location.href = url;
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-853928503/08lgCP_L4aMcELfUl5cD',
+        event_callback: go,
+        event_timeout: 1500
+      });
+      setTimeout(go, 1500);
+    } else {
+      go();
+    }
+  }
+
   // -- Multi-Step Form Logic ----------------------------------------------------
   function initForms() {
     var form = document.getElementById('multi-step-form');
@@ -334,6 +361,11 @@
       var formData = new FormData(form);
       formData.set('subject', '[Complete Lead] Ashford Career College');
 
+      // On success we leave the page, so the button must stay disabled through the
+      // brief wait for the conversion callback. Re-enabling it would allow a
+      // second submission in that window.
+      var leaving = false;
+
       fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -341,18 +373,20 @@
       }).then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.success) {
-             gtag('event', 'conversion', {
-        send_to: 'AW-853928503/08lgCP_L4aMcELfUl5cD'
-        });
+          leaving = true;
           sessionStorage.removeItem(STORAGE_KEY);
           container.style.display = 'none';
           success.classList.add('is-visible');
+          // Fires the conversion, then sends the user to the Thank You page. The
+          // inline success box above only shows if navigation is prevented.
+          goToThankYou(form);
         } else {
           alert('Oops! There was a problem. Please try again.');
         }
       }).catch(function() {
         alert('An error occurred. Please check your connection.');
       }).finally(function() {
+        if (leaving) return;
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       });
@@ -411,9 +445,9 @@
               '<div style="text-align:center;padding:var(--space-6) 0">' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;margin:0 auto var(--space-4);display:block"><polyline points="20 6 9 17 4 12"/></svg>' +
               '<h3 style="font-family:var(--font-serif);color:var(--color-navy-900);margin-bottom:var(--space-3)">Details on the way!</h3>' +
-              '<p style="color:var(--color-gray-700);font-size:0.875rem">An admissions advisor will be in touch within 1–2 business days.</p>' +
+              '<p style="color:var(--color-gray-700);font-size:0.875rem">Taking you to your confirmation...</p>' +
               '</div>';
-            setTimeout(closeDrawer, 3000);
+            goToThankYou(form);
           } else {
             alert('Oops! Something went wrong. Please try again.');
             submitBtn.textContent = 'Get Program Details →';

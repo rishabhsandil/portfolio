@@ -488,7 +488,7 @@
         }
       })();
 
-      /* ---- Two-step landing-page lead form (Program preselected; opens the Thank You page in a new tab so Meta can track completions) ---- */
+      /* ---- Two-step landing-page lead form (Program preselected; redirects to the Thank You page on success so Meta can track completions) ---- */
       (function initLeadForm() {
         var form = document.getElementById('lead-form-el');
         if (!form) return;
@@ -535,9 +535,10 @@
           if (!form.checkValidity()) { show(1); validateStep(1); return; }
           var btn = form.querySelector('button[type="submit"]');
           var btnText = btn ? btn.innerHTML : '';
-          // Open the Thank You page now, inside the click gesture, so the browser does
-          // not block it as a popup (an async open after fetch would be blocked).
-          var thanks = window.open('../thank-you.html', '_blank');
+          // Derived from the form action so the path stays correct wherever the
+          // component is included (currently every page under lp/). Clean URL:
+          // .htaccess 301s /thank-you.html to /thank-you.
+          var thanksUrl = form.getAttribute('action').replace('submit.php', 'thank-you');
           if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.innerHTML = 'Sending…'; }
           var fd = new FormData(form);
           // Read from the payload, not the <select>: on landing pages the field is
@@ -552,7 +553,9 @@
                 if (btn) { btn.innerHTML = 'Submitted'; btn.style.opacity = ''; }
                 if (okBox) okBox.classList.add('show');
                 form.querySelectorAll('input,select,textarea,button').forEach(function (f) { if (f.type !== 'hidden') f.setAttribute('disabled', 'true'); });
-                if (!thanks) window.location.href = '../thank-you.html';
+                // Send the user to the Thank You page in this same tab. The success
+                // box above only shows if the navigation is somehow prevented.
+                window.location.href = thanksUrl;
               } else {
                 if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnText; }
                 alert((res && res.message) || 'Sorry, we could not send your message. Please call +1 (604) 316-8015 or email info@acesglobal.ca.');
