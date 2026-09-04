@@ -201,19 +201,9 @@ gtag('config', 'AW-853928503');
 
   <div data-include="../components/footer-lp.html"></div>
 
+  <!-- Read by initLPFormLocks in main.js: prefills and locks these fields. -->
+  <script>window.ASHFORD_LP_PROGRAM = 'Body Sculpting';</script>
   <script src="../assets/js/main.js"></script>
-  <script>
-    // Pre-select program in the form
-    window.addEventListener('load', function() {
-      const checkExist = setInterval(function() {
-        const programSelect = document.getElementById('details-program');
-        if (programSelect) {
-          programSelect.value = 'Body Sculpting';
-          clearInterval(checkExist);
-        }
-      }, 100);
-    });
-  </script>
 
   
 

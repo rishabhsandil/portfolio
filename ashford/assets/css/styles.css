@@ -442,6 +442,17 @@ p  { margin-bottom: var(--space-4); color: var(--color-gray-700); }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 .form__input:hover, .form__textarea:hover, .form__select:hover { border-color: var(--color-gray-500); }
+/* Landing-page locked field: prefilled from the ad, deliberately not editable.
+   Kept at full contrast so it reads as confirmed rather than disabled. */
+.form__select[data-locked="true"] {
+  opacity: 1;
+  cursor: default;
+  background-color: var(--color-cream);
+  border-color: var(--color-gray-300);
+  border-style: solid;
+}
+.form__select[data-locked="true"]:hover { border-color: var(--color-gray-300); }
+.mobile-drawer__body .form__select[data-locked="true"] { background-color: rgba(255,255,255,0.07); }
 .form__input:focus, .form__textarea:focus, .form__select:focus { outline: none; border-color: var(--color-navy-700); box-shadow: 0 0 0 3px rgba(26,92,58,0.14); }
 .form__textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 .form__hint { font-size: 0.8rem; color: var(--color-gray-500); margin-top: 0.25rem; }

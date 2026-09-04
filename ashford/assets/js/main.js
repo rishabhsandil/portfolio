@@ -219,6 +219,73 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
+  // -- Landing page field locks -------------------------------------------------
+  // A landing page is reached from an ad for one specific program, so the Program
+  // field is prefilled and locked: letting a visitor change it routes the lead to
+  // the wrong program. Pages opt in with window.ASHFORD_LP_PROGRAM (and
+  // window.ASHFORD_LP_CAMPUS where a course runs in only one format).
+  //
+  // Must run AFTER initForms(), which calls loadState() and would otherwise
+  // restore a program saved from a previously visited landing page.
+  function initLPFormLocks() {
+    var program = window.ASHFORD_LP_PROGRAM;
+    var campus = window.ASHFORD_LP_CAMPUS;
+    if (!program && !campus) return;
+
+    // A disabled <select> is omitted from FormData, so the value is moved to a
+    // hidden input of the same name and the select keeps only its display job.
+    function lockSelect(sel, value, label) {
+      if (!sel || sel.getAttribute('data-locked') === 'true') return;
+
+      var match = null;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === value) { match = sel.options[i]; break; }
+      }
+      // Unknown value: leave the field usable rather than locking in a blank.
+      if (!match) {
+        if (window.console) console.warn('[lp-lock] no option matches "' + value + '" in #' + sel.id);
+        return;
+      }
+      if (label) match.textContent = label;
+
+      sel.value = value;
+      sel.selectedIndex = match.index;
+      sel.setAttribute('data-locked', 'true');
+      sel.setAttribute('aria-readonly', 'true');
+      sel.disabled = true;
+      sel.style.borderColor = '';
+
+      var name = sel.getAttribute('name');
+      if (name) {
+        sel.removeAttribute('name');
+        var hidden = sel.parentNode.querySelector('input[type="hidden"][name="' + name + '"]');
+        if (!hidden) {
+          hidden = document.createElement('input');
+          hidden.type = 'hidden';
+          hidden.name = name;
+          sel.parentNode.appendChild(hidden);
+        }
+        hidden.value = value;
+      }
+    }
+
+    function apply() {
+      if (program) {
+        lockSelect(document.getElementById('details-program'), program);
+        lockSelect(document.getElementById('drawer-program'), program);
+      }
+      if (campus) {
+        lockSelect(document.getElementById('details-campus'), campus, 'Online');
+        lockSelect(document.getElementById('drawer-campus'), campus, 'Online');
+      }
+    }
+
+    apply();
+    // The mobile drawer markup can be injected after this runs, so re-apply once
+    // more on the next frame rather than polling forever.
+    if (window.requestAnimationFrame) requestAnimationFrame(apply);
+  }
+
   // -- Thank You redirect -------------------------------------------------------
   // Navigates to the Thank You page after a successful submission. The Google Ads
   // conversion is fired first with an event_callback so it is not cut short by the
@@ -632,6 +699,7 @@
     initMarquee();
     initFooterYear();
     initForms();
+    initLPFormLocks();
     initGenericForms();
     initMagneticButtons();
     initMobileDrawer();
