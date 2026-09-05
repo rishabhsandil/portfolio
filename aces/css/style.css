@@ -196,33 +196,41 @@ strong{font-weight:600}
    panel closes before you reach it. This pseudo-element fills that gap so hover stays
    continuous from the trigger straight into the panel. */
 .nav-item.has-mega::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:120px;height:20px;z-index:69}
-.mega{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(10px) scale(.98);width:min(800px,92vw);max-height:min(78vh,620px);overflow-y:auto;overflow-x:hidden;background:var(--paper);border-radius:var(--r-lg);box-shadow:0 40px 80px -24px rgba(6,28,34,.4),0 2px 0 rgba(6,28,34,.03);border:1px solid var(--line);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .1s linear .2s;z-index:70}
+.mega{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%) translateY(10px) scale(.98);width:min(860px,94vw);max-height:min(78vh,620px);overflow-y:auto;overflow-x:hidden;background:var(--paper);border-radius:var(--r-lg);box-shadow:0 40px 80px -24px rgba(6,28,34,.4),0 2px 0 rgba(6,28,34,.03);border:1px solid var(--line);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .1s linear .2s;z-index:70}
 .mega::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:var(--r-lg) var(--r-lg) 0 0}
 .mega::-webkit-scrollbar{width:7px}
 .mega::-webkit-scrollbar-track{background:transparent}
 .mega::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
 .mega{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .nav-item.has-mega:hover .mega,.nav-item.has-mega.mega-open .mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s}
-.mega-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:clamp(18px,2vw,26px)}
-.mega-group{padding:0 clamp(12px,1.4vw,20px)}
-.mega-group + .mega-group{border-left:1px solid var(--line)}
-.mega-group h4{display:flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 .8rem}
+/* three balanced columns, each holding one or more groups stacked - keeps every group
+   flush to the top of its column instead of a 5th group wrapping onto a second grid row */
+.mega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:clamp(18px,2vw,26px);align-items:start}
+.mega-col{min-width:0;padding:0 clamp(12px,1.4vw,20px)}
+.mega-col + .mega-col{border-left:1px solid var(--line)}
+.mega-group + .mega-group{margin-top:1.6rem}
+.mega-group h4{display:flex;align-items:center;gap:.6em;font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 .95rem}
 .mega-group h4 .g-icon{width:28px;height:28px;flex:none;border-radius:8px;background:rgba(4,117,143,.09);color:var(--teal);display:inline-flex;align-items:center;justify-content:center}
 .mega-group h4 .g-icon svg{width:15px;height:15px}
 .mega-field{border-bottom:1px solid var(--line)}
 .mega-field:last-child{border-bottom:none}
-/* Sub-item nested under the field above it (e.g. Addiction & Mental Health under Community Support Worker) */
-.mega-field.mega-field-sub{margin-left:.85rem;border-left:1.5px solid var(--line)}
-.mega-field.mega-field-sub .mega-field-btn{padding-left:.9em;font-weight:500;color:var(--muted)}
+/* Sub-item nested under the field above it (e.g. Addiction & Mental Health under Community
+   Support Worker). The indent is padding, not margin, so the row separators stay flush with
+   the rest of the column, and the parent drops its separator so the pair reads as one block. */
+.mega-field.mega-field-parent{border-bottom:none}
+.mega-field.mega-field-sub{position:relative;padding-left:1.25rem}
+.mega-field.mega-field-sub::before{content:"";position:absolute;left:.35rem;top:.42rem;bottom:.42rem;width:1.5px;border-radius:2px;background:var(--line)}
+/* prefixed to outrank the ".nav-links .nav-item.has-mega .mega-field-btn" base rule below */
+.nav-links .nav-item.has-mega .mega-field.mega-field-sub .mega-field-btn{font-size:.8rem;font-weight:500;color:var(--muted)}
 .nav-links .nav-item.has-mega .mega-field.mega-field-sub .mega-field-btn:hover{color:var(--teal)}
-.nav-links .nav-item.has-mega .mega-field-btn{display:flex;align-items:center;justify-content:space-between;gap:.6em;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:.6em .5em;margin:0 -0.5em;font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+.nav-links .nav-item.has-mega .mega-field-btn{display:flex;align-items:center;justify-content:space-between;gap:.6em;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:.82em .55em;margin:0 -0.55em;font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
 .nav-links .nav-item.has-mega .mega-field-btn:hover{background:rgba(4,117,143,.06);color:var(--teal)}
 .mega-field-btn svg{width:13px;height:13px;flex:none;color:var(--muted);transition:transform .25s var(--ease)}
 .mega-field.field-open .mega-field-btn svg{transform:rotate(90deg)}
 .mega-field.field-open .mega-field-btn{color:var(--teal)}
 /* countries "pop up", revealed only after the field is clicked, not on hover */
 .mega-countries{display:flex;flex-wrap:wrap;gap:.4rem;max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
-.mega-field.field-open .mega-countries{max-height:220px;padding:.15rem 0 .7rem}
+.mega-field.field-open .mega-countries{max-height:220px;padding:.1rem 0 .85rem}
 .nav-links .nav-item.has-mega .mega-countries a{font-size:.74rem;font-weight:600;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.38em 1em;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
 .nav-links .nav-item.has-mega .mega-countries a::after{display:none}
 .nav-links .nav-item.has-mega .mega-countries a:hover{color:#fff;background:var(--teal);border-color:var(--teal)}
@@ -245,10 +253,12 @@ strong{font-weight:600}
   .mega::before{display:none}
   .nav-item.has-mega.mega-open .mega,.nav-item.has-mega:hover .mega{display:block;transform:none}
   .mega-grid{grid-template-columns:1fr;padding:0}
-  .mega-group{padding:0}
-  .mega-group + .mega-group{border-left:none;border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem}
+  .mega-col{padding:0}
+  .mega-col + .mega-col{border-left:none}
+  .mega-group + .mega-group,.mega-col + .mega-col .mega-group:first-child{border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem}
   .mega-group h4{color:var(--teal)}
   .nav-links .nav-item.has-mega .mega-field-btn{font-size:1rem}
+  .nav-links .nav-item.has-mega .mega-field.mega-field-sub .mega-field-btn{font-size:.92rem}
   .mega-foot{background:transparent;border-radius:0;margin-top:.5rem;flex-wrap:wrap}
   .mega-foot a{font-size:.85rem;font-family:var(--sans)}
 }
