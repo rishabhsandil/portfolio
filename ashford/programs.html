@@ -38,8 +38,8 @@ gtag('config', 'AW-853928503');
     </div>
   </section>
 
-  <div class="container-max page-layout">
-    <main class="page-main">
+  <div class="home-main">
+    <main>
       <section class="section--tight section--alt">
     <div class="container">
         <div class="info-grid">
@@ -54,104 +54,284 @@ gtag('config', 'AW-853928503');
       <section class="section">
     <div class="container">
         <div class="section-header reveal">
-          <span class="eyebrow">Diploma Program</span>
-          <h2>Our Flagship Diploma</h2>
-          <p class="lead">A complete career path covering every program we offer — designed for graduates who want full mastery of cosmetic aesthetics.</p>
+          <span class="eyebrow">All Programs</span>
+          <h2>Choose your program</h2>
+          <p class="lead">Diplomas and technician certifications across aesthetics and early childhood education, taught in small hands-on classes at our Coquitlam and West Vancouver campuses, and online.</p>
         </div>
-
-        <div class="grid">
-          <article class="program-card reveal" style="grid-column: 1 / -1; max-width: 100%;">
-            <div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 0;" class="diploma-feature">
-              <div class="program-card__media" style="aspect-ratio: auto;">
-                <span class="program-card__tag">StudentAid BC Eligible</span>
-                <img src="assets/images/card-master.jpg" alt="Master of Cosmetic Aesthetics Diploma" loading="lazy" style="height: 100%;" />
-              </div>
-              <div class="program-card__body">
-                <span class="tag">Flagship Program — 800 hours</span>
-                <h3 style="margin-top: 0.75rem; font-size: 1.6rem;">Master of Cosmetic Aesthetics Diploma</h3>
-                <p class="program-card__desc">Full training and certification in every course we offer — skin care, laser, brows, lashes, body contouring, and more. Graduates leave equipped to run their own clinic or secure a senior position.</p>
-                <div class="program-card__meta">
-                  <div class="program-card__price">$14,085<small>plus taxes</small></div>
-                  <a href="program-detail" class="btn btn--primary">View Details</a>
+        <div class="pfilter reveal" role="group" aria-label="Filter programs">
+          <div class="pfilter__row">
+            <span class="pfilter__label">School</span>
+            <button type="button" class="chip is-active" data-filter="school" data-value="all">All</button>
+            <button type="button" class="chip" data-filter="school" data-value="aesthetics">Aesthetics</button>
+            <button type="button" class="chip" data-filter="school" data-value="ece">Early Childhood Education</button>
+          </div>
+          <div class="pfilter__row">
+            <span class="pfilter__label">Credential</span>
+            <button type="button" class="chip is-active" data-filter="cred" data-value="all">All</button>
+            <button type="button" class="chip" data-filter="cred" data-value="diploma">Diploma</button>
+            <button type="button" class="chip" data-filter="cred" data-value="advanced">Advanced Certificate</button>
+            <button type="button" class="chip" data-filter="cred" data-value="certificate">Certificate</button>
+          </div>
+          <div class="pfilter__row">
+            <span class="pfilter__label">Location</span>
+            <button type="button" class="chip is-active" data-filter="campus" data-value="all">All</button>
+            <button type="button" class="chip" data-filter="campus" data-value="coquitlam">Coquitlam</button>
+            <button type="button" class="chip" data-filter="campus" data-value="westvan">West Vancouver</button>
+            <button type="button" class="chip" data-filter="campus" data-value="online">Online</button>
+          </div>
+        </div>
+        <p class="pfilter__count" id="pcount" role="status"></p>
+        <p class="pfilter__empty" id="pempty" hidden>No programs match those filters. <button type="button" class="linkbtn" id="preset">Clear filters</button></p>
+        <div class="pgrid" id="pgrid">
+        <article class="pcard reveal" data-school="aesthetics" data-cred="diploma" data-campus="coquitlam westvan">
+          <a class="pcard__media" href="program-detail" tabindex="-1" aria-hidden="true">
+            <span class="pcard__badge">StudentAid BC Eligible</span><img src="assets/images/program-master.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-detail">Master of Cosmetic Aesthetics Diploma</a></h3>
+            <p class="pcard__desc">Full training and certification in every course we offer: skin care, laser, brows, lashes, body contouring and more.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Diploma</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>800 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>28 wks full-time / 48 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam &amp; West Vancouver</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$14,085<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="advanced" data-campus="coquitlam">
+          <a class="pcard__media" href="program-advanced-laser" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-advanced-laser.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-advanced-laser">Advanced Laser</a></h3>
+            <p class="pcard__desc">IPL, Diode, ND-YAG, Teeth Whitening and CO2 Fractional lasers. Prerequisite: Laser IPL &amp; Diode Technician or equivalent.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Advanced Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>100 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>5 wks full-time / 10 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$6,585<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="advanced" data-campus="coquitlam westvan">
+          <a class="pcard__media" href="program-advanced-skincare" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-advanced-skincare.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-advanced-skincare">Advanced Skin Care</a></h3>
+            <p class="pcard__desc">Aesthetic Dermatology, Chemical Peeling, Microneedling, Laser IPL and RF/Cavitation. Prerequisite: Microdermabrasion &amp; Skin Care or equivalent.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Advanced Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>120 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>6 wks full-time / 12 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam &amp; West Vancouver</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$7,585<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="advanced" data-campus="coquitlam westvan">
+          <a class="pcard__media" href="program-advanced-laser-skincare" tabindex="-1" aria-hidden="true">
+            <span class="pcard__badge">Best Value</span><img src="assets/images/program-advanced-laser-skincare.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-advanced-laser-skincare">Advanced Laser &amp; Skin Care</a></h3>
+            <p class="pcard__desc">Combined program: Chemical Peeling, Microdermabrasion, Microneedling, Cold Body Sculpting, IPL/Diode and ND-YAG.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Advanced Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>120 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>6 wks full-time / 12 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam &amp; West Vancouver</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$8,585<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-aesthetic-dermatology" tabindex="-1" aria-hidden="true">
+            <span class="pcard__badge">Popular</span><img src="assets/images/program-aesthetic-dermatology.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-aesthetic-dermatology">Aesthetic Dermatology Technician</a></h3>
+            <p class="pcard__desc">Class B entry program: facial assessment, IPL, RF and galvanic devices, pore cleansing, microdermabrasion and chemical peel intro.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>30 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 wk full-time / 2 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$4,035<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-microdermabrasion" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-microdermabrasion.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-microdermabrasion">Microdermabrasion &amp; Skin Care</a></h3>
+            <p class="pcard__desc">High-frequency, galvanic and ultrasonic devices, medical exfoliating, pore extraction and chemical peel treatments.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>20 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$2,885<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-ipl-diode" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-ipl-diode.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-ipl-diode">IPL &amp; Diode Laser Technician</a></h3>
+            <p class="pcard__desc">IPL and Diode lasers for hair removal, skin rejuvenation, pigmentation and spider vein treatments.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>20 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$3,435<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-nd-yag" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-nd-yag.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-nd-yag">Laser ND-YAG Technician</a></h3>
+            <p class="pcard__desc">ND-YAG, Picosecond and Q-Switch lasers for tattoo removal, pigmentation reduction and skin toning.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>20 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$1,935<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-teeth-whitening" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-teeth-whitening.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-teeth-whitening">Laser Teeth Whitening Technician</a></h3>
+            <p class="pcard__desc">Laser teeth whitening theory, teeth anatomy, safety protocols and live model practice.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>5 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$1,585<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam westvan">
+          <a class="pcard__media" href="program-microblading" tabindex="-1" aria-hidden="true">
+            <span class="pcard__badge">Kit Included</span><img src="assets/images/program-microblading.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-microblading">Microblading &amp; Ombr&eacute; Brows</a></h3>
+            <p class="pcard__desc">Microblading and Ombr&eacute;/powder/shading brow techniques on live models, starter kit included.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>30 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 wk full-time / 2 wks part-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam &amp; West Vancouver</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$4,085<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam westvan">
+          <a class="pcard__media" href="program-dermaplaning" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-dermaplaning.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-dermaplaning">Dermaplaning Technician</a></h3>
+            <p class="pcard__desc">Surgical blade dermaplaning: facial anatomy, safety, contraindications and live model practice.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>10 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam &amp; West Vancouver</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$1,585<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="aesthetics" data-cred="certificate" data-campus="coquitlam">
+          <a class="pcard__media" href="program-body-sculpting" tabindex="-1" aria-hidden="true">
+            <img src="assets/images/program-body-sculpting.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">School of Aesthetics</span>
+            <h3 class="pcard__title"><a href="program-body-sculpting">Cold Body Sculpting &amp; Contouring</a></h3>
+            <p class="pcard__desc">Cold Body Sculpting, RF, Cavitation and Lipo-Laser for body contouring and skin tightening.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>20 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>1 week full-time</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Coquitlam</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price">$4,035<small>plus taxes</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-school="ece" data-cred="certificate" data-campus="online">
+          <a class="pcard__media" href="program-ecea-health-safety-nutrition" tabindex="-1" aria-hidden="true">
+            <span class="pcard__badge">Online</span><img src="assets/images/program-ecea-health-safety-nutrition.jpg" alt="" loading="lazy" width="1400" height="933" />
+          </a>
+          <div class="pcard__body">
+            <span class="pcard__school">Early Childhood Education</span>
+            <h3 class="pcard__title"><a href="program-ecea-health-safety-nutrition">Health, Safety &amp; Nutrition (ECEA 101)</a></h3>
+            <p class="pcard__desc">Infection control, illness recognition, indoor and outdoor safety, emergency response, child nutrition and food safety.</p>
+            <ul class="pcard__specs"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>32 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>8 weeks, asynchronous</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Online</span></li></ul>
+            <div class="pcard__foot"><div class="pcard__price pcard__price--ask">Contact us<small>for tuition</small></div><span class="pcard__cta">View Details</span></div>
+          </div>
+        </article>
+        </div>
+    </div></section>
+      <section class="section section--alt">
+    <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Common Questions</span>
+          <h2>Before you enroll</h2>
+          <p class="lead">Answers to what students ask most about schedules, entry requirements and paying for a program.</p>
+        </div>
+        <div class="faq-grid stagger">
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                How long are the programs?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  It depends on the credential. Technician certificates run from 5 to 30 hours, typically one week full-time. Advanced certificates run 100 to 120 hours over 5 to 6 weeks full-time. Our Master of Cosmetic Aesthetics diploma is 800 hours over 28 weeks full-time, or 48 weeks part-time. The ECEA 101 course is 32 hours over 8 weeks, online and asynchronous. Every program card above lists its exact hours and schedule.
                 </div>
               </div>
             </div>
-          </article>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                When can I start? Is enrollment really year-round?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Yes. New cohorts begin on the first of each month, and you can start as soon as your registration and payment are complete. There is no single intake deadline to wait for.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                What are the admission requirements?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Requirements vary by program. Entry-level technician certificates are open to beginners. Advanced certificates have prerequisites, which are listed on each program card and detail page. For example, Advanced Laser requires the Laser IPL &amp; Diode Technician certificate or equivalent.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                Which campus should I attend?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  We run two campuses, Coquitlam and West Vancouver. Not every program runs at both, so each card above lists where that program is taught. The ECEA 101 course is delivered fully online.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                What is StudentAid BC and am I eligible?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  StudentAid BC is the provincial student financial assistance program. Because Ashford is designated by PTIRU, qualifying students may be eligible for StudentAid BC funding on eligible programs. Our Master of Cosmetic Aesthetics diploma is StudentAid BC eligible.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                Are there payment options other than StudentAid BC?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Yes. We offer interest-free installment plans, for example four monthly payments, and we accept tuition coverage from approved funding providers. Talk to an advisor about what fits your situation.
+                </div>
+              </div>
+            </div>
         </div>
-      
+        <p class="faq-more reveal"><a href="faq">See all frequently asked questions &rarr;</a></p>
     </div></section>
 
-      <section class="section section--alt">
+      <section class="section section--tight">
     <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Advanced Programs</span>
-          <h2>Multi-discipline Certifications</h2>
-          <p class="lead">Combine multiple skill sets into a single comprehensive program.</p>
+        <div class="accred-band reveal">
+          <div class="accred-band__text">
+            <span class="eyebrow">Accreditation</span>
+            <p>Ashford Career College is a designated private training institution regulated by the PTIRU within the Ministry of Post-Secondary Education. Qualified students may be eligible for StudentAid BC financial assistance for our designated programs.</p>
+          </div>
+          <div class="accred-band__logos">
+            <img src="assets/images/designated-PTIRU.png" alt="Designated PTIRU" loading="lazy" />
+            <img src="assets/images/student-aid.png" alt="StudentAid BC" loading="lazy" />
+            <img src="assets/images/bc-career-colleges.png" alt="BC Career Colleges Association" loading="lazy" />
+          </div>
         </div>
-
-        <div class="grid grid--3 stagger">
-          <article class="program-card reveal">
-            <div class="program-card__media"><img src="assets/images/card-laser.jpg" alt="Advanced Laser Program" loading="lazy" /></div>
-            <div class="program-card__body">
-              <h3>Advanced Laser Program</h3>
-              <p class="program-card__desc">100-hour program covering IPL, Diode, ND-YAG, Teeth Whitening &amp; CO2 Fractional lasers. Full-time: 5 weeks. Prerequisite: Laser IPL &amp; Diode Technician or equivalent.</p>
-              <div class="program-card__meta"><div class="program-card__price">$6,585<small>plus taxes</small></div><a href="program-advanced-laser" class="program-card__cta">View Details</a></div>
-            </div>
-          </article>
-          <article class="program-card reveal">
-            <div class="program-card__media"><img src="assets/images/card-microblading.jpg" alt="Advanced Skin Care Program" loading="lazy" /></div>
-            <div class="program-card__body">
-              <h3>Advanced Skin Care Program</h3>
-              <p class="program-card__desc">120-hour program covering Aesthetic Dermatology (40h), Chemical Peeling (20h), Microneedling (20h), Laser IPL (20h) &amp; RF/Cavitation/Lipo-Laser (20h). Full-time: 6 weeks. Prerequisite: Microdermabrasion &amp; Skin Care Technician or equivalent.</p>
-              <div class="program-card__meta"><div class="program-card__price">$7,585<small>plus taxes</small></div><a href="program-advanced-skincare" class="program-card__cta">View Details</a></div>
-            </div>
-          </article>
-          <article class="program-card reveal">
-            <div class="program-card__media"><span class="program-card__tag">Best Value</span><img src="assets/images/training.jpg" alt="Advanced Laser & Skin Care" loading="lazy" /></div>
-            <div class="program-card__body">
-              <h3>Advanced Laser &amp; Skin Care</h3>
-              <p class="program-card__desc">120-hour combined program covering Chemical Peeling (20h), Microdermabrasion (20h), Microneedling (20h), Cold Body Sculpting (20h), IPL/Diode (20h) &amp; ND-YAG (20h). Full-time: 6 weeks. Prerequisite: Aesthetic Dermatology Technician or equivalent.</p>
-              <div class="program-card__meta"><div class="program-card__price">$8,585<small>plus taxes</small></div><a href="program-advanced-laser-skincare" class="program-card__cta">View Details</a></div>
-            </div>
-          </article>
-        </div>
-      
-    </div></section>
-
-      <section class="section">
-    <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Technician Certifications</span>
-          <h2>Specialized Programs</h2>
-          <p class="lead">Targeted certifications to launch into a specific area of cosmetic aesthetics.</p>
-        </div>
-
-        <div class="grid grid--3 stagger">
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Skincare</span><span class="tag" style="margin-left:0.4rem;background:var(--color-gold-500);color:var(--color-white);">Popular</span><h3 style="margin-top:0.75rem;">Aesthetic Dermatology Technician</h3><p class="program-card__desc">30-hour Class B entry program covering facial assessment, IPL, RF &amp; galvanic devices, pore cleansing, microdermabrasion &amp; chemical peel intro. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$4,035<small>plus taxes</small></div><a href="program-aesthetic-dermatology" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Skincare</span><h3 style="margin-top:0.75rem;">Microdermabrasion &amp; Skin Care</h3><p class="program-card__desc">20-hour program covering high-frequency, galvanic &amp; ultrasonic devices, medical exfoliating, pore extraction &amp; chemical peel treatments. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$2,885<small>plus taxes</small></div><a href="program-microdermabrasion" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Laser</span><h3 style="margin-top:0.75rem;">IPL &amp; Diode Laser Technician</h3><p class="program-card__desc">20-hour certification in IPL &amp; Diode lasers for hair removal, skin rejuvenation, pigmentation &amp; spider vein treatments. Full-time: 1 week. Location: Coquitlam.</p><div class="program-card__meta"><div class="program-card__price">$3,435<small>plus taxes</small></div><a href="program-ipl-diode" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Laser</span><h3 style="margin-top:0.75rem;">Laser ND-YAG Technician</h3><p class="program-card__desc">20-hour certification covering ND-YAG, Picosecond &amp; Q-Switch lasers for tattoo removal, pigmentation reduction &amp; skin toning. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$1,935<small>plus taxes</small></div><a href="program-nd-yag" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Laser</span><h3 style="margin-top:0.75rem;">Laser Teeth Whitening Technician</h3><p class="program-card__desc">5-hour certification covering laser teeth whitening theory, teeth anatomy, safety protocols &amp; live model practice. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$1,585<small>plus taxes</small></div><a href="program-teeth-whitening" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Beauty</span><h3 style="margin-top:0.75rem;">Microblading &amp; Ombré Brows</h3><p class="program-card__desc">30-hour certification covering microblading &amp; Ombré/powder/shading brow techniques on live models — starter kit included. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$4,085<small>plus taxes</small></div><a href="program-microblading" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Beauty</span><h3 style="margin-top:0.75rem;">Dermaplaning Technician</h3><p class="program-card__desc">10-hour certification in surgical blade dermaplaning — facial anatomy, safety, contraindications &amp; live model practice. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$1,585<small>plus taxes</small></div><a href="program-dermaplaning" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Body</span><h3 style="margin-top:0.75rem;">Cold Body Sculpting &amp; Contouring</h3><p class="program-card__desc">20-hour certification in Cold Body Sculpting, RF, Cavitation &amp; Lipo-Laser for body contouring &amp; skin tightening. Full-time: 1 week.</p><div class="program-card__meta"><div class="program-card__price">$4,035<small>plus taxes</small></div><a href="program-body-sculpting" class="program-card__cta">View Details</a></div></div></article>
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">Diploma</span><h3 style="margin-top:0.75rem;">Master of Cosmetic Aesthetics</h3><p class="program-card__desc">Our flagship 800-hour diploma covering all programs — laser, skincare, body contouring, brows &amp; more. Full-time: 28 weeks. StudentAid BC eligible.</p><div class="program-card__meta"><div class="program-card__price">$14,085<small>plus taxes</small></div><a href="program-detail" class="program-card__cta">View Details</a></div></div></article>
-        </div>
-      
-    </div></section>
-
-      <section class="section section--alt">
-    <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Childhood Education</span>
-          <h2>Early Childhood Education Assistant</h2>
-          <p class="lead">Foundational online courses for anyone preparing to work with young children in childcare and early learning settings.</p>
-        </div>
-
-        <div class="grid grid--3 stagger">
-          <article class="program-card reveal"><div class="program-card__body"><span class="tag">ECEA</span><span class="tag" style="margin-left:0.4rem;">Online</span><h3 style="margin-top:0.75rem;">Health, Safety &amp; Nutrition</h3><p class="program-card__desc">32-hour foundational course (ECEA 101) covering infection control, illness recognition, indoor &amp; outdoor safety, emergency response, child nutrition &amp; food safety. Online, asynchronous: 8 weeks.</p><div class="program-card__meta"><div class="program-card__price" style="font-size:1rem;">Contact us<small>for tuition</small></div><a href="program-ecea-health-safety-nutrition" class="program-card__cta">View Details</a></div></div></article>
-        </div>
-
     </div></section>
 
       <section class="section">
@@ -167,12 +347,6 @@ gtag('config', 'AW-853928503');
       
     </div></section>
     </main>
-    <aside class="page-sidebar">
-      <div class="container">
-      <div data-include="components/get-details-form.html"></div>
-      <div data-include="components/designation.html"></div>
-    
-      </div></aside>
   </div>
 
 

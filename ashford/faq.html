@@ -252,22 +252,6 @@ gtag('config', 'AW-853928503');
   <div data-include="components/footer.html"></div>
 
   <script src="assets/js/main.js"></script>
-  <script>
-    document.querySelectorAll('.faq-question').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.closest('.faq-item');
-        var isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq-item.is-open').forEach(function(el) {
-          el.classList.remove('is-open');
-          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  </script>
 
   <!-- Back to Top -->
   <button id="back-to-top" aria-label="Back to top">

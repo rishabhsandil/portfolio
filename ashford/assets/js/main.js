@@ -161,6 +161,17 @@
   }
 
   // -- Mobile nav --------------------------------------------------------------
+  /* Scroll lock.
+     Do NOT set overflow on <body>: this stylesheet puts overflow-x:clip on <html>,
+     which disables body->viewport overflow propagation, so the lock silently fails.
+     Worse, giving <body> an overflow makes it a scroll container, which breaks the
+     sticky .site-header (its scrollport becomes <body>, which never scrolls) and the
+     header scrolls out of view, taking the close button with it.
+     Lock the real scroller, <html>, instead. */
+  function setScrollLock(on) {
+    document.documentElement.classList.toggle('is-scroll-locked', !!on);
+  }
+
   function initMobileNav() {
     var toggle = document.querySelector('.nav__toggle');
     var menu   = document.querySelector('.nav__menu');
@@ -170,7 +181,9 @@
       var isOpen = menu.classList.toggle('is-open');
       toggle.classList.toggle('is-open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = (isOpen && window.innerWidth <= 768) ? 'hidden' : '';
+      var mobile = window.innerWidth <= 768;
+      setScrollLock(isOpen && mobile);
+      document.body.classList.toggle('nav-open', isOpen && mobile);
     });
 
     // Handle dropdowns on mobile
@@ -196,7 +209,8 @@
           menu.classList.remove('is-open');
           toggle.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          setScrollLock(false);
+          document.body.classList.remove('nav-open');
         }
       });
     });
@@ -478,13 +492,13 @@
     function openDrawer() {
       drawer.classList.add('is-open');
       bar.classList.add('is-hidden');
-      document.body.style.overflow = 'hidden';
+      setScrollLock(true);
     }
 
     function closeDrawer() {
       drawer.classList.remove('is-open');
       bar.classList.remove('is-hidden');
-      document.body.style.overflow = '';
+      setScrollLock(false);
     }
 
     trigger  && trigger.addEventListener('click', openDrawer);
@@ -678,6 +692,113 @@
 
   // Load components then initialize everything that depends on the DOM
   // Load Cloudflare Turnstile after components are in the DOM
+  /* ---- Programs directory filters ----
+     Chips are additive across groups (school AND credential AND campus) and
+     exclusive within a group. Everything is already in the DOM, so this is a
+     show/hide pass, no fetching and no re-render. */
+  function initProgramFilters() {
+    var grid = document.getElementById('pgrid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.pcard'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.pfilter .chip'));
+    var countEl = document.getElementById('pcount');
+    var emptyEl = document.getElementById('pempty');
+    var resetEl = document.getElementById('preset');
+    var state = { school: 'all', cred: 'all', campus: 'all' };
+
+    function matches(card) {
+      for (var key in state) {
+        if (state[key] === 'all') continue;
+        var val = card.getAttribute('data-' + key) || '';
+        // campus is a space separated list ("coquitlam westvan")
+        if ((' ' + val + ' ').indexOf(' ' + state[key] + ' ') === -1) return false;
+      }
+      return true;
+    }
+
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (c) {
+        var ok = matches(c);
+        c.hidden = !ok;
+        if (ok) shown++;
+      });
+      if (countEl) {
+        countEl.textContent = shown === cards.length
+          ? 'Showing all ' + cards.length + ' programs'
+          : 'Showing ' + shown + ' of ' + cards.length + ' programs';
+      }
+      if (emptyEl) emptyEl.hidden = shown !== 0;
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var group = chip.getAttribute('data-filter');
+        state[group] = chip.getAttribute('data-value');
+        chips.forEach(function (c) {
+          if (c.getAttribute('data-filter') === group) {
+            c.classList.toggle('is-active', c === chip);
+          }
+        });
+        apply();
+      });
+    });
+
+    if (resetEl) {
+      resetEl.addEventListener('click', function () {
+        state = { school: 'all', cred: 'all', campus: 'all' };
+        chips.forEach(function (c) {
+          c.classList.toggle('is-active', c.getAttribute('data-value') === 'all');
+        });
+        apply();
+      });
+    }
+
+    /* deep link: programs?school=ece drops straight into that school */
+    var q = new URLSearchParams(window.location.search);
+    ['school', 'cred', 'campus'].forEach(function (k) {
+      var v = q.get(k);
+      if (!v) return;
+      var chip = document.querySelector('.pfilter .chip[data-filter="' + k + '"][data-value="' + v + '"]');
+      if (chip) chip.click();
+    });
+
+    apply();
+  }
+
+  /* ---- FAQ accordions ----
+     Lives here rather than inline on faq.html so any page can use .faq-item.
+     One open at a time, matching the original faq.html behaviour. */
+  function initFaq() {
+    var btns = document.querySelectorAll('.faq-question');
+    if (!btns.length) return;
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item.is-open').forEach(function (el) {
+          el.classList.remove('is-open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  /* ---- Desktop action rail ----
+     Only shown where there is no sidebar form to duplicate, and only above the
+     mobile-cta-bar breakpoint so the two CTAs never appear together. */
+  function initActionRail() {
+    var rail = document.getElementById('action-rail');
+    if (!rail) return;
+    if (document.querySelector('.page-sidebar')) return;
+    if (window.innerWidth <= 768) return;
+    rail.classList.add('is-active');
+  }
+
   function loadTurnstile() {
     if (document.getElementById('cf-turnstile-script')) return;
     if (!document.querySelector('.cf-turnstile')) return; // no widgets on this page
@@ -703,6 +824,9 @@
     initGenericForms();
     initMagneticButtons();
     initMobileDrawer();
+    initProgramFilters();
+    initFaq();
+    initActionRail();
     // initEmailPopup(); // Disabled: home screen subscription popup
   });
 
