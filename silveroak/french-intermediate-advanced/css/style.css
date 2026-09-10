@@ -236,36 +236,6 @@ button,input,select,textarea{font:inherit;color:inherit}
   color:var(--onDark);font-size:1.0625rem;line-height:1.7;
 }
 
-/* ---------- the two immigration routes ----------
-   Question, arrow, answer. On the wide layout the arrow sits in its own column
-   so both rows align on it; below 640px it rotates to point down and the row
-   becomes a simple stack. */
-.routes{display:grid;gap:14px;margin-top:28px;max-width:40rem}
-.routes li{
-  display:grid;grid-template-columns:auto;gap:10px;
-  background:var(--deep-2);border:1px solid var(--deep-line);border-radius:var(--r);
-  padding:18px 20px;
-}
-.routes__q{
-  font-family:var(--body);font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;
-}
-.routes__arw{display:block;line-height:0}
-.routes__arw svg{
-  width:22px;height:22px;fill:none;stroke:var(--lime);stroke-width:1.8;
-  stroke-linecap:round;stroke-linejoin:round;transform:rotate(90deg);
-}
-.routes__a{
-  font-family:var(--body);font-size:.9375rem;line-height:1.65;color:var(--onDark);
-}
-.routes__a b{color:var(--lime-bright);font-weight:700}
-@media (min-width:640px){
-  /* the question is short, so it takes a tight column and the answer keeps the
-     rest; a fixed wider question column squeezed the answer to five lines at
-     laptop widths */
-  .routes li{grid-template-columns:minmax(0,10rem) auto minmax(0,1fr);align-items:center;gap:0 18px}
-  .routes__arw svg{transform:none}
-}
-
 .hero__media{
   margin:0;border:1px solid var(--deep-line);border-radius:var(--r);padding:8px;
   background:rgba(255,255,255,.03);
@@ -402,6 +372,36 @@ button,input,select,textarea{font:inherit;color:inherit}
    rather than leaving the copy first and flipping with `order`. Flipping would
    have left a keyboard user on a phone tabbing into the copy's phone and
    WhatsApp links before reaching the form sitting above them. */
+/* ---------- the two immigration routes ----------
+   These sat in the hero on the deep surface and now sit below the form on the
+   light band, so they take the light tokens: white cards, ink question, muted
+   answer, and --accent for the CLB figures. The lime they used before is
+   1.95:1 on a pale background and would have been unreadable.
+
+   Each card stacks question, arrow, answer, and the arrow points down. Two
+   cards sit side by side from 768px, which fills the full width the section
+   gives them without stretching either answer into an over-long measure. */
+.routes{display:grid;grid-template-columns:1fr;gap:16px}
+.routes li{
+  display:grid;gap:10px;justify-items:start;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;
+}
+.routes__q{
+  font-family:var(--body);font-size:1.0625rem;font-weight:700;
+  color:var(--deep);letter-spacing:-.01em;
+}
+.routes__arw{display:block;line-height:0}
+.routes__arw svg{
+  width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;transform:rotate(90deg);
+}
+.routes__a{font-family:var(--body);font-size:.9375rem;line-height:1.7;color:var(--muted)}
+.routes__a b{color:var(--accent);font-weight:700}
+@media (min-width:768px){
+  .routes{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+}
+
 .demo__in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:48px}
 .demo__text .lede{margin-inline:0;max-width:34rem}
 .demo__text .ticks{margin-top:32px}
@@ -410,6 +410,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   .demo__in{grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:64px;align-items:start}
   .demo__text{grid-column:1;grid-row:1}
   .form{grid-column:2;grid-row:1}
+  .routes{grid-column:1 / -1;grid-row:2}
 }
 
 /* ---------- form card ---------- */
