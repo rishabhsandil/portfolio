@@ -151,6 +151,54 @@
     }, { passive: true });
   }
 
+  // -- Measure the in-flow chrome above the hero ----------------------------------
+  // The topbar and header sit above the hero in normal flow, so a full-screen
+  // hero has to subtract their real height rather than a guessed constant.
+  function initChromeHeight() {
+    if (!document.querySelector('.hero--full')) return;
+
+    function measure() {
+      var h = 0;
+      ['.topbar', '.site-header'].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el && el.offsetParent !== null) h += el.offsetHeight;
+      });
+      if (h) document.documentElement.style.setProperty('--chrome-h', h + 'px');
+    }
+
+    measure();
+    var raf;
+    window.addEventListener('resize', function () {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(measure);
+    }, { passive: true });
+  }
+
+  // -- Rotating hero backdrop -----------------------------------------------------
+  function initHeroRotator() {
+    var slides = [].slice.call(document.querySelectorAll('.hero__slide'));
+    if (slides.length < 2) return;
+    // The rotation is decorative, so hold the first frame when motion is unwanted.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var i = 0;
+    var HOLD = 6000;
+    var timer = setInterval(advance, HOLD);
+
+    function advance() {
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }
+
+    // Nothing to crossfade while the tab is hidden, and resuming mid-fade looks
+    // like a jump, so pause and restart cleanly.
+    document.addEventListener('visibilitychange', function () {
+      clearInterval(timer);
+      if (!document.hidden) timer = setInterval(advance, HOLD);
+    });
+  }
+
   // -- Marquee duplication --------------------------------------------------------
   function initMarquee() {
     var track = document.querySelector('.marquee-track');
@@ -231,6 +279,74 @@
   function initFooterYear() {
     var yearEl = document.getElementById('current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+  }
+
+  // -- Programs tree menu -------------------------------------------------------
+  // Desktop: a rail of schools on the left; hovering one swaps the panel on the
+  // right. Mobile: the same branches become an accordion, collapsed by default,
+  // so the panel opens to three rows instead of every course on the site.
+  function initMegaTree() {
+    var tree = document.querySelector('.mega-tree');
+    if (!tree) return;
+    var branches = [].slice.call(tree.querySelectorAll('.mega-tree__branch'));
+    if (!branches.length) return;
+
+    function isMobile() { return window.innerWidth <= 768; }
+
+    function setActive(branch) {
+      branches.forEach(function (b) { b.classList.toggle('is-active', b === branch); });
+    }
+
+    // "All Programs" is only a link to the catalogue, so it has no panel. Panelled
+    // branches are the ones the rail can actually reveal.
+    var panelled = branches.filter(function (b) { return b.querySelector('.mega-tree__panel'); });
+
+    function reset() {
+      // Desktop always shows a panel, so the first panelled branch stays open.
+      // Mobile starts fully collapsed.
+      branches.forEach(function (b) {
+        b.classList.toggle('is-active', !isMobile() && b === panelled[0]);
+      });
+    }
+
+    branches.forEach(function (branch) {
+      var item = branch.querySelector('.mega-tree__item');
+      if (!item) return;
+
+      // Desktop: hover and keyboard focus both reveal the panel.
+      ['mouseenter', 'focusin'].forEach(function (evt) {
+        branch.addEventListener(evt, function () {
+          if (isMobile()) return;
+          // A panel-less branch leaves whatever school is showing in place.
+          if (!branch.querySelector('.mega-tree__panel')) return;
+          setActive(branch);
+        });
+      });
+
+      item.addEventListener('click', function (e) {
+        if (!isMobile()) return;
+        // "All Programs" is a plain link on mobile: it has no panel to open, and
+        // it is the only route to programs.html once the rail items toggle.
+        if (!branch.querySelector('.mega-tree__panel')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var wasOpen = branch.classList.contains('is-active');
+        branches.forEach(function (b) { b.classList.remove('is-active'); });
+        if (!wasOpen) branch.classList.add('is-active');
+      });
+    });
+
+    // Reopening Programs should start from the default state.
+    var mega = document.querySelector('.nav__item.has-mega');
+    if (mega && 'MutationObserver' in window) {
+      new MutationObserver(function () {
+        if (!mega.classList.contains('is-open')) reset();
+      }).observe(mega, { attributes: true, attributeFilter: ['class'] });
+      mega.addEventListener('mouseleave', reset);
+    }
+
+    reset();
+    window.addEventListener('resize', reset);
   }
 
   // -- Landing page field locks -------------------------------------------------
@@ -814,9 +930,12 @@
     loadTurnstile();
     initHeaderScroll();
     initMobileNav();
+    initMegaTree();
     initActiveNav();
     initScrollReveal();
     initCounters();
+    initChromeHeight();
+    initHeroRotator();
     initMarquee();
     initFooterYear();
     initForms();

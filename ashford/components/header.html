@@ -35,18 +35,29 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </a>
               <div class="dropdown mega-menu">
-                <!-- On mobile the parent "Programs" link only toggles this panel, so this
-                     row is the route to programs.html. First child so it is the first
-                     thing seen after tapping Programs. -->
-                <a class="mega-menu__all" href="programs">
-                  View all programs
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-                </a>
-                <div class="mega-menu__body">
-                  <!-- School block - duplicate this .mega-school for additional schools -->
-                  <div class="mega-school">
-                    <h3 class="mega-school__title">School of Aesthetics</h3>
-                    <div class="mega-school__cols">
+                <div class="mega-tree">
+
+                  <!-- Branch: a rail item plus the panel it reveals. Duplicate to add a school. -->
+                  <div class="mega-tree__branch mega-tree__branch--direct">
+                    <a href="programs" class="mega-tree__item">
+                      <span class="mm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+                      <span class="mega-tree__label">All Programs</span>
+                      <svg class="mega-tree__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                  </div>
+
+                  <div class="mega-tree__branch">
+                    <a href="programs" class="mega-tree__item">
+                      <span class="mm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.9 5.1L19 9l-5.1 1.9L12 16l-1.9-5.1L5 9l5.1-1.9L12 2z"/><path d="M18 15l.7 1.9L21 18l-2.3.6L18 21l-.7-2.4L15 18l2.3-.1L18 15z"/></svg></span>
+                      <span class="mega-tree__label">Beauty &amp; Aesthetics</span>
+                      <svg class="mega-tree__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                    <div class="mega-tree__panel">
+                      <div class="mega-tree__panel-head">
+                        <h3>Beauty &amp; Aesthetics</h3>
+                        <a href="programs" class="mega-tree__viewall">View all <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                      </div>
+                      <div class="mega-tree__cols">
                       <div class="mega-menu__col">
                         <div class="mega-menu__group">
                           <h4><span class="mm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg></span>Diplomas</h4>
@@ -92,23 +103,34 @@
                           </ul>
                         </div>
                       </div>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- School block - duplicate this .mega-school for additional schools -->
-                  <div class="mega-school">
-                    <h3 class="mega-school__title">Early Childhood Education</h3>
-                    <div class="mega-school__cols">
+                  <div class="mega-tree__branch">
+                    <a href="programs" class="mega-tree__item">
+                      <span class="mm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                      <span class="mega-tree__label">Childcare &amp; Education</span>
+                      <svg class="mega-tree__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                    <div class="mega-tree__panel">
+                      <div class="mega-tree__panel-head">
+                        <h3>Childcare &amp; Education</h3>
+                        <a href="programs" class="mega-tree__viewall">View all <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                      </div>
+                      <div class="mega-tree__cols">
                       <div class="mega-menu__col">
                         <div class="mega-menu__group">
                           <h4><span class="mm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Certificate Courses</h4>
                           <ul class="mega-menu__list">
-                            <li><a href="program-ecea-health-safety-nutrition" class="mega-menu__link">Health, Safety &amp; Nutrition (ECEA 101)</a></li>
+                            <li><a href="program-ecea-health-safety-nutrition" class="mega-menu__link">Early Childhood Assistant (Health, Safety &amp; Nutrition ECEA 101)</a></li>
                           </ul>
                         </div>
                       </div>
+                      </div>
                     </div>
                   </div>
+
                 </div>
 
                 <!-- Footer CTA - full-bleed bar across the panel -->
@@ -126,10 +148,12 @@
               </a>
               <div class="dropdown">
                 <a href="admissions" class="dropdown__link">How to Apply</a>
-                <a href="tuition" class="dropdown__link">Tuition &amp; Funding</a>
+                <a href="tuition" class="dropdown__link">Tuition</a>
                 <a href="registration" class="dropdown__link">Registration</a>
               </div>
             </li>
+
+            <li class="nav__item"><a href="tuition#funding" class="nav__link">Financial Aid</a></li>
 
             <li class="nav__item has-dropdown">
               <a href="about" class="nav__link">
@@ -141,6 +165,7 @@
                 <a href="accreditation" class="dropdown__link">Accreditation</a>
                 <a href="faq" class="dropdown__link">FAQ</a>
                 <a href="contact#locations" class="dropdown__link">Locations</a>
+                <a href="contact" class="dropdown__link">Contact Us</a>
               </div>
             </li>
 
@@ -150,11 +175,11 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </a>
               <div class="dropdown">
+                <span class="dropdown__label">Beauty &amp; Aesthetics</span>
                 <a href="https://bcmedicalspa.com" class="dropdown__link" target="_blank" rel="noopener">BC Medical Spa</a>
               </div>
             </li>
 
-            <li class="nav__item"><a href="contact" class="nav__link">Contact</a></li>
           </ul>
           <a href="registration" class="btn btn--gold">Apply Now</a>
         </div>

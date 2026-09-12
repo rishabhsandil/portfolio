@@ -28,38 +28,73 @@ gtag('config', 'AW-853928503');
   <div data-include="components/header.html"></div>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero__bg" role="img" aria-label="Career training at Ashford Career College"></div>
+  <section class="hero hero--center hero--full">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__slide hero__slide--students is-active"></div>
+      <div class="hero__slide hero__slide--aesthetics"></div>
+      <div class="hero__slide hero__slide--childcare"></div>
+    </div>
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__inner">
-        <span class="eyebrow fade-up">Designated Private Training Institution</span>
-        <h1 class="fade-up delay-1">Advance Your Career.</h1>
+        <span class="eyebrow fade-up">Career-Focused Education</span>
+        <h1 class="fade-up delay-1">Build Skills. Start a Career. <br class="hero__br" />Shape Your Future.</h1>
         <p class="fade-up delay-2">
-          Train with expert instructors in hands-on, accredited programs spanning across top industries. Ashford sets you up with skills in high demand fields, small class sizes, and StudentAid BC funding for eligible programs.
+          Practical, career-focused education designed to prepare you with the skills, knowledge and confidence for the real world.
         </p>
         <div class="hero__actions fade-up delay-3">
           <a href="programs" class="btn btn--gold btn--lg">Explore Programs</a>
-          <a href="registration" class="btn btn--outline-light btn--lg">Register Today</a>
+          <a href="contact" class="btn btn--outline-light btn--lg">Request Information</a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- Stats band: overlaps the hero, WCC-style -->
-  <section class="statband">
+  <!-- Trust bar: compact credibility strip directly under the hero -->
+  <section class="trustbar">
     <div class="container">
-      <div class="statband__inner reveal">
-        <div class="statband__lead">
-          <h2>A designated college, built for working lives</h2>
-          <p>Small hands-on classes, industry-experienced instructors and start dates every month across two BC campuses and online.</p>
+      <div class="trustbar__grid reveal">
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>Designated Institution</h3>
+          <p>Regulated by the Private Training Institutions Regulatory Unit (PTIRU).</p>
         </div>
-        <div class="statband__figures">
-          <div class="statband__figure"><strong>800h</strong><span>Diploma Hours</span></div>
-          <div class="statband__figure"><strong>20+</strong><span>Certifications</span></div>
-          <div class="statband__figure"><strong>2</strong><span>BC Campuses</span></div>
-          <div class="statband__figure"><strong>Year-Round</strong><span>Enrollment</span></div>
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Career-Focused Education</h3>
+          <p>Programs designed with practical career outcomes in mind.</p>
+        </div>
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+          </div>
+          <h3>Small Class Sizes</h3>
+          <p>Personalized instruction in small classes.</p>
+        </div>
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Year-Round Enrolment</h3>
+          <p>New cohorts begin on the first of each month.</p>
+        </div>
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3>Flexible Funding</h3>
+          <p>Installment plans and StudentAid BC funding for eligible programs.</p>
+        </div>
+        <div class="trust-tile">
+          <div class="trust-tile__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Two BC Campuses</h3>
+          <p>Train in Coquitlam Centre or West Vancouver.</p>
         </div>
       </div>
     </div>
@@ -67,85 +102,42 @@ gtag('config', 'AW-853928503');
 
   <div class="home-main">
     <main>
-      <!-- Why Choose Us -->
-      <section class="section">
+      <!-- Introducing Ashford: the brand-reset statement -->
+      <section class="section section--alt intro">
         <div class="container">
-          <div class="section-header reveal">
-            <span class="eyebrow">Why Ashford Career College</span>
-            <h2>An accredited path to a thriving career.</h2>
-            <p class="lead">We are a designated training institution regulated by the Private Training Institutions Regulatory Unit (PTIRU), committed to practical, career-aligned education that prepares students for in-demand professional careers.</p>
-          </div>
-
-          <div class="grid grid--3 stagger">
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <h3>Designated &amp; Regulated</h3>
-              <p>Programs are reviewed and approved by PTIRU within the BC Ministry of Post-Secondary Education and Future Skills.</p>
-            </div>
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
-              <h3>Career-Ready Skills</h3>
-              <p>Hands-on training on live models with the technology and tools used in modern medical spas and clinics.</p>
-            </div>
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-              </div>
-              <h3>Flexible Funding</h3>
-              <p>Interest-free installment plans, approved funding partners, and StudentAid BC eligibility for qualified programs.</p>
-            </div>
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h3>Small Class Sizes</h3>
-              <p>Personalized instruction from industry-experienced educators in an immersive learning environment.</p>
-            </div>
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </div>
-              <h3>Year-Round Enrollment</h3>
-              <p>New cohorts begin on the first of each month — start as soon as your registration is complete.</p>
-            </div>
-            <div class="feature-card reveal">
-              <div class="feature-card__icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <h3>Two BC Campuses</h3>
-              <p>Train in Coquitlam Centre or West Vancouver — convenient access from across Greater Vancouver.</p>
-            </div>
+          <div class="intro__inner reveal">
+            <span class="eyebrow">Welcome to Ashford Career College</span>
+            <h2>Education With a Purpose.</h2>
+            <p class="lead">At Ashford Career College, education is about more than earning a credential. It's about developing practical skills, building confidence and preparing for what comes next.</p>
+            <p>Our career-focused programs combine relevant education, practical learning and student support to help learners prepare for opportunities in today's workforce.</p>
+            <p>As Ashford continues to grow, our vision is simple: to provide accessible, practical and meaningful education across a diverse range of career fields.</p>
           </div>
         </div>
       </section>
 
       <!-- Schools mosaic: the module that carries "more than beauty" -->
-      <section class="section section--alt">
+      <section class="section">
         <div class="container">
           <div class="section-header reveal">
-            <span class="eyebrow">Our Schools</span>
-            <h2>Find the field that fits you</h2>
-            <p class="lead">Ashford trains for careers in professional aesthetics and in early childhood education.</p>
+            <span class="eyebrow">Explore Your Options</span>
+            <h2>Find Your Career Path</h2>
+            <p class="lead">Explore career-focused education designed to help you build practical skills and pursue opportunities in growing industries.</p>
           </div>
           <div class="schools">
-            <a class="school reveal" href="programs?school=aesthetics">
-              <img src="assets/images/discipline-aesthetics.jpg" alt="" loading="lazy" width="1125" height="750" />
-              <div class="school__body">
-                <h3>School of Aesthetics</h3>
-                <p>Laser, skin care, brows and body contouring, from one-week technician certificates to the 800-hour Master of Cosmetic Aesthetics diploma.</p>
-                <span class="school__cta">12 programs</span>
-              </div>
-            </a>
             <a class="school reveal" href="programs?school=ece">
               <img src="assets/images/discipline-ece.jpg" alt="" loading="lazy" width="1125" height="750" />
               <div class="school__body">
-                <h3>Early Childhood Education</h3>
-                <p>Foundational online courses for anyone preparing to work with young children.</p>
+                <h3>Childcare &amp; Education</h3>
+                <p>Help support the learning and development of the next generation.</p>
                 <span class="school__cta">1 program</span>
+              </div>
+            </a>
+            <a class="school reveal" href="programs?school=aesthetics">
+              <img src="assets/images/discipline-aesthetics.jpg" alt="" loading="lazy" width="1125" height="750" />
+              <div class="school__body">
+                <h3>Beauty &amp; Aesthetics</h3>
+                <p>Turn your passion for beauty and aesthetics into professional skills.</p>
+                <span class="school__cta">12 programs</span>
               </div>
             </a>
             <a class="school school--cta reveal" href="programs">
@@ -161,43 +153,335 @@ gtag('config', 'AW-853928503');
         </div>
       </section>
 
-      <!-- About snippet -->
+      <!-- Featured Programs: the approved ECA program leads, so the first
+           program a visitor sees is not an aesthetics one -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Featured Programs</span>
+            <h2>Programs Open for Enrolment</h2>
+            <p class="lead">Programs currently accepting students, across every area of study we offer.</p>
+          </div>
+          <div class="grid grid--3 stagger">
+            <article class="program-card reveal">
+              <a class="program-card__media" href="program-ecea-health-safety-nutrition" tabindex="-1" aria-hidden="true">
+                <span class="program-card__tag">Online</span>
+                <img src="assets/images/program-ecea-health-safety-nutrition.jpg" alt="" loading="lazy" width="1400" height="933" />
+              </a>
+              <div class="program-card__body">
+                <span class="program-card__school">Childcare &amp; Education</span>
+                <h3><a href="program-ecea-health-safety-nutrition">Early Childhood Assistant (ECA)</a></h3>
+                <p class="program-card__desc">Build foundational knowledge and skills to support children's learning, development and well-being in early childhood settings.</p>
+                <div class="program-card__meta">
+                  <span class="program-card__spec">Certificate &middot; 32 hours &middot; Online</span>
+                  <span class="program-card__cta">View Program</span>
+                </div>
+              </div>
+            </article>
+            <article class="program-card reveal">
+              <a class="program-card__media" href="program-detail" tabindex="-1" aria-hidden="true">
+                <span class="program-card__tag">StudentAid BC Eligible</span>
+                <img src="assets/images/program-master.jpg" alt="" loading="lazy" width="1400" height="933" />
+              </a>
+              <div class="program-card__body">
+                <span class="program-card__school">Beauty &amp; Aesthetics</span>
+                <h3><a href="program-detail">Master of Cosmetic Aesthetics</a></h3>
+                <p class="program-card__desc">Full training and certification in every course we offer: skin care, laser, brows, lashes, body contouring and more.</p>
+                <div class="program-card__meta">
+                  <span class="program-card__spec">Diploma &middot; 800 hours &middot; Coquitlam &amp; West Vancouver</span>
+                  <span class="program-card__cta">View Program</span>
+                </div>
+              </div>
+            </article>
+            <article class="program-card reveal">
+              <a class="program-card__media" href="program-ipl-diode" tabindex="-1" aria-hidden="true">
+                <img src="assets/images/program-ipl-diode.jpg" alt="" loading="lazy" width="1400" height="933" />
+              </a>
+              <div class="program-card__body">
+                <span class="program-card__school">Beauty &amp; Aesthetics</span>
+                <h3><a href="program-ipl-diode">IPL &amp; Diode Laser Technician</a></h3>
+                <p class="program-card__desc">IPL and Diode lasers for hair removal, skin rejuvenation, pigmentation and spider vein treatments.</p>
+                <div class="program-card__meta">
+                  <span class="program-card__spec">Certificate &middot; 20 hours &middot; Coquitlam</span>
+                  <span class="program-card__cta">View Program</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="featured-more reveal"><a href="programs">View all programs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></p>
+        </div>
+      </section>
+
+      <!-- Why Choose Ashford: the educational proposition, four items only -->
       <section class="section">
         <div class="container">
-          <div class="split">
-            <div class="reveal">
-              <span class="eyebrow">Our Mission</span>
-              <h2>Empowering students with real-world, career-ready skills.</h2>
-              <p>At Ashford Career College, we are dedicated to empowering students through expert-led, practical career training. Our hands-on, accredited programs are designed to build confident, job-ready graduates — conveniently located in the heart of the Lower Mainland.</p>
-              <ul class="check-list mt-3">
-                <li>Designated by PTIRU under BC's Private Training Act</li>
-                <li>StudentAid BC eligible programs available</li>
-                <li>Industry-experienced instructors and live-model practicums</li>
-                <li>Graduates ready to launch independent or clinic-based careers</li>
-              </ul>
-              <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-5);">
-                <a href="about" class="btn btn--outline">About Our Institution</a>
-                <a href="faq" class="btn btn--outline">View FAQ</a>
+          <div class="section-header reveal">
+            <span class="eyebrow">Why Ashford</span>
+            <h2>Why Choose Ashford?</h2>
+          </div>
+
+          <div class="grid tile-grid tile-grid--4 stagger">
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
               </div>
+              <h3>Practical Learning</h3>
+              <p>Develop skills through applied, career-focused education.</p>
             </div>
-            <div class="split__media split__media--frame reveal">
-              <img src="assets/images/program-master.jpg" alt="An Ashford instructor teaching facial anatomy to a student" loading="lazy" />
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Experienced Instructors</h3>
+              <p>Learn from knowledgeable instructors with relevant professional experience.</p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <h3>Career-Focused Programs</h3>
+              <p>Build skills that connect your education with the workplace.</p>
+            </div>
+            <div class="feature-card reveal">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h3>Supportive Environment</h3>
+              <p>Receive support throughout your educational journey.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- The Ashford Experience: photo mosaic, where the college becomes tangible -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Life at Ashford</span>
+            <h2>Learn. Connect. Grow.</h2>
+            <p class="lead">Education is more than what happens in a textbook. At Ashford, students learn in an environment designed to encourage participation, practical experience and personal growth.</p>
+          </div>
+          <div class="experience reveal">
+            <figure class="experience__tile">
+              <img src="assets/images/program-master.jpg" alt="An Ashford instructor teaching facial anatomy to a student" loading="lazy" />
+              <figcaption>Classroom Instruction</figcaption>
+            </figure>
+            <figure class="experience__tile">
+              <img src="assets/images/hero-home.jpg" alt="Ashford students between classes on campus" loading="lazy" />
+              <figcaption>Student Life</figcaption>
+            </figure>
+            <figure class="experience__tile">
+              <img src="assets/images/discipline-ece.jpg" alt="An early childhood learning environment" loading="lazy" />
+              <figcaption>Early Childhood Learning</figcaption>
+            </figure>
+            <figure class="experience__tile">
+              <img src="assets/images/program-advanced-laser.jpg" alt="A student practising laser technique on a live model" loading="lazy" />
+              <figcaption>Practical Training</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- From Education to Career: the four-step journey, plotted as waypoints
+           on the roadmap visual already used for the About page timeline -->
+      <section class="section journey-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Your Journey</span>
+            <h2>From Education to Career</h2>
+          </div>
+          <div class="journey-path">
+            <div class="journey-path__road" aria-hidden="true">
+              <img src="assets/images/roadmap-road.png" alt="" class="roadmap-bg-img" loading="lazy" width="4000" height="4000" />
+            </div>
+            <div class="journey-path__steps">
+              <div class="jwaypoint jwaypoint--s1 reveal">
+                <span class="jwaypoint__num">01</span>
+                <div class="jwaypoint__body">
+                  <h4>Learn</h4>
+                  <p>Build foundational knowledge.</p>
+                </div>
+              </div>
+              <div class="jwaypoint jwaypoint--s2 reveal">
+                <span class="jwaypoint__num">02</span>
+                <div class="jwaypoint__body">
+                  <h4>Practice</h4>
+                  <p>Apply what you learn.</p>
+                </div>
+              </div>
+              <div class="jwaypoint jwaypoint--s3 reveal">
+                <span class="jwaypoint__num">03</span>
+                <div class="jwaypoint__body">
+                  <h4>Prepare</h4>
+                  <p>Develop professional and career-ready skills.</p>
+                </div>
+              </div>
+              <div class="jwaypoint jwaypoint--s4 reveal">
+                <span class="jwaypoint__num">04</span>
+                <div class="jwaypoint__body">
+                  <h4>Progress</h4>
+                  <p>Take the next step toward your career goals.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Student Support: reads as a full institution, not a training academy -->
+      <section class="section section--dark support-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow" style="color: var(--color-gold-300);">We&rsquo;re Here For You</span>
+            <h2>Support Throughout Your Journey</h2>
+            <p class="lead">Starting a new educational journey is a big decision. Our team is here to help you understand your options and support you from your first inquiry through your time at Ashford.</p>
+          </div>
+          <div class="support-grid stagger">
+            <div class="support-item reveal">
+              <div class="support-item__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+              </div>
+              <h3>Admissions Support</h3>
+              <p>Help understanding programs and admission requirements.</p>
+            </div>
+            <div class="support-item reveal">
+              <div class="support-item__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3>Financial Information</h3>
+              <p>Explore available financial options and resources.</p>
+            </div>
+            <div class="support-item reveal">
+              <div class="support-item__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="9.17" y1="14.83" x2="4.93" y2="19.07"/></svg>
+              </div>
+              <h3>Student Services</h3>
+              <p>Access resources designed to support your education.</p>
+            </div>
+            <div class="support-item reveal">
+              <div class="support-item__icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <h3>Career Support</h3>
+              <p>Prepare for the transition from education to employment.</p>
+            </div>
+          </div>
+          <p class="support-cta reveal">
+            <a href="contact" class="btn btn--gold">Speak With an Advisor</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Financial Options: claims stay conservative and program-specific -->
+      <section class="section section--alt finance-section">
+        <div class="container">
+          <div class="finance reveal">
+            <div class="finance__body">
+              <span class="eyebrow">Invest in Your Future</span>
+              <h2>Explore Your Financial Options</h2>
+              <p>Education is an investment in your future. Financial assistance may be available to eligible students and programs. Our team can help you understand the options that may be available to you.</p>
+              <a href="tuition#funding" class="btn btn--primary btn--lg">Learn About Financial Options</a>
+            </div>
+            <div class="finance__badge">
+              <img src="assets/images/student-aid.png" alt="StudentAid BC" loading="lazy" width="546" height="307" />
+              <p>Ashford Career College is designated by StudentAid BC for eligible programs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ: concise accordions, also carrying internal links -->
+      <section class="section faq-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Questions</span>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-grid stagger">
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                Is Ashford Career College designated by PTIRU?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Yes. Ashford is a designated private training institution, regulated by the Private Training Institutions Regulatory Unit (PTIRU) within the BC Ministry of Post-Secondary Education and Future Skills. Designation means our programs meet provincial standards for curriculum, student protection and institutional quality. <a href="accreditation">Read about our designation &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                What programs does Ashford Career College offer?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Ashford offers programs across two areas of study: Childcare &amp; Education, and Beauty &amp; Aesthetics. They range from short technician certificates through to the 800-hour Master of Cosmetic Aesthetics diploma, with one course delivered fully online. <a href="programs">View all programs &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                How do I apply to Ashford?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Request information or submit a registration form, and an advisor will walk you through the requirements for your program. Most programs ask for a Grade 12 diploma or equivalent and English language proficiency sufficient to follow instruction. Some advanced programs have prerequisites, which are listed on each program page. <a href="admissions">See admission requirements &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                When do programs start?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  New cohorts begin on the first of each month at both campuses. Once your registration is complete you can join the next available intake, so there are no fixed semester start dates to wait for.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                Is financial assistance available?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Financial assistance may be available to eligible students and programs. Ashford is designated by StudentAid BC, so students in qualifying programs may be able to apply for provincial and federal student assistance, and interest-free installment plans are also offered. Eligibility depends on your program and circumstances, so speak with our team to confirm what applies to you. <a href="tuition#funding">Explore financial options &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-question" aria-expanded="false">
+                Where are Ashford&rsquo;s campuses?
+                <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer__inner">
+                  Ashford has two campuses: Coquitlam Centre at 1214-2929 Barnet Highway, and West Vancouver at 1854 Marine Drive. Both are accessible from across Greater Vancouver, and a third campus in Surrey is coming soon. Not every program runs at both campuses, so each program page lists where it is taught, and the Early Childhood Assistant course is delivered fully online. <a href="contact">Find our campuses &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="faq-more reveal"><a href="faq">See all frequently asked questions &rarr;</a></p>
+        </div>
+      </section>
+
+      <!-- Final CTA: one image, one message, two clear actions -->
       <section class="section">
         <div class="container">
-          <div class="cta-banner reveal">
-            <span class="eyebrow" style="color: var(--color-gold-300);">Limited Spots — Enroll Now</span>
-            <h2>Your next career move starts here.</h2>
-            <p>Upcoming start dates fill quickly. Reach out today to secure your spot, ask about flexible payment plans, or learn about funding eligibility.</p>
+          <div class="cta-banner cta-banner--photo reveal">
+            <div class="cta-banner__bg" aria-hidden="true"></div>
+            <span class="eyebrow" style="color: var(--color-gold-300);">Your Future Can Start Here</span>
+            <h2>Ready to Take the Next Step?</h2>
+            <p>Whether you already know which career path you want to pursue or you&rsquo;re still exploring your options, our team is here to help.</p>
             <div class="cta-banner__actions">
-              <a href="registration" class="btn btn--gold btn--lg">Apply Now</a>
-              <a href="contact" class="btn btn--outline-light btn--lg">Contact an Advisor</a>
+              <a href="contact" class="btn btn--gold btn--lg">Request Information</a>
+              <a href="programs" class="btn btn--outline-light btn--lg">Explore Programs</a>
             </div>
+            <p class="cta-banner__aside">Ready to enrol? <a href="registration">Apply Now &rarr;</a></p>
           </div>
         </div>
       </section>
