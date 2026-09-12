@@ -258,7 +258,14 @@
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         var isTrigger = link.parentElement.classList.contains('has-dropdown') || link.parentElement.classList.contains('has-mega');
-        if (window.innerWidth <= 768 && !isTrigger) {
+        // A mega-tree rail item that owns a panel is an accordion toggle on
+        // mobile, not a link. Its parent is .mega-tree__branch, so the check
+        // above misses it and this handler would shut the menu on the same tap
+        // that opens the panel. "All Programs" has no panel and stays a link.
+        var branch = link.closest('.mega-tree__branch');
+        var isTreeToggle = link.classList.contains('mega-tree__item')
+          && branch && branch.querySelector('.mega-tree__panel');
+        if (window.innerWidth <= 768 && !isTrigger && !isTreeToggle) {
           menu.classList.remove('is-open');
           toggle.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
