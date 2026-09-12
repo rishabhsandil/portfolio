@@ -2,12 +2,17 @@
 (function () {
   'use strict';
 
+  // Bumped by tools/bump-assets.py from a hash of components/*.html, so an
+  // edited header or footer is never served from a stale cache.
+  var COMPONENT_V = 'a0246606';
+
   // -- Component loader --------------------------------------------------------
   function loadComponents() {
     var includes = [].slice.call(document.querySelectorAll('[data-include]'));
     if (!includes.length) return Promise.resolve();
     return Promise.all(includes.map(function (el) {
-      return fetch(el.dataset.include)
+      var url = el.dataset.include + (el.dataset.include.indexOf('?') < 0 ? '?v=' : '&v=') + COMPONENT_V;
+      return fetch(url)
         .then(function (r) { return r.text(); })
         .then(function (html) {
           el.outerHTML = html;
