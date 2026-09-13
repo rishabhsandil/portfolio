@@ -348,16 +348,31 @@
         </div>
 
         <div class="filters reveal" role="group" aria-label="Filter projects by category">
-          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">6</span></button>
-          <button class="filter-chip" type="button" data-filter="fullstack" aria-pressed="false">Full-stack <span class="count">1</span></button>
-          <button class="filter-chip" type="button" data-filter="frontend" aria-pressed="false">Frontend <span class="count">3</span></button>
+          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">7</span></button>
+          <button class="filter-chip" type="button" data-filter="fullstack" aria-pressed="false">Full-stack <span class="count">2</span></button>
+          <button class="filter-chip" type="button" data-filter="frontend" aria-pressed="false">Frontend <span class="count">4</span></button>
           <button class="filter-chip" type="button" data-filter="ml" aria-pressed="false">ML / Systems <span class="count">2</span></button>
           <button class="filter-chip" type="button" data-filter="brand" aria-pressed="false">Brand <span class="count">3</span></button>
         </div>
 
         <div class="bento">
-          <!-- 1. Almost Adult / myLife (large) -->
-          <article class="card large reveal" data-cats="fullstack frontend">
+          <!-- 1. FlowBoard -->
+          <article class="card large reveal" data-cats="fullstack">
+            <div class="thumb"><img src="./img/flowboard.webp" alt="FlowBoard kanban board with epics, sprint and story points" loading="lazy" decoding="async" /></div>
+            <div class="open" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+            <div class="body">
+              <div class="meta"><span class="tag accent">Full-stack</span><span class="tag">.NET 10 · React · Postgres</span><span class="tag">Repo</span></div>
+              <h3>FlowBoard</h3>
+              <p class="impact">The project tracker I actually run my own work on.</p>
+              <p>A developer-native alternative to Jira: Kanban boards, epics, sprint planning, velocity and burndown charts, and a cumulative flow diagram. ASP.NET Core 10 over raw SQL (Dapper and Npgsql, deliberately no EF), a React 18 SPA with live board updates over SignalR, and JWT auth with rotating refresh tokens.</p>
+            </div>
+            <a class="full" href="projects/flowboard.html" aria-label="Read FlowBoard case study"></a>
+          </article>
+
+          <!-- 2. Almost Adult -->
+          <article class="card tall reveal delay-1" data-cats="fullstack frontend">
             <div class="thumb"><img src="./img/mylife.webp" alt="Almost Adult — full-stack life support app" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -371,8 +386,8 @@
             <a class="full" href="projects/almost-adult.html" aria-label="Read Almost Adult case study"></a>
           </article>
 
-          <!-- 2. Ray Tracer (tall) -->
-          <article class="card tall reveal delay-1" data-cats="ml">
+          <!-- 3. Ray Tracer -->
+          <article class="card reveal" data-cats="ml">
             <div class="thumb"><img src="./img/render.webp" alt="C++ Ray Tracer renders" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -386,8 +401,8 @@
             <a class="full" href="projects/ray-tracer.html" aria-label="Read Ray Tracer case study"></a>
           </article>
 
-          <!-- 3. Stock Price Estimator -->
-          <article class="card reveal" data-cats="ml">
+          <!-- 4. Stock Price Estimator -->
+          <article class="card reveal delay-1" data-cats="ml">
             <div class="thumb"><img src="./img/stock-price.webp" alt="Stock Price Estimator" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -401,8 +416,8 @@
             <a class="full" href="projects/stock-price-estimator.html" aria-label="Read Stock Price Estimator case study"></a>
           </article>
 
-          <!-- 4. Arctic Fires -->
-          <article class="card reveal" data-cats="frontend brand">
+          <!-- 5. Arctic Fires -->
+          <article class="card small reveal" data-cats="frontend brand">
             <div class="thumb"><img src="./img/arctic-fires.webp" alt="Arctic Fires band site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -416,8 +431,8 @@
             <a class="full" href="arctic-fires/index.html" target="_blank" rel="noopener" aria-label="Open Arctic Fires"></a>
           </article>
 
-          <!-- 5. Albasha -->
-          <article class="card reveal delay-1" data-cats="frontend brand">
+          <!-- 6. Albasha Express -->
+          <article class="card small reveal delay-1" data-cats="frontend brand">
             <div class="thumb"><img src="./img/albasha.webp" alt="Albasha Express site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -431,8 +446,8 @@
             <a class="full" href="albasha/index.html" target="_blank" rel="noopener" aria-label="Open Albasha Express"></a>
           </article>
 
-          <!-- 6. Chai Coffee Company -->
-          <article class="card reveal" data-cats="frontend brand">
+          <!-- 7. Chai Coffee Company -->
+          <article class="card small reveal delay-2" data-cats="frontend brand">
             <div class="thumb"><img src="./img/ccc.webp" alt="Chai Coffee Company site" loading="lazy" decoding="async" /></div>
             <div class="open" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -446,7 +461,7 @@
             <a class="full" href="ccc/index.html" target="_blank" rel="noopener" aria-label="Open Chai Coffee Company"></a>
           </article>
 
-          <!-- 7. -->
+          <!-- 8. -->
         </div>
       </div>
     </section>
